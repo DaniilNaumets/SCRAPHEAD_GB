@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 295808641927214737}
   - component: {fileID: 9114194816780248575}
   - component: {fileID: 4633643451399098317}
+  - component: {fileID: 55869003524204253}
+  - component: {fileID: 7270175437474313819}
+  - component: {fileID: 6856247485703504770}
   m_Layer: 0
   m_Name: ScrapMetalScripts
   m_TagString: Untagged
@@ -47,15 +50,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb84a9f11af7272498fb2fa6b082d58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapMetal: {fileID: 11400000, guid: 9574e90aff7c7254aa7f1f64284b2ea6, type: 2}
-  hpAndMass: 0
+  hpAndMass: 10
   value: 0
-  impulseStrength: 0
-  rotationalSpeed: 0
-  damageDealt: 0
-  quantityFragments: 0
-  rigidbodyScrapMetal: {fileID: 1118537869841237704}
-  spriteRendererScrapMetal: {fileID: 1745053981168388381}
+  DamageDealt: 2
+  QuantityFragments: 2
+  impulseStrength: 10
+  impulseRotation: 5
+  scrapMetalMovement: {fileID: 295808641927214737}
+  scrapMetalRotation: {fileID: 9114194816780248575}
+  scrapMetalHealth: {fileID: 55869003524204253}
+  scrapMetalMass: {fileID: 7270175437474313819}
+  scrapPickup: {fileID: 6856247485703504770}
 --- !u!114 &295808641927214737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f000d9381fbbc4ca7a10dd1ff0e669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 3825417081259911189}
   determineDirectionScrapMetal: {fileID: 4633643451399098317}
   rigidbodyScrapMetal: {fileID: 1118537869841237704}
 --- !u!114 &9114194816780248575
@@ -83,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3229c6466dd0d24599f5e26a55930a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 3825417081259911189}
   determineDirectionScrapMetal: {fileID: 4633643451399098317}
   rigidbodyScrapMetal: {fileID: 1118537869841237704}
 --- !u!114 &4633643451399098317
@@ -98,6 +101,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9682eccbc06852348a34f79beadf173c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &55869003524204253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017798119667831316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086ee602a24538f4f841246098398266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7270175437474313819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017798119667831316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe2cd23b7d6bf148b48e0a6e478f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbodyScrapMetal: {fileID: 1118537869841237704}
+--- !u!114 &6856247485703504770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017798119667831316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c77d610590f2e3468984765be0245ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrapMetalCounterUI: {fileID: 0}
 --- !u!1 &4010197127990348243
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +213,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a07e63b3c3d94404bb44edbd42b927ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 068a7d2aa71af1b4db7e7f7a6a8f9c0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -268,7 +309,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fa6b9857ef3858340bd46881381a5c02, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

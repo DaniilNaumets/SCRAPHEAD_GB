@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.6
+      value: 6.099655
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -9.029087
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.2107751
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -49,9 +49,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: hpAndMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: scrapMetal
       value: 
       objectReference: {fileID: 11400000, guid: bfd098e508524d84889c12a183305f76, type: 2}
+    - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: DamageDealt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: impulseRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: impulseStrength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: QuantityFragments
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7753970380636311538, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_Name
       value: SmallScrapMetal Variant
