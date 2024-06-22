@@ -8,24 +8,38 @@ namespace Resources
         [Header("Components")]
         [SerializeField] private UIScrapMetalCounter scrapMetalCounterUI;
 
-        private int valueScrapMetal;
+        private int currentValueScrap;
+        private float currentCollectionTime;
 
-        public void SetValue(int value)
+        public void SetTransmittedValue(int valueScrap, float collectionTime)
         {
-            valueScrapMetal = value;
+            currentValueScrap = valueScrap;
+            currentCollectionTime = collectionTime;
         }
 
-        public int Pickup()
+        public int GetValueScrap()
         {
-            if (valueScrapMetal > 0)
+            if (currentValueScrap > 0)// сделать bool или убрать и сделать проверку в луче
             {
                 //scrapMetalCounterUI.OutputValueOnUI(valueScrapMetal);
-                return valueScrapMetal;
+                return currentValueScrap;
             }
             else
             {
                 return 0;
             }      
+        }
+
+        public float GetCollectionTime()
+        {
+            if (currentCollectionTime > 0)// сделать bool или убрать и сделать проверку в луче
+            {
+                return currentCollectionTime;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

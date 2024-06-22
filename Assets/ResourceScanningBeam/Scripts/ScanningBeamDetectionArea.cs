@@ -1,26 +1,31 @@
 using Resources;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ScanningBeam
 {
     public class ScanningBeamDetectionArea : MonoBehaviour
     {
-        private Queue<ScrapPickup> resourcesQueue = new Queue<ScrapPickup>();
+        [Header("Components")]
+        [SerializeField] private ScanningBeamCollecting scanningBeamCollecting;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<ScrapPickup>(out var scrapPickup))
+            ScrapPickup scrapPickup = collision.GetComponentInChildren<ScrapPickup>();
+
+            if (scrapPickup != null)
             {
-                Debug.Log("+");
-                resourcesQueue.Enqueue(scrapPickup);
-                
+                scanningBeamCollecting.StartCollecting(scrapPickup);
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            
+            ScrapPickup scrapPickup = collision.GetComponentInChildren<ScrapPickup>();
+
+            if (scrapPickup != null)
+            {
+                scanningBeamCollecting.StopCollecting(scrapPickup);
+            }
         }
     }
 }

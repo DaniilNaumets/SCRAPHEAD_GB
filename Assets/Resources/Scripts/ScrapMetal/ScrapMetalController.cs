@@ -6,9 +6,10 @@ namespace Resources
     {
         [Header("ScrapMetal parameters")]
         [SerializeField] private float hpAndMass;
-        [SerializeField] private int value;//
-        [SerializeField] public float DamageDealt;
-        [SerializeField] public int QuantityFragments;
+        [SerializeField] private int scrapMetalValue;//
+        [SerializeField] private float collectionTime;
+        [SerializeField] public int QuantityFragments;//
+        [SerializeField] public float DamageDealt;//     
 
         [Header("Absolute values")]
         [SerializeField] private float impulseStrength;
@@ -37,7 +38,7 @@ namespace Resources
             scrapMetalMovement.InitializeImpulse(impulseStrength);
             scrapMetalRotation.InitializeRotation(impulseRotation);
 
-            scrapPickup.SetValue(value);
+            scrapPickup.SetTransmittedValue(scrapMetalValue, collectionTime);
         }
 
         private float ChangeValueRelativeToMass(float value)
