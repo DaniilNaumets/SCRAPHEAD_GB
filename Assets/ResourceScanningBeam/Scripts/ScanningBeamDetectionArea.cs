@@ -14,7 +14,7 @@ namespace ScanningBeam
 
             if (scrapPickup != null)
             {
-                scanningBeamCollecting.StartCollecting(scrapPickup);
+                scanningBeamCollecting.AddToQueue(scrapPickup);
             }
         }
 
@@ -24,7 +24,7 @@ namespace ScanningBeam
 
             if (scrapPickup != null)
             {
-                scanningBeamCollecting.StopCollecting(scrapPickup);
+                scanningBeamCollecting.RemoveFromQueue(scrapPickup);
             }
         }
     }

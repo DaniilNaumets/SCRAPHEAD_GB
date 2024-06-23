@@ -7,6 +7,8 @@ namespace Resources
     {
         [Header("Components")]
         [SerializeField] private UIScrapMetalCounter scrapMetalCounterUI;
+        [SerializeField] private UIScrapMetalCounter sScrapMetalCollectionProgressUI;
+
 
         private int currentValueScrap;
         private float currentCollectionTime;

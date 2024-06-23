@@ -1,6 +1,7 @@
 using Resources;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ScanningBeam
@@ -8,41 +9,84 @@ namespace ScanningBeam
     public class ScanningBeamCollecting : MonoBehaviour
     {
         private Queue<ScrapPickup> scrapQueue = new Queue<ScrapPickup>();
-        private bool isProcessing = false;
+        private Coroutine collectionCoroutine;
 
-        public void StartCollecting(ScrapPickup scrapPickup)
+        public void AddToQueue(ScrapPickup scrapPickup)
         {
-            scrapQueue.Enqueue(scrapPickup);         
-            Debug.Log("Upload " + scrapPickup.gameObject.name);
-
-            if (!isProcessing)
+            if (!scrapQueue.Contains(scrapPickup))
             {
-                isProcessing = true;
-                StartCoroutine(PickupCoroutine(scrapQueue.Peek()));
-            }        
-        }
+                scrapQueue.Enqueue(scrapPickup);
+                Debug.Log("Upload " + scrapPickup.gameObject.name);
 
-        public void StopCollecting(ScrapPickup scrapPickup)
-        {
-            scrapQueue.Dequeue();           
-            Debug.Log("Delete " + scrapPickup.gameObject.name);
-
-            if (isProcessing && scrapPickup == scrapQueue.Peek()) 
-            {
-                StopAllCoroutines();
+                if (collectionCoroutine == null)
+                {
+                    collectionCoroutine = StartCoroutine(Collecting());
+                }
             }
-            
         }
 
-        private IEnumerator PickupCoroutine(ScrapPickup scrapPickup)
+        public void RemoveFromQueue(ScrapPickup scrapPickup)
         {
-            Debug.Log("Start C " + scrapPickup.gameObject.name);
-            yield return new WaitForSeconds(scrapPickup.GetCollectionTime());
-            isProcessing = false;
-            scrapQueue.Dequeue();
-            Debug.Log("End C " + scrapPickup.gameObject.name);            
+            if (scrapQueue.Contains(scrapPickup))
+            {
+                scrapQueue = new Queue<ScrapPickup>(scrapQueue.Where(r => r != scrapPickup));
+                Debug.Log("Delete " + scrapPickup.gameObject.name);
+
+                if (collectionCoroutine != null && scrapQueue.Count == 0)
+                {
+                    StopCoroutine(collectionCoroutine);
+                    collectionCoroutine = null;
+                    Debug.Log("StopCoroutine - Queue Empty");
+                }
+                else if (collectionCoroutine != null && scrapQueue.Count > 0)
+                {
+                    StopCoroutine(collectionCoroutine);
+                    collectionCoroutine = StartCoroutine(Collecting());
+                    Debug.Log("Restart Coroutine for Next Resource");
+                }
+            }
+        }
+
+        private IEnumerator Collecting()
+        {
+            while (scrapQueue.Count > 0)
+            {
+                ScrapPickup currentScrap = scrapQueue.Peek();
+                Debug.Log("Start Collecting " + currentScrap.gameObject.name);
+
+                float collectionTime = currentScrap.GetCollectionTime();
+                float elapsedTime = 0f;
+
+                while (elapsedTime < collectionTime)
+                {
+                    if (!scrapQueue.Contains(currentScrap))
+                    {
+                        Debug.Log("Resource removed from queue during collection");
+                        yield break;
+                    }
+
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+
+                Debug.Log("Resource Collect");
+                if (scrapQueue.Contains(currentScrap))
+                {
+                    scrapQueue.Dequeue();
+                    currentScrap.transform.parent.gameObject.SetActive(false);
+                }
+
+                Debug.Log("End Collecting " + currentScrap.gameObject.name);
+            }
+
+            collectionCoroutine = null;
         }
     }
 }
+
+
+
+
+
 
 
