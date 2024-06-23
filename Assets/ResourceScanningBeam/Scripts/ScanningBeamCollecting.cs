@@ -35,7 +35,7 @@ namespace ScanningBeam
 
                 if (scrapPickup.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI))
                 {
-                    scrapCollectionProgressUI.ResetFill(); // —брос заполнени€ при выходе из триггера
+                    scrapCollectionProgressUI.ResetFill(); 
                 }
 
                 if (collectionCoroutine != null && scrapQueue.Count == 0)

@@ -8,6 +8,7 @@ namespace Resources
         [Header("UIComponents")]
         [SerializeField] private UIScrapMetalCounter scrapMetalCounterUI;
 
+        private bool isPickUp;//реализовать логику сбора, через это поле
         private int currentValueScrap;
         private float currentCollectionTime;
 

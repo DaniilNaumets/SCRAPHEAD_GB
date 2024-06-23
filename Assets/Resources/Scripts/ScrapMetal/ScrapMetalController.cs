@@ -6,14 +6,17 @@ namespace Resources
     {
         [Header("ScrapMetal parameters")]
         [SerializeField] private float hpAndMass;
-        [SerializeField] private int scrapMetalValue;//
-        [SerializeField] private float collectionTime;
-        [SerializeField] public int QuantityFragments;//
-        [SerializeField] public float DamageDealt;//     
+        [SerializeField] public float DamageDealt;//
 
         [Header("Absolute values")]
         [SerializeField] private float impulseStrength;
         [SerializeField] private float impulseRotation;
+
+        [Header("ScrapMetal pickup")]
+        [SerializeField] private bool isPickup;
+        [SerializeField, ConditionalField("isPickup")] private int scrapMetalValue;
+        [SerializeField, ConditionalField("isPickup")] private float collectionTime;
+        [SerializeField, ConditionalField("isPickup", true)] public int QuantityFragments;//     
 
         [Header("Components")]
         [SerializeField] private ScrapMetalMovement scrapMetalMovement;
