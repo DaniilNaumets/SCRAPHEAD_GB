@@ -1,4 +1,5 @@
 using Resources;
+using Resources.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,11 @@ namespace ScanningBeam
                 scrapQueue = new Queue<ScrapPickup>(scrapQueue.Where(r => r != scrapPickup));
                 Debug.Log("Delete " + scrapPickup.gameObject.name);
 
+                if (scrapPickup.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI))
+                {
+                    scrapCollectionProgressUI.ResetFill(); // —брос заполнени€ при выходе из триггера
+                }
+
                 if (collectionCoroutine != null && scrapQueue.Count == 0)
                 {
                     StopCoroutine(collectionCoroutine);
@@ -52,9 +58,16 @@ namespace ScanningBeam
             while (scrapQueue.Count > 0)
             {
                 ScrapPickup currentScrap = scrapQueue.Peek();
+                currentScrap.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI);
                 Debug.Log("Start Collecting " + currentScrap.gameObject.name);
 
                 float collectionTime = currentScrap.GetCollectionTime();
+
+                if (scrapCollectionProgressUI != null)
+                {
+                    scrapCollectionProgressUI.StartFill(collectionTime);
+                }
+
                 float elapsedTime = 0f;
 
                 while (elapsedTime < collectionTime)
@@ -62,6 +75,11 @@ namespace ScanningBeam
                     if (!scrapQueue.Contains(currentScrap))
                     {
                         Debug.Log("Resource removed from queue during collection");
+                        if (scrapCollectionProgressUI != null)
+                        {
+                            scrapCollectionProgressUI.ResetFill();
+                        }
+
                         yield break;
                     }
 
@@ -69,7 +87,7 @@ namespace ScanningBeam
                     yield return null;
                 }
 
-                Debug.Log("Resource Collect");
+                Debug.Log("Resource Collect");//!!!
                 if (scrapQueue.Contains(currentScrap))
                 {
                     scrapQueue.Dequeue();
@@ -77,12 +95,17 @@ namespace ScanningBeam
                 }
 
                 Debug.Log("End Collecting " + currentScrap.gameObject.name);
+                if (scrapCollectionProgressUI != null)
+                {
+                    scrapCollectionProgressUI.ResetFill();
+                }
             }
 
             collectionCoroutine = null;
         }
     }
 }
+
 
 
 

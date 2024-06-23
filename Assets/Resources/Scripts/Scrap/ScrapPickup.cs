@@ -5,10 +5,8 @@ namespace Resources
 {
     public class ScrapPickup : MonoBehaviour
     {
-        [Header("Components")]
+        [Header("UIComponents")]
         [SerializeField] private UIScrapMetalCounter scrapMetalCounterUI;
-        [SerializeField] private UIScrapMetalCounter scrapMetalCollectionProgressUI;//изменить
-
 
         private int currentValueScrap;
         private float currentCollectionTime;
