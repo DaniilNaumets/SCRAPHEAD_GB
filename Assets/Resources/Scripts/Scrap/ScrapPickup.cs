@@ -1,14 +1,9 @@
-using Resources.UI;
 using UnityEngine;
 
 namespace Resources
 {
     public class ScrapPickup : MonoBehaviour
     {
-        [Header("UIComponents")]
-        [SerializeField] private UIScrapMetalCounter scrapMetalCounterUI;
-
-        private bool isPickUp;//реализовать логику сбора, через это поле
         private int currentValueScrap;
         private float currentCollectionTime;
 
@@ -20,9 +15,8 @@ namespace Resources
 
         public int GetValueScrap()
         {
-            if (currentValueScrap > 0)// сделать bool или убрать и сделать проверку в луче
+            if (currentValueScrap > 0)
             {
-                //scrapMetalCounterUI.OutputValueOnUI(valueScrapMetal);
                 return currentValueScrap;
             }
             else
@@ -33,7 +27,7 @@ namespace Resources
 
         public float GetCollectionTime()
         {
-            if (currentCollectionTime > 0)// сделать bool или убрать и сделать проверку в луче
+            if (currentCollectionTime > 0)
             {
                 return currentCollectionTime;
             }

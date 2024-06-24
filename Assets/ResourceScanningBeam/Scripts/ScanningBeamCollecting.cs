@@ -9,6 +9,9 @@ namespace ScanningBeam
 {
     public class ScanningBeamCollecting : MonoBehaviour
     {
+        [Header("Components")]
+        [SerializeField] private PlayerInventory playerInventory;
+
         private Queue<ScrapPickup> scrapQueue = new Queue<ScrapPickup>();
         private Coroutine collectionCoroutine;
 
@@ -17,7 +20,6 @@ namespace ScanningBeam
             if (!scrapQueue.Contains(scrapPickup))
             {
                 scrapQueue.Enqueue(scrapPickup);
-                Debug.Log("Upload " + scrapPickup.gameObject.name);
 
                 if (collectionCoroutine == null)
                 {
@@ -31,7 +33,6 @@ namespace ScanningBeam
             if (scrapQueue.Contains(scrapPickup))
             {
                 scrapQueue = new Queue<ScrapPickup>(scrapQueue.Where(r => r != scrapPickup));
-                Debug.Log("Delete " + scrapPickup.gameObject.name);
 
                 if (scrapPickup.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI))
                 {
@@ -42,13 +43,11 @@ namespace ScanningBeam
                 {
                     StopCoroutine(collectionCoroutine);
                     collectionCoroutine = null;
-                    Debug.Log("StopCoroutine - Queue Empty");
                 }
                 else if (collectionCoroutine != null && scrapQueue.Count > 0)
                 {
                     StopCoroutine(collectionCoroutine);
                     collectionCoroutine = StartCoroutine(Collecting());
-                    Debug.Log("Restart Coroutine for Next Resource");
                 }
             }
         }
@@ -59,8 +58,6 @@ namespace ScanningBeam
             {
                 ScrapPickup currentScrap = scrapQueue.Peek();
                 currentScrap.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI);
-                Debug.Log("Start Collecting " + currentScrap.gameObject.name);
-
                 float collectionTime = currentScrap.GetCollectionTime();
 
                 if (scrapCollectionProgressUI != null)
@@ -74,7 +71,6 @@ namespace ScanningBeam
                 {
                     if (!scrapQueue.Contains(currentScrap))
                     {
-                        Debug.Log("Resource removed from queue during collection");
                         if (scrapCollectionProgressUI != null)
                         {
                             scrapCollectionProgressUI.ResetFill();
@@ -87,14 +83,14 @@ namespace ScanningBeam
                     yield return null;
                 }
 
-                Debug.Log("Resource Collect");//!!!
+                playerInventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
+
                 if (scrapQueue.Contains(currentScrap))
                 {
                     scrapQueue.Dequeue();
-                    currentScrap.transform.parent.gameObject.SetActive(false);
+                    currentScrap.transform.parent.gameObject.SetActive(false);// objectPool
                 }
 
-                Debug.Log("End Collecting " + currentScrap.gameObject.name);
                 if (scrapCollectionProgressUI != null)
                 {
                     scrapCollectionProgressUI.ResetFill();

@@ -8,7 +8,7 @@ namespace Resources.UI
         [Header("Counter text")]       
         [SerializeField] private Text scrapMetalCounterTextUI;
 
-        public void OutputValueOnUI(int value)
+        public void OutputScrapMetalOnUI(int value)
         {
             scrapMetalCounterTextUI.text = value.ToString();
         }
