@@ -6,31 +6,34 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float speed = 5f;
-        private Vector2 moveDirection;
-        private Transform playerTransform;
 
-        void Start()
-        {
-            playerTransform = transform;
-        }
+        private Vector2 moveDirection = Vector2.zero;
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            Vector2 inputVector = context.ReadValue<Vector2>();
-
-            // Проверяем направление, в котором смотрит персонаж
-            float facingDirection = Mathf.Sign(playerTransform.localScale.x);
-
-            // Учитываем направление взгляда персонажа при определении направления движения
-            moveDirection = new Vector2(inputVector.x * facingDirection, inputVector.y).normalized;
+            moveDirection = context.ReadValue<Vector2>();
         }
 
         private void FixedUpdate()
         {
-            // Перемещаем игрока в текущем направлении
-            Vector3 newPosition = playerTransform.position + new Vector3(moveDirection.x, moveDirection.y, 0) * speed * Time.fixedDeltaTime;
-            playerTransform.position = newPosition;
+            moveDirection.Normalize();
+
+            float angle = transform.eulerAngles.z;
+
+            float angleRad = angle * Mathf.Deg2Rad;
+
+            Vector2 forwardDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+
+            Vector2 velocity = forwardDirection * moveDirection.y + new Vector2(forwardDirection.y, -forwardDirection.x) * moveDirection.x;
+            velocity *= speed;
+
+            transform.position += (Vector3)velocity * Time.fixedDeltaTime;
         }
     }
 }
+
+
+
+
+
 
