@@ -5,32 +5,66 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float speed = 5f;
+        [Header("Movement speeds")]
+        [SerializeField] private float forwardSpeed;
+        [SerializeField] private float reverseSpeed;
+        [SerializeField] private float leftSpeed;
+        [SerializeField] private float rightSpeed;
 
-        private Vector2 moveDirection = Vector2.zero;
+        [Header("Movement deceleration")]
+        [SerializeField] private float decelerationRate;
+
+        private Vector2 moveDirection;
+        private Vector2 currentVelocity;
 
         public void OnMove(InputAction.CallbackContext context)
         {
             moveDirection = context.ReadValue<Vector2>();
         }
 
-        private void FixedUpdate()
+        private void Update()
+        {
+            Move();
+            ApplyDeceleration();
+        }
+
+        private void Move()
         {
             moveDirection.Normalize();
-
-            float angle = transform.eulerAngles.z;
-
-            float angleRad = angle * Mathf.Deg2Rad;
+            float angleRad = GetAngleRad();
 
             Vector2 forwardDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+            Vector2 forwardVelocity = forwardDirection * moveDirection.y * (moveDirection.y > 0 ? forwardSpeed : reverseSpeed);
+            Vector2 lateralVelocity = new Vector2(forwardDirection.y, -forwardDirection.x) * moveDirection.x * (moveDirection.x > 0 ? rightSpeed : leftSpeed);
+            Vector2 targetVelocity = forwardVelocity + lateralVelocity;
 
-            Vector2 velocity = forwardDirection * moveDirection.y + new Vector2(forwardDirection.y, -forwardDirection.x) * moveDirection.x;
-            velocity *= speed;
+            if (moveDirection != Vector2.zero)
+            {
+                currentVelocity = targetVelocity;
+            }
 
-            transform.position += (Vector3)velocity * Time.fixedDeltaTime;
+            transform.position += (Vector3)currentVelocity * Time.fixedDeltaTime;
+        }
+
+        private void ApplyDeceleration()
+        {
+            if (moveDirection == Vector2.zero)
+            {
+                currentVelocity = Vector2.Lerp(currentVelocity, Vector2.zero, decelerationRate * Time.fixedDeltaTime);
+            }
+        }
+
+        private float GetAngleRad()
+        {
+            float angle = transform.eulerAngles.z;
+            float angleRad = angle * Mathf.Deg2Rad;
+            return angleRad;
         }
     }
 }
+
+
+
 
 
 

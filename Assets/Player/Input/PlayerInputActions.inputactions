@@ -18,7 +18,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "a83faef7-500c-4061-9135-2043afbf7fbd",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -81,15 +81,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "86f8fdb1-c54c-4d65-9847-10f3925e819c",
-                    "path": "<Mouse>/position",
+                    "name": "1D Axis",
+                    "id": "a9445a53-a218-4376-abdb-47a7b4263db2",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "237c1523-c330-482f-ba96-fb7c1d8a478c",
+                    "path": "<Mouse>/delta/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Look",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "fda7d72a-1e28-4463-88c8-35fc76c052dd",
+                    "path": "<Mouse>/delta/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
