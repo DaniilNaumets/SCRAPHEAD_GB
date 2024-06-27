@@ -16,11 +16,17 @@ public class Equipment : MonoBehaviour
     private bool isInstalled;
     private float maxHealth;
 
+    private SpriteRenderer render;
+
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody2D>();
+        render = GetComponent<SpriteRenderer>();
+    }
     private void Start()
     {
         maxHealth = health;
-        isInstalled = true;
-        rigidbody = GetComponent<Rigidbody2D>();
+        SetEquip();
     }
 
     private void Update()
@@ -50,7 +56,7 @@ public class Equipment : MonoBehaviour
     {
         for (int i = 0; i < droneTransform.childCount; i++)
         {
-            if(droneTransform.GetChild(i).childCount == 0 && droneTransform.GetChild(i).GetComponent<Place>().GetTypePlace() == Place.typePlace.Gun)
+            if(droneTransform.GetChild(i).childCount == 0)
             {
                 Transform place = droneTransform.GetChild(i);
 
@@ -60,6 +66,9 @@ public class Equipment : MonoBehaviour
 
                 StopObject();
                 health = maxHealth;
+
+                place.gameObject.GetComponent<Place>().ChangeSortingLayer(render);
+                isInstalled = true;
                 break;
             }
         }

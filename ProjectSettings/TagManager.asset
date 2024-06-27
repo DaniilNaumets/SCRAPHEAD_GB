@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BottomModule
+    uniqueID: 3025043299
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TopModule
+    uniqueID: 2242580765
     locked: 0
