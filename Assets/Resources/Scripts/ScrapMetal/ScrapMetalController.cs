@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Resources
@@ -13,13 +14,13 @@ namespace Resources
         [SerializeField] private float impulseRotation;
 
         [Header("ScrapMetal pickup")]
-        [SerializeField] private bool isPickup;//
+        [SerializeField] private bool isPickup;
         [SerializeField, ConditionalField("isPickup")] private int scrapMetalValue;
         [SerializeField, ConditionalField("isPickup")] private float collectionTime;
 
         [Header("ScrapMetal crumble")]
         [SerializeField] private bool isCrumble;//
-        [SerializeField, ConditionalField("isCrumble")] private GameObject[] fragments;
+        [SerializeField, ConditionalField("isCrumble")] private List<GameObject> fragments;
 
         [Header("Components")]
         [SerializeField] private ScrapMetalMovement scrapMetalMovement;
@@ -28,6 +29,7 @@ namespace Resources
         [SerializeField] private ScrapMetalMass scrapMetalMass;
         [SerializeField] private ScrapPickup scrapPickup;
         [SerializeField] private ScrapDamageDealt scrapDamageDealt;
+        [SerializeField] private ScrapCrumble scrapCrumble;
 
         private void Awake()
         {
@@ -47,7 +49,7 @@ namespace Resources
 
             scrapDamageDealt.InitializeDamage(damageDealt);
 
-            scrapPickup.enabled = isPickup;
+            scrapCrumble.InitialCrumble(fragments);
 
             if (isPickup == true)
             {

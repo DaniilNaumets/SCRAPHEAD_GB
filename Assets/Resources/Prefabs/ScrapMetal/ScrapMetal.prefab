@@ -203,6 +203,8 @@ GameObject:
   - component: {fileID: 3587821766826216145}
   - component: {fileID: 5327984563587459231}
   - component: {fileID: 2195268493820691337}
+  - component: {fileID: 7495466766097669625}
+  - component: {fileID: 2303520133353004413}
   m_Layer: 0
   m_Name: ScrapMetalScripts
   m_TagString: Untagged
@@ -277,6 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086ee602a24538f4f841246098398266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrapCrumble: {fileID: 2303520133353004413}
+  scrapTurnOff: {fileID: 7495466766097669625}
 --- !u!114 &7270175437474313819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +329,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d512daa730b869d4e8f1d8e1fc64dd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7495466766097669625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017798119667831316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9659018cc31e9a949806f8bcf63fafc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2303520133353004413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017798119667831316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3e167570542394b80d642ef540c2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7350974560824280102
@@ -457,17 +485,20 @@ MonoBehaviour:
   damageDealt: 20
   impulseStrength: 0
   impulseRotation: 0
-  isPickup: 1
+  isPickup: 0
   scrapMetalValue: 1
   collectionTime: 3
-  isCrumble: 0
-  fragments: []
+  isCrumble: 1
+  fragments:
+  - {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
+  - {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
   scrapMetalMovement: {fileID: 295808641927214737}
   scrapMetalRotation: {fileID: 9114194816780248575}
   scrapMetalHealth: {fileID: 55869003524204253}
   scrapMetalMass: {fileID: 7270175437474313819}
   scrapPickup: {fileID: 3587821766826216145}
   scrapDamageDealt: {fileID: 2195268493820691337}
+  scrapCrumble: {fileID: 2303520133353004413}
 --- !u!50 &1118537869841237704
 Rigidbody2D:
   serializedVersion: 4
@@ -595,3 +626,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrapDamageDealt: {fileID: 2195268493820691337}
+  scrapMetalHealth: {fileID: 55869003524204253}

@@ -544,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseRotation
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseStrength
@@ -576,6 +576,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 55869003524204253, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: scrapCrumble
+      value: 
+      objectReference: {fileID: 2114545831}
+    - target: {fileID: 55869003524204253, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: scrapTurnOff
+      value: 
+      objectReference: {fileID: 2114545830}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: isPickup
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: hpAndMass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: isCrumble
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: fragments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: fragments.Array.data[0]
+      value: 
+      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: fragments.Array.data[1]
+      value: 
+      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.41
@@ -623,7 +655,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2017798119667831316, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2114545830}
+    - targetCorrespondingSourceObject: {fileID: 2017798119667831316, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2114545831}
   m_SourcePrefab: {fileID: 100100000, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
 --- !u!1001 &1267433600
 PrefabInstance:
@@ -675,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseRotation
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseStrength
@@ -873,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseRotation
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseStrength
@@ -999,6 +1037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710824111}
   - component: {fileID: 1710824112}
+  - component: {fileID: 1710824113}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -1056,6 +1095,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35482454
+--- !u!114 &1710824113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710824110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2102dd0f8a76b4db65f3e7b8f69d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1001 &1739208051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1168,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseRotation
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540342192428641909, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
       propertyPath: impulseStrength
@@ -1263,6 +1315,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58e17cd4f87cfd8468ce3be8ecc1ee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2114545820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2017798119667831316, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+  m_PrefabInstance: {fileID: 1043391526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2114545830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114545820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9659018cc31e9a949806f8bcf63fafc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2114545831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114545820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3e167570542394b80d642ef540c2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3199603619562436463
