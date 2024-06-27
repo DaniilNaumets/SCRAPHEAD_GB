@@ -48,8 +48,8 @@ namespace Resources
             scrapMetalRotation.InitializeRotation(impulseRotation);
 
             scrapDamageDealt.InitializeDamage(damageDealt);
-
-            scrapCrumble.InitialCrumble(fragments);
+          
+            scrapCrumble.InitialCrumble(fragments, isCrumble);
 
             if (isPickup == true)
             {

@@ -6,26 +6,25 @@ namespace Resources
     public class ScrapCrumble : MonoBehaviour
     {
         private List<GameObject> currentFragments;
-        //private bool shouldCrumble;
+        private bool shouldCrumble;
 
-        public void InitialCrumble(List<GameObject> fragments)
+        public void InitialCrumble(List<GameObject> fragments, bool isCrumble)
         {
             currentFragments = new List<GameObject>(fragments);
-            //shouldCrumble = isCrumble;
+            shouldCrumble = isCrumble;
         }
 
-        public void SeparateScrap()// objectPool
+        public void SeparateScrap()
         {
-            Debug.Log("+");
-            if (currentFragments != null)
-            {      
+            if (shouldCrumble)
+            {
                 foreach (GameObject fragment in currentFragments)
                 {
                     Instantiate(fragment, transform.position, transform.rotation);
                 }
             }
-            
         }
     }
 }
+
 
