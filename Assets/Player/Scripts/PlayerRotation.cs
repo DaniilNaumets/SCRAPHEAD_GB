@@ -5,22 +5,16 @@ namespace Player
 {
     public class PlayerRotation : MonoBehaviour
     {
+        [Header("Mouse sensitivity")]
         [SerializeField] private float sensitivity;
-
-        private float rotationDirection;
        
         public void OnLook(InputAction.CallbackContext context)
         {
-            rotationDirection = context.ReadValue<float>();
-            Rotation();
+            float rotationDirection = context.ReadValue<float>();
+            Rotation(rotationDirection);
         }
 
-        private void Update()
-        {
-            //Rotation();
-        }
-
-        private void Rotation()
+        private void Rotation(float rotationDirection)
         {
             transform.Rotate(-Vector3.forward * rotationDirection * sensitivity * Time.deltaTime);
         }
