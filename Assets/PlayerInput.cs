@@ -1,45 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private float maxInterval;
     private float interval;
 
-    private float lastShoot;
-    private bool isShooting;
+    private bool isSingleClick;
 
     private void Awake()
     {
-        interval = 3f;
+        interval = maxInterval;
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            isShooting = true;
-            lastShoot = Time.time;
-            for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
-            {
-                gameObject.GetComponentsInChildren<Gun>()[i].Shoot2();
-                Debug.Log(2);
-                return;
-            }
-
-            
-        }
-
-        
-
         if (Input.GetMouseButtonDown(0))
         {
-            for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+            isSingleClick = true;  
+            interval = maxInterval;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            interval -= Time.deltaTime;
+            if (interval <= 0)
             {
-                gameObject.GetComponentsInChildren<Gun>()[i].Shoot1();
-                Debug.Log(1);
+                isSingleClick = false;
+
+                for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                {
+                    gameObject.GetComponentsInChildren<Gun>()[i].Shoot2();
+                }
+                interval = maxInterval;
             }
         }
 
-        
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isSingleClick)
+            {
+                for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                {
+                    gameObject.GetComponentsInChildren<Gun>()[i].Shoot1();
+                }
+            }
+            interval = maxInterval;
+        }
     }
 }
