@@ -26,17 +26,16 @@ public class Equipment : MonoBehaviour
     private void Start()
     {
         maxHealth = health;
-        SetEquip();
     }
 
     private void Update()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             BreakEquip();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isInstalled)
         {
             health -= 50;
             Debug.Log("Текущее здоровье = " + health);
@@ -44,53 +43,39 @@ public class Equipment : MonoBehaviour
     }
     public void BreakEquip()
     {
-            gameObject.transform.SetParent(null);
-            Vector2 direction = Random.insideUnitCircle.normalized;
-            rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
-            rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
-            health = float.MaxValue;
-            StartCoroutine(ChangeState());
+        gameObject.transform.parent.GetComponent<Place>().SetBusy(false);
+        gameObject.transform.SetParent(null);
+        Vector2 direction = Random.insideUnitCircle.normalized;
+        rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
+        rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
+        health = float.MaxValue;
+        StartCoroutine(ChangeState());
     }
 
-    public void SetEquip()
+    public void SetEquip(Transform place)
     {
-        for (int i = 0; i < droneTransform.childCount; i++)
+        if (!isInstalled)
         {
-            if(droneTransform.GetChild(i).childCount == 0)
-            {
-                Transform place = droneTransform.GetChild(i);
+            gameObject.transform.position = place.position;
+            gameObject.transform.rotation = place.rotation;
+            gameObject.transform.SetParent(place);
 
-                gameObject.transform.position = place.position;
-                gameObject.transform.rotation = place.rotation;
-                gameObject.transform.SetParent(place);
+            StopObject();
+            health = maxHealth;
 
-                StopObject();
-                health = maxHealth;
-
-                place.gameObject.GetComponent<Place>().ChangeSortingLayer(render);
-                isInstalled = true;
-                break;
-            }
+            place.gameObject.GetComponent<Place>().ChangeSortingLayer(render);
+            isInstalled = true;
         }
-        
     }
     private IEnumerator ChangeState()
     {
         yield return new WaitForSeconds(2f);
         isInstalled = false;
     }
-    
+
     private void StopObject()
     {
         rigidbody.velocity = Vector2.zero;
         rigidbody.angularVelocity = 0f;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.GetComponent<Drone>() && !isInstalled)
-        {
-            SetEquip();
-        }
     }
 }
