@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IShoot
 {
-    public void Shoot1();
-    public void Shoot2();
+    public void ShootLKM1();
+    public void ShootLKM2();
 }

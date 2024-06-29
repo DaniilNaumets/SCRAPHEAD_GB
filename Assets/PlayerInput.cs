@@ -16,37 +16,86 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            isSingleClick = true;  
-            interval = maxInterval;
-        }
+        MouseChoice(0);
+        MouseChoice(1);
+    }
 
-        if (Input.GetMouseButton(0))
+    private void MouseChoice(int mouseButton)
+    {
+        switch (mouseButton)
         {
-            interval -= Time.deltaTime;
-            if (interval <= 0)
-            {
-                isSingleClick = false;
-
-                for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+            case 0:
+                if (Input.GetMouseButtonDown(mouseButton))
                 {
-                    gameObject.GetComponentsInChildren<Gun>()[i].Shoot2();
+                    isSingleClick = true;
+                    interval = maxInterval;
                 }
-                interval = maxInterval;
-            }
-        }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (isSingleClick)
-            {
-                for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                if (Input.GetMouseButton(mouseButton))
                 {
-                    gameObject.GetComponentsInChildren<Gun>()[i].Shoot1();
+                    interval -= Time.deltaTime;
+                    if (interval <= 0)
+                    {
+                        isSingleClick = false;
+
+                        for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                        {
+                            gameObject.GetComponentsInChildren<Gun>()[i].ShootLKM2();
+                        }
+                        interval = maxInterval;
+                    }
                 }
-            }
-            interval = maxInterval;
+
+                if (Input.GetMouseButtonUp(mouseButton))
+                {
+                    if (isSingleClick)
+                    {
+                        for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                        {
+                            gameObject.GetComponentsInChildren<Gun>()[i].ShootLKM1();
+                        }
+                    }
+                    interval = maxInterval;
+                }
+                break;
+
+
+            case 1:
+                if (Input.GetMouseButtonDown(mouseButton))
+                {
+                    isSingleClick = true;
+                    interval = maxInterval;
+                }
+
+                if (Input.GetMouseButton(mouseButton))
+                {
+                    interval -= Time.deltaTime;
+                    if (interval <= 0)
+                    {
+                        isSingleClick = false;
+
+                        for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                        {
+                            gameObject.GetComponentsInChildren<Gun>()[i].ShootPKM2();
+                        }
+                        interval = maxInterval;
+                    }
+                }
+
+                if (Input.GetMouseButtonUp(mouseButton))
+                {
+                    if (isSingleClick)
+                    {
+                        for (int i = 0; i < gameObject.GetComponentsInChildren<Gun>().Length; i++)
+                        {
+                            gameObject.GetComponentsInChildren<Gun>()[i].ShootPKM1();
+                        }
+                    }
+                    interval = maxInterval;
+                }
+                
+                break;
         }
+        
     }
 }

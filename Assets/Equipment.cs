@@ -22,6 +22,11 @@ public class Equipment : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
+
+        if (transform.GetComponentInParent<Place>())
+        {
+            transform.GetComponentInParent<Place>().ChangeSortingLayer(render);
+        }
     }
     private void Start()
     {

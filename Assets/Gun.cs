@@ -49,13 +49,23 @@ public class Gun : MonoBehaviour, IShoot
         reloadTime2 = speedAttack2;
     }
 
-    public virtual void Shoot1()
+    public virtual void ShootLKM1()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public virtual void Shoot2()
+    public virtual void ShootLKM2()
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public virtual void ShootPKM1()
+    {
+
+    }
+
+    public virtual void ShootPKM2()
+    {
+
     }
 }
