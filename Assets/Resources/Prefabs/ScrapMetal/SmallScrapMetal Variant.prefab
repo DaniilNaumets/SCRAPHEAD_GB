@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: isPickup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: isCrumble
       value: 0
       objectReference: {fileID: 0}
@@ -21,12 +25,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: spawnFrequency
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: impulseRotation
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: impulseStrength
-      value: 2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: fragments.Array.size
@@ -103,6 +111,10 @@ PrefabInstance:
     - target: {fileID: 3825417081259911189, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: QuantityFragments
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177603710434317934, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: spawnFrequency
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7753970380636311538, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_Name

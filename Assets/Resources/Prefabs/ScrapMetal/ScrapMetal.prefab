@@ -440,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3216979765858532273}
   - component: {fileID: 2824707478801799007}
+  - component: {fileID: 7177603710434317934}
   - component: {fileID: 1118537869841237704}
   - component: {fileID: 8637186057150822754}
   - component: {fileID: 4027001963590456703}
@@ -481,10 +482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb84a9f11af7272498fb2fa6b082d58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpAndMass: 10
+  hpAndMass: 1
   damageDealt: 20
-  impulseStrength: 0
-  impulseRotation: 0
+  impulseStrength: 2
+  impulseRotation: 0.5
   isPickup: 0
   scrapMetalValue: 1
   collectionTime: 3
@@ -499,6 +500,19 @@ MonoBehaviour:
   scrapPickup: {fileID: 3587821766826216145}
   scrapDamageDealt: {fileID: 2195268493820691337}
   scrapCrumble: {fileID: 2303520133353004413}
+--- !u!114 &7177603710434317934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753970380636311538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa6a64357377de42877c1838b366c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnFrequency: 1
 --- !u!50 &1118537869841237704
 Rigidbody2D:
   serializedVersion: 4

@@ -13,6 +13,9 @@ namespace Resources
         [SerializeField] private float impulseStrength;
         [SerializeField] private float impulseRotation;
 
+        //[Header("Randomaze parameters")]
+        //[SerializeField][Range(1, 10)] private int spawnFrequency;
+
         [Header("ScrapMetal pickup")]
         [SerializeField] private bool isPickup;
         [SerializeField, ConditionalField("isPickup")] private int scrapMetalValue;
@@ -30,6 +33,7 @@ namespace Resources
         [SerializeField] private ScrapPickup scrapPickup;
         [SerializeField] private ScrapDamageDealt scrapDamageDealt;
         [SerializeField] private ScrapCrumble scrapCrumble;
+        //[SerializeField] private ScrapSpawnFrequency scrapSpawnFrequency;
 
         private void Awake()
         {
@@ -47,9 +51,10 @@ namespace Resources
             scrapMetalMovement.InitializeImpulse(impulseStrength);
             scrapMetalRotation.InitializeRotation(impulseRotation);
 
-            scrapDamageDealt.InitializeDamage(damageDealt);
-          
+            scrapDamageDealt.InitializeDamage(damageDealt);         
             scrapCrumble.InitialCrumble(fragments, isCrumble);
+
+            //scrapSpawnFrequency.InitializedSpawnFrequency(spawnFrequency);
 
             if (isPickup == true)
             {
