@@ -39,7 +39,7 @@ namespace Spawners
                 return;
             }           
 
-            GameObject resourcePrefab = spawnResourcesRandomizer.GetRandomBerry(currentResources);
+            GameObject resourcePrefab = spawnResourcesRandomizer.GetRandomResources(currentResources);
             GameObject spawner = spawnerPointResources.GetRandomSpawner();
 
             if (spawner != null && resourcePrefab != null)
