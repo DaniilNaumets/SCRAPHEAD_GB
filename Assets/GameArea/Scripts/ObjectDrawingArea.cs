@@ -1,16 +1,25 @@
+using Resources;
 using UnityEngine;
 
 namespace Area
 {
     public class ObjectDrawingArea : MonoBehaviour
     {
-        [SerializeField] private ObjectPoolManager objectPoolManager;
+        [SerializeField] private ResourcesPoolManager resourcesPoolManager;
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            Destroy(collision.gameObject);
+            ResourceComponent resourceComponent = collision.GetComponent<ResourceComponent>();
+            if (resourceComponent != null)
+            {
+                resourcesPoolManager.ReturnToPool(collision.gameObject);
+            }
         }
     }
 }
+
+
+
+
 
 

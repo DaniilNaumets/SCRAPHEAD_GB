@@ -6,13 +6,13 @@ namespace Spawners
 {
     public class SpawnResourcesRandomizer : MonoBehaviour
     {
-        public GameObject GetRandomResources(List<GameObject> resources)
+        public GameObject GetRandomResource(List<GameObject> resources)
         {
             int totalWeight = 0;
 
             foreach (GameObject resource in resources)
             {
-                totalWeight += resource.GetComponentInChildren<ScrapSpawnFrequency>().GetSpawnFrequency();
+                totalWeight += resource.GetComponent<ScrapSpawnFrequency>().GetSpawnFrequency();
             }
 
             int randomValue = Random.Range(0, totalWeight);
@@ -21,11 +21,9 @@ namespace Spawners
             foreach (GameObject resource in resources)
             {
                 cumulativeWeight += resource.GetComponent<ScrapSpawnFrequency>().GetSpawnFrequency();
-
                 if (randomValue < cumulativeWeight)
                 {
-                    GameObject resourcePrefab = resource.gameObject;
-                    return resourcePrefab;
+                    return resource;
                 }
             }
 
@@ -33,4 +31,5 @@ namespace Spawners
         }
     }
 }
+
 

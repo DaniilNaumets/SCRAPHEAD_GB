@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfSpawners: 6
-  distanceFromCamera: 2
+  distanceFromCamera: 3
   spawnerPrefab: {fileID: 3132538405353996741, guid: c3379c9636aa5a34f8d2aafce318012e, type: 3}
   minAmountResources: 1
   maxAmountResources: 2

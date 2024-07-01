@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfd32af0c0581641855a885bed1a8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPoolManager: {fileID: 0}
+  resourcesPoolManager: {fileID: 898456266}
 --- !u!1 &898456263
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc7867ad51e1534ab74020aba9290d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultCapacity: 10
+  maxSize: 20
 --- !u!1001 &4676361284032163381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,6 +396,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697496380170602631, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: objectPoolManager
+      value: 
+      objectReference: {fileID: 898456266}
+    - target: {fileID: 7697496380170602631, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: resourcesPoolManager
       value: 
       objectReference: {fileID: 898456266}
     m_RemovedComponents: []

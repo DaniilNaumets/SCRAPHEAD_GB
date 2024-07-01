@@ -13,7 +13,7 @@ namespace Resources
         [SerializeField] private float impulseStrength;
         [SerializeField] private float impulseRotation;
 
-        //[Header("Randomaze parameters")]
+        //[Header("Randomize parameters")]
         //[SerializeField][Range(1, 10)] private int spawnFrequency;
 
         [Header("ScrapMetal pickup")]
@@ -22,7 +22,7 @@ namespace Resources
         [SerializeField, ConditionalField("isPickup")] private float collectionTime;
 
         [Header("ScrapMetal crumble")]
-        [SerializeField] private bool isCrumble;//
+        [SerializeField] private bool isCrumble;
         [SerializeField, ConditionalField("isCrumble")] private List<GameObject> fragments;
 
         [Header("Components")]
@@ -33,34 +33,34 @@ namespace Resources
         [SerializeField] private ScrapPickup scrapPickup;
         [SerializeField] private ScrapDamageDealt scrapDamageDealt;
         [SerializeField] private ScrapCrumble scrapCrumble;
-        //[SerializeField] private ScrapSpawnFrequency scrapSpawnFrequency;
+       // [SerializeField] private ScrapSpawnFrequency scrapSpawnFrequency;
 
         private void Awake()
         {
             InitializeScrapMetal();
         }
 
-        private void InitializeScrapMetal()
+        public void InitializeScrapMetal()
         {
             scrapMetalMass.InitializeMass(hpAndMass);
             scrapMetalHealth.InitializeHealth(hpAndMass);
-            
-            impulseStrength = ChangeValueRelativeToMass(impulseStrength);
-            impulseRotation = ChangeValueRelativeToMass(impulseRotation);
 
-            scrapMetalMovement.InitializeImpulse(impulseStrength);
-            scrapMetalRotation.InitializeRotation(impulseRotation);
+            float adjustedImpulseStrength = ChangeValueRelativeToMass(impulseStrength);
+            float adjustedImpulseRotation = ChangeValueRelativeToMass(impulseRotation);
 
-            scrapDamageDealt.InitializeDamage(damageDealt);         
+            scrapMetalMovement.InitializeImpulse(adjustedImpulseStrength);
+            scrapMetalRotation.InitializeRotation(adjustedImpulseRotation);
+
+            scrapDamageDealt.InitializeDamage(damageDealt);
             scrapCrumble.InitialCrumble(fragments, isCrumble);
 
             //scrapSpawnFrequency.InitializedSpawnFrequency(spawnFrequency);
 
-            if (isPickup == true)
+            if (isPickup)
             {
                 scrapPickup.SetTransmittedValue(scrapMetalValue, collectionTime);
             }
-            else 
+            else
             {
                 Destroy(scrapPickup);
             }
@@ -72,4 +72,3 @@ namespace Resources
         }
     }
 }
-

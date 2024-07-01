@@ -9,12 +9,19 @@ namespace Spawners
         [Header("Components")]
         [SerializeField] private SpawnerPointResources spawnerPointResources;
         [SerializeField] private SpawnResourcesRandomizer spawnResourcesRandomizer;
+        [SerializeField] private ResourcesPoolManager resourcesPoolManager;
 
         private List<GameObject> currentResources;
 
         public void InitializedResources(List<GameObject> resources)
         {
             currentResources = resources;
+            resourcesPoolManager.InitializePools(resources);
+        }
+
+        public void StartSpawning(float minSpawnTime, float maxSpawnTime, int minAmountResources, int maxAmountResources)
+        {
+            StartCoroutine(SpawnResourcesCoroutine(minSpawnTime, maxSpawnTime, minAmountResources, maxAmountResources));
         }
 
         public IEnumerator SpawnResourcesCoroutine(float minSpawnTime, float maxSpawnTime, int minAmountResources, int maxAmountResources)
@@ -37,16 +44,22 @@ namespace Spawners
             if (currentResources.Count == 0)
             {
                 return;
-            }           
+            }
 
-            GameObject resourcePrefab = spawnResourcesRandomizer.GetRandomResources(currentResources);
+            GameObject resourcePrefab = spawnResourcesRandomizer.GetRandomResource(currentResources);
             GameObject spawner = spawnerPointResources.GetRandomSpawner();
 
             if (spawner != null && resourcePrefab != null)
             {
-                Instantiate(resourcePrefab, spawner.transform.position, Quaternion.identity);
+                GameObject pooledObject = resourcesPoolManager.GetFromPool(resourcePrefab);
+                pooledObject.transform.position = spawner.transform.position;
+                pooledObject.transform.rotation = Quaternion.identity;
             }
-        }        
+        }
     }
 }
+
+
+
+
 
