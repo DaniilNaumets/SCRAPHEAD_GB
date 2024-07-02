@@ -5,33 +5,40 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private bulletType type;
-    [SerializeField] private LayerMask enemyMask;
 
     private enum bulletType
     {
         Simple, Rocket, Mine
     }
 
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] protected Rigidbody2D rb;
 
-    [SerializeField] private float speed;
+    [SerializeField] protected float speed;
     [SerializeField] private float damage;
 
     [SerializeField] private float lifeTime;
 
-    [SerializeField] private float radius;
+    private Vector2 direction;
+    private Transform target;
 
-    private Vector3 direction;
-
+    
     private void Update()
     {
         LifeTime();
     }
 
-    public void Initialize(Vector3 dir)
+    
+
+    public void Initialize(Vector2 dir)
     {
         direction = dir;
         rb.velocity = direction * speed;
+    }
+
+    public void Initialize(Vector2 dir, Transform target)
+    {
+        direction = dir;
+        this.target = target;
     }
 
     protected void LifeTime()
@@ -59,8 +66,8 @@ public class Bullet : MonoBehaviour
 
         //        }
         //        Destroy(gameObject);
-                
-                
+
+
         //        break;
         //}
     }
