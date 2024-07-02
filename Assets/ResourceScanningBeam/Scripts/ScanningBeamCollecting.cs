@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScanningBeam
 {
-    public class ScanningBeamCollecting : MonoBehaviour
+    public class ScanningBeamCollecting : MonoBehaviour //разделить на классы
     {
         [Header("Components")]
         [SerializeField] private PlayerInventory playerInventory;
@@ -35,7 +35,7 @@ namespace ScanningBeam
                 scrapQueue = new Queue<ScrapPickup>(scrapQueue.Where(r => r != scrapPickup));
 
                 if (scrapPickup.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI))
-                {
+                {                  
                     scrapCollectionProgressUI.ResetFill(); 
                 }
 
@@ -83,7 +83,14 @@ namespace ScanningBeam
                     yield return null;
                 }
 
-                playerInventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
+                if (currentScrap.GetComponentInParent<ScrapMetalController>())
+                {
+                    playerInventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
+                }
+                else if (currentScrap.GetComponentInParent<ScrapAlienController>())
+                {
+                    playerInventory.AddScrapAlienToInventory(currentScrap.GetValueScrap());
+                }
 
                 if (scrapQueue.Contains(currentScrap))
                 {
