@@ -13,9 +13,6 @@ namespace Resources
         [SerializeField] private float impulseStrength;
         [SerializeField] private float impulseRotation;
 
-        //[Header("Randomize parameters")]
-        //[SerializeField][Range(1, 10)] private int spawnFrequency;
-
         [Header("ScrapMetal pickup")]
         [SerializeField] private bool isPickup;
         [SerializeField, ConditionalField("isPickup")] private int scrapMetalValue;
@@ -33,7 +30,6 @@ namespace Resources
         [SerializeField] private ScrapPickup scrapPickup;
         [SerializeField] private ScrapDamageDealt scrapDamageDealt;
         [SerializeField] private ScrapCrumble scrapCrumble;
-       // [SerializeField] private ScrapSpawnFrequency scrapSpawnFrequency;
 
         private void Awake()
         {
@@ -54,7 +50,6 @@ namespace Resources
             scrapDamageDealt.InitializeDamage(damageDealt);
             scrapCrumble.InitialCrumble(fragments, isCrumble);
 
-            //scrapSpawnFrequency.InitializedSpawnFrequency(spawnFrequency);
 
             if (isPickup)
             {

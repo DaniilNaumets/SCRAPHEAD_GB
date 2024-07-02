@@ -15,10 +15,10 @@ namespace Resources
 
         private void ApplyInitialImpulse(float impulseStrength)
         {
-            Vector2 movementDirection = determineDirectionScrapMetal.ChangeMovementDirection();
-            rigidbodyScrapMetal.velocity = Vector2.zero; // Reset velocity
-            rigidbodyScrapMetal.AddForce(movementDirection * impulseStrength, ForceMode2D.Impulse);
-            Debug.Log($"Impulse Applied: {movementDirection * impulseStrength}");
+            rigidbodyScrapMetal.velocity = Vector2.zero;
+            Vector2 targetPosition = determineDirectionScrapMetal.GetRandomPosition();
+            Vector2 movementDirection = (targetPosition - (Vector2)transform.position).normalized;           
+            rigidbodyScrapMetal.AddForce(movementDirection * impulseStrength, ForceMode2D.Impulse);        
         }
     }
 }

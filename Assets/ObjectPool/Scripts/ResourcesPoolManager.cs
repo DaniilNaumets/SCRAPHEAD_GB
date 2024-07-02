@@ -25,14 +25,14 @@ public class ResourcesPoolManager : MonoBehaviour
                     maxSize
                 );
                 pools[prefab] = pool;
-                PrewarmPool(pool, defaultCapacity); // Prewarm the pool with defaultCapacity objects
+                PrewarmPool(pool, defaultCapacity);
             }
         }
     }
 
     private GameObject CreatePooledItem(GameObject prefab)
     {
-        GameObject obj = Instantiate(prefab); // Instantiate without setting parent
+        GameObject obj = Instantiate(prefab); 
         obj.AddComponent<ResourceComponent>().SetPrefab(prefab);
         obj.SetActive(false);
         return obj;

@@ -34,8 +34,7 @@ namespace Spawners
         {
             spawnResourceCreate.InitializedResources(resources);
             spawnerPointResources.CreateSpawners(numberOfSpawners, distanceFromCamera, spawnerPrefab);
-            
-            StartCoroutine(spawnResourceCreate.SpawnResourcesCoroutine(minSpawnTime, maxSpawnTime, minAmountResources, maxAmountResources));
+            spawnResourceCreate.StartSpawning(minSpawnTime, maxSpawnTime, minAmountResources, maxAmountResources);
         }
     }
 }
