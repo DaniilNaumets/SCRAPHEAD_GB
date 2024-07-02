@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleGun : Gun
 {
-    [SerializeField] private GameObject handler;
+    [SerializeField] protected GameObject handler;
     public override void ShootLKM1()
     {
         if (CanShoot(reloadTime1))
