@@ -6,10 +6,14 @@ public class GuidedBullet : Bullet
 {
     [SerializeField] private float radius; 
     [SerializeField] protected LayerMask enemyMask; 
-    [SerializeField] private float interval; 
+    [SerializeField] private float interval;
+
+    [SerializeField] private float rotationSpeed;
 
     private bool isFinding; 
     private Transform target;
+
+    private Vector2 lastDirection;
 
     private void Start()
     {
@@ -40,16 +44,21 @@ public class GuidedBullet : Bullet
         if (target != null)
         {
             Vector2 direction = (target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle), 90 * Time.deltaTime);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
-            rb.velocity = direction * speed;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            rb.velocity = transform.up * speed;
+            lastDirection = direction;
         }
     }
 
     private void MoveForward()
     {
-        rb.velocity = transform.up * speed;
+        if(lastDirection!= Vector2.zero)
+        rb.velocity = lastDirection * speed;
+        else rb.velocity = transform.up * speed;
     }
 
     private Transform FindClosestTarget()

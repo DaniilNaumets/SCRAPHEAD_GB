@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private bulletType type;
-
     private enum bulletType
     {
         Simple, Rocket, Mine
@@ -52,6 +51,8 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float GetDamage() => damage;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
