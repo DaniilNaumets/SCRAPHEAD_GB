@@ -27,6 +27,11 @@ public class Equipment : MonoBehaviour
         {
             transform.GetComponentInParent<Place>().ChangeSortingLayer(render);
         }
+
+        if (GetComponentInParent<Place>())
+        {
+            isInstalled = true;
+        }
     }
     private void Start()
     {
@@ -83,4 +88,6 @@ public class Equipment : MonoBehaviour
         rigidbody.velocity = Vector2.zero;
         rigidbody.angularVelocity = 0f;
     }
+
+    public bool isInstalledMethod() => isInstalled;
 }

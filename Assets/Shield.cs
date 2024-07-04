@@ -5,22 +5,67 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
+    [SerializeField] private Equipment thisEquip;
 
-    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private GameObject shieldKeeper;
+
+    [SerializeField] private shieldType type;
+    [SerializeField] private float reload;
+
+    private float reloadingTime;
+
+    private enum shieldType
+    {
+        Simple, Infinite
+    }
 
     private float health;
 
-    private void Awake()
+    private GameObject drone;
+
+    private bool isShieldDamaged;
+
+    private void Start()
     {
-        health = maxHealth;   
+        health = maxHealth;
+        drone = GetComponentInParent<Drone>().gameObject;
+        shieldKeeper.transform.position = drone.transform.position;
+        reloadingTime = reload;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.gameObject.GetComponent<Bullet>())
+        if (type == shieldType.Infinite)
         {
-            health -= collision.gameObject.GetComponent<Bullet>().GetDamage();
-            if(health <= 0) { }
+            RelaodingShield();
+        }
+        thisEquip.isInstalledMethod();
+    }
+
+    public bool ShieldDamaged(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            shieldKeeper.SetActive(false);
+            health = maxHealth;
+            return true;
+        }
+        return false;
+    }
+
+    private void RelaodingShield()
+    {
+        if (thisEquip.isInstalledMethod() && !shieldKeeper.activeSelf)
+        {
+            reloadingTime -= Time.deltaTime;
+            if (reloadingTime <= 0)
+            {
+                shieldKeeper.SetActive(true);
+                reloadingTime += reload;
+            }
         }
     }
+
+
 }
