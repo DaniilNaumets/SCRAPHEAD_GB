@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Resources
 {
-    public class ScrapSpawnFrequency : MonoBehaviour
+    public class SpawnFrequency : MonoBehaviour
     {
         [Header("Randomaze parameters")]
         [SerializeField][Range(1, 10)] private int spawnFrequency;

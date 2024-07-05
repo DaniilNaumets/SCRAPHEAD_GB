@@ -12,7 +12,7 @@ namespace Spawners
 
             foreach (GameObject resource in resources)
             {
-                totalWeight += resource.GetComponent<ScrapSpawnFrequency>().GetSpawnFrequency();
+                totalWeight += resource.GetComponent<SpawnFrequency>().GetSpawnFrequency();
             }
 
             int randomValue = Random.Range(0, totalWeight);
@@ -20,7 +20,7 @@ namespace Spawners
 
             foreach (GameObject resource in resources)
             {
-                cumulativeWeight += resource.GetComponent<ScrapSpawnFrequency>().GetSpawnFrequency();
+                cumulativeWeight += resource.GetComponent<SpawnFrequency>().GetSpawnFrequency();
                 if (randomValue < cumulativeWeight)
                 {
                     return resource;

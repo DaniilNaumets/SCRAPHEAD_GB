@@ -9,6 +9,7 @@ namespace Enemies
         [SerializeField] private EnemyFindingDirections enemyFindingDirections;
         [SerializeField] private EnemyAttackPosition enemyAttackPosition;
         [SerializeField] private EnemyLook enemyLook;
+        [SerializeField] private EnemyAttack enemyAttack;
 
         private float currentSpeed;
         private float currentShootingDistance;
@@ -30,9 +31,18 @@ namespace Enemies
             Vector2 enemyPosition = transform.parent.position;
             Vector2 newPosition = Vector2.MoveTowards(enemyPosition, targetPosition, speed * Time.deltaTime);
             float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
-
             transform.parent.rotation = enemyLook.LookAtTarget(targetPosition);
-            transform.parent.position = distanceToTarget <= shootingDistance ? enemyPosition : newPosition;
+
+            if (distanceToTarget <= shootingDistance)
+            {
+                transform.parent.position = enemyPosition;
+                enemyAttack.Attack(true);
+            }
+            else 
+            {
+                enemyAttack.Attack(false);
+                transform.parent.position = newPosition;
+            }
         }
     }
 }

@@ -9,9 +9,9 @@ public class ResourcesPoolManager : MonoBehaviour
     [SerializeField] private int defaultCapacity = 10;
     [SerializeField] private int maxSize = 20;
 
-    public void InitializePools(List<GameObject> resourcePrefabs)
+    public void InitializePools(List<GameObject> objectPrefabs)
     {
-        foreach (GameObject prefab in resourcePrefabs)
+        foreach (GameObject prefab in objectPrefabs)
         {
             if (!pools.ContainsKey(prefab))
             {

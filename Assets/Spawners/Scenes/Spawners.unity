@@ -213,6 +213,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 777201249}
+  - {fileID: 1262597177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &777201248
@@ -282,7 +283,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 21.052416
+  m_Radius: 29.100126
 --- !u!114 &777201251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcesPoolManager: {fileID: 898456266}
+  objectPoolManager: {fileID: 898456267}
 --- !u!1 &898456263
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 898456264}
   - component: {fileID: 898456266}
+  - component: {fileID: 898456267}
   m_Layer: 0
   m_Name: ObjectPool
   m_TagString: Untagged
@@ -342,6 +345,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCapacity: 10
   maxSize: 20
+--- !u!114 &898456267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898456263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd2c610962ac6345a4e65eb49867089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCapacity: 10
+  maxSize: 20
+--- !u!1 &1262597176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1262597177}
+  - component: {fileID: 1262597178}
+  m_Layer: 0
+  m_Name: BlankPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1262597177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262597176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 168255030}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262597178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262597176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf95ab11c6abf8b4ab3ac1f02cfff7c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4676361284032163381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,6 +411,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2456352887208426318, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: objectPoolManager
+      value: 
+      objectReference: {fileID: 898456267}
+    - target: {fileID: 2456352887208426318, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: enemyControllerPrefab
+      value: 
+      objectReference: {fileID: 6037120481734759107, guid: 198dd2cd5b11a8446979331be84a3d83, type: 3}
     - target: {fileID: 3165320656190769831, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: m_Name
       value: SpawnersSystem
@@ -394,10 +463,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7697496380170602631, guid: 6321b179678f82c46818603c082e8759, type: 3}
-      propertyPath: objectPoolManager
+    - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 898456266}
+      objectReference: {fileID: 11400000, guid: e580271a01f1f9947aacc6736281d021, type: 2}
+    - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f7d3756db2a40b94697eec68b423a298, type: 2}
+    - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b2ea07088c1fee844859f2c0e66ed0d3, type: 2}
     - target: {fileID: 7697496380170602631, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: resourcesPoolManager
       value: 

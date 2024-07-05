@@ -8,7 +8,7 @@ namespace Spawners
     public class SpawnResourceCreate : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private SpawnerPointResources spawnerPointResources;
+        [SerializeField] private SpawnerPoint spawnerPointResources;
         [SerializeField] private SpawnResourcesRandomizer spawnResourcesRandomizer;
         [SerializeField] private ResourcesPoolManager resourcesPoolManager;
 

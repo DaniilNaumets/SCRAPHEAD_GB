@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Spawners
 {
-    public class SpawnerPointResources : MonoBehaviour
+    public class SpawnerPoint : MonoBehaviour
     {
         private Camera mainCamera;
         private List<GameObject> spawners = new List<GameObject>();

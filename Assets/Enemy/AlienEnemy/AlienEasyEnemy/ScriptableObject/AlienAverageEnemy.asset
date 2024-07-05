@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df51d9869f4e3d04ca54e225a8dc29b5, type: 3}
-  m_Name: AlienEasyEnemy
+  m_Name: AlienAverageEnemy
   m_EditorClassIdentifier: 
-  Name: AlienEasyEnemy
-  Sprite: {fileID: 21300000, guid: 55ea18d243ca1e64dbf0f2d24409ed9e, type: 3}
-  Health: 10
-  MovementSpeed: 5
-  Size: 1
-  ShootingDistance: 5
-  SpawnFrequency: 6.03
+  Name: AlienAverageEnemy
+  Sprite: {fileID: 21300000, guid: 0830baab80538964085a42f38cc80cb8, type: 3}
+  Health: 20
+  MovementSpeed: 3.5
+  Size: 1.125
+  ShootingDistance: 6.5
+  SpawnFrequency: 4

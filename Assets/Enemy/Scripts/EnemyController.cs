@@ -1,3 +1,5 @@
+using Resources;
+using System.Drawing;
 using UnityEngine;
 
 namespace Enemies
@@ -12,6 +14,7 @@ namespace Enemies
         [ReadOnly][SerializeField] private float movementSpeed;
         //[ReadOnly][SerializeField] private float rotationSpeed;
         [ReadOnly][SerializeField] private float shootingDistance;
+        [ReadOnly][SerializeField] private float spawnFrequency;
 
         [Header("Components")]
         [SerializeField] private SpriteRenderer enemySpriteRenderer;
@@ -22,19 +25,32 @@ namespace Enemies
         public float GetShootingDistance
         { get { return shootingDistance; } }
 
+        public float GetSpawnFrequency
+        { get { return spawnFrequency; } }
+
         private void Awake()
         {
             InitializationEnemy();
         }
 
-        private void InitializationEnemy()
-        { 
-            transform.name = enemy.name;
-            enemySpriteRenderer.sprite = enemy.sprite;
-            health = enemy.health;
-            movementSpeed = enemy.movementSpeed;
-            //rotationSpeed = enemy.rotationSpeed;
-            shootingDistance = enemy.shootingDistance;
+        public void InitializationEnemy()
+        {
+            if (enemy != null)
+            {
+                transform.name = enemy.Name;
+                enemySpriteRenderer.sprite = enemy.Sprite;
+                health = enemy.Health;
+                movementSpeed = enemy.MovementSpeed;
+                transform.localScale = transform.localScale * enemy.Size;
+                //rotationSpeed = enemy.rotationSpeed;
+                shootingDistance = enemy.ShootingDistance;
+                spawnFrequency = enemy.SpawnFrequency;
+            }     
+        }
+
+        public void SetEnemy(Enemy enemy)
+        {
+            this.enemy = enemy;
         }
     }
 }

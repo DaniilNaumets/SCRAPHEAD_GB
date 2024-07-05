@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 7773896818592962228}
   - component: {fileID: 4670935498788162075}
   - component: {fileID: 6841679188073946085}
+  - component: {fileID: 1794469729510398995}
+  - component: {fileID: 1986028237566041316}
+  - component: {fileID: 9162372362657077997}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -59,6 +62,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 6037120481734759107}
   enemyFindingDirections: {fileID: 4670935498788162075}
+  enemyAttackPosition: {fileID: 1794469729510398995}
+  enemyLook: {fileID: 1986028237566041316}
+  enemyAttack: {fileID: 9162372362657077997}
+--- !u!114 &1794469729510398995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875529166974572041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a09a732e7ab31142ac4ac3011f0d08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1986028237566041316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875529166974572041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacc566d0c485854394e1e9e08ec36f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9162372362657077997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875529166974572041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13270aee4645e4d40857ac210952dba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 195718581496933350}
+  firePoint: {fileID: 5355798569746933614}
+--- !u!1 &4219827095008574711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5355798569746933614}
+  - component: {fileID: 195718581496933350}
+  m_Layer: 0
+  m_Name: EnemyGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5355798569746933614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219827095008574711}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7224177737979069586}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195718581496933350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219827095008574711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971cf1f7b30cb4244adc403867aabedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1288110200503594803, guid: 5c95370a3e8fb9b47bf1413a6c0b030b, type: 3}
+  damage: 5
+  bulletSpeed: 20
+  reloadSpeed: 2
+  spread: 0
 --- !u!1 &4864258054331234058
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,9 +182,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.92, y: 2.45, z: -8}
-  m_LocalScale: {x: 0.14175273, y: 0.14175273, z: 0.14175273}
+  m_LocalScale: {x: 0.18554023, y: 0.18554023, z: 0.14175273}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5355798569746933614}
   - {fileID: 7773896818592962228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,11 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83293c354cc63340bbaa7d70e67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 11400000, guid: f7d3756db2a40b94697eec68b423a298, type: 2}
+  enemy: {fileID: 0}
   health: 0
   movementSpeed: 0
-  rotationSpeed: 0
   shootingDistance: 0
+  spawnFrequency: 0
   enemySpriteRenderer: {fileID: 8889073555222658336}
 --- !u!212 &8889073555222658336
 SpriteRenderer:
@@ -159,7 +253,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.55, y: 9.55}
+  m_Size: {x: 13.2, y: 11.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

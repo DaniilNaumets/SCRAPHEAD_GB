@@ -8,7 +8,7 @@ namespace Spawners
         [Header("Spawner settings")]
         [SerializeField] private int numberOfSpawners;
         [SerializeField] private float distanceFromCamera;
-        [SerializeField] private GameObject spawnerPrefab;
+        [SerializeField] private GameObject spawnerPointPrefab;
 
         [Header("Range of spawned resources")]
         [SerializeField] private int minAmountResources;
@@ -22,7 +22,7 @@ namespace Spawners
         [SerializeField] private List<GameObject> resources = new List<GameObject>();
 
         [Header("Components")]
-        [SerializeField] private SpawnerPointResources spawnerPointResources;
+        [SerializeField] private SpawnerPoint spawnerPointResources;
         [SerializeField] private SpawnResourceCreate spawnResourceCreate;
 
         private void Awake()
@@ -33,7 +33,7 @@ namespace Spawners
         private void InitializedResourcesSpawners()
         {
             spawnResourceCreate.InitializedResources(resources);
-            spawnerPointResources.CreateSpawners(numberOfSpawners, distanceFromCamera, spawnerPrefab);
+            spawnerPointResources.CreateSpawners(numberOfSpawners, distanceFromCamera, spawnerPointPrefab);
             spawnResourceCreate.StartSpawning(minSpawnTime, maxSpawnTime, minAmountResources, maxAmountResources);
         }
     }
