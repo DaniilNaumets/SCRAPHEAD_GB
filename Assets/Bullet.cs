@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
         Simple, Rocket, Mine
     }
 
+    private bool isPlayerBullet;
+
     [SerializeField] protected Rigidbody2D rb;
 
     [SerializeField] protected float speed;
@@ -20,7 +22,6 @@ public class Bullet : MonoBehaviour
     private Vector2 direction;
     private Transform target;
 
-    
     private void Update()
     {
         LifeTime();
@@ -28,10 +29,11 @@ public class Bullet : MonoBehaviour
 
     
 
-    public void Initialize(Vector2 dir)
+    public void Initialize(Vector2 dir, bool user)
     {
         direction = dir;
         rb.velocity = direction * speed;
+        isPlayerBullet = user;
     }
 
     public void Initialize(Vector2 dir, Transform target)
@@ -54,6 +56,7 @@ public class Bullet : MonoBehaviour
 
     public float GetDamage() => damage;
 
+    public bool GetBulletUser() => isPlayerBullet;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

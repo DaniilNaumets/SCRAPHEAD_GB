@@ -12,7 +12,7 @@ public class GuidedGun : Gun
         if (CanShoot(reloadTime1))
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.up);
+            bullet.GetComponent<Bullet>().Initialize(handler.transform.up, isPlayerGun);
             Reloading1();
         }
     }

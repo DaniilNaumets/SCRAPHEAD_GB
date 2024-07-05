@@ -5,13 +5,19 @@ using UnityEngine;
 public class ShieldDamageKeeper : MonoBehaviour
 {
     [SerializeField] private Shield shield;
+    [SerializeField] private Equipment shieldEquip;
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) )
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
         {
-            shield.ShieldDamaged(bullet.GetDamage());
-            Destroy(bullet.gameObject);
+            if(bullet.GetBulletUser() != shieldEquip.GetUser())
+            {
+                shield.ShieldDamaged(bullet.GetDamage());
+                Destroy(bullet.gameObject);
+            }
         }
     }
 }

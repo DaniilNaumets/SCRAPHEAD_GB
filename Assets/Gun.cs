@@ -11,10 +11,14 @@ public class Gun : MonoBehaviour, IShoot
 
     [SerializeField] protected GameObject bulletPrefab;
 
+    protected bool isPlayerGun;
+
     private void Awake()
     {
         Reloading1();
         Reloading2();
+
+        CheckUser();
     }
 
     private void Update()
@@ -72,4 +76,18 @@ public class Gun : MonoBehaviour, IShoot
     {
 
     }
+
+    private void CheckUser()
+    {
+        if (GetComponentInParent<Drone>())
+        {
+            isPlayerGun = true; 
+        }
+        else
+        {
+            isPlayerGun = false;
+        }
+    }
+
+    public bool GetGunUser() => isPlayerGun;
 }

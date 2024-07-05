@@ -15,7 +15,7 @@ public class ShotGun : Gun
                 if (i % 2 == 0)
                 {
                     GameObject bullet = GameObject.Instantiate(bulletPrefab, handlers[i].transform.position, handlers[i].transform.rotation);
-                    bullet.GetComponent<Bullet>().Initialize(handlers[i].transform.up);
+                    bullet.GetComponent<Bullet>().Initialize(handlers[i].transform.up, isPlayerGun);
                 }
             }
             Reloading1();
@@ -29,7 +29,7 @@ public class ShotGun : Gun
             for (int i = 0; i < handlers.Length; i++)
             {
                 GameObject bullet = GameObject.Instantiate(bulletPrefab, handlers[i].transform.position, handlers[i].transform.rotation);
-                bullet.GetComponent<Bullet>().Initialize(handlers[i].transform.up);
+                bullet.GetComponent<Bullet>().Initialize(handlers[i].transform.up, isPlayerGun);
             }
             Reloading2();
         }

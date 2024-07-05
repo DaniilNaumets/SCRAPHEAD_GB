@@ -40,6 +40,10 @@ public class Shield : MonoBehaviour
             RelaodingShield();
         }
         thisEquip.isInstalledMethod();
+        if(!thisEquip.isInstalledMethod() && shieldKeeper.activeSelf)
+        {
+            shieldKeeper.SetActive(false);
+        }
     }
 
     public bool ShieldDamaged(float damage)

@@ -10,7 +10,7 @@ public class SimpleGun : Gun
         if (CanShoot(reloadTime1))
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.up);
+            bullet.GetComponent<Bullet>().Initialize(handler.transform.up, isPlayerGun);
             Reloading1();
         }
     }
@@ -20,7 +20,7 @@ public class SimpleGun : Gun
         if (CanShoot(reloadTime2))
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.up);
+            bullet.GetComponent<Bullet>().Initialize(handler.transform.up, isPlayerGun);
             Reloading2();
         }
     }

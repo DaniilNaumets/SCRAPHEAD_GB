@@ -18,7 +18,7 @@ public class RocketGun : Gun
         if (CanShoot(reloadTime1))
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.up);
+            bullet.GetComponent<Bullet>().Initialize(handler.transform.up, isPlayerGun);
             Reloading1();
         }
     }
@@ -38,7 +38,7 @@ public class RocketGun : Gun
         for (int i = 0; i < countRocketsInSecondAttack; i++)
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.up);
+            bullet.GetComponent<Bullet>().Initialize(handler.transform.up, isPlayerGun);
             yield return new WaitForSeconds(intervalForBullets);
         }
 
@@ -47,7 +47,7 @@ public class RocketGun : Gun
         for (int i = 0; i < countRocketsInSecondAttack; i++)
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.up);
+            bullet.GetComponent<Bullet>().Initialize(handler.transform.up, isPlayerGun);
             yield return new WaitForSeconds(intervalForBullets);
         }
         isShooting = true;

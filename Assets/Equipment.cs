@@ -14,6 +14,7 @@ public class Equipment : MonoBehaviour
     private Rigidbody2D rigidbody;
 
     private bool isInstalled;
+    private bool isPlayerEquip;
     private float maxHealth;
 
     private SpriteRenderer render;
@@ -32,6 +33,8 @@ public class Equipment : MonoBehaviour
         {
             isInstalled = true;
         }
+        CheckUser();
+        
     }
     private void Start()
     {
@@ -75,6 +78,7 @@ public class Equipment : MonoBehaviour
 
             place.gameObject.GetComponent<Place>().ChangeSortingLayer(render);
             isInstalled = true;
+            CheckUser();
         }
     }
     private IEnumerator ChangeState()
@@ -90,4 +94,18 @@ public class Equipment : MonoBehaviour
     }
 
     public bool isInstalledMethod() => isInstalled;
+
+    private void CheckUser()
+    {
+        if (GetComponentInParent<Drone>())
+        {
+            isPlayerEquip = true;
+        }
+        else
+        {
+            isPlayerEquip = false;
+        }
+    }
+
+    public bool GetUser() => isPlayerEquip;
 }
