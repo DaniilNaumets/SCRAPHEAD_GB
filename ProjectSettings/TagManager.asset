@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Enemy
+  - 
   - 
   - 
   - 
@@ -38,23 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BottomModule
-    uniqueID: 3025043299
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-<<<<<<< HEAD
-  - name: Background
-    uniqueID: 315716725
-    locked: 0
-  - name: Medium background
-    uniqueID: 221386953
-    locked: 0
-  - name: Foreground
-    uniqueID: 3419517813
-=======
-  - name: TopModule
-    uniqueID: 2242580765
->>>>>>> otstrel
     locked: 0

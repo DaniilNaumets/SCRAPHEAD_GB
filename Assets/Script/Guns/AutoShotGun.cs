@@ -13,7 +13,7 @@ public class AutoShotGun : AutoGun
             for (int i = 0; i < handlers.Length; i++)
             {
                 GameObject bullet = GameObject.Instantiate(bulletPrefab, handlers[i].transform.position, handlers[i].transform.rotation);
-                bullet.GetComponent<Bullet>().Initialize(handlers[i].transform.up, isPlayerGun);
+                bullet.GetComponent<Bullet>().Initialize(-handlers[i].transform.up, isPlayerGun);
             }
             Reloading2();
         }

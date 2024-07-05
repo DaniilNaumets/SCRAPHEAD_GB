@@ -216,5 +216,5 @@ MonoBehaviour:
   radiusZone: 10
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   handler: {fileID: 326327336123011638}

@@ -25,8 +25,10 @@ public class PlayerInput : MonoBehaviour
         switch (mouseButton)
         {
             case 0:
+                
                 if (Input.GetMouseButtonDown(mouseButton))
                 {
+                    Debug.Log(2);
                     isSingleClick = true;
                     interval = maxInterval;
                 }
