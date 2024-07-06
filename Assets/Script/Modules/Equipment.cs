@@ -1,7 +1,9 @@
+using Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D)),RequireComponent(typeof(SpriteRenderer))]  
 public class Equipment : MonoBehaviour
 {
     [SerializeField] private Transform droneTransform;
@@ -13,8 +15,8 @@ public class Equipment : MonoBehaviour
 
     private Rigidbody2D rigidbody;
 
-    private bool isInstalled;
-    private bool isPlayerEquip;
+    protected bool isInstalled;
+    protected bool isPlayerEquip;
     private float maxHealth;
 
     private SpriteRenderer render;
@@ -34,25 +36,33 @@ public class Equipment : MonoBehaviour
             isInstalled = true;
         }
         CheckUser();
-        
+
+        if(GetComponent<Engine>())
+        gameObject.transform.parent.parent.GetComponent<PlayerMovement>().Engines.Add(gameObject.GetComponent<Engine>());
     }
+
     private void Start()
     {
         maxHealth = health;
+        if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+        {
+            UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+
+        }
     }
 
     private void Update()
     {
-        if (health <= 0)
-        {
-            BreakEquip();
-        }
+        //if (health <= 0)
+        //{
+        //    BreakEquip();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Space) && isInstalled)
-        {
-            health -= 50;
-            Debug.Log("Текущее здоровье = " + health);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && isInstalled)
+        //{
+        //    health -= 50;
+        //    Debug.Log("Текущее здоровье = " + health);
+        //}
     }
     public void BreakEquip()
     {
@@ -62,7 +72,14 @@ public class Equipment : MonoBehaviour
         rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
         rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
         health = float.MaxValue;
+
+        if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+        {
+            UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
+        }
+        
         StartCoroutine(ChangeState());
+
     }
 
     public void SetEquip(Transform place)
@@ -79,6 +96,12 @@ public class Equipment : MonoBehaviour
             place.gameObject.GetComponent<Place>().ChangeSortingLayer(render);
             isInstalled = true;
             CheckUser();
+
+            if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+            {
+                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+                engine.StartEngine();
+            }
         }
     }
     private IEnumerator ChangeState()
@@ -108,4 +131,9 @@ public class Equipment : MonoBehaviour
     }
 
     public bool GetUser() => isPlayerEquip;
+
+    private void CheckEngine()
+    {
+
+    }
 }

@@ -12,6 +12,8 @@ public class Shield : MonoBehaviour
     [SerializeField] private shieldType type;
     [SerializeField] private float reload;
 
+    [SerializeField] private Animator animator;
+
     private float reloadingTime;
 
     private enum shieldType
@@ -71,5 +73,13 @@ public class Shield : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        animator.SetBool("IsOpen", false);
+    }
 
+    private void OnDisable()
+    {
+        animator.SetBool("IsOpen", true);
+    }
 }

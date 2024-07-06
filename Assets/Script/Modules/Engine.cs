@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Engine : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] protected float speed;
 
     public float GetSpeed() => speed;
 
-    private void Update()
+    private void Awake()
     {
-        Special();
+        
     }
 
-    public virtual void Special()
+    protected void Update()
     {
-
+        //Special();
     }
+
+    public virtual void Special(float multipliyer)
+    {
+        
+    }
+
+    public virtual void StartEngine() { }
 }
