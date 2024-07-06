@@ -12,7 +12,7 @@ public class SimpleGun : Gun
     {
         if (CanShoot(reloadTime1))
         {
-            poolManager.GetFromPool(bulletPrefab);
+            poolManager?.GetFromPool(bulletPrefab);
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
             bullet.GetComponent<Bullet>().Initialize(handler.transform.right, isPlayerGun);
             Reloading1();

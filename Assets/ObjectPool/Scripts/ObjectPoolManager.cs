@@ -39,12 +39,15 @@ namespace ObjectPool
 
         private void OnTakeFromPool(GameObject obj)
         {
-            obj.SetActive(true);
-            var scrapController = obj.GetComponent<ScrapMetalController>();
-            if (scrapController != null)
+            if (obj != null)
             {
-                scrapController.InitializeScrapMetal();
-            }
+                obj.SetActive(true);
+                var scrapController = obj.GetComponent<ScrapMetalController>();
+                if (scrapController != null)
+                {
+                    scrapController.InitializeScrapMetal();
+                }
+            }     
         }
 
         private void OnReturnedToPool(GameObject obj)

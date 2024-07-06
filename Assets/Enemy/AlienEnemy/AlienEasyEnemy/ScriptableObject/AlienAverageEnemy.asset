@@ -16,6 +16,6 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: d95decde9123d9340a2badab784d7a19, type: 3}
   Health: 20
   MovementSpeed: 5
-  Size: 1.45
+  Size: 0.58
   ShootingDistance: 18
   SpawnFrequency: 5.98
