@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: AlienEasyEnemy
   Sprite: {fileID: 21300000, guid: 55ea18d243ca1e64dbf0f2d24409ed9e, type: 3}
   Health: 10
-  MovementSpeed: 5
+  MovementSpeed: 7
   Size: 1
-  ShootingDistance: 5
-  SpawnFrequency: 6.03
+  ShootingDistance: 15
+  SpawnFrequency: 8.08

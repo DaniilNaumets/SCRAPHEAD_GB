@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df51d9869f4e3d04ca54e225a8dc29b5, type: 3}
-  m_Name: AlienHeavyEnemySprite
+  m_Name: AlienHeavyEnemy
   m_EditorClassIdentifier: 
-  Name: AlienHeavyEnemySprite
-  Sprite: {fileID: 21300000, guid: 813ec83a5a669394c91695a75c53273b, type: 3}
+  Name: AlienHeavyEnemy
+  Sprite: {fileID: 21300000, guid: 3c701a0a48c38ff4a8f8069b734bce1a, type: 3}
   Health: 30
-  MovementSpeed: 2
-  Size: 1.2
-  ShootingDistance: 3
-  SpawnFrequency: 4.43
+  MovementSpeed: 3.5
+  Size: 2.2
+  ShootingDistance: 20
+  SpawnFrequency: 4.01

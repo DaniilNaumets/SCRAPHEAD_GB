@@ -1,19 +1,18 @@
 using Enemies;
 using ObjectPool;
+using Resources;
 using UnityEngine;
 
 namespace Area
 {
-    public class ResourceDrawingArea : MonoBehaviour
+    public class DrawingArea : MonoBehaviour
     {
         [SerializeField] private ResourcesPoolManager resourcesPoolManager;
         [SerializeField] private ObjectPoolManager objectPoolManager;
 
         private void OnTriggerExit2D(Collider2D collision)
-        {
-            ObjectPool.ResourceComponent resourceComponent = collision.GetComponent<ObjectPool.ResourceComponent>();         
-
-            if (resourceComponent != null)
+        {          
+            if (collision.GetComponent<ScrapMetalController>())
             {
                 resourcesPoolManager.ReturnToPool(collision.gameObject);
             }
