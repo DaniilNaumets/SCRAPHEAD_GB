@@ -1,3 +1,4 @@
+using Resources;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,5 +75,11 @@ public class Bullet : MonoBehaviour
 
         //        break;
         //}
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponentInChildren<ScrapHealth>()?.TakeDamage(damage);
+        collision.gameObject.GetComponentInChildren<Health>()?.TakeDamage(damage);
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1794469729510398995}
   - component: {fileID: 1986028237566041316}
   - component: {fileID: 9162372362657077997}
+  - component: {fileID: 4377458689041761154}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -103,6 +104,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 195718581496933350}
   firePoint: {fileID: 5355798569746933614}
+--- !u!114 &4377458689041761154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875529166974572041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHealth: 100
 --- !u!1 &4219827095008574711
 GameObject:
   m_ObjectHideFlags: 0

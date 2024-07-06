@@ -10,7 +10,7 @@ namespace Resources
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            PlayerHealth playerHealth = collision.gameObject.GetComponentInChildren<PlayerHealth>();
+            Health playerHealth = collision.gameObject.GetComponentInChildren<Health>();
             PlayerDamageDealer playerDamageDealer = collision.gameObject.GetComponentInChildren<PlayerDamageDealer>();
 
             if (playerHealth != null)
