@@ -4,7 +4,7 @@ namespace Enemies
 {
     public class EnemyAttack : MonoBehaviour
     {
-        [SerializeField] private Gun gun;
+        [SerializeField] private GunBlank gun;
         [SerializeField] private Transform firePoint;
         public void Attack(bool isAttack)
         {

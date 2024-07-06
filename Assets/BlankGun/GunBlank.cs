@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class GunBlank : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float damage = 10f;
@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Vector2 spreadDirection = ((Vector2)transform.up + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread))).normalized;
-        Bullet bulletComponent = newBullet.GetComponent<Bullet>();
+        BulletBlank bulletComponent = newBullet.GetComponent<BulletBlank>();
         bulletComponent.Initialize(spreadDirection, bulletSpeed, damage);
     }
 }
