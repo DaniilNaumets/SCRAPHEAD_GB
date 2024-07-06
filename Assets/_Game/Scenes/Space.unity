@@ -738,6 +738,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2456352887208426318, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: spawnerPoint
+      value: 
+      objectReference: {fileID: 1882651014}
+    - target: {fileID: 2456352887208426318, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: objectPoolManager
       value: 
       objectReference: {fileID: 1667646271}
@@ -781,6 +785,10 @@ PrefabInstance:
       propertyPath: resources.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3273957703826277324, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: spawnerPointResources
+      value: 
+      objectReference: {fileID: 1882651014}
     - target: {fileID: 3273957703826277324, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: resources.Array.data[1]
       value: 
@@ -834,6 +842,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: spawnerPoint
+      value: 
+      objectReference: {fileID: 1882651014}
+    - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: maxAmountEnemies
       value: 3
       objectReference: {fileID: 0}
@@ -869,10 +881,19 @@ PrefabInstance:
       propertyPath: resourcesPoolManager
       value: 
       objectReference: {fileID: 1667646270}
-    m_RemovedComponents: []
+    - target: {fileID: 7697496380170602631, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: spawnerPointResources
+      value: 
+      objectReference: {fileID: 1882651014}
+    m_RemovedComponents:
+    - {fileID: 5059067282978220807, guid: 6321b179678f82c46818603c082e8759, type: 3}
+    - {fileID: 4362665734180198231, guid: 6321b179678f82c46818603c082e8759, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3165320656190769831, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1882651014}
   m_SourcePrefab: {fileID: 100100000, guid: 6321b179678f82c46818603c082e8759, type: 3}
 --- !u!1001 &1539369449
 PrefabInstance:
@@ -1139,6 +1160,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91bbbd3b97417504b9f6006390fe6889, type: 3}
+--- !u!1 &1882651012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3165320656190769831, guid: 6321b179678f82c46818603c082e8759, type: 3}
+  m_PrefabInstance: {fileID: 1510065105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882651014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882651012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04221c7226ea564da8be58dcf476aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2047776104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1439,11 @@ PrefabInstance:
       objectReference: {fileID: 1539369451}
     - target: {fileID: 6216271897242933149, guid: bc35410177c5a7549b780cb72831d638, type: 3}
       propertyPath: forwardSpeed
-      value: 16.2
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716405957801052373, guid: bc35410177c5a7549b780cb72831d638, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7716405957801052373, guid: bc35410177c5a7549b780cb72831d638, type: 3}
       propertyPath: m_AngularDrag

@@ -11,8 +11,7 @@ public class TemporaryScript : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Выйти из игры
+        {           
             Application.Quit();
         }
     }
