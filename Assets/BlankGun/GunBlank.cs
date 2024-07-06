@@ -20,8 +20,9 @@ public class GunBlank : MonoBehaviour
         lastShotTime = Time.time;
 
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        Vector2 spreadDirection = ((Vector2)transform.up + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread))).normalized;
-        BulletBlank bulletComponent = newBullet.GetComponent<BulletBlank>();
-        bulletComponent.Initialize(spreadDirection, bulletSpeed, damage);
+        newBullet.GetComponent<Bullet>().Initialize(transform.up, false);
+        //Vector2 spreadDirection = ((Vector2)transform.up + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread))).normalized;
+        //BulletBlank bulletComponent = newBullet.GetComponent<BulletBlank>();
+        //bulletComponent.Initialize(bulletSpeed, damage);
     }
 }

@@ -12,6 +12,11 @@ public class BulletBlank : MonoBehaviour
         this.speed = speed;
         this.damage = damage;
     }
+    public void Initialize(float speed, float damage)
+    {
+        this.speed = speed;
+        this.damage = damage;
+    }
 
     private void Update()
     {

@@ -50,7 +50,6 @@ public class QuantumEngine : Engine
 
     public override void StartEngine()
     {
-        Debug.Log(drone);
         if (drone == null)
             drone = FindObjectOfType<Drone>().gameObject.transform;
         currentReloadTime = reloadTime;

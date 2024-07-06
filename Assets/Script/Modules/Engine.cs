@@ -5,6 +5,7 @@ using UnityEngine;
 public class Engine : MonoBehaviour
 {
     [SerializeField] protected float speed;
+    [SerializeField] protected Equipment equip;
 
     public float GetSpeed() => speed;
 
@@ -15,7 +16,8 @@ public class Engine : MonoBehaviour
 
     protected void Update()
     {
-        //Special();
+        if(equip.isInstalledMethod())
+        Special(1);
     }
 
     public virtual void Special(float multipliyer)

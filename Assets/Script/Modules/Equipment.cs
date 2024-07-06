@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D)),RequireComponent(typeof(SpriteRenderer))]  
+[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
 public class Equipment : MonoBehaviour
 {
     [SerializeField] private Transform droneTransform;
@@ -21,6 +21,8 @@ public class Equipment : MonoBehaviour
 
     private SpriteRenderer render;
 
+    private bool isBroken;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -37,36 +39,21 @@ public class Equipment : MonoBehaviour
         }
         CheckUser();
 
-        if(GetComponent<Engine>())
-        gameObject.transform.parent.parent.GetComponent<PlayerMovement>().Engines.Add(gameObject.GetComponent<Engine>());
     }
 
     private void Start()
     {
         maxHealth = health;
-        if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+        if (this.gameObject.TryGetComponent<Engine>(out Engine engine) && isInstalled)
         {
             UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
 
         }
     }
-
-    private void Update()
-    {
-        //if (health <= 0)
-        //{
-        //    BreakEquip();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Space) && isInstalled)
-        //{
-        //    health -= 50;
-        //    Debug.Log("Текущее здоровье = " + health);
-        //}
-    }
     public void BreakEquip()
     {
-        gameObject.transform.parent.GetComponent<Place>().SetBusy(false);
+        rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
         gameObject.transform.SetParent(null);
         Vector2 direction = Random.insideUnitCircle.normalized;
         rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
@@ -77,8 +64,10 @@ public class Equipment : MonoBehaviour
         {
             UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
         }
-        
-        StartCoroutine(ChangeState());
+
+        isInstalled = false;
+        //StartCoroutine(ChangeState());
+
 
     }
 
@@ -86,6 +75,8 @@ public class Equipment : MonoBehaviour
     {
         if (!isInstalled)
         {
+            isBroken = false;
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
             gameObject.transform.position = place.position;
             gameObject.transform.rotation = place.rotation;
             gameObject.transform.SetParent(place);
@@ -101,6 +92,14 @@ public class Equipment : MonoBehaviour
             {
                 UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
                 engine.StartEngine();
+            }
+            if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
+            {
+                UnityEvents.ShieldUpdateEvent.Invoke(true);
+            }
+            if (this.gameObject.TryGetComponent<Gun>(out Gun gun))
+            {
+                gun.CheckUser();
             }
         }
     }

@@ -29,9 +29,10 @@ public class Place : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Equipment>() && !isBusy)
+        
+        if (collision.gameObject.GetComponentInChildren<Equipment>() && !isBusy)
         {
-            collision.gameObject.GetComponent<Equipment>().SetEquip(this.transform);
+            collision.gameObject.GetComponentInChildren<Equipment>().SetEquip(this.transform);
             isBusy = true;
         }
     }

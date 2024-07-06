@@ -36,44 +36,44 @@ namespace Player
         {
             Move();
             ApplyDeceleration();
-            Engine();
+            //Engine();
         }
 
-        private void Engine()
-        {
-            float enginesCount = 0;
-            QuantumEngine quantumEngine = new();
-            foreach (var eng in Engines)
-            {
-                if (eng.GetType() == typeof(QuantumEngine))
-                {
-                    enginesCount++;
-                    quantumEngine = eng as QuantumEngine;
-                }
-            }
-            if (enginesCount > 0)
-            {
-                quantumEngine.Special(enginesCount);
-                return;
-            }
+        //private void Engine()
+        //{
+        //    float enginesCount = 0;
+        //    QuantumEngine quantumEngine = new();
+        //    foreach (var eng in Engines)
+        //    {
+        //        if (eng.GetType() == typeof(QuantumEngine))
+        //        {
+        //            enginesCount++;
+        //            quantumEngine = eng as QuantumEngine;
+        //        }
+        //    }
+        //    if (enginesCount > 0)
+        //    {
+        //        quantumEngine.Special(enginesCount);
+        //        return;
+        //    }
 
-            NuclearEngine nuclearEngine = new();
-            enginesCount = 0;
-            foreach (var eng in Engines)
-            {
-                if (eng.GetType() == typeof(NuclearEngine))
-                {
-                    enginesCount++;
-                    nuclearEngine = eng as NuclearEngine;
-                }
-            }
-            if (enginesCount > 0)
-            {
-                Debug.Log(enginesCount);
-                nuclearEngine.Special(enginesCount);
-                return;
-            }
-        }
+        //    NuclearEngine nuclearEngine = new();
+        //    enginesCount = 0;
+        //    foreach (var eng in Engines)
+        //    {
+        //        if (eng.GetType() == typeof(NuclearEngine))
+        //        {
+        //            enginesCount++;
+        //            nuclearEngine = eng as NuclearEngine;
+        //        }
+        //    }
+        //    if (enginesCount > 0)
+        //    {
+        //        Debug.Log(enginesCount);
+        //        nuclearEngine.Special(enginesCount);
+        //        return;
+        //    }
+        //}
 
         private void CheckEngine(Engine type)
         {

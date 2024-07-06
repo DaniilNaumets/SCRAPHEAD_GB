@@ -1,9 +1,12 @@
+using ObjectPool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour, IShoot
 {
+
+
     [SerializeField] protected float speedAttack1;
     [SerializeField] protected float speedAttack2;
     protected float reloadTime1;
@@ -13,7 +16,7 @@ public class Gun : MonoBehaviour, IShoot
 
     protected bool isPlayerGun;
 
-    private void Awake()
+    protected void Awake()
     {
         Reloading1();
         Reloading2();
@@ -77,10 +80,11 @@ public class Gun : MonoBehaviour, IShoot
 
     }
 
-    private void CheckUser()
+    public void CheckUser()
     {
         if (GetComponentInParent<Drone>())
         {
+            Debug.Log(transform.parent.name);
             isPlayerGun = true; 
         }
         else

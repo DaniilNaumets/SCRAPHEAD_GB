@@ -29,12 +29,23 @@ public class Shield : MonoBehaviour
 
     private void Start()
     {
+        
         health = maxHealth;
-        drone = GetComponentInParent<Drone>().gameObject;
+        drone = FindObjectOfType<Drone>().gameObject;
         shieldKeeper.transform.position = drone.transform.position;
-        reloadingTime = reload;
+        UnityEvents.ShieldUpdateEvent.AddListener(UpdateShield);
+        reloadingTime = 0.2f;
+
+        if (!GetComponent<Equipment>().isInstalledMethod())
+        {
+            shieldKeeper.SetActive(false);
+        }
     }
 
+    public void UpdateShield(bool t)
+    {
+        shieldKeeper.transform.position = drone.transform.position;
+    }
     private void Update()
     {
         if (type == shieldType.Infinite)

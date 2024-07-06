@@ -8,12 +8,15 @@ public class AutoGun : Gun
 
     [SerializeField] protected LayerMask enemyLayer;
 
+    private Equipment equip;
+
     protected Transform target;
 
     protected bool isLazerShoot;
 
     private void Start()
     {
+        equip = GetComponent<Equipment>();
         StartCoroutine(DetectionRoutine());
     }
 
@@ -27,10 +30,13 @@ public class AutoGun : Gun
     {
         while (true)
         {
-            FindClosestTarget();
-            if (target != null)
+            if (equip.isInstalledMethod())
             {
-                StartCoroutine(FiringRoutine());
+                FindClosestTarget();
+                if (target != null)
+                {
+                    StartCoroutine(FiringRoutine());
+                }
             }
             yield return new WaitForSeconds(0.5f);
         }
@@ -57,14 +63,14 @@ public class AutoGun : Gun
 
         while (target != null && Vector2.Distance(transform.position, target.position) <= radiusZone)
         {
-            if (!isLazerShoot)
-            {
+            //if (!isLazerShoot)
+            //{
                 Vector2 direction = (target.position - transform.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90f));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
                 Shoot();
-            }
+            //}
             yield return new WaitForSeconds(0.001f);
 
         }

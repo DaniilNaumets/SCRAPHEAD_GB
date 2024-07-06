@@ -60,9 +60,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7707223855422246926}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.57, z: 1}
+  m_LocalScale: {x: 10, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8278285418573354891}
@@ -82,8 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droneTransform: {fileID: 0}
   health: 100
-  forceValue: 1
-  torqueValue: 5
+  forceValue: 10
+  torqueValue: 20
 --- !u!50 &3902094997058028480
 Rigidbody2D:
   serializedVersion: 4
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7707223855422246926}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9903989, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -213,5 +213,5 @@ MonoBehaviour:
   speedAttack1: 1
   speedAttack2: 0.25
   bulletPrefab: {fileID: 1768581000495275445, guid: aa7cb61f306187a40a9858e503d33413, type: 3}
+  poolManager: {fileID: 0}
   handler: {fileID: 1536784356676282036}
-  bulletSpeed: 1

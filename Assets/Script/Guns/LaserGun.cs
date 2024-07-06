@@ -12,6 +12,11 @@ public class LaserGun : Gun
     [SerializeField] private LineRenderer laserLineRenderer;
     [SerializeField] private Material notWide;
     [SerializeField] private Material wide;
+
+    private void Awake()
+    {
+        base.Awake();
+    }
     public override void ShootPKM1()
     {
         if (CanShoot(reloadTime1))
@@ -32,7 +37,7 @@ public class LaserGun : Gun
 
     private IEnumerator OpenLaser()
     {
-        StopCoroutine(OpenLaser2());
+        //StopCoroutine(OpenLaser2());
         laserLineRenderer.material = notWide;
         laser.SetActive(true);
         yield return new WaitForSeconds(laserTime);
@@ -42,11 +47,13 @@ public class LaserGun : Gun
 
     private IEnumerator OpenLaser2()
     {
-        StopCoroutine(OpenLaser());
+        //StopCoroutine(OpenLaser());
         laserLineRenderer.material = wide;
         laser.SetActive(true);
         yield return new WaitForSeconds(laserTime2);
         laser.SetActive(false);
         laserLineRenderer.material = notWide;
     }
+
+
 }

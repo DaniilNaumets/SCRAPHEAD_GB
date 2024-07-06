@@ -7,6 +7,11 @@ public class AutoLaser : AutoGun
     [SerializeField] private GameObject laser;
 
     [SerializeField] private float laserTime;
+
+    private void Awake()
+    {
+        base.Awake();
+    }
     public override void ShootPKM1()
     {
         if (CanShoot(reloadTime1))
@@ -27,6 +32,7 @@ public class AutoLaser : AutoGun
 
     protected override void Shoot()
     {
+        CheckUser();
         ShootPKM1();
         Debug.Log(isLazerShoot);
     }
