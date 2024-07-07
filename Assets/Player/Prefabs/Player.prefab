@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 3670991144279655898}
   - component: {fileID: 6564345356543492865}
   - component: {fileID: 4240630588384343961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1207,6 +1207,10 @@ PrefabInstance:
     - target: {fileID: 2407046411326365155, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_Name
       value: InfiniteShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742318830490254546, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

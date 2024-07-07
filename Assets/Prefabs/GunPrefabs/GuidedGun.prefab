@@ -214,3 +214,6 @@ MonoBehaviour:
   speedAttack2: 3
   bulletPrefab: {fileID: 1768581000495275445, guid: 666b7f084a8dec24d9864c1336b54e56, type: 3}
   handler: {fileID: 5971148231153943527}
+  intervalForBullets: 0.3
+  intervalForStadies: 2
+  countRocketsInSecondAttack: 3

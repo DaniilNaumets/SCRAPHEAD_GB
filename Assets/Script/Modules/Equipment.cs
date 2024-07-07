@@ -52,20 +52,23 @@ public class Equipment : MonoBehaviour
     }
     public void BreakEquip()
     {
-        rigidbody.bodyType = RigidbodyType2D.Dynamic;
-        gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
-        gameObject.transform.SetParent(null);
-        Vector2 direction = Random.insideUnitCircle.normalized;
-        rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
-        rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
-        health = float.MaxValue;
-
-        if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+        if (isInstalled)
         {
-            UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
-        }
+            rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
+            gameObject.transform.SetParent(null);
+            Vector2 direction = Random.insideUnitCircle.normalized;
+            rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
+            rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
+            health = float.MaxValue;
 
-        isInstalled = false;
+            if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+            {
+                UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
+            }
+
+            isInstalled = false;
+        }
         //StartCoroutine(ChangeState());
 
 
@@ -103,6 +106,14 @@ public class Equipment : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BreakEquip();
+        }
+    }
     private IEnumerator ChangeState()
     {
         yield return new WaitForSeconds(2f);
@@ -134,5 +145,20 @@ public class Equipment : MonoBehaviour
     private void CheckEngine()
     {
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+        {
+            if (bullet.GetBulletUser() != isPlayerEquip)
+            {
+                this.health -= bullet.GetDamage();
+                if (health <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
     }
 }

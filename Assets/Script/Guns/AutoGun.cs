@@ -65,15 +65,29 @@ public class AutoGun : Gun
         {
             //if (!isLazerShoot)
             //{
-                Vector2 direction = (target.position - transform.position).normalized;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            Vector2 direction = (target.position - transform.position).normalized;
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, targetAngle));
 
-                Shoot();
+            while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 360 * Time.deltaTime);
+            }
+
+            if (!equip.isInstalledMethod())
+            {
+                break;
+            }
+            Shoot();
             //}
-            yield return new WaitForSeconds(0.001f);
+            yield return null;
 
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radiusZone);
     }
 
     protected virtual void Shoot() { }

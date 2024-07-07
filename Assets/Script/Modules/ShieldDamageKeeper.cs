@@ -20,4 +20,16 @@ public class ShieldDamageKeeper : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+        {
+            if (bullet.GetBulletUser() != shieldEquip.GetUser())
+            {
+                shield.ShieldDamaged(bullet.GetDamage());
+                Destroy(bullet.gameObject);
+            }
+        }
+    }
 }
