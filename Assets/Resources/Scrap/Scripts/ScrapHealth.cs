@@ -9,25 +9,29 @@ namespace Resources
         [SerializeField] private ScrapTurnOff scrapTurnOff;
 
         private float currentHealth;
+        private bool isDestroy;
 
         public void InitializeHealth(float health)
         {
             currentHealth = health;
+            isDestroy = false;
         }
 
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
-            Debug.Log(currentHealth);
+            Debug.Log("damage " + damage);
+            Debug.Log("ResurceHP " + currentHealth);
 
-            if (currentHealth <= 0) 
+            if (currentHealth <= 0 && !isDestroy) 
             {
+                isDestroy = true;
                 if (scrapCrumble != null)
                 {
                     scrapCrumble.SeparateScrap();
                 }
                 
-                scrapTurnOff.TurnOff();               
+                scrapTurnOff.TurnOff();
             }           
         }
     }
