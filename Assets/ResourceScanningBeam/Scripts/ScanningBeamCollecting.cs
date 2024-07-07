@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScanningBeam
 {
-    public class ScanningBeamCollecting : MonoBehaviour //разделить на классы
+    public class ScanningBeamCollecting : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] private PlayerInventory playerInventory;
@@ -35,19 +35,14 @@ namespace ScanningBeam
                 scrapQueue = new Queue<ScrapPickup>(scrapQueue.Where(r => r != scrapPickup));
 
                 if (scrapPickup.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI))
-                {                  
-                    scrapCollectionProgressUI.ResetFill(); 
+                {
+                    scrapCollectionProgressUI.ResetFill();
                 }
 
-                if (collectionCoroutine != null && scrapQueue.Count == 0)
+                if (scrapQueue.Count == 0)
                 {
                     StopCoroutine(collectionCoroutine);
                     collectionCoroutine = null;
-                }
-                else if (collectionCoroutine != null && scrapQueue.Count > 0)
-                {
-                    StopCoroutine(collectionCoroutine);
-                    collectionCoroutine = StartCoroutine(Collecting());
                 }
             }
         }
@@ -75,32 +70,31 @@ namespace ScanningBeam
                         {
                             scrapCollectionProgressUI.ResetFill();
                         }
-
-                        yield break;
+                        break;
                     }
 
                     elapsedTime += Time.deltaTime;
                     yield return null;
                 }
 
-                if (currentScrap.GetComponentInParent<ScrapMetalController>())
-                {
-                    playerInventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
-                }
-                else if (currentScrap.GetComponentInParent<ScrapAlienController>())
-                {
-                    playerInventory.AddScrapAlienToInventory(currentScrap.GetValueScrap());
-                }
-
                 if (scrapQueue.Contains(currentScrap))
                 {
-                    scrapQueue.Dequeue();
-                    currentScrap.transform.parent.gameObject.SetActive(false);// objectPool
-                }
+                    if (currentScrap.GetComponentInParent<ScrapMetalController>())
+                    {
+                        playerInventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
+                    }
+                    else if (currentScrap.GetComponentInParent<ScrapAlienController>())
+                    {
+                        playerInventory.AddScrapAlienToInventory(currentScrap.GetValueScrap());
+                    }
 
-                if (scrapCollectionProgressUI != null)
-                {
-                    scrapCollectionProgressUI.ResetFill();
+                    scrapQueue.Dequeue();
+                    currentScrap.transform.parent.gameObject.SetActive(false); // objectPool
+
+                    if (scrapCollectionProgressUI != null)
+                    {
+                        scrapCollectionProgressUI.ResetFill();
+                    }
                 }
             }
 
