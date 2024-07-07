@@ -854,6 +854,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: numberOfSpawners
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213093705668310472, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: distanceFromCamera
       value: 45
       objectReference: {fileID: 0}
@@ -1421,6 +1425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4044841131533600747, guid: bc35410177c5a7549b780cb72831d638, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25.877743
+      objectReference: {fileID: 0}
     - target: {fileID: 4110400707535263494, guid: bc35410177c5a7549b780cb72831d638, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1433,6 +1441,10 @@ PrefabInstance:
       propertyPath: scrapMetalCounterUI
       value: 
       objectReference: {fileID: 1539369451}
+    - target: {fileID: 6216271897242933149, guid: bc35410177c5a7549b780cb72831d638, type: 3}
+      propertyPath: forwardSpeed
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

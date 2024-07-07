@@ -108,11 +108,3 @@ namespace ScanningBeam
         }
     }
 }
-
-
-
-
-
-
-
-

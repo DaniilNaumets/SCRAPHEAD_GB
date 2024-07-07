@@ -8,13 +8,9 @@ namespace Spawners
         private Camera mainCamera;
         private List<GameObject> spawners = new List<GameObject>();
 
-        private void Awake()
-        {
-            mainCamera = Camera.main;
-        }
-
         public void CreateSpawners(int numberOfSpawners, float distanceFromCamera, GameObject spawnerPrefab)
         {
+            mainCamera = Camera.main;
             foreach (GameObject spawner in spawners)
             {
                 Destroy(spawner);
