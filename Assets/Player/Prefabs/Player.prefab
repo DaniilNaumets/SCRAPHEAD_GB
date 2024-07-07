@@ -686,8 +686,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.28
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -819,7 +819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8901072157814318585}
   - component: {fileID: 7823858167585011523}
-  - component: {fileID: 5734229699757489185}
+  - component: {fileID: 3590161478221276559}
   m_Layer: 0
   m_Name: PlaceBottom
   m_TagString: Untagged
@@ -855,8 +855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: 0
---- !u!58 &5734229699757489185
-CircleCollider2D:
+--- !u!70 &3590161478221276559
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -887,9 +887,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
+  m_Offset: {x: -0.64606154, y: 0.048613492}
+  m_Size: {x: 2.201162, y: 7.483571}
+  m_Direction: 0
 --- !u!1 &6590227160149878743
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3267328568684147786}
   - component: {fileID: 6802081619657686773}
-  - component: {fileID: 2467239392099368974}
+  - component: {fileID: 7769981360884838353}
   m_Layer: 0
   m_Name: PlaceL
   m_TagString: Untagged
@@ -937,8 +937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: 1
---- !u!58 &2467239392099368974
-CircleCollider2D:
+--- !u!70 &7769981360884838353
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -969,9 +969,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
+  m_Offset: {x: -5.1127715, y: -0.24916619}
+  m_Size: {x: 11.1346245, y: 2.210238}
+  m_Direction: 1
 --- !u!1 &6839094031791459532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347439227394706470}
   - component: {fileID: 781798110394571436}
-  - component: {fileID: 5340222279611816519}
+  - component: {fileID: 7230358870882214034}
   m_Layer: 0
   m_Name: PlaceR
   m_TagString: Untagged
@@ -1121,8 +1121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: 1
---- !u!58 &5340222279611816519
-CircleCollider2D:
+--- !u!70 &7230358870882214034
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1153,9 +1153,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
+  m_Offset: {x: -5.1127715, y: -0.24916619}
+  m_Size: {x: 11.1346245, y: 2.210238}
+  m_Direction: 1
 --- !u!1001 &8283255805489903682
 PrefabInstance:
   m_ObjectHideFlags: 0

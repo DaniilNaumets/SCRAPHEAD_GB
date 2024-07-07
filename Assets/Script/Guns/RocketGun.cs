@@ -46,15 +46,6 @@ public class RocketGun : Gun
             bullet.GetComponent<Bullet>().Initialize(handler.transform.right, isPlayerGun);
             yield return new WaitForSeconds(intervalForBullets);
         }
-
-        yield return new WaitForSeconds(intervalForStadies);
-
-        for (int i = 0; i < countRocketsInSecondAttack; i++)
-        {
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
-            bullet.GetComponent<Bullet>().Initialize(handler.transform.right, isPlayerGun);
-            yield return new WaitForSeconds(intervalForBullets);
-        }
         isShooting = true;
     }
 }

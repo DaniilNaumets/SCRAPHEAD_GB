@@ -23,11 +23,11 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float lifeTime;
 
-    [SerializeField] private LayerMask enemyMask;
-    [SerializeField] private float radius;
+    [SerializeField] protected LayerMask enemyMask;
+    [SerializeField] protected float radius;
 
     private Vector2 direction;
-    private Transform target;
+    protected Transform target;
 
     private void Awake()
     {
@@ -73,15 +73,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.TryGetComponent<Equipment>(out Equipment equip) && !isPlayerBullet)
+        if (collision.gameObject.TryGetComponent<Equipment>(out Equipment equip) && !isPlayerBullet)
         {
-            if(equip.isInstalledMethod())
-            equip.BreakEquip();
+            if (equip.isInstalledMethod())
+            {
+                equip.BreakEquip();
+                Destroy(gameObject);
+            }
         }
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
         {
-                collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-            
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Destroy(gameObject);
+
         }
         if (collision.gameObject.GetComponent<EnemyController>())
         {

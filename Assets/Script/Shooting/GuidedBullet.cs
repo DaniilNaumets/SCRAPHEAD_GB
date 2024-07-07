@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class GuidedBullet : Bullet
 {
-    [SerializeField] private float radius; 
-    [SerializeField] protected LayerMask enemyMask; 
     [SerializeField] private float interval;
 
     [SerializeField] private float rotationSpeed;
 
     private bool isFinding; 
-    private Transform target;
 
     private Vector2 lastDirection;
 
