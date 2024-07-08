@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,11 +12,15 @@ namespace Player
         [SerializeField] private float leftSpeed;
         [SerializeField] private float rightSpeed;
 
+        [Header("Acceleration")]
+        [SerializeField] private float accelerationRate;
+
         [Header("Movement deceleration")]
         [SerializeField] private float decelerationRate;
 
         private Vector2 moveDirection;
         private Vector2 currentVelocity;
+        private Vector2 targetVelocity;
 
         public List<Engine> Engines = new List<Engine>();
 
@@ -34,9 +37,10 @@ namespace Player
 
         private void Update()
         {
-            Move();
+            CalculateTargetVelocity();
+            ApplyAcceleration();
             ApplyDeceleration();
-            //Engine();
+            Move();
         }
 
         //private void Engine()
@@ -75,12 +79,7 @@ namespace Player
         //    }
         //}
 
-        private void CheckEngine(Engine type)
-        {
-
-        }
-
-        private void Move()
+        private void CalculateTargetVelocity()
         {
             moveDirection.Normalize();
             float angleRad = GetAngleRad();
@@ -88,21 +87,25 @@ namespace Player
             Vector2 forwardDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
             Vector2 forwardVelocity = forwardDirection * moveDirection.y * (moveDirection.y > 0 ? forwardSpeed : reverseSpeed);
             Vector2 lateralVelocity = new Vector2(forwardDirection.y, -forwardDirection.x) * moveDirection.x * (moveDirection.x > 0 ? rightSpeed : leftSpeed);
-            Vector2 targetVelocity = forwardVelocity + lateralVelocity;
 
-            if (moveDirection != Vector2.zero)
-            {
-                currentVelocity = targetVelocity;
-            }
+            targetVelocity = forwardVelocity + lateralVelocity;
+        }
 
-            transform.position += (Vector3)currentVelocity * Time.fixedDeltaTime;
+        private void ApplyAcceleration()
+        {
+            currentVelocity = Vector2.Lerp(currentVelocity, targetVelocity, accelerationRate * Time.deltaTime);
+        }
+
+        private void Move()
+        {
+            transform.position += (Vector3)currentVelocity * Time.deltaTime;
         }
 
         private void ApplyDeceleration()
         {
             if (moveDirection == Vector2.zero)
             {
-                currentVelocity = Vector2.Lerp(currentVelocity, Vector2.zero, decelerationRate * Time.fixedDeltaTime);
+                currentVelocity = Vector2.Lerp(currentVelocity, Vector2.zero, decelerationRate * Time.deltaTime);
             }
         }
 
@@ -130,12 +133,3 @@ namespace Player
         }
     }
 }
-
-
-
-
-
-
-
-
-

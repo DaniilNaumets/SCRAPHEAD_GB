@@ -8,7 +8,7 @@ namespace Resources
         [SerializeField] private float hpAndMass;
         [SerializeField] private float damageDealt;
 
-        [Header("Absolute values")]
+        [Header("Movements values")]
         [SerializeField] private float impulseStrength;
         [SerializeField] private float impulseRotation;
 

@@ -11,14 +11,20 @@ namespace ScanningBeam
     {
         [Header("Components")]
         [SerializeField] private PlayerInventory playerInventory;
+        [SerializeField] private SpriteRenderer scanningBeamSpriteRenderer;
 
         private Queue<ScrapPickup> scrapQueue = new Queue<ScrapPickup>();
         private Coroutine collectionCoroutine;
 
+        private void Awake()
+        {
+            scanningBeamSpriteRenderer.enabled = false;
+        }
+
         public void AddToQueue(ScrapPickup scrapPickup)
         {
             if (!scrapQueue.Contains(scrapPickup))
-            {
+            {                
                 scrapQueue.Enqueue(scrapPickup);
 
                 if (collectionCoroutine == null)
@@ -41,6 +47,7 @@ namespace ScanningBeam
 
                 if (scrapQueue.Count == 0)
                 {
+                    scanningBeamSpriteRenderer.enabled = false;
                     StopCoroutine(collectionCoroutine);
                     collectionCoroutine = null;
                 }
@@ -49,8 +56,10 @@ namespace ScanningBeam
 
         private IEnumerator Collecting()
         {
+            scanningBeamSpriteRenderer.enabled = true;
+
             while (scrapQueue.Count > 0)
-            {
+            {             
                 ScrapPickup currentScrap = scrapQueue.Peek();
                 currentScrap.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI);
                 float collectionTime = currentScrap.GetCollectionTime();
@@ -67,7 +76,7 @@ namespace ScanningBeam
                     if (!scrapQueue.Contains(currentScrap))
                     {
                         if (scrapCollectionProgressUI != null)
-                        {
+                        {                           
                             scrapCollectionProgressUI.ResetFill();
                         }
                         break;
@@ -98,6 +107,7 @@ namespace ScanningBeam
                 }
             }
 
+            scanningBeamSpriteRenderer.enabled = false;
             collectionCoroutine = null;
         }
     }
