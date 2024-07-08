@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 1381146679173543467}
   - component: {fileID: 1703484786905059934}
   - component: {fileID: 3996490124246693847}
-  - component: {fileID: 2747716742159047440}
   - component: {fileID: 2298877502784223093}
   m_Layer: 0
   m_Name: ResourceScanningBeam
@@ -142,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4881437116766097557
 Transform:
   m_ObjectHideFlags: 0
@@ -171,7 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanningBeamCollecting: {fileID: 1703484786905059934}
-  scanningBeamSpriteRenderer: {fileID: 0}
 --- !u!114 &1703484786905059934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 4667688863899706174}
+  scanningBeamSpriteRenderer: {fileID: 3996490124246693847}
 --- !u!212 &3996490124246693847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -237,18 +236,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2747716742159047440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082980544653019716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 427d8b3a38fd0c54ea6527099ac58de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2298877502784223093
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -504,7 +491,7 @@ MonoBehaviour:
     m_ActionName: PlayerDrone/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2747716742159047440}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectToggleOnHold, Assembly-CSharp
         m_MethodName: OnTogglePerformed
         m_Mode: 0
@@ -535,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5704e170486514584f7c65597f374c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 6
+  sensitivity: 4
 --- !u!114 &6216271897242933149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006d92d726785074093d1f52e57bc905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 16.2
+  forwardSpeed: 16.01
   reverseSpeed: 8
   leftSpeed: 16
   rightSpeed: 16
