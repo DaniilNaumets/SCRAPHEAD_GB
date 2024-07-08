@@ -166,14 +166,10 @@ MonoBehaviour:
   rb: {fileID: 7166099879947576732}
   speed: 25
   damage: 100
-  lifeTime: 10
+  lifeTime: 5
   enemyMask:
     serializedVersion: 2
     m_Bits: 8
-  radius: 40
-  radius: 40
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 8
+  radius: 10
   interval: 0.2
-  rotationSpeed: 5
+  rotationSpeed: 45

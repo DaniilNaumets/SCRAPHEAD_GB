@@ -66,6 +66,7 @@ MonoBehaviour:
   health: 100
   forceValue: 1
   torqueValue: 5
+  scrapPrefab: {fileID: 0}
 --- !u!212 &3364137361781315616
 SpriteRenderer:
   m_ObjectHideFlags: 0

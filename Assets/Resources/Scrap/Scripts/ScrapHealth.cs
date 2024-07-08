@@ -1,3 +1,4 @@
+using ObjectPool;
 using UnityEngine;
 
 namespace Resources
@@ -34,6 +35,8 @@ namespace Resources
                 scrapTurnOff.TurnOff();
             }           
         }
+
+
     }
 }
 
