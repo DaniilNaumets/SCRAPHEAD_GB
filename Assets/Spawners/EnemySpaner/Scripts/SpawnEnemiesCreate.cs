@@ -12,14 +12,13 @@ namespace Spawners
         [SerializeField] private SpawnerPoint spawnerPoint;
         [SerializeField] private SpawnEnemiesRandomizer spawnEnemiesRandomizer;
         [SerializeField] private ObjectPoolManager objectPoolManager;
-        [SerializeField] private EnemyController enemyControllerPrefab;  // Префаб EnemyController
+        [SerializeField] private EnemyController enemyControllerPrefab; 
 
         private List<Enemy> currentEnemies;
 
         public void InitializedEnemies(List<Enemy> enemies)
         {
             currentEnemies = enemies;
-            // Инициализируем пул с префабом EnemyController
             objectPoolManager.InitializePool(enemyControllerPrefab.gameObject);
         }
 
@@ -45,7 +44,7 @@ namespace Spawners
 
         private void SpawnEnemies()
         {
-            if (currentEnemies.Count == 0)
+            if (currentEnemies == null || currentEnemies.Count == 0)
             {
                 return;
             }
@@ -55,17 +54,20 @@ namespace Spawners
 
             if (spawner != null && enemy != null)
             {
-                // Получаем экземпляр из пула
                 GameObject pooledObject = objectPoolManager.GetFromPool(enemyControllerPrefab.gameObject);
 
-                // Устанавливаем позицию и поворот
-                pooledObject.transform.position = spawner.transform.position;
-                pooledObject.transform.rotation = Quaternion.identity;
+                if (pooledObject != null)
+                {
+                    pooledObject.transform.position = spawner.transform.position;
+                    pooledObject.transform.rotation = Quaternion.identity;
 
-                // Настраиваем врага
-                EnemyController enemyController = pooledObject.GetComponent<EnemyController>();
-                enemyController.SetEnemy(enemy);
-                enemyController.InitializationEnemy();
+                    EnemyController enemyController = pooledObject.GetComponent<EnemyController>();
+                    if (enemyController != null)
+                    {
+                        enemyController.SetEnemy(enemy);
+                        enemyController.InitializationEnemy();
+                    }
+                }
             }
         }
     }
