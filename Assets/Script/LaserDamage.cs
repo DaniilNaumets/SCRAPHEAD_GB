@@ -11,5 +11,10 @@ public class LaserDamage : Bullet
         {
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.GetComponentInChildren<Resources.ScrapHealth>())
+        {
+            collision.gameObject.GetComponentInChildren<Resources.ScrapHealth>().TakeDamage(100);
+        }
     }
 }
