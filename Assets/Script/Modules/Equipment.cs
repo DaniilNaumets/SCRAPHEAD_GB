@@ -23,6 +23,8 @@ public class Equipment : MonoBehaviour
 
     private bool isBroken;
 
+    [SerializeField] private GameObject scrapPrefab;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -38,7 +40,6 @@ public class Equipment : MonoBehaviour
             isInstalled = true;
         }
         CheckUser();
-
     }
 
     private void Start()
@@ -68,6 +69,7 @@ public class Equipment : MonoBehaviour
             }
 
             isInstalled = false;
+            isPlayerEquip = false;
         }
         //StartCoroutine(ChangeState());
 
@@ -109,7 +111,7 @@ public class Equipment : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             BreakEquip();
         }
@@ -149,14 +151,35 @@ public class Equipment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) && !isInstalled)
         {
-            if (bullet.GetBulletUser() != isPlayerEquip)
+            if (bullet.GetBulletUser() && isPlayerEquip)
+            {
+
+            }
+            else
             {
                 this.health -= bullet.GetDamage();
                 if (health <= 0)
                 {
+                    if (scrapPrefab != null)
+                    {
+                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    }
                     Destroy(gameObject);
+                }
+            }
+        }
+
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
+        {
+            if (bul.GetBulletUser() != isPlayerEquip)
+            {
+                this.health -= bul.GetDamage();
+                if (health <= 0)
+                {
+                    BreakEquip();
+                    health = maxHealth;
                 }
             }
         }

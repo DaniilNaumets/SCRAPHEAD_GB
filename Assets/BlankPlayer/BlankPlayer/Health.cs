@@ -1,3 +1,4 @@
+using ObjectPool;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -17,12 +18,33 @@ public class Health : MonoBehaviour
 
         if (health > 0)
         {
-            Debug.Log($"PlayerHealth: {health}");
+
         }
         else
         {
-            Debug.Log("PlayerLose");
         }
         
+    }
+
+    public void TakeDamage(float damage, ObjectPoolManager poolManager)
+    {
+        health -= damage;
+
+        if (health > 0)
+        {
+
+        }
+        else
+        {
+            ReturnToPool(poolManager);
+        }
+
+    }
+
+    public float GetHealth() => health;
+
+    public void ReturnToPool(ObjectPoolManager poolManager)
+    {
+        poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
     }
 }

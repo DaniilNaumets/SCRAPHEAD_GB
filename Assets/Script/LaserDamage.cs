@@ -1,13 +1,20 @@
+using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LaserDamage : Bullet
 {
-    private Rigidbody2D rb;
-
-    private void Awake()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rb = null;
+        if (collision.gameObject.GetComponent<EnemyController>())
+        {
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.GetComponentInChildren<Resources.ScrapHealth>())
+        {
+            collision.gameObject.GetComponentInChildren<Resources.ScrapHealth>().TakeDamage(100);
+        }
     }
 }
