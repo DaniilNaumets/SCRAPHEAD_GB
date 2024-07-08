@@ -34,7 +34,7 @@ public class Shield : MonoBehaviour
         drone = FindObjectOfType<Drone>().gameObject;
         shieldKeeper.transform.position = drone.transform.position;
         UnityEvents.ShieldUpdateEvent.AddListener(UpdateShield);
-        reloadingTime = 0.2f;
+        reloadingTime = reload;
 
         if (!GetComponent<Equipment>().isInstalledMethod())
         {

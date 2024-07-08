@@ -68,6 +68,7 @@ public class Equipment : MonoBehaviour
             }
 
             isInstalled = false;
+            isPlayerEquip = false;
         }
         //StartCoroutine(ChangeState());
 
@@ -149,14 +150,33 @@ public class Equipment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) && !isInstalled)
         {
-            if (bullet.GetBulletUser() != isPlayerEquip)
+            if (bullet.GetBulletUser() && isPlayerEquip)
+            {
+                
+            }
+            else
             {
                 this.health -= bullet.GetDamage();
+                Debug.Log(health);
                 if (health <= 0)
                 {
                     Destroy(gameObject);
+                }
+            }
+        }
+
+        if(collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
+        {
+            if (bul.GetBulletUser() != isPlayerEquip)
+            {
+                this.health -= bul.GetDamage();
+                Debug.Log(health);
+                if (health <= 0)
+                {
+                    BreakEquip();
+                    health = maxHealth;
                 }
             }
         }

@@ -7,26 +7,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private ObjectPoolManager poolManager;
-    [SerializeField] private bulletType type;
-    private enum bulletType
+    [SerializeField] protected ObjectPoolManager poolManager;
+    [SerializeField] protected bulletType type;
+    protected enum bulletType
     {
         Simple, Rocket, Mine
     }
 
-    private bool isPlayerBullet;
+    protected bool isPlayerBullet;
 
     [SerializeField] protected Rigidbody2D rb;
 
     [SerializeField] protected float speed;
-    [SerializeField] private float damage;
+    [SerializeField] protected float damage;
 
-    [SerializeField] private float lifeTime;
+    [SerializeField] protected float lifeTime;
 
     [SerializeField] protected LayerMask enemyMask;
     [SerializeField] protected float radius;
 
-    private Vector2 direction;
+    protected Vector2 direction;
     protected Transform target;
 
     private void Awake()
