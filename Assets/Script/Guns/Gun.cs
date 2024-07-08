@@ -84,7 +84,6 @@ public class Gun : MonoBehaviour, IShoot
     {
         if (GetComponentInParent<Drone>())
         {
-            Debug.Log(transform.parent.name);
             isPlayerGun = true; 
         }
         else

@@ -159,7 +159,6 @@ public class Equipment : MonoBehaviour
             else
             {
                 this.health -= bullet.GetDamage();
-                Debug.Log(health);
                 if (health <= 0)
                 {
                     Destroy(gameObject);
@@ -172,7 +171,6 @@ public class Equipment : MonoBehaviour
             if (bul.GetBulletUser() != isPlayerEquip)
             {
                 this.health -= bul.GetDamage();
-                Debug.Log(health);
                 if (health <= 0)
                 {
                     BreakEquip();

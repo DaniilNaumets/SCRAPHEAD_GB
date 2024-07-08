@@ -11,7 +11,7 @@ public class GuidedBullet : Bullet
 
     [SerializeField] private float rotationSpeed;
 
-    private bool isFinding; 
+    private bool isFinding;
 
     private Vector2 lastDirection;
 
@@ -28,15 +28,15 @@ public class GuidedBullet : Bullet
         }
         else
         {
-            MoveForward(); 
+            MoveForward();
         }
     }
 
     private IEnumerator StartFindingTarget()
     {
         yield return new WaitForSeconds(interval);
-        target = FindClosestTarget(); 
-        isFinding = true; 
+        target = FindClosestTarget();
+        isFinding = true;
     }
 
     private void GuideTowardsTarget()
@@ -56,8 +56,8 @@ public class GuidedBullet : Bullet
 
     private void MoveForward()
     {
-        if(lastDirection!= Vector2.zero)
-        rb.velocity = lastDirection * speed;
+        if (lastDirection != Vector2.zero)
+            rb.velocity = lastDirection * speed;
         else rb.velocity = transform.up * speed;
     }
 
@@ -90,6 +90,14 @@ public class GuidedBullet : Bullet
                 Destroy(gameObject);
             }
         }
+        if (collision.gameObject.TryGetComponent<Equipment>(out Equipment eq) && isPlayerBullet)
+        {
+            if (!eq.isInstalledMethod())
+            {
+                Destroy(gameObject);
+            }
+        }
+
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
@@ -101,10 +109,7 @@ public class GuidedBullet : Bullet
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<Health>().TakeDamage(damage);
-
-
-                    poolManager.ReturnToPool(collision.gameObject);
+                    collision.gameObject.GetComponentInChildren<Health>().TakeDamage(damage, poolManager);
                     Destroy(gameObject);
                     break;
 
@@ -114,7 +119,8 @@ public class GuidedBullet : Bullet
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
                     foreach (var enemy in enemies)
                     {
-                        enemy.gameObject.GetComponentInChildren<Health>().TakeDamage(damage);
+                        Health health = enemy.gameObject.GetComponentInChildren<Health>();
+                        health.TakeDamage(damage,poolManager);
                     }
                     poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
@@ -142,6 +148,7 @@ public class GuidedBullet : Bullet
                     foreach (var enemy in enemies)
                     {
                         enemy.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
+
                     }
                     poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
@@ -149,5 +156,17 @@ public class GuidedBullet : Bullet
                     break;
             }
         }
+
+        if (collision.gameObject.GetComponentInChildren<ScrapHealth>())
+        {
+            collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
