@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397601082999416911}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006d92d726785074093d1f52e57bc905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 16
+  forwardSpeed: 16.1
   reverseSpeed: 8
   leftSpeed: 16
   rightSpeed: 16
@@ -659,9 +659,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -875449483
+  m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 5304b8543d668e14585b2d805bc513e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -998,7 +998,7 @@ Transform:
   m_GameObject: {fileID: 6839094031791459532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 25.87774, y: -0.000007083289, z: -27.852629}
+  m_LocalPosition: {x: 25.877743, y: -0.000007083289, z: -27.852629}
   m_LocalScale: {x: 2.9915576, y: 2.7195978, z: 2.2436683}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1207,6 +1207,14 @@ PrefabInstance:
     - target: {fileID: 2407046411326365155, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_Name
       value: InfiniteShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407046411326365155, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296632634020885520, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7742318830490254546, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_IsTrigger
