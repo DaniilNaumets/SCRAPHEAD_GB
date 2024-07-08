@@ -84,6 +84,7 @@ MonoBehaviour:
   health: 100
   forceValue: 1
   torqueValue: 5
+  scrapPrefab: {fileID: 0}
 --- !u!50 &236369948607081865
 Rigidbody2D:
   serializedVersion: 4
@@ -213,7 +214,7 @@ MonoBehaviour:
   speedAttack1: 1
   speedAttack2: 0.3
   bulletPrefab: {fileID: 1768581000495275445, guid: aa7cb61f306187a40a9858e503d33413, type: 3}
-  radiusZone: 40
+  radiusZone: 20
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -23,6 +23,8 @@ public class Equipment : MonoBehaviour
 
     private bool isBroken;
 
+    [SerializeField] private GameObject scrapPrefab;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -38,7 +40,6 @@ public class Equipment : MonoBehaviour
             isInstalled = true;
         }
         CheckUser();
-
     }
 
     private void Start()
@@ -154,19 +155,23 @@ public class Equipment : MonoBehaviour
         {
             if (bullet.GetBulletUser() && isPlayerEquip)
             {
-                
+
             }
             else
             {
                 this.health -= bullet.GetDamage();
                 if (health <= 0)
                 {
+                    if (scrapPrefab != null)
+                    {
+                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    }
                     Destroy(gameObject);
                 }
             }
         }
 
-        if(collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
+        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
         {
             if (bul.GetBulletUser() != isPlayerEquip)
             {

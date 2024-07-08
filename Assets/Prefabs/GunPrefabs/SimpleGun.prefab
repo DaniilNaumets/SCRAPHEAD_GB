@@ -84,6 +84,7 @@ MonoBehaviour:
   health: 100
   forceValue: 10
   torqueValue: 20
+  scrapPrefab: {fileID: 0}
 --- !u!50 &3902094997058028480
 Rigidbody2D:
   serializedVersion: 4
