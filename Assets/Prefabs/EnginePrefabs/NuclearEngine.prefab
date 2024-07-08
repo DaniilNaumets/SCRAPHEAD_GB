@@ -52,6 +52,7 @@ MonoBehaviour:
   health: 100
   forceValue: 1
   torqueValue: 5
+  scrapPrefab: {fileID: 0}
 --- !u!114 &1824734588536209131
 MonoBehaviour:
   m_ObjectHideFlags: 0

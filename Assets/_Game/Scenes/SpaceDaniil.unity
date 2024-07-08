@@ -130,10 +130,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2721016691699199901, guid: 96ecd53aee2c5da40b4fce08a579a0ca, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     - target: {fileID: 6262531378605418010, guid: 96ecd53aee2c5da40b4fce08a579a0ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.029499
@@ -345,10 +341,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5433040878041054438, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     - target: {fileID: 7707223855422246926, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_Name
       value: SimpleGun
@@ -410,10 +402,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfiniteShield
       objectReference: {fileID: 0}
-    - target: {fileID: 5340055915408928682, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -471,10 +459,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoShotGun
       objectReference: {fileID: 0}
-    - target: {fileID: 7832815610116844592, guid: ff5d507ee7995bd49bf2ce3f81fea4b4, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -488,10 +472,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 714977571353987835, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     - target: {fileID: 4126567498202182971, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
       propertyPath: m_Name
       value: RocketGun
@@ -633,10 +613,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 486426720622891171, guid: 99576a825b54b20469b7abf7b4cc8ffc, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     - target: {fileID: 6073929123901938518, guid: 99576a825b54b20469b7abf7b4cc8ffc, type: 3}
       propertyPath: m_Name
       value: ShotGun
@@ -1401,10 +1377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4957728794810129720, guid: 91bbbd3b97417504b9f6006390fe6889, type: 3}
-      propertyPath: scrapPrefab
-      value: 
-      objectReference: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
