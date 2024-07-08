@@ -38,21 +38,21 @@ public class LaserGun : Gun
     private IEnumerator OpenLaser()
     {
         //StopCoroutine(OpenLaser2());
-        laserLineRenderer.material = notWide;
+        //laserLineRenderer.material = notWide;
         laser.SetActive(true);
         yield return new WaitForSeconds(laserTime);
         laser.SetActive(false);
-        laserLineRenderer.material = wide;
+        //laserLineRenderer.material = wide;
     }
 
     private IEnumerator OpenLaser2()
     {
         //StopCoroutine(OpenLaser());
-        laserLineRenderer.material = wide;
+        //laserLineRenderer.material = wide;
         laser.SetActive(true);
         yield return new WaitForSeconds(laserTime2);
         laser.SetActive(false);
-        laserLineRenderer.material = notWide;
+        //laserLineRenderer.material = notWide;
     }
 
 
