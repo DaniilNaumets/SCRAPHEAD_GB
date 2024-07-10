@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 411822738027921864, guid: 3f55b7018a844c0458fc9b7418c04982, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.3
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 411822738027921864, guid: 3f55b7018a844c0458fc9b7418c04982, type: 3}
       propertyPath: m_LocalPosition.y
@@ -717,10 +717,6 @@ PrefabInstance:
     - target: {fileID: 2234235857474900338, guid: 91bbbd3b97417504b9f6006390fe6889, type: 3}
       propertyPath: m_Name
       value: AutoSimpleGun (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362194710940345422, guid: 91bbbd3b97417504b9f6006390fe6889, type: 3}
-      propertyPath: radiusZone
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2589396377894280101, guid: 91bbbd3b97417504b9f6006390fe6889, type: 3}
       propertyPath: m_LocalPosition.x
