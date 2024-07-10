@@ -195,7 +195,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8712021434732045442}
-  - component: {fileID: 4633643451399098317}
   - component: {fileID: 3587821766826216145}
   - component: {fileID: 5327984563587459231}
   - component: {fileID: 2195268493820691337}
@@ -206,6 +205,7 @@ GameObject:
   - component: {fileID: 5069220108103829576}
   - component: {fileID: 5396431997798256870}
   - component: {fileID: 8566827825781502872}
+  - component: {fileID: 9206329593359334793}
   m_Layer: 0
   m_Name: ScrapMetalScripts
   m_TagString: Untagged
@@ -228,18 +228,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3216979765858532273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4633643451399098317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017798119667831316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9682eccbc06852348a34f79beadf173c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3587821766826216145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,8 +353,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd3df8ef2354bd4794d0e6884a16785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  determineDirectionScrapMetal: {fileID: 4633643451399098317}
+  entityDirectionToCamera: {fileID: 9206329593359334793}
   rigidbodyScrapMetal: {fileID: 1118537869841237704}
+--- !u!114 &9206329593359334793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017798119667831316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ed89e4731c4e347aab1d7bb5ced494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7350974560824280102
 GameObject:
   m_ObjectHideFlags: 0

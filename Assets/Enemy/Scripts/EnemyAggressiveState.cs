@@ -4,7 +4,7 @@ namespace Enemies
 {
     public class EnemyAggressiveState : MonoBehaviour
     {
-        private bool isAggressive = true;
+        [SerializeField] private bool isAggressive = true;
 
         public void SetState(bool isAggressive)
         {

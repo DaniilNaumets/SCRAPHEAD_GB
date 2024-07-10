@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9162372362657077997}
   - component: {fileID: 4377458689041761154}
   - component: {fileID: 5926263310009817319}
+  - component: {fileID: 6032341948322771398}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -68,6 +69,8 @@ MonoBehaviour:
   enemyLook: {fileID: 1986028237566041316}
   enemyAttack: {fileID: 9162372362657077997}
   enemyAggressiveState: {fileID: 5926263310009817319}
+  enemyLineOfSight: {fileID: 163676444205121473}
+  entityDirectionToCamera: {fileID: 6032341948322771398}
 --- !u!114 &1794469729510398995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +132,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d68e66b76f00f942a383bcb49cb7873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAggressive: 1
+--- !u!114 &6032341948322771398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875529166974572041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ed89e4731c4e347aab1d7bb5ced494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3285993038608852294
@@ -202,7 +218,7 @@ Transform:
   m_GameObject: {fileID: 4219827095008574711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.58, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -276,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83293c354cc63340bbaa7d70e67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 988dd9d9df3025940a057f0bc9c39b61, type: 2}
   health: 0
   movementSpeed: 0
   shootingDistance: 0
@@ -406,6 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1486482468323687542}
   - component: {fileID: 5221658347782074939}
+  - component: {fileID: 163676444205121473}
   m_Layer: 3
   m_Name: LineOfSight
   m_TagString: Untagged
@@ -457,9 +474,21 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 5.0635552, y: 0}
   serializedVersion: 2
   m_Radius: 22.17435
+--- !u!114 &163676444205121473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200924759758241325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3ff983a54e55a4bba805ff9889f426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class EnemyLineOfSight : MonoBehaviour
     {
-        private List<Collider2D> collidersInTrigger = new List<Collider2D>();
+        private List<Collider2D> collidersInTrigger = new List<Collider2D>();     
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -23,16 +23,17 @@ namespace Enemies
             }
         }
 
-        public bool GetContainsCollider<T>() where T : Component
+        public Collider2D HasCurrentComponent<T>() where T : Component
         {
             foreach (var collider in collidersInTrigger)
             {
                 if (collider.GetComponent<T>())
-                {
-                    return true;
+                {                   
+                    return collider;
                 }
             }
-            return false;
-        }
+         
+            return null;
+        }        
     }
 }

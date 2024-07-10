@@ -1,5 +1,3 @@
-using Resources;
-using System.Drawing;
 using UnityEngine;
 
 namespace Enemies
@@ -18,15 +16,6 @@ namespace Enemies
 
         [Header("Components")]
         [SerializeField] private SpriteRenderer enemySpriteRenderer;
-
-        public float GetMovementSpeed
-        { get { return movementSpeed; } }
-
-        public float GetShootingDistance
-        { get { return shootingDistance; } }
-
-        public float GetSpawnFrequency
-        { get { return spawnFrequency; } }
 
         private void Awake()
         {
@@ -52,6 +41,11 @@ namespace Enemies
         {
             this.enemy = enemy;
         }
+        public float GetMovementSpeed() => movementSpeed;
+
+        public float GetShootingDistance() => shootingDistance;
+
+        public float GetSpawnFrequency() => spawnFrequency;
     }
 }
 
