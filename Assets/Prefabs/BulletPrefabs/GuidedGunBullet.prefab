@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1199233749
+  m_SortingLayer: -2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.22
 --- !u!114 &2187412938975307117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,12 +164,13 @@ MonoBehaviour:
   poolManager: {fileID: 0}
   type: 1
   rb: {fileID: 7166099879947576732}
-  speed: 25
+  speed: 15
   damage: 100
   lifeTime: 5
   enemyMask:
     serializedVersion: 2
     m_Bits: 8
-  radius: 10
+  radius: 15
   interval: 0.2
-  rotationSpeed: 45
+  radiusKill: 10
+  rotationSpeed: 5

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LaserGun : Gun
 {
-    [SerializeField] private GameObject laser;
+    [SerializeField] private GameObject laserNotWide;
+    [SerializeField] private GameObject laserWide;
 
     [SerializeField] private float laserTime;
     [SerializeField] private float laserTime2;
@@ -17,7 +18,7 @@ public class LaserGun : Gun
     {
         base.Awake();
     }
-    public override void ShootPKM1()
+    public override void ShootLKM1()
     {
         if (CanShoot(reloadTime1))
         {
@@ -26,7 +27,7 @@ public class LaserGun : Gun
         }
     }
 
-    public override void ShootPKM2()
+    public override void ShootLKM2()
     {
         if (CanShoot(reloadTime2))
         {
@@ -39,9 +40,9 @@ public class LaserGun : Gun
     {
         //StopCoroutine(OpenLaser2());
         //laserLineRenderer.material = notWide;
-        laser.SetActive(true);
+        laserNotWide.SetActive(true);
         yield return new WaitForSeconds(laserTime);
-        laser.SetActive(false);
+        laserNotWide.SetActive(false);
         //laserLineRenderer.material = wide;
     }
 
@@ -49,9 +50,9 @@ public class LaserGun : Gun
     {
         //StopCoroutine(OpenLaser());
         //laserLineRenderer.material = wide;
-        laser.SetActive(true);
+        laserWide.SetActive(true);
         yield return new WaitForSeconds(laserTime2);
-        laser.SetActive(false);
+        laserWide.SetActive(false);
         //laserLineRenderer.material = notWide;
     }
 

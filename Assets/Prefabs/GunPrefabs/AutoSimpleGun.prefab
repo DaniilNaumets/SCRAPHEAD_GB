@@ -214,7 +214,7 @@ MonoBehaviour:
   speedAttack1: 1
   speedAttack2: 0.3
   bulletPrefab: {fileID: 1768581000495275445, guid: aa7cb61f306187a40a9858e503d33413, type: 3}
-  radiusZone: 20
+  radiusZone: 10
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
