@@ -7,12 +7,15 @@ public class AutoGun : Gun
     [SerializeField] protected float radiusZone;
 
     [SerializeField] protected LayerMask enemyLayer;
+    [SerializeField] protected LayerMask playerLayer;
 
     private Equipment equip;
 
     protected Transform target;
 
     protected bool isLazerShoot;
+
+
 
     private void Start()
     {
@@ -23,6 +26,7 @@ public class AutoGun : Gun
     private void Update()
     {
         Reloading();
+
     }
 
 
@@ -44,7 +48,14 @@ public class AutoGun : Gun
 
     protected void FindClosestTarget()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radiusZone, enemyLayer);
+        Collider2D[] hits = null;
+        if (isPlayerGun)
+        {
+            hits = Physics2D.OverlapCircleAll(transform.position, radiusZone, enemyLayer);
+        }
+        else if(!isPlayerGun){
+            hits = Physics2D.OverlapCircleAll(transform.position, radiusZone, playerLayer);
+        }
         float closestDistance = Mathf.Infinity;
         target = null;
 
@@ -91,4 +102,5 @@ public class AutoGun : Gun
     }
 
     protected virtual void Shoot() { }
+
 }

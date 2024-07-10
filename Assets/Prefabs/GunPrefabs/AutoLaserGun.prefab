@@ -151,16 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99009ba3e21444445a5a07530d384413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolManager: {fileID: 0}
-  type: 0
-  rb: {fileID: 0}
-  speed: 0
-  damage: 0
-  lifeTime: 0
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  radius: 0
 --- !u!50 &2477726029863690631
 Rigidbody2D:
   serializedVersion: 4
@@ -357,8 +347,8 @@ Transform:
   m_GameObject: {fileID: 6466806585780850901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.085714, y: 0.8, z: 0}
-  m_LocalScale: {x: 10, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3624935047728667574}
@@ -381,7 +371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e239989f6b0deb342b0f0f22a82779f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneTransform: {fileID: 0}
   health: 100
   forceValue: 1
   torqueValue: 5
