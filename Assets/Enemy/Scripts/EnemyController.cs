@@ -41,7 +41,7 @@ namespace Enemies
                 enemySpriteRenderer.sprite = enemy.Sprite;
                 health = enemy.Health;
                 movementSpeed = enemy.MovementSpeed;
-                transform.localScale = new Vector2(enemy.Size, enemy.Size);
+                //transform.localScale = new Vector2(enemy.Size, enemy.Size);
                 //rotationSpeed = enemy.rotationSpeed;
                 shootingDistance = enemy.ShootingDistance;
                 spawnFrequency = enemy.SpawnFrequency;

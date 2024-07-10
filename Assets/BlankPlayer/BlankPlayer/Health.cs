@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage, ObjectPoolManager poolManager)
     {
         health -= damage;
-
+        Debug.Log(health);
         if (health > 0)
         {
 

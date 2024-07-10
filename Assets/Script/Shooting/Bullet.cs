@@ -76,7 +76,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Equipment>(out Equipment equip) && !isPlayerBullet)
         {
-            if (equip.isInstalledMethod())
+            if (equip.isInstalledMethod() && equip.GetUser())
             {
                 equip.BreakEquip();
                 Destroy(gameObject);
@@ -96,7 +96,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
 
         }
-        if (collision.gameObject.GetComponent<EnemyController>())
+        if (collision.gameObject.GetComponent<EnemyController>() && isPlayerBullet)
         {
             switch (type)
             {

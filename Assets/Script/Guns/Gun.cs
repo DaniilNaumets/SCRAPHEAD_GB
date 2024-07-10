@@ -1,6 +1,8 @@
+using Enemies;
 using ObjectPool;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour, IShoot
@@ -21,12 +23,26 @@ public class Gun : MonoBehaviour, IShoot
         Reloading1();
         Reloading2();
 
+    }
+
+    private void Start()
+    {
         CheckUser();
     }
 
-    private void Update()
+    protected void Update()
     {
         Reloading();
+        CheckEnemyShooting();
+    }
+
+    public void CheckEnemyShooting()
+    {
+        if (GetComponentInParent<EnemyController>())
+        {
+            ShootLKM1();
+            ShootPKM1();
+        }
     }
 
     protected void Reloading()
@@ -50,6 +66,8 @@ public class Gun : MonoBehaviour, IShoot
         }
         else return true;
     }
+
+    
 
     protected void Reloading1()
     {

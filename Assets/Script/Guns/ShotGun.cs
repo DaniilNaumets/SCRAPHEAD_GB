@@ -10,6 +10,12 @@ public class ShotGun : Gun
     {
         base.Awake();
     }
+
+    private void Update()
+    {
+        Reloading();
+        CheckEnemyShooting();
+    }
     public override void ShootLKM1()
     {
         if (CanShoot(reloadTime1))

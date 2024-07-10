@@ -38,6 +38,15 @@ public class Equipment : MonoBehaviour
             isInstalled = true;
         }
         CheckUser();
+
+        if (isInstalled)
+        {
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
+        }
+        else
+        {
+            rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 
     private void Start()
