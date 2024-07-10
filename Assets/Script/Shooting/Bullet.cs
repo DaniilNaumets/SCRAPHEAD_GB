@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float lifeTime;
 
     [SerializeField] protected LayerMask enemyMask;
+    [Header("Радиус поиска")]
     [SerializeField] protected float radius;
 
     protected Vector2 direction;

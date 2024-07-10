@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class GuidedBullet : Bullet
 {
+    [Space]
     [SerializeField] private float interval;
-
+    [SerializeField,Header("Радиус в котором враги будут умирать\nот этой пули")] private float radiusKill;
+    [Space]
     [SerializeField] private float rotationSpeed;
 
     private bool isFinding;
 
     private Vector2 lastDirection;
+
+    private bool isSecondTarget;
 
     private void Start()
     {
@@ -28,6 +32,7 @@ public class GuidedBullet : Bullet
         {
             MoveForward();
         }
+        LifeTime();
     }
 
     private IEnumerator StartFindingTarget()
@@ -41,6 +46,7 @@ public class GuidedBullet : Bullet
     {
         if (target != null)
         {
+            isSecondTarget = true;
             Vector2 direction = (target.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
@@ -49,14 +55,23 @@ public class GuidedBullet : Bullet
 
             rb.velocity = transform.up * speed;
             lastDirection = direction;
+            if(lastDirection == Vector2.zero)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     private void MoveForward()
     {
+        if (isSecondTarget)
+        {
+            Destroy(gameObject);
+        }
         if (lastDirection != Vector2.zero)
             rb.velocity = lastDirection * speed;
         else rb.velocity = transform.up * speed;
+
     }
 
     private Transform FindClosestTarget()
@@ -114,11 +129,11 @@ public class GuidedBullet : Bullet
 
 
                 case bulletType.Rocket:
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill, enemyMask);
                     foreach (var enemy in enemies)
                     {
                         Health health = enemy.gameObject.GetComponentInChildren<Health>();
-                        health.TakeDamage(damage,poolManager);
+                        health.TakeDamage(damage, poolManager);
                     }
                     poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
@@ -166,5 +181,8 @@ public class GuidedBullet : Bullet
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, radiusKill);
     }
 }
