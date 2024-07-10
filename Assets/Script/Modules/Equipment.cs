@@ -6,8 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
 public class Equipment : MonoBehaviour
 {
-    [SerializeField] private Transform droneTransform;
-
     [SerializeField] private float health;
 
     [SerializeField] private float forceValue;
@@ -66,6 +64,10 @@ public class Equipment : MonoBehaviour
             if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
             {
                 UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
+                if (engine.GetType() == typeof(QuantumEngine) && isPlayerEquip)
+                {
+                    PublicSettings.IsQuantumWork = false;
+                }
             }
 
             isInstalled = false;
@@ -97,6 +99,10 @@ public class Equipment : MonoBehaviour
             {
                 UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
                 engine.StartEngine();
+                if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
+                {
+                    PublicSettings.IsQuantumWork = true;
+                }
             }
             if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
             {

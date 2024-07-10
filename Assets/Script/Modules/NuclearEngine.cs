@@ -20,43 +20,45 @@ public class NuclearEngine : Engine
     }
     public override void Special(float mult)
     {
-        if (isReloading)
+        if (!PublicSettings.IsQuantumWork)
         {
-            currentBoostTime += Time.deltaTime;
-            if (currentBoostTime >= boostTime * mult)
+            if (isReloading)
             {
-                currentBoostTime = boostTime * mult;
-                isReloading = false;
+                currentBoostTime += Time.deltaTime;
+                if (currentBoostTime >= boostTime * mult)
+                {
+                    currentBoostTime = boostTime * mult;
+                    isReloading = false;
+                }
+            }
+
+            if (Input.GetKey(KeyCode.Space) && !isReloading)
+            {
+                currentBoostTime -= Time.deltaTime;
+                if (!isBoosting)
+                {
+                    UnityEvents.EngineModuleEventMultiplie.Invoke(boostMultiplier);
+                    isBoosting = true;
+                }
+            }
+
+
+            if (Input.GetKeyUp(KeyCode.Space) && !isReloading)
+            {
+                isReloading = true;
+                isBoosting = false;
+                UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier);
+                return;
+            }
+
+            if (currentBoostTime <= 0 && !isReloading)
+            {
+                isReloading = true;
+                isBoosting = false;
+                UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier * mult);
+                return;
             }
         }
-
-        if (Input.GetKey(KeyCode.Space) && !isReloading)
-        {
-            currentBoostTime -= Time.deltaTime;
-            if (!isBoosting)
-            {
-                UnityEvents.EngineModuleEventMultiplie.Invoke(boostMultiplier);
-                isBoosting = true;
-            }
-        }
-        
-
-        if (Input.GetKeyUp(KeyCode.Space) && !isReloading)
-        {
-            isReloading = true;
-            isBoosting = false;
-            UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier);
-            return;
-        }
-
-        if (currentBoostTime <= 0 && !isReloading)
-        {
-            isReloading = true;
-            isBoosting = false;
-            UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier * mult);
-            return;
-        }
-
     }
 
     public override void StartEngine()
