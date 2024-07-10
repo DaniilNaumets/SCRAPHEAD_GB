@@ -19,7 +19,7 @@ public class GuidedGun : Gun
         base.Awake();
     }
 
-    public override void ShootLKM1()
+    public override void ShootPKM1()
     {
         if (CanShoot(reloadTime1))
         {
@@ -29,7 +29,7 @@ public class GuidedGun : Gun
         }
     }
 
-    public override void ShootLKM2()
+    public override void ShootPKM2()
     {
         if (CanShoot(reloadTime2) && isShooting)
         {
