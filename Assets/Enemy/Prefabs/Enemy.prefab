@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1986028237566041316}
   - component: {fileID: 9162372362657077997}
   - component: {fileID: 4377458689041761154}
+  - component: {fileID: 5926263310009817319}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   enemyAttackPosition: {fileID: 1794469729510398995}
   enemyLook: {fileID: 1986028237566041316}
   enemyAttack: {fileID: 9162372362657077997}
-  enemyAggressiveState: {fileID: 0}
+  enemyAggressiveState: {fileID: 5926263310009817319}
 --- !u!114 &1794469729510398995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 100
+--- !u!114 &5926263310009817319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875529166974572041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d68e66b76f00f942a383bcb49cb7873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3285993038608852294
 GameObject:
   m_ObjectHideFlags: 0
