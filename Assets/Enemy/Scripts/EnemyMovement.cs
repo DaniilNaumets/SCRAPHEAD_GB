@@ -10,24 +10,32 @@ namespace Enemies
         [SerializeField] private EnemyAttackPosition enemyAttackPosition;
         [SerializeField] private EnemyLook enemyLook;
         [SerializeField] private EnemyAttack enemyAttack;
-
-        private float currentSpeed;
-        private float currentShootingDistance;
-
-        private void Start()
-        {
-            currentSpeed = enemyController.GetMovementSpeed;
-            currentShootingDistance = enemyController.GetShootingDistance;
-        }
+        [SerializeField] private EnemyAggressiveState enemyAggressiveState;
 
         private void Update()
         {
-            Move(currentSpeed, currentShootingDistance);
+            Move();
         }
 
-        private void Move(float speed, float shootingDistance)
+        private void Move()
         {
-            Vector2 targetPosition = enemyFindingDirections.FindPlayerCoordinates();       
+            float speed = enemyController.GetMovementSpeed;
+            bool isAggressive = enemyAggressiveState.GetState();
+
+            if (isAggressive)
+            {
+                MoveTowardsPlayer(speed);
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void MoveTowardsPlayer(float speed)
+        {
+            float shootingDistance = enemyController.GetShootingDistance;
+            Vector2 targetPosition = enemyFindingDirections.FindPlayerCoordinates();
             Vector2 enemyPosition = transform.parent.position;
             Vector2 newPosition = Vector2.MoveTowards(enemyPosition, targetPosition, speed * Time.deltaTime);
             float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
@@ -38,7 +46,7 @@ namespace Enemies
                 transform.parent.position = enemyPosition;
                 enemyAttack.Attack(true);
             }
-            else 
+            else
             {
                 enemyAttack.Attack(false);
                 transform.parent.position = newPosition;
