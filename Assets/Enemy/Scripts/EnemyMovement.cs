@@ -2,6 +2,7 @@ using Entity;
 using Resources;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Enemies
 {
@@ -14,7 +15,7 @@ namespace Enemies
         [SerializeField] private EnemyAttack enemyAttack;
         [SerializeField] private EnemyAggressiveState enemyAggressiveState;
         [SerializeField] private EnemyLineOfSight enemyLineOfSight;
-        [SerializeField] private EntityDirectionToCamera entityDirectionToCamera;
+        [SerializeField] private EntityCameraPosition entityCameraPosition;
 
         private void Update()
         {
@@ -25,6 +26,7 @@ namespace Enemies
         {
             float speed = enemyController.GetMovementSpeed();
             float shootingDistance = enemyController.GetShootingDistance();
+            float scanningDistance = enemyController.GetScanningDistance();
             Collider2D playerCollider = enemyLineOfSight.HasCurrentComponent<PlayerController>();
             bool isAggressive = enemyAggressiveState.GetState();
             bool playerOnLineOfSight = playerCollider;           
@@ -37,7 +39,7 @@ namespace Enemies
             }
             else
             {
-                MoveOnTheMap(enemyPosition, speed, shootingDistance);
+                MoveOnTheMap(enemyPosition, speed, shootingDistance, scanningDistance);
             }
         }
 
@@ -59,42 +61,71 @@ namespace Enemies
             }
         }
 
-        private void MoveOnTheMap(Vector2 enemyPosition, float speed, float shootingDistance)
+        private void MoveOnTheMap(Vector2 enemyPosition, float speed, float shootingDistance, float scanningDistance)
         {
-            bool isInView = entityDirectionToCamera.IsObjectInView(transform.parent);           
+            bool enemyInView = entityCameraPosition.IsObjectInView(transform.parent);            
 
-            if (isInView) // баг на границе с камерой
+            if (enemyInView) 
             {
                 Collider2D scrapMetalCollider = enemyLineOfSight.HasCurrentComponent<ScrapMetalController>();
+                bool scrapMetalInView = scrapMetalCollider != null ? entityCameraPosition.IsObjectInView(scrapMetalCollider.transform): false;
                 bool scrapMetalInLineOfSight = scrapMetalCollider;
 
-                if (scrapMetalInLineOfSight)
+                if (scrapMetalInLineOfSight && scrapMetalInView)
                 {
-                    Vector2 targetPosition = scrapMetalCollider.transform.position;
-                    Vector2 newPosition = GetPosition(targetPosition, speed);
-                    float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
-
-                    if ((distanceToTarget <= shootingDistance) && !scrapMetalCollider.GetComponentInChildren<ScrapPickup>())
-                    {
-                        MoveToPosition(targetPosition, enemyPosition);
-                        enemyAttack.Attack(true);
-                    }
-                    else 
-                    {
-                        MoveToPosition(targetPosition, newPosition);
-                        //добавить дистанцию сбора или провреу на триггер луча
-                    }                   
+                    MovementTowardsScrapMetal(scrapMetalCollider, shootingDistance, scanningDistance, enemyPosition, speed);
                 }
-
-                //добавить альтернативное движение
+                else
+                {
+                    MoveForward(speed);
+                }
             }
             else
             {
-                Vector2 targetPosition = entityDirectionToCamera.GetCameraCenterPosition();
-                Vector2 newPosition = GetPosition(targetPosition, speed);
-                transform.parent.rotation = enemyLook.LookAtTarget(targetPosition);
-                transform.parent.position = newPosition;
+                MoveTowardsCamera(speed);
             }
+        }
+
+        private void MoveForward(float speed)
+        {
+            Vector2 forwardDirection = transform.parent.right;
+            Vector2 forwardPosition = (Vector2)transform.parent.position + forwardDirection * speed * Time.deltaTime;
+            transform.parent.position = forwardPosition;    
+        }
+
+        private void MovementTowardsScrapMetal(Collider2D scrapMetalCollider, float shootingDistance, float scanningDistance, Vector2 enemyPosition, float speed)
+        {
+            Vector2 targetPosition = scrapMetalCollider.transform.position;          
+            float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
+
+            if ((distanceToTarget <= shootingDistance) && !scrapMetalCollider.GetComponentInChildren<ScrapPickup>())
+            {
+                MoveToPosition(targetPosition, enemyPosition);
+                enemyAttack.Attack(true);
+            }
+            else
+            {
+                if (distanceToTarget <= scanningDistance)
+                {
+                    Vector2 maxValuePosotion = enemyPosition.magnitude > targetPosition.magnitude ? enemyPosition : targetPosition;
+                    Vector2 minValuePosition = maxValuePosotion.magnitude == enemyPosition.magnitude ? targetPosition : enemyPosition;
+                    Vector2 directionPosition = maxValuePosotion - minValuePosition;
+                    Vector2 newPosition = GetPosition(directionPosition, speed);
+                    MoveToPosition(targetPosition, newPosition);
+                }
+                else 
+                {
+                    Vector2 newPosition = GetPosition(targetPosition, speed);
+                    MoveToPosition(targetPosition, newPosition);
+                }
+            }
+        }
+
+        private void MoveTowardsCamera(float speed)
+        {
+            Vector2 targetPosition = entityCameraPosition.GetCameraCenterPosition();
+            Vector2 newPosition = GetPosition(targetPosition, speed);         
+            MoveToPosition(targetPosition, newPosition);
         }
 
         private Vector2 GetPosition(Vector2 targetPosition, float speed)

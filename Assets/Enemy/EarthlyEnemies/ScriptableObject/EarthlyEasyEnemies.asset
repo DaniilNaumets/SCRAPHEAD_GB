@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: EarthlyEasyEnemies
   Sprite: {fileID: 21300000, guid: eb998a479ac0a5741a81a71dc968ce20, type: 3}
   Health: 100
-  MovementSpeed: 5
+  MovementSpeed: 2
   Size: 0.4
-  ShootingDistance: 5
+  ShootingDistance: 10
   SpawnFrequency: 1

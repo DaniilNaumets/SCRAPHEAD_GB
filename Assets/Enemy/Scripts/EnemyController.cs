@@ -13,6 +13,7 @@ namespace Enemies
         //[ReadOnly][SerializeField] private float rotationSpeed;
         [ReadOnly][SerializeField] private float shootingDistance;
         [ReadOnly][SerializeField] private float spawnFrequency;
+        [SerializeField] private float scanningDistance;
 
         [Header("Components")]
         [SerializeField] private SpriteRenderer enemySpriteRenderer;
@@ -46,6 +47,8 @@ namespace Enemies
         public float GetShootingDistance() => shootingDistance;
 
         public float GetSpawnFrequency() => spawnFrequency;
+
+        public float GetScanningDistance() => scanningDistance;
     }
 }
 

@@ -1,3 +1,4 @@
+using Entity;
 using Resources;
 using Resources.UI;
 using System.Collections;
@@ -10,7 +11,7 @@ namespace ScanningBeam
     public class ScanningBeamCollecting : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private PlayerInventory playerInventory;
+        [SerializeField] private EntityInventory inventory;
         [SerializeField] private SpriteRenderer scanningBeamSpriteRenderer;
 
         private Queue<ScrapPickup> scrapQueue = new Queue<ScrapPickup>();
@@ -90,11 +91,11 @@ namespace ScanningBeam
                 {
                     if (currentScrap.GetComponentInParent<ScrapMetalController>())
                     {
-                        playerInventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
+                        inventory?.AddScrapMetalToInventory(currentScrap.GetValueScrap());
                     }
                     else if (currentScrap.GetComponentInParent<ScrapAlienController>())
                     {
-                        playerInventory.AddScrapAlienToInventory(currentScrap.GetValueScrap());
+                        inventory?.AddScrapAlienToInventory(currentScrap.GetValueScrap());
                     }
 
                     scrapQueue.Dequeue();

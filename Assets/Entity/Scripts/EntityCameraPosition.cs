@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Entity
 {
-    public class EntityDirectionToCamera : MonoBehaviour
+    public class EntityCameraPosition : MonoBehaviour
     {
         private Camera mainCamera;
 
