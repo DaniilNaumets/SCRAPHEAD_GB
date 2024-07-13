@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Equipment : MonoBehaviour
 {
     [SerializeField] private float health;
@@ -26,7 +26,7 @@ public class Equipment : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        render = GetComponent<SpriteRenderer>();
+        render = GetComponentInChildren<SpriteRenderer>();
 
         if (transform.GetComponentInParent<Place>())
         {
