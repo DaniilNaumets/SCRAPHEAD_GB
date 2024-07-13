@@ -1,5 +1,6 @@
 using Entity;
 using Resources;
+using TMPro;
 using UnityEngine;
 
 namespace Enemies
@@ -7,7 +8,7 @@ namespace Enemies
     public class EnemyMovement : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private EnemyController enemyController;  
+        [SerializeField] private EnemyController enemyController;
         [SerializeField] private EnemyAttackPosition enemyAttackPosition;
         [SerializeField] private EnemyLook enemyLook;
         [SerializeField] private EnemyAttack enemyAttack;
@@ -25,6 +26,9 @@ namespace Enemies
         private float nextTurnTime;
         private Quaternion targetRotation;
         private bool isFirstTryMoveInCamera;
+        private bool scrapMetalInLineOfSight;
+        private bool scrapCannotBePickedUp = true;
+        public bool ScrapPickUp;
 
         private void Update()
         {
@@ -48,7 +52,7 @@ namespace Enemies
             bool isAggressive = enemyAggressiveState.GetState();
 
             if (isAggressive && playerCollider != null)
-            {               
+            {
                 MoveTowardsPlayer();
             }
             else
@@ -58,9 +62,9 @@ namespace Enemies
         }
 
         private void MoveTowardsPlayer()
-        {           
+        {
             Vector2 targetPosition = playerCollider.transform.position;
-            Vector2 newPosition = GetPosition(targetPosition);              
+            Vector2 newPosition = GetPosition(targetPosition);
             float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
 
             if (distanceToTarget <= shootingDistance)
@@ -79,19 +83,19 @@ namespace Enemies
         {
             bool enemyInCamera = entityCameraPosition.IsObjectInView(transform.parent);
 
-            if (!enemyInCamera && isFirstTryMoveInCamera) 
+            if (!enemyInCamera && isFirstTryMoveInCamera)
             {
-                MoveTowardsCamera();            
+                MoveTowardsCamera();
             }
             else
             {
                 isFirstTryMoveInCamera = false;
                 Collider2D scrapMetalCollider = enemyLineOfSight.HasCurrentComponent<ScrapMetalController>();
-                bool scrapMetalInLineOfSight = scrapMetalCollider;              
+                scrapMetalInLineOfSight = scrapMetalCollider != null;
 
-                if (scrapMetalInLineOfSight && scrapMetalCollider != null)
+                if (scrapMetalInLineOfSight)
                 {
-                    MovementTowardsScrapMetal(scrapMetalCollider);
+                    MoveTowardsScrapMetal(scrapMetalCollider);
                 }
                 else
                 {
@@ -100,13 +104,65 @@ namespace Enemies
             }
         }
 
+        private void MoveTowardsScrapMetal(Collider2D scrapMetalCollider)
+        {
+            if (scrapMetalCollider == null || scrapMetalCollider.gameObject == null)
+            {
+                FreeMovement();
+                return;
+            }
+
+            ScrapPickup scrapPickup = scrapMetalCollider.GetComponentInChildren<ScrapPickup>();
+            if (scrapPickup == null)
+            {
+                Vector2 scrapMetalPosition = scrapMetalCollider.transform.position;
+                float targetDistance = enemyAttackPosition.GetAttackDistance(enemyPosition, scrapMetalPosition);
+
+                if ((targetDistance <= shootingDistance) && !ScrapPickUp)
+                {
+                    MoveToPosition(scrapMetalPosition, enemyPosition);
+                    enemyAttack.Attack(true);
+                }
+                return;
+            }
+
+            scrapCannotBePickedUp = scrapPickup.isGoing;
+            if (!scrapCannotBePickedUp)
+            {
+                ScrapPickUp = true;
+            }
+
+            Vector2 scrapPosition = scrapMetalCollider.transform.position;
+            float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, scrapPosition);
+            Vector2 newPosition = GetPosition(scrapPosition);
+
+            if ((distanceToTarget <= shootingDistance) && !ScrapPickUp)
+            {
+                MoveToPosition(scrapPosition, enemyPosition);
+                enemyAttack.Attack(true);
+            }
+            else if ((distanceToTarget <= scanningDistance) && ScrapPickUp)
+            {
+                scrapPickup.isGoing = ScrapPickUp;
+                Vector2 maxValuePosition = enemyPosition.magnitude > scrapPosition.magnitude ? enemyPosition : scrapPosition;
+                Vector2 minValuePosition = maxValuePosition.magnitude == enemyPosition.magnitude ? scrapPosition : enemyPosition;
+                Vector2 directionPosition = maxValuePosition - minValuePosition;
+                Vector2 distancePosition = GetPosition(directionPosition);
+                MoveToPosition(scrapPosition, distancePosition);
+            }
+            else
+            {
+                MoveToPosition(scrapPosition, newPosition);
+            }
+        }
+
         private void TurnPeriodically()
-        {                  
+        {
             if (Time.time >= nextTurnTime)
             {
                 float rotationDegree = enemyController.GetRotationDegree();
                 float angle = Random.Range(0, 2) == 0 ? rotationDegree : -rotationDegree;
-                targetRotation = Quaternion.Euler(0, 0, transform.parent.eulerAngles.z + angle); ;            
+                targetRotation = Quaternion.Euler(0, 0, transform.parent.eulerAngles.z + angle);
                 nextTurnTime = Time.time + moveForwardTime + waitTimeAfterTurn;
             }
 
@@ -122,47 +178,10 @@ namespace Enemies
             TurnPeriodically();
         }
 
-        private void MovementTowardsScrapMetal(Collider2D scrapMetalCollider)
-        {
-            ScrapPickup scrapPickup = scrapMetalCollider.GetComponentInChildren<ScrapPickup>();
-            bool scrapCannotBePickedUp = true;
-
-            if (scrapPickup != null)
-            {
-                scrapCannotBePickedUp = scrapPickup.isGoing;
-            }
-            
-            Vector2 targetPosition = scrapMetalCollider.transform.position;          
-            float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
-
-            if ((distanceToTarget <= shootingDistance) && scrapPickup == null)
-            {
-                MoveToPosition(targetPosition, enemyPosition);
-                enemyAttack.Attack(true);
-            }
-            else
-            {
-                Debug.Log(scrapCannotBePickedUp);
-                if ((distanceToTarget <= scanningDistance) && !scrapCannotBePickedUp)
-                {
-                    Vector2 maxValuePosotion = enemyPosition.magnitude > targetPosition.magnitude ? enemyPosition : targetPosition;
-                    Vector2 minValuePosition = maxValuePosotion.magnitude == enemyPosition.magnitude ? targetPosition : enemyPosition;
-                    Vector2 directionPosition = maxValuePosotion - minValuePosition;
-                    Vector2 newPosition = GetPosition(directionPosition);
-                    MoveToPosition(targetPosition, newPosition);
-                }
-                else 
-                {
-                    Vector2 newPosition = GetPosition(targetPosition);
-                    MoveToPosition(targetPosition, newPosition);
-                }
-            }
-        }
-
         private void MoveTowardsCamera()
         {
             Vector2 targetPosition = entityCameraPosition.GetCameraCenterPosition();
-            Vector2 newPosition = GetPosition(targetPosition);         
+            Vector2 newPosition = GetPosition(targetPosition);
             MoveToPosition(targetPosition, newPosition);
         }
 

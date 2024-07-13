@@ -130,9 +130,8 @@ public class Bullet : MonoBehaviour
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
                     if (collision != null)
-                    poolManager.ReturnToPool(collision.gameObject);//попытка исправить
-                    poolManager.ReturnToPool(gameObject);
-                    //Destroy(gameObject);
+                    
+                    Destroy(gameObject);
                     break;
 
 

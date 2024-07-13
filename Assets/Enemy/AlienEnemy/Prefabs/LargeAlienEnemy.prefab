@@ -59,6 +59,7 @@ MonoBehaviour:
   enemyAggressiveState: {fileID: 2354093423775252374}
   enemyLineOfSight: {fileID: 113219165329142930}
   entityCameraPosition: {fileID: 7912779930758565132}
+  ScrapPickUp: 0
 --- !u!114 &1264299507192768887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d68e66b76f00f942a383bcb49cb7873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAggressive: 0
 --- !u!114 &7912779930758565132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +415,6 @@ GameObject:
   - component: {fileID: 6187451680421834406}
   - component: {fileID: 113219165329142930}
   - component: {fileID: 521164556639815928}
-  - component: {fileID: 4353250924323825821}
   m_Layer: 3
   m_Name: EnemyLineOfSight
   m_TagString: Untagged
@@ -432,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 3075941918860750086}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8}
+  m_LocalPosition: {x: -3.8, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -485,18 +484,6 @@ CircleCollider2D:
   m_Offset: {x: 7.29253, y: 0}
   serializedVersion: 2
   m_Radius: 14.582146
---- !u!114 &4353250924323825821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3075941918860750086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3ff983a54e55a4bba805ff9889f426, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3240093000037546975
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +712,7 @@ GameObject:
   - component: {fileID: 6665913235875112883}
   - component: {fileID: 7006127811219379948}
   m_Layer: 3
-  m_Name: LargeEnemy
+  m_Name: LargeAlienEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,11 +761,13 @@ MonoBehaviour:
   health: 100
   shootingDistance: 20
   scanningDistance: 8.5
+  isAggressive: 0
   movementSpeed: 3.5
   rotationSpeed: 17
   rotationDegree: 30
   moveForwardTime: 3
   enemyMovement: {fileID: 5709723067198574111}
+  enemyAggressiveState: {fileID: 2354093423775252374}
 --- !u!114 &3733985887189836252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa6a64357377de42877c1838b366c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFrequency: 3
+  spawnFrequency: 2.5
 --- !u!50 &6863531702376328440
 Rigidbody2D:
   serializedVersion: 4
@@ -1233,6 +1222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourceScanningBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 2716631790748699721, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
+      propertyPath: enemyMovement
+      value: 
+      objectReference: {fileID: 5709723067198574111}
     - target: {fileID: 3707311529657730970, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
       propertyPath: m_Color.a
       value: 1

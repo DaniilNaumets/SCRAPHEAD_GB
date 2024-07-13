@@ -266,7 +266,6 @@ GameObject:
   - component: {fileID: 3442986122537457547}
   - component: {fileID: 1841734902038066163}
   - component: {fileID: 4517186793739845798}
-  - component: {fileID: 5791031682950849585}
   - component: {fileID: 1546458202796247986}
   - component: {fileID: 202508417214838993}
   - component: {fileID: 410453291264939848}
@@ -504,20 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9bd937b0a9a37419280e587fbe533c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5791031682950849585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2675788117594784423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e5727e4d2f54f4886829a1642eefef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrapMetalCounterUI: {fileID: 0}
-  scrapAlienCounterUI: {fileID: 0}
 --- !u!114 &1546458202796247986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +600,7 @@ Transform:
   m_GameObject: {fileID: 6288742682000910024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071056, w: 0.70710796}
-  m_LocalPosition: {x: 25.999996, y: -0.00003187532, z: -27.852825}
+  m_LocalPosition: {x: 25.999996, y: -0.0000070834085, z: -27.852825}
   m_LocalScale: {x: 2.9915576, y: 2.7195978, z: 2.2436683}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -922,10 +907,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourceScanningBeam
       objectReference: {fileID: 0}
-    - target: {fileID: 5092163063145835341, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
-      propertyPath: playerInventory
-      value: 
-      objectReference: {fileID: 5791031682950849585}
     - target: {fileID: 8721732479644909906, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1017585

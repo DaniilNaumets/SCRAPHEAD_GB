@@ -27,15 +27,21 @@ namespace Enemies
 
         public Collider2D HasCurrentComponent<T>() where T : Component
         {
-            foreach (var collider in collidersInTrigger)
+            for (int i = collidersInTrigger.Count - 1; i >= 0; i--)
             {
-                if (collider.GetComponent<T>())
-                {                   
-                    return collider;
+                if (collidersInTrigger[i] == null || collidersInTrigger[i].gameObject == null)
+                {
+                    collidersInTrigger.RemoveAt(i);
+                    continue;
+                }
+
+                if (collidersInTrigger[i].GetComponent<T>() != null)
+                {
+                    return collidersInTrigger[i];
                 }
             }
-         
             return null;
         }
+
     }
 }

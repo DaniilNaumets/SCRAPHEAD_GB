@@ -9,6 +9,9 @@ namespace Enemies
         [SerializeField] private float shootingDistance;
         [SerializeField] private float scanningDistance;
 
+        [Header("Enemy initialize state")]
+        [SerializeField] private bool isAggressive;
+
         [Header("Enemy movement")]
         [SerializeField] private float movementSpeed;
         [SerializeField] private float rotationSpeed;
@@ -17,6 +20,7 @@ namespace Enemies
 
         [Header("Components")]
         [SerializeField] private EnemyMovement enemyMovement;
+        [SerializeField] private EnemyAggressiveState enemyAggressiveState;
 
         private void Awake()
         {
@@ -26,6 +30,7 @@ namespace Enemies
         public void Initialize()
         {
             enemyMovement.InitializedMovement();
+            enemyAggressiveState.SetState(isAggressive);
         }
 
         public float GetMovementSpeed() => movementSpeed;

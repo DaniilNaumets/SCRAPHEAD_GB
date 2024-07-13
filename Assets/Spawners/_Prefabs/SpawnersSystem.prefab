@@ -53,9 +53,9 @@ MonoBehaviour:
   minSpawnTime: 2
   maxSpawnTime: 6
   prefabs:
-  - {fileID: 4672004534513511411, guid: 2fca40a28f5862d4b8dccc413865be20, type: 3}
-  - {fileID: 2358333729476444339, guid: 658bc4d97159f704b814e58eba3753c1, type: 3}
-  - {fileID: 4526343802384340390, guid: e7de32c44dbb43645996e1cc09f7011a, type: 3}
+  - {fileID: 6037149161318120070, guid: 328db5d000d71ac44a56f970dc4b24ac, type: 3}
+  - {fileID: 6533254709921712579, guid: 718c6181e44208d448197247d5237aea, type: 3}
+  - {fileID: 7954800928705754358, guid: ac3e86ce7f90898419476f4f41447690, type: 3}
   spawnerPoint: {fileID: 44109735428476342}
   spawnCreate: {fileID: 5498121393200279613}
 --- !u!1 &3165320656190769831
@@ -217,9 +217,9 @@ MonoBehaviour:
   minSpawnTime: 2
   maxSpawnTime: 8
   prefabs:
-  - {fileID: 8006599894356426851, guid: a3b8d9e2433ee5c498be9a4ae2d90f9a, type: 3}
-  - {fileID: 209228404589524343, guid: 2afe45e6bc7e07e40a40d2648742a53f, type: 3}
   - {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
+  - {fileID: 209228404589524343, guid: 2afe45e6bc7e07e40a40d2648742a53f, type: 3}
+  - {fileID: 8006599894356426851, guid: a3b8d9e2433ee5c498be9a4ae2d90f9a, type: 3}
   spawnerPoint: {fileID: 8583970028952857736}
   spawnCreate: {fileID: 7697496380170602631}
 --- !u!1 &6785004333990840793

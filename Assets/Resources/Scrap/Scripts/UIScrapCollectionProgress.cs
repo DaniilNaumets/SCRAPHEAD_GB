@@ -16,6 +16,7 @@ namespace Resources.UI
             {
                 StopCoroutine(fillCoroutine);
             }
+
             fillCoroutine = StartCoroutine(FillOverTime(duration));
         }
 
@@ -44,6 +45,3 @@ namespace Resources.UI
         }
     }
 }
-
-
-

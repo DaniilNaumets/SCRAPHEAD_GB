@@ -12,7 +12,7 @@ namespace ScanningBeam
         {
             ScrapPickup scrapPickup = collision.GetComponentInChildren<ScrapPickup>();
 
-            if (scrapPickup != null && !scrapPickup.GetComponentInChildren<ScrapPickup>().isGoing)
+            if (scrapPickup != null)
             {             
                 scanningBeamCollecting.AddToQueue(scrapPickup);
             }
@@ -25,7 +25,6 @@ namespace ScanningBeam
             if (scrapPickup != null)
             {              
                 scanningBeamCollecting.RemoveFromQueue(scrapPickup);
-                scrapPickup.isGoing = false;
             }
         }
     }

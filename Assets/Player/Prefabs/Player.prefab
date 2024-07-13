@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 7716405957801052373}
   - component: {fileID: 5537452893073853472}
   - component: {fileID: 1629924248119518033}
-  - component: {fileID: 4667688863899706174}
   - component: {fileID: 3670991144279655898}
   - component: {fileID: 6564345356543492865}
   - component: {fileID: 4240630588384343961}
@@ -535,20 +534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9bd937b0a9a37419280e587fbe533c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4667688863899706174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4110400707535263494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e5727e4d2f54f4886829a1642eefef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrapMetalCounterUI: {fileID: 0}
-  scrapAlienCounterUI: {fileID: 0}
 --- !u!114 &3670991144279655898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3673ded5fdbf16748b3ec74ffa2d383f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventory: {fileID: 4667688863899706174}
+  inventory: {fileID: 0}
   scanningBeamSpriteRenderer: {fileID: 2778548107788887802}
 --- !u!212 &2778548107788887802
 SpriteRenderer:
@@ -862,7 +847,7 @@ Transform:
   m_GameObject: {fileID: 6548165811021520029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071056, w: 0.70710796}
-  m_LocalPosition: {x: 25.999996, y: -0.0000070834085, z: -27.852825}
+  m_LocalPosition: {x: 25.999996, y: -0.000006640693, z: -27.852825}
   m_LocalScale: {x: 2.9915576, y: 2.7195978, z: 2.2436683}
   m_ConstrainProportionsScale: 0
   m_Children:

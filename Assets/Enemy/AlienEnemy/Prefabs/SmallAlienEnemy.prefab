@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1091246082943794187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.29, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.8655024, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 7.24382
 --- !u!114 &8556379046872143455
@@ -152,6 +152,7 @@ MonoBehaviour:
   enemyAggressiveState: {fileID: 5375553682945086586}
   enemyLineOfSight: {fileID: 9170491547055308542}
   entityCameraPosition: {fileID: 441186084800361237}
+  ScrapPickUp: 0
 --- !u!114 &2490414875355800011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d68e66b76f00f942a383bcb49cb7873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAggressive: 0
 --- !u!114 &441186084800361237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 4891482607830358482}
   - component: {fileID: 6138570802101727807}
   m_Layer: 3
-  m_Name: SmallEnemy
+  m_Name: SmallAlienEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,11 +477,13 @@ MonoBehaviour:
   health: 100
   shootingDistance: 15
   scanningDistance: 5
+  isAggressive: 0
   movementSpeed: 7
   rotationSpeed: 17
   rotationDegree: 30
   moveForwardTime: 3
   enemyMovement: {fileID: 2036030476338382882}
+  enemyAggressiveState: {fileID: 5375553682945086586}
 --- !u!114 &162593516781662104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourceScanningBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 2716631790748699721, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
+      propertyPath: enemyMovement
+      value: 
+      objectReference: {fileID: 2036030476338382882}
     - target: {fileID: 3707311529657730970, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
       propertyPath: m_Color.a
       value: 1
