@@ -111,14 +111,14 @@ PrefabInstance:
     - target: {fileID: 4094765672713885012, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -945067821, guid: aa29974548d3bef44b1da544d4c5dce0, type: 3}
+      objectReference: {fileID: -1894412899, guid: aa29974548d3bef44b1da544d4c5dce0, type: 3}
     - target: {fileID: 7177603710434317934, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: spawnFrequency
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7753970380636311538, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_Name
-      value: MediumScrapMetal Variant
+      value: MediumScrapMetal Variant 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8637186057150822754, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
