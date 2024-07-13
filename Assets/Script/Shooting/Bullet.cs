@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float lifeTime;
 
     [SerializeField] protected LayerMask enemyMask;
+    [SerializeField, Header("Радиус в котором враги будут умирать\nот этой пули")] protected float radiusKill;
     [Header("Радиус поиска")]
     [SerializeField] protected float radius;
 
@@ -160,5 +161,17 @@ public class Bullet : MonoBehaviour
     {
         //collision.gameObject.GetComponentInChildren<ScrapHealth>()?.TakeDamage(damage);
         //collision.gameObject.GetComponentInChildren<Health>()?.TakeDamage(damage);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (type == bulletType.Rocket)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, radius);
+
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, radiusKill);
+        }
     }
 }

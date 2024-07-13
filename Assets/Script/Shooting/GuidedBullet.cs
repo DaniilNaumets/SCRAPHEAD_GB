@@ -7,7 +7,7 @@ public class GuidedBullet : Bullet
 {
     [Space]
     [SerializeField] private float interval;
-    [SerializeField,Header("Радиус в котором враги будут умирать\nот этой пули")] private float radiusKill;
+    
     [Space]
     [SerializeField] private float rotationSpeed;
 

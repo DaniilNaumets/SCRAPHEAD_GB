@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7773896818592962228}
-  - component: {fileID: 4670935498788162075}
   - component: {fileID: 6841679188073946085}
   - component: {fileID: 1794469729510398995}
   - component: {fileID: 1986028237566041316}
@@ -39,18 +38,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7224177737979069586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4670935498788162075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875529166974572041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d6facb59efc5e44c9b2ab6dabf349f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6841679188073946085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 6037120481734759107}
-  enemyFindingDirections: {fileID: 4670935498788162075}
   enemyAttackPosition: {fileID: 1794469729510398995}
   enemyLook: {fileID: 1986028237566041316}
   enemyAttack: {fileID: 9162372362657077997}
@@ -423,7 +409,7 @@ GameObject:
   - component: {fileID: 1486482468323687542}
   - component: {fileID: 5221658347782074939}
   - component: {fileID: 163676444205121473}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
