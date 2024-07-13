@@ -64,8 +64,8 @@ namespace Spawners
                     EnemyController enemyController = pooledObject.GetComponent<EnemyController>();
                     if (enemyController != null)
                     {
-                        enemyController.SetEnemy(enemy);
-                        enemyController.InitializationEnemy();
+                        //enemyController.SetEnemy(enemy);
+                        //enemyController.InitializationEnemy();
                     }
                 }
             }

@@ -3,26 +3,42 @@ using UnityEngine;
 public class GunBlank : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float damage = 10f;
-    [SerializeField] private float bulletSpeed = 20f;
-    [SerializeField] private float reloadSpeed = 1f;
-    [SerializeField] private float spread = 0.5f;
+    [SerializeField] private Transform shootPoint;
+    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float fireRate = 1f; // ¬рем€ между выстрелами в секундах
 
     private float lastShotTime;
 
+    private void Start()
+    {
+        lastShotTime = -fireRate; // „тобы можно было сразу стрел€ть при старте
+    }
+
     public void Shoot()
     {
-        if (Time.time - lastShotTime < reloadSpeed)
+        if (bulletPrefab == null || shootPoint == null)
         {
-            return; 
+            Debug.LogError("BulletPrefab or ShootPoint is not assigned in GunBlank.");
+            return;
         }
 
-        lastShotTime = Time.time;
+        // ѕроверка времени последнего выстрела
+        if (Time.time - lastShotTime < fireRate)
+        {
+            return; // ≈сли прошло недостаточно времени, не стрел€ем
+        }
 
-        GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        newBullet.GetComponent<Bullet>().Initialize(transform.right , false);
-        //Vector2 spreadDirection = ((Vector2)transform.up + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread))).normalized;
-        //BulletBlank bulletComponent = newBullet.GetComponent<BulletBlank>();
-        //bulletComponent.Initialize(bulletSpeed, damage);
+        lastShotTime = Time.time; // ќбновл€ем врем€ последнего выстрела
+
+        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = shootPoint.right * bulletSpeed;
+        }
+        else
+        {
+            Debug.LogError("Bullet prefab does not have a Rigidbody2D component.");
+        }
     }
 }

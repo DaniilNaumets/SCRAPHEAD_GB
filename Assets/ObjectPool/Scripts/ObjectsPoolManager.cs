@@ -1,3 +1,4 @@
+using Enemies;
 using Resources;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,27 +6,30 @@ using UnityEngine.Pool;
 
 namespace ObjectPool
 {
-    public class ObjectPoolManager : MonoBehaviour
+    public class ObjectsPoolManager : MonoBehaviour
     {
         private Dictionary<GameObject, ObjectPool<GameObject>> pools = new Dictionary<GameObject, ObjectPool<GameObject>>();
         [SerializeField] private int defaultCapacity = 10;
         [SerializeField] private int maxSize = 20;
 
-        public void InitializePool(GameObject prefab)
+        public void InitializePools(List<GameObject> objectPrefabs)
         {
-            if (!pools.ContainsKey(prefab))
+            foreach (GameObject prefab in objectPrefabs)
             {
-                var pool = new ObjectPool<GameObject>(
-                    () => CreatePooledItem(prefab),
-                    OnTakeFromPool,
-                    OnReturnedToPool,
-                    OnDestroyPoolObject,
-                    false,
-                    defaultCapacity,
-                    maxSize
-                );
-                pools[prefab] = pool;
-                PrewarmPool(pool, defaultCapacity);
+                if (!pools.ContainsKey(prefab))
+                {
+                    var pool = new ObjectPool<GameObject>(
+                        () => CreatePooledItem(prefab),
+                        OnTakeFromPool,
+                        OnReturnedToPool,
+                        OnDestroyPoolObject,
+                        false,
+                        defaultCapacity,
+                        maxSize
+                    );
+                    pools[prefab] = pool;
+                    PrewarmPool(pool, defaultCapacity);
+                }
             }
         }
 
@@ -37,17 +41,24 @@ namespace ObjectPool
             return obj;
         }
 
-        private void OnTakeFromPool(GameObject obj)
+        private void OnTakeFromPool(GameObject obj)//
         {
             if (obj != null)
             {
                 obj.SetActive(true);
                 var scrapController = obj.GetComponent<ScrapMetalController>();
+                var enemyController = obj.GetComponent<EnemyController>();
+
                 if (scrapController != null)
                 {
                     scrapController.Initialize();
                 }
-            }     
+
+                if (enemyController != null)
+                {
+                    enemyController.Initialize();
+                }
+            }
         }
 
         private void OnReturnedToPool(GameObject obj)

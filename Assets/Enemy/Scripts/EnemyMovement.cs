@@ -1,8 +1,6 @@
 using Entity;
 using Resources;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Enemies
 {
@@ -17,36 +15,52 @@ namespace Enemies
         [SerializeField] private EnemyLineOfSight enemyLineOfSight;
         [SerializeField] private EntityCameraPosition entityCameraPosition;
 
+        private Collider2D playerCollider;
+        private Vector2 enemyPosition;
+        private float speed;
+        private float shootingDistance;
+        private float scanningDistance;
+        private float moveForwardTime;
+        private float waitTimeAfterTurn = 0.5f;
+        private float nextTurnTime;
+        private Quaternion targetRotation;
+        private bool isFirstTryMoveInCamera;
+
         private void Update()
         {
             SelectMovementOption();
         }
 
+        public void InitializedMovement()
+        {
+            isFirstTryMoveInCamera = true;
+        }
+
         private void SelectMovementOption()
         {
-            float speed = enemyController.GetMovementSpeed();
-            float shootingDistance = enemyController.GetShootingDistance();
-            float scanningDistance = enemyController.GetScanningDistance();
-            Collider2D playerCollider = enemyLineOfSight.HasCurrentComponent<PlayerController>();
-            bool isAggressive = enemyAggressiveState.GetState();
-            bool playerOnLineOfSight = playerCollider;           
-            Vector2 enemyPosition = transform.parent.position;
-            
+            speed = enemyController.GetMovementSpeed();
+            shootingDistance = enemyController.GetShootingDistance();
+            scanningDistance = enemyController.GetScanningDistance();
+            moveForwardTime = enemyController.GetMoveForwardTime();
+            playerCollider = FindObjectOfType<PlayerController>()?.GetComponent<Collider2D>();
+            enemyPosition = transform.parent.position;
 
-            if (isAggressive && playerOnLineOfSight)
-            {
-                MoveTowardsPlayer(enemyPosition, speed, playerCollider, shootingDistance);
+            bool isAggressive = enemyAggressiveState.GetState();
+
+            if (isAggressive && playerCollider != null)
+            {               
+                MoveTowardsPlayer();
             }
             else
             {
-                MoveOnTheMap(enemyPosition, speed, shootingDistance, scanningDistance);
+                MoveOnTheMap();
             }
         }
 
-        private void MoveTowardsPlayer(Vector2 enemyPosition, float speed, Collider2D playerCollider, float shootingDistance)
+        private void MoveTowardsPlayer()
         {           
             Vector2 targetPosition = playerCollider.transform.position;
-            Vector2 newPosition = GetPosition(targetPosition, speed);              
+            Vector2 newPosition = GetPosition(targetPosition);              
             float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
 
             if (distanceToTarget <= shootingDistance)
@@ -61,74 +75,98 @@ namespace Enemies
             }
         }
 
-        private void MoveOnTheMap(Vector2 enemyPosition, float speed, float shootingDistance, float scanningDistance)
+        private void MoveOnTheMap()
         {
-            bool enemyInView = entityCameraPosition.IsObjectInView(transform.parent);            
+            bool enemyInCamera = entityCameraPosition.IsObjectInView(transform.parent);
 
-            if (enemyInView) 
+            if (!enemyInCamera && isFirstTryMoveInCamera) 
             {
-                Collider2D scrapMetalCollider = enemyLineOfSight.HasCurrentComponent<ScrapMetalController>();
-                bool scrapMetalInView = scrapMetalCollider != null ? entityCameraPosition.IsObjectInView(scrapMetalCollider.transform): false;
-                bool scrapMetalInLineOfSight = scrapMetalCollider;
-
-                if (scrapMetalInLineOfSight && scrapMetalInView)
-                {
-                    MovementTowardsScrapMetal(scrapMetalCollider, shootingDistance, scanningDistance, enemyPosition, speed);
-                }
-                else
-                {
-                    MoveForward(speed);
-                }
+                MoveTowardsCamera();            
             }
             else
             {
-                MoveTowardsCamera(speed);
+                isFirstTryMoveInCamera = false;
+                Collider2D scrapMetalCollider = enemyLineOfSight.HasCurrentComponent<ScrapMetalController>();
+                bool scrapMetalInLineOfSight = scrapMetalCollider;              
+
+                if (scrapMetalInLineOfSight && scrapMetalCollider != null)
+                {
+                    MovementTowardsScrapMetal(scrapMetalCollider);
+                }
+                else
+                {
+                    FreeMovement();
+                }
             }
         }
 
-        private void MoveForward(float speed)
+        private void TurnPeriodically()
+        {                  
+            if (Time.time >= nextTurnTime)
+            {
+                float rotationDegree = enemyController.GetRotationDegree();
+                float angle = Random.Range(0, 2) == 0 ? rotationDegree : -rotationDegree;
+                targetRotation = Quaternion.Euler(0, 0, transform.parent.eulerAngles.z + angle); ;            
+                nextTurnTime = Time.time + moveForwardTime + waitTimeAfterTurn;
+            }
+
+            transform.parent.rotation = Quaternion.RotateTowards(transform.parent.rotation, targetRotation, enemyController.GetRotationSpeed() * Time.deltaTime);
+        }
+
+        private void FreeMovement()
         {
             Vector2 forwardDirection = transform.parent.right;
             Vector2 forwardPosition = (Vector2)transform.parent.position + forwardDirection * speed * Time.deltaTime;
-            transform.parent.position = forwardPosition;    
+            transform.parent.position = forwardPosition;
+
+            TurnPeriodically();
         }
 
-        private void MovementTowardsScrapMetal(Collider2D scrapMetalCollider, float shootingDistance, float scanningDistance, Vector2 enemyPosition, float speed)
+        private void MovementTowardsScrapMetal(Collider2D scrapMetalCollider)
         {
+            ScrapPickup scrapPickup = scrapMetalCollider.GetComponentInChildren<ScrapPickup>();
+            bool scrapCannotBePickedUp = true;
+
+            if (scrapPickup != null)
+            {
+                scrapCannotBePickedUp = scrapPickup.isGoing;
+            }
+            
             Vector2 targetPosition = scrapMetalCollider.transform.position;          
             float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
 
-            if ((distanceToTarget <= shootingDistance) && !scrapMetalCollider.GetComponentInChildren<ScrapPickup>())
+            if ((distanceToTarget <= shootingDistance) && scrapPickup == null)
             {
                 MoveToPosition(targetPosition, enemyPosition);
                 enemyAttack.Attack(true);
             }
             else
             {
-                if (distanceToTarget <= scanningDistance)
+                Debug.Log(scrapCannotBePickedUp);
+                if ((distanceToTarget <= scanningDistance) && !scrapCannotBePickedUp)
                 {
                     Vector2 maxValuePosotion = enemyPosition.magnitude > targetPosition.magnitude ? enemyPosition : targetPosition;
                     Vector2 minValuePosition = maxValuePosotion.magnitude == enemyPosition.magnitude ? targetPosition : enemyPosition;
                     Vector2 directionPosition = maxValuePosotion - minValuePosition;
-                    Vector2 newPosition = GetPosition(directionPosition, speed);
+                    Vector2 newPosition = GetPosition(directionPosition);
                     MoveToPosition(targetPosition, newPosition);
                 }
                 else 
                 {
-                    Vector2 newPosition = GetPosition(targetPosition, speed);
+                    Vector2 newPosition = GetPosition(targetPosition);
                     MoveToPosition(targetPosition, newPosition);
                 }
             }
         }
 
-        private void MoveTowardsCamera(float speed)
+        private void MoveTowardsCamera()
         {
             Vector2 targetPosition = entityCameraPosition.GetCameraCenterPosition();
-            Vector2 newPosition = GetPosition(targetPosition, speed);         
+            Vector2 newPosition = GetPosition(targetPosition);         
             MoveToPosition(targetPosition, newPosition);
         }
 
-        private Vector2 GetPosition(Vector2 targetPosition, float speed)
+        private Vector2 GetPosition(Vector2 targetPosition)
         {
             Vector2 enemyPosition = transform.parent.position;
             Vector2 newPosition = Vector2.MoveTowards(enemyPosition, targetPosition, speed * Time.deltaTime);
@@ -142,4 +180,3 @@ namespace Enemies
         }
     }
 }
-

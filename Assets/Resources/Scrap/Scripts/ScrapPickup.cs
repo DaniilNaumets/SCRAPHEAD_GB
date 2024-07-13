@@ -7,6 +7,8 @@ namespace Resources
         private int currentValueScrap;
         private float currentCollectionTime;
 
+        public bool isGoing;
+
         public void SetTransmittedValue(int valueScrap, float collectionTime)
         {
             currentValueScrap = valueScrap;

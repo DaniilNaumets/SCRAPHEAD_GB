@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Resources
 {
-    public class ResourceComponent : MonoBehaviour
+    public class ObjectPoolComponent : MonoBehaviour
     {
         private GameObject prefab;
 

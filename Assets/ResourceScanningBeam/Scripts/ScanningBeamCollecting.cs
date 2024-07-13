@@ -62,6 +62,7 @@ namespace ScanningBeam
             while (scrapQueue.Count > 0)
             {             
                 ScrapPickup currentScrap = scrapQueue.Peek();
+                currentScrap.isGoing = true;
                 currentScrap.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI);
                 float collectionTime = currentScrap.GetCollectionTime();
 
@@ -78,8 +79,10 @@ namespace ScanningBeam
                     {
                         if (scrapCollectionProgressUI != null)
                         {                           
-                            scrapCollectionProgressUI.ResetFill();
+                            scrapCollectionProgressUI.ResetFill();                           
                         }
+
+                        currentScrap.isGoing = false;
                         break;
                     }
 
@@ -99,6 +102,7 @@ namespace ScanningBeam
                     }
 
                     scrapQueue.Dequeue();
+                    currentScrap.isGoing = false;
                     currentScrap.transform.parent.gameObject.SetActive(false); // objectPool
 
                     if (scrapCollectionProgressUI != null)

@@ -33,10 +33,10 @@ namespace Resources
 
         private void Awake()
         {
-            InitializeScrapMetal();
+            Initialize();
         }
 
-        public void InitializeScrapMetal()
+        public void Initialize()
         {
             scrapMass.InitializeMass(hpAndMass);
             scrapHealth.InitializeHealth(hpAndMass);

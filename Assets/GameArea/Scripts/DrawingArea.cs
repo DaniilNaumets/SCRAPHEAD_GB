@@ -7,19 +7,18 @@ namespace Area
 {
     public class DrawingArea : MonoBehaviour
     {
-        [SerializeField] private ResourcesPoolManager resourcesPoolManager;
-        [SerializeField] private ObjectPoolManager objectPoolManager;
+        [SerializeField] private ObjectsPoolManager objectPoolManagerGameObjects;
 
         private void OnTriggerExit2D(Collider2D collision)
         {          
             if (collision.GetComponent<ScrapMetalController>())
             {
-                resourcesPoolManager.ReturnToPool(collision.gameObject);
+                objectPoolManagerGameObjects.ReturnToPool(collision.gameObject);
             }
 
             if (collision.GetComponent<EnemyController>())
             {
-                objectPoolManager.ReturnToPool(collision.gameObject);
+                objectPoolManagerGameObjects.ReturnToPool(collision.gameObject);
             }
         }
     }

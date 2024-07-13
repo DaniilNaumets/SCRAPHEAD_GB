@@ -3,52 +3,42 @@ using UnityEngine;
 namespace Enemies
 {
     public class EnemyController : MonoBehaviour
-    {
-        [Header("Scriptable object")]
-        [SerializeField] private Enemy enemy;
-
+    {       
         [Header("Enemy vars")]        
-        [ReadOnly][SerializeField] private float health;
-        [ReadOnly][SerializeField] private float movementSpeed;
-        //[ReadOnly][SerializeField] private float rotationSpeed;
-        [ReadOnly][SerializeField] private float shootingDistance;
-        [ReadOnly][SerializeField] private float spawnFrequency;
+        [SerializeField] private float health;       
+        [SerializeField] private float shootingDistance;
         [SerializeField] private float scanningDistance;
 
+        [Header("Enemy movement")]
+        [SerializeField] private float movementSpeed;
+        [SerializeField] private float rotationSpeed;
+        [SerializeField][Range(0, 360)] private float rotationDegree;
+        [SerializeField] private float moveForwardTime;
+
         [Header("Components")]
-        [SerializeField] private SpriteRenderer enemySpriteRenderer;
+        [SerializeField] private EnemyMovement enemyMovement;
 
         private void Awake()
         {
-            InitializationEnemy();
+            Initialize();
         }
 
-        public void InitializationEnemy()
+        public void Initialize()
         {
-            if (enemy != null)
-            {
-                transform.name = enemy.Name;
-                enemySpriteRenderer.sprite = enemy.Sprite;
-                health = enemy.Health;
-                movementSpeed = enemy.MovementSpeed;
-                //transform.localScale = new Vector2(enemy.Size, enemy.Size);
-                //rotationSpeed = enemy.rotationSpeed;
-                shootingDistance = enemy.ShootingDistance;
-                spawnFrequency = enemy.SpawnFrequency;
-            }     
+            enemyMovement.InitializedMovement();
         }
 
-        public void SetEnemy(Enemy enemy)
-        {
-            this.enemy = enemy;
-        }
         public float GetMovementSpeed() => movementSpeed;
 
         public float GetShootingDistance() => shootingDistance;
 
-        public float GetSpawnFrequency() => spawnFrequency;
-
         public float GetScanningDistance() => scanningDistance;
+
+        public float GetMoveForwardTime() => moveForwardTime;
+
+        public float GetRotationDegree() => rotationDegree;
+
+        public float GetRotationSpeed() => rotationSpeed;
     }
 }
 

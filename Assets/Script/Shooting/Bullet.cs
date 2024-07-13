@@ -3,6 +3,7 @@ using ObjectPool;
 using Resources;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -128,9 +129,10 @@ public class Bullet : MonoBehaviour
                 case bulletType.Simple:
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
-
-                    poolManager.ReturnToPool(collision.gameObject);
-                    Destroy(gameObject);
+                    if (collision != null)
+                    poolManager.ReturnToPool(collision.gameObject);//попытка исправить
+                    poolManager.ReturnToPool(gameObject);
+                    //Destroy(gameObject);
                     break;
 
 

@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd3df8ef2354bd4794d0e6884a16785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityDirectionToCamera: {fileID: 1143198560624226246}
+  entityCameraPosition: {fileID: 1143198560624226246}
   rigidbodyScrapMetal: {fileID: 1118537869841237704}
 --- !u!114 &1143198560624226246
 MonoBehaviour:

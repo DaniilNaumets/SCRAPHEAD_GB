@@ -1,41 +1,40 @@
-using Enemies;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spawners
 {
-    public class SpawnerEnemiesController : MonoBehaviour
+    public class SpawnerController : MonoBehaviour
     {
         [Header("Spawner settings")]
         [SerializeField] private int numberOfSpawners;
         [SerializeField] private float distanceFromCamera;
         [SerializeField] private GameObject spawnerPointPrefab;
 
-        [Header("Range of spawned enemies")]
-        [SerializeField] private int minAmountEnemies;
-        [SerializeField] private int maxAmountEnemies;
+        [Header("Range of spawned resources")]
+        [SerializeField] private int minAmount;
+        [SerializeField] private int maxAmount;
 
         [Header("Time range between spawns")]
         [SerializeField] private float minSpawnTime;
         [SerializeField] private float maxSpawnTime;
 
-        [Header("Enemies")]
-        [SerializeField] private List<GameObject> enemies = new List<GameObject>();
+        [Header("Resources")]
+        [SerializeField] private List<GameObject> prefabs = new List<GameObject>();
 
         [Header("Components")]
         [SerializeField] private SpawnerPoint spawnerPoint;
-        [SerializeField] private SpawnEnemiesCreate spawnEnemiesCreate;
+        [SerializeField] private SpawnCreate spawnCreate;
 
         private void Awake()
         {
-            InitializedResourcesSpawners();
+            InitializedObjectsSpawners();
         }
 
-        private void InitializedResourcesSpawners()
+        private void InitializedObjectsSpawners()
         {
-            //spawnEnemiesCreate.InitializedEnemies(enemies);
+            spawnCreate.InitializedObjects(prefabs);
             spawnerPoint.CreateSpawners(numberOfSpawners, distanceFromCamera, spawnerPointPrefab);
-            spawnEnemiesCreate.StartSpawning(minSpawnTime, maxSpawnTime, minAmountEnemies, maxAmountEnemies);
+            spawnCreate.StartSpawning(minSpawnTime, maxSpawnTime, minAmount, maxAmount);
         }
     }
 }
