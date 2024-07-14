@@ -29,7 +29,7 @@ public class Shield : MonoBehaviour
 
     private void Start()
     {
-        
+        isShieldDamaged = false;
         health = maxHealth;
         drone = FindObjectOfType<Drone>().gameObject;
         shieldKeeper.transform.position = drone.transform.position;
@@ -52,6 +52,11 @@ public class Shield : MonoBehaviour
         {
             RelaodingShield();
         }
+
+        if(type == shieldType.Simple && !isShieldDamaged)
+        {
+            RelaodingShield();
+        }
         thisEquip.isInstalledMethod();
         if(!thisEquip.isInstalledMethod() && shieldKeeper.activeSelf)
         {
@@ -62,6 +67,7 @@ public class Shield : MonoBehaviour
     public bool ShieldDamaged(float damage)
     {
         health -= damage;
+        isShieldDamaged = true;
         if (health <= 0)
         {
             shieldKeeper.SetActive(false);

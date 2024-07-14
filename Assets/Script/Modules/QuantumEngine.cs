@@ -42,6 +42,7 @@ public class QuantumEngine : Engine
         else
         if (Input.GetKeyUp(KeyCode.Space) && !isReloading)
         {
+            StartCoroutine(AudioClipPlay());
             drone.position = projection.transform.position;
             projection.SetActive(false);
             isReloading = true;
@@ -59,4 +60,11 @@ public class QuantumEngine : Engine
 
     public float GetReloadTime() => reloadTime;
     public float GetDistance() => distance;
+
+    private IEnumerator AudioClipPlay()
+    {
+        audioEngine.PlayOneShot(audioEngine.clip);
+        yield return new WaitForSeconds(2f);
+        audioEngine.Stop();
+    }
 }

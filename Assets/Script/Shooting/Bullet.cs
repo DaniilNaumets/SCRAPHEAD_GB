@@ -1,11 +1,13 @@
 using Enemies;
 using ObjectPool;
 using Resources;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected ObjectsPoolManager poolManager;
+    [SerializeField] protected ObjectPoolManager poolManager;
     [SerializeField] protected bulletType type;
     protected enum bulletType
     {
@@ -22,15 +24,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float lifeTime;
 
     [SerializeField] protected LayerMask enemyMask;
+    [SerializeField, Header("Радиус в котором враги будут умирать\nот этой пули")] protected float radiusKill;
     [Header("Радиус поиска")]
     [SerializeField] protected float radius;
+
+    protected AudioSource startAudio;
+    
 
     protected Vector2 direction;
     protected Transform target;
 
     private void Awake()
     {
-        poolManager = FindObjectOfType<ObjectsPoolManager>();
+        startAudio?.GetComponent<AudioSource>();
+        Debug.Log(gameObject);
+        poolManager = FindObjectOfType<ObjectPoolManager>();
         direction = transform.right;
         rb.velocity = direction * speed;
     }
@@ -89,7 +97,8 @@ public class Bullet : MonoBehaviour
         }
 
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
-        {           
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(gameObject);
 
         }
@@ -98,7 +107,7 @@ public class Bullet : MonoBehaviour
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<EntityHealth>()?.TakeDamage(damage, poolManager, isPlayerBullet);
+                    collision.gameObject.GetComponentInChildren<Health>().TakeDamage(damage, poolManager);
                     Destroy(gameObject);
                     break;
 
@@ -108,7 +117,7 @@ public class Bullet : MonoBehaviour
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
                     foreach (var enemy in enemies)
                     {
-                        EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
+                        Health health = enemy.gameObject.GetComponentInChildren<Health>();
                         health.TakeDamage(damage, poolManager);
                     }
                     poolManager.ReturnToPool(collision.gameObject);
@@ -125,8 +134,8 @@ public class Bullet : MonoBehaviour
                 case bulletType.Simple:
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
-                    if (collision != null)
-                    
+
+                    poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
                     break;
 
@@ -157,5 +166,17 @@ public class Bullet : MonoBehaviour
     {
         //collision.gameObject.GetComponentInChildren<ScrapHealth>()?.TakeDamage(damage);
         //collision.gameObject.GetComponentInChildren<Health>()?.TakeDamage(damage);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (type == bulletType.Rocket)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, radius);
+
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, radiusKill);
+        }
     }
 }

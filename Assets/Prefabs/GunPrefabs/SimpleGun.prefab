@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3902094997058028480}
   - component: {fileID: 4047358800397350797}
   - component: {fileID: 1630576831118483178}
-  - component: {fileID: 9069236151128532563}
+  - component: {fileID: 8081008802477482428}
   m_Layer: 0
   m_Name: SimpleGun
   m_TagString: Untagged
@@ -198,7 +198,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.03
---- !u!114 &9069236151128532563
+--- !u!114 &8081008802477482428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21540e0df7f2a2a40adcbe7a49813ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedAttack1: 1
+  speedAttack1: 0.5
   speedAttack2: 0.25
   bulletPrefab: {fileID: 1768581000495275445, guid: aa7cb61f306187a40a9858e503d33413, type: 3}
   poolManager: {fileID: 0}

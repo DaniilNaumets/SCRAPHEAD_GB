@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3496610021939329609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.502064
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9651024
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 774298135060980966, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332789798800411048, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788369392781965838, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1015968506, guid: 30ac2aa3e422caa48a92544afa916c2f, type: 3}
+    - target: {fileID: 8131383338748486397, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}
+      propertyPath: m_Name
+      value: RocketGun (1) Variant 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e03a24a755c65d242a5ff03038ffe692, type: 3}

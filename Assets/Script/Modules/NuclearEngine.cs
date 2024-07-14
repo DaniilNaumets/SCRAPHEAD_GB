@@ -16,7 +16,9 @@ public class NuclearEngine : Engine
 
     private void Awake()
     {
+        base.Awake();
         StartEngine();
+        Debug.Log(audioEngine);
     }
     public override void Special(float mult)
     {
@@ -35,6 +37,9 @@ public class NuclearEngine : Engine
             if (Input.GetKey(KeyCode.Space) && !isReloading)
             {
                 currentBoostTime -= Time.deltaTime;
+                if(!audioEngine.isPlaying)
+                audioEngine.Play();
+                
                 if (!isBoosting)
                 {
                     UnityEvents.EngineModuleEventMultiplie.Invoke(boostMultiplier);
@@ -45,6 +50,7 @@ public class NuclearEngine : Engine
 
             if (Input.GetKeyUp(KeyCode.Space) && !isReloading)
             {
+                audioEngine.Stop();
                 isReloading = true;
                 isBoosting = false;
                 UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier);
@@ -53,6 +59,7 @@ public class NuclearEngine : Engine
 
             if (currentBoostTime <= 0 && !isReloading)
             {
+                audioEngine.Stop();
                 isReloading = true;
                 isBoosting = false;
                 UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier * mult);

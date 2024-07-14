@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1614093804731086410, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614093804731086410, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614093804731086410, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: isPickup
       value: 1
@@ -120,6 +132,10 @@ PrefabInstance:
       propertyPath: QuantityFragments
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4094765672713885012, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1968715982, guid: aa29974548d3bef44b1da544d4c5dce0, type: 3}
     - target: {fileID: 7177603710434317934, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: spawnFrequency
       value: 8
@@ -127,6 +143,10 @@ PrefabInstance:
     - target: {fileID: 7753970380636311538, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_Name
       value: SmallScrapMetal Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637186057150822754, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

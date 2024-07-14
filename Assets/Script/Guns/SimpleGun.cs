@@ -15,7 +15,10 @@ public class SimpleGun : Gun
             Reloading1();
         }
     }
-
+    private void Update()
+    {
+        Reloading();
+    }
     public override void ShootLKM2()
     {
         if (CanShoot(reloadTime2))
