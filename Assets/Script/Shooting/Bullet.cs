@@ -28,11 +28,16 @@ public class Bullet : MonoBehaviour
     [Header("Радиус поиска")]
     [SerializeField] protected float radius;
 
+    protected AudioSource startAudio;
+    
+
     protected Vector2 direction;
     protected Transform target;
 
     private void Awake()
     {
+        startAudio?.GetComponent<AudioSource>();
+        Debug.Log(gameObject);
         poolManager = FindObjectOfType<ObjectPoolManager>();
         direction = transform.right;
         rb.velocity = direction * speed;
