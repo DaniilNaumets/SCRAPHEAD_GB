@@ -9,11 +9,11 @@ namespace Resources
         [SerializeField] private ScrapDamageDealt scrapDamageDealt;
         [SerializeField] private ScrapHealth scrapHealth;
 
-        private ObjectPoolManager objectPoolManager;
+        private ObjectsPoolManager poolManager;
 
         private void Awake()
         {
-            objectPoolManager = FindObjectOfType<ObjectPoolManager>();
+            poolManager = FindObjectOfType<ObjectsPoolManager>();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -24,7 +24,7 @@ namespace Resources
             if (playerHealth != null)
             {
                 float damage = scrapDamageDealt.GetDamage();
-                playerHealth.TakeDamage(damage, objectPoolManager);
+                playerHealth.TakeDamage(damage, poolManager);
             }
 
             if (playerDamageDealer != null)

@@ -11,7 +11,7 @@ public class EntityHealth : MonoBehaviour
         this.health = health;
     }
 
-    public void TakeDamage(float damage, ObjectPoolManager poolManager)
+    public void TakeDamage(float damage, ObjectsPoolManager poolManager)
     {
         health -= damage;
 
@@ -26,7 +26,7 @@ public class EntityHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage, ObjectPoolManager poolManager, bool isPlayerBullet)
+    public void TakeDamage(float damage, ObjectsPoolManager poolManager, bool isPlayerBullet)
     {
         health -= damage;
  
@@ -44,7 +44,7 @@ public class EntityHealth : MonoBehaviour
 
     public float GetHealth() => health;
 
-    public void ReturnToPool(ObjectPoolManager poolManager)
+    public void ReturnToPool(ObjectsPoolManager poolManager)
     {
         if (poolManager != null)
         {

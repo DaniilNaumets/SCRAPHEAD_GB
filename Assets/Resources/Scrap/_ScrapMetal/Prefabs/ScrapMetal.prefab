@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c77d610590f2e3468984765be0245ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGoing: 0
 --- !u!114 &5327984563587459231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,4 +653,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrapDamageDealt: {fileID: 2195268493820691337}
-  scrapMetalHealth: {fileID: 2096440657580382213}
+  scrapHealth: {fileID: 2096440657580382213}

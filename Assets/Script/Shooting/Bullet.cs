@@ -1,14 +1,11 @@
 using Enemies;
 using ObjectPool;
 using Resources;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected ObjectPoolManager poolManager;
+    [SerializeField] protected ObjectsPoolManager poolManager;
     [SerializeField] protected bulletType type;
     protected enum bulletType
     {
@@ -33,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        poolManager = FindObjectOfType<ObjectPoolManager>();
+        poolManager = FindObjectOfType<ObjectsPoolManager>();
         direction = transform.right;
         rb.velocity = direction * speed;
     }

@@ -1,11 +1,9 @@
 using ObjectPool;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleGun : Gun
 {
-    [SerializeField] protected ObjectPoolManager poolManager;
+    [SerializeField] protected ObjectsPoolManager poolManager;
     [SerializeField] protected GameObject handler;
 
     public override void ShootLKM1()

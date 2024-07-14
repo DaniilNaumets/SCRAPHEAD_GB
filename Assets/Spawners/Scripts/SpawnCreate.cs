@@ -44,7 +44,7 @@ namespace Spawners
 
         private void SpawnObjects()
         {
-            if (objects.Count == 0)
+            if (objects == null || objects.Count == 0)
             {
                 return;
             }
@@ -55,9 +55,13 @@ namespace Spawners
             if (spawner != null && objectPrefab != null)
             {
                 GameObject pooledObject = objectsPoolManager.GetFromPool(objectPrefab);
-                pooledObject.transform.position = spawner.transform.position;
-                pooledObject.transform.rotation = Quaternion.identity;
-                pooledObject.GetComponent<ScrapMetalController>()?.Initialize();
+
+                if (pooledObject != null && pooledObject.gameObject != null)
+                {
+                    pooledObject.transform.position = spawner.transform.position;
+                    pooledObject.transform.rotation = Quaternion.identity;
+                    pooledObject.GetComponent<ScrapMetalController>()?.Initialize();
+                }
             }
         }
     }
