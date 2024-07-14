@@ -9,17 +9,29 @@ public class Engine : MonoBehaviour
 
     protected AudioSource audioEngine;
 
+    protected ParticleSystem particleSys;
+
     public float GetSpeed() => speed;
 
     protected void Awake()
     {
         audioEngine = GetComponent<AudioSource>();
+        particleSys = GetComponentInChildren<ParticleSystem>();
     }
 
     protected void Update()
     {
-        if(equip.isInstalledMethod())
-        Special(1);
+        if (equip.isInstalledMethod())
+        {
+            Special(1);
+            if(!particleSys.isPlaying)
+            particleSys.Play();
+        }
+        else
+        {
+            if (particleSys.isPlaying)
+                particleSys.Stop(true,ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     public virtual void Special(float multipliyer)
