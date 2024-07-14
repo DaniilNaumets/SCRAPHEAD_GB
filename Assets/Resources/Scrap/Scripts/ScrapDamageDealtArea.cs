@@ -1,3 +1,4 @@
+using ObjectPool;
 using UnityEngine;
 
 namespace Resources
@@ -6,21 +7,30 @@ namespace Resources
     {
         [Header("Components")]
         [SerializeField] private ScrapDamageDealt scrapDamageDealt;
-        [SerializeField] private ScrapHealth scrapMetalHealth;
+        [SerializeField] private ScrapHealth scrapHealth;
+
+        private ObjectPoolManager objectPoolManager;
+
+        private void Awake()
+        {
+            objectPoolManager = FindObjectOfType<ObjectPoolManager>();
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Health playerHealth = collision.gameObject.GetComponentInChildren<Health>();
-            PlayerDamageDealer playerDamageDealer = collision.gameObject.GetComponentInChildren<PlayerDamageDealer>();
+            EntityHealth playerHealth = collision.gameObject.GetComponentInChildren<EntityHealth>();
+            PlayerDamageDealer playerDamageDealer = collision.gameObject.GetComponent<PlayerDamageDealer>();
 
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(scrapDamageDealt.GetDamage());
+                float damage = scrapDamageDealt.GetDamage();
+                playerHealth.TakeDamage(damage, objectPoolManager);
             }
 
             if (playerDamageDealer != null)
             {
-                scrapMetalHealth.TakeDamage(playerDamageDealer.GetDamage());
+                float damage = playerDamageDealer.GetDamage();
+                scrapHealth.TakeDamage(damage);
             }
         }
     }

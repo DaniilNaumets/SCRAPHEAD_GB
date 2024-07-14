@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 3670991144279655898}
   - component: {fileID: 6564345356543492865}
   - component: {fileID: 4240630588384343961}
+  - component: {fileID: 8470600624119260212}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -571,7 +572,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 100
+--- !u!114 &8470600624119260212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110400707535263494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8d060b6adfde94c90c428bad1848a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrapMetalCounterUI: {fileID: 0}
+  scrapAlienCounterUI: {fileID: 0}
 --- !u!1 &4357568526257258271
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3673ded5fdbf16748b3ec74ffa2d383f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 8470600624119260212}
   scanningBeamSpriteRenderer: {fileID: 2778548107788887802}
 --- !u!212 &2778548107788887802
 SpriteRenderer:

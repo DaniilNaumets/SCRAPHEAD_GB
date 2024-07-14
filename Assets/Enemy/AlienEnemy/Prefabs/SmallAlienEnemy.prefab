@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 441186084800361237}
   - component: {fileID: 8718661762756492062}
   - component: {fileID: 3198866120114496187}
+  - component: {fileID: 8910229605294461756}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -189,8 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13270aee4645e4d40857ac210952dba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 6705199930336561277}
-  firePoint: {fileID: 0}
 --- !u!114 &6554958537199043082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 100
 --- !u!114 &5375553682945086586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +250,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8910229605294461756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640845965531288166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3591167413800089823
@@ -484,6 +494,7 @@ MonoBehaviour:
   moveForwardTime: 3
   enemyMovement: {fileID: 2036030476338382882}
   enemyAggressiveState: {fileID: 5375553682945086586}
+  entityHealth: {fileID: 6554958537199043082}
 --- !u!114 &162593516781662104
 MonoBehaviour:
   m_ObjectHideFlags: 0

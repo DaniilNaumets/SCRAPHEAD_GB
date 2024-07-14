@@ -20,9 +20,7 @@ namespace Resources
 
         public void TakeDamage(float damage)
         {
-            currentHealth -= damage;
-            //Debug.Log("damage " + damage);
-            //Debug.Log("ResurceHP " + currentHealth);
+            currentHealth -= damage;          
 
             if (currentHealth <= 0 && !isDestroy) 
             {

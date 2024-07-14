@@ -151,6 +151,7 @@ MonoBehaviour:
   moveForwardTime: 3
   enemyMovement: {fileID: 3958706161773212936}
   enemyAggressiveState: {fileID: 2242574588155473228}
+  entityHealth: {fileID: 2231186177318897520}
 --- !u!114 &-336617146773726555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +358,7 @@ GameObject:
   - component: {fileID: 1398580093097719619}
   - component: {fileID: 5428269110200707553}
   - component: {fileID: 4985724887472790224}
+  - component: {fileID: 7895639028663674181}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -435,8 +437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13270aee4645e4d40857ac210952dba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 2540287856613497613}
-  firePoint: {fileID: 0}
 --- !u!114 &2231186177318897520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 100
 --- !u!114 &2242574588155473228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +497,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7895639028663674181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499692548862302472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3625661627388595131

@@ -68,7 +68,7 @@ namespace Enemies
             float distanceToTarget = enemyAttackPosition.GetAttackDistance(enemyPosition, targetPosition);
 
             if (distanceToTarget <= shootingDistance)
-            {
+            {                
                 MoveToPosition(targetPosition, enemyPosition);
                 enemyAttack.Attack(true);
             }

@@ -33,22 +33,23 @@ public class Gun : MonoBehaviour, IShoot
     protected void Update()
     {
         Reloading();
-        CheckEnemyShooting();
+        //CheckEnemyShooting();
     }
 
     public void CheckEnemyShooting()
     {
         if (GetComponentInParent<EnemyController>())
         {
+            
             ShootLKM1();
             ShootPKM1();
         }
     }
 
     protected void Reloading()
-    {
+    {      
         if (reloadTime1 > 0)
-        {
+        {           
             reloadTime1 -= Time.deltaTime;
         }
 

@@ -113,7 +113,7 @@ public class GuidedBullet : Bullet
 
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            //collision.gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
             Destroy(gameObject);
 
         }
@@ -122,7 +122,7 @@ public class GuidedBullet : Bullet
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<Health>().TakeDamage(damage, poolManager);
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager);
                     Destroy(gameObject);
                     break;
 
@@ -132,7 +132,7 @@ public class GuidedBullet : Bullet
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill, enemyMask);
                     foreach (var enemy in enemies)
                     {
-                        Health health = enemy.gameObject.GetComponentInChildren<Health>();
+                        EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
                         health.TakeDamage(damage, poolManager);
                     }
                     poolManager.ReturnToPool(collision.gameObject);
