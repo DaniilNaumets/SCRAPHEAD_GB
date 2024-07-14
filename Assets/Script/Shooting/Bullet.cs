@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected ObjectPoolManager poolManager;
+    [SerializeField] protected ObjectsPoolManager poolManager;
     [SerializeField] protected bulletType type;
     protected enum bulletType
     {
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
     {
         startAudio?.GetComponent<AudioSource>();
         Debug.Log(gameObject);
-        poolManager = FindObjectOfType<ObjectPoolManager>();
+        poolManager = FindObjectOfType<ObjectsPoolManager>();
         direction = transform.right;
         rb.velocity = direction * speed;
     }
@@ -98,7 +98,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            collision.gameObject.GetComponent<EntityHealth>().TakeDamage(damage, poolManager);
             Destroy(gameObject);
 
         }
@@ -107,7 +107,7 @@ public class Bullet : MonoBehaviour
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<Health>().TakeDamage(damage, poolManager);
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager);
                     Destroy(gameObject);
                     break;
 
@@ -117,7 +117,7 @@ public class Bullet : MonoBehaviour
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
                     foreach (var enemy in enemies)
                     {
-                        Health health = enemy.gameObject.GetComponentInChildren<Health>();
+                        EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
                         health.TakeDamage(damage, poolManager);
                     }
                     poolManager.ReturnToPool(collision.gameObject);
