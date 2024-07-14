@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 4127270001377408241}
   - component: {fileID: 4100341549360591172}
   m_Layer: 5
-  m_Name: SriptsUI
+  m_Name: ScriptsUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,8 +15,7 @@ namespace Mosframe {
     public class Item : UIBehaviour, IDynamicScrollViewItem 
     {
 	    private readonly Color[] colors = new Color[] {
-		    Color.cyan,
-		    Color.green,
+		    Color.white,
 	    };
 
 	    public Image icon;
