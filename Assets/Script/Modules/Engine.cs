@@ -7,11 +7,13 @@ public class Engine : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected Equipment equip;
 
+    protected AudioSource audioEngine;
+
     public float GetSpeed() => speed;
 
-    private void Awake()
+    protected void Awake()
     {
-        
+        audioEngine = GetComponent<AudioSource>();
     }
 
     protected void Update()
@@ -22,7 +24,8 @@ public class Engine : MonoBehaviour
 
     public virtual void Special(float multipliyer)
     {
-        
+        if(!audioEngine.isPlaying)
+        audioEngine.Play();
     }
 
     public virtual void StartEngine() { }
