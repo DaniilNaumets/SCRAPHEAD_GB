@@ -230,6 +230,7 @@ public class Equipment : MonoBehaviour
                 this.health -= bul.GetDamage();
                 if (health <= 0)
                 {
+                    Debug.Log(5);
                     BreakEquip();
                     health = maxHealth;
                 }

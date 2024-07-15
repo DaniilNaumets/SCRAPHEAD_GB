@@ -121,7 +121,7 @@ MonoBehaviour:
   scrapMask:
     serializedVersion: 2
     m_Bits: 512
-  radiusKill: 30
+  radiusKill: 20
   radius: 15
   startAudio: {fileID: 0}
   interval: 0.2
