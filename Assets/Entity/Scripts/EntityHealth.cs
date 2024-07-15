@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
+    private GameObject smokePrefab;
+
     private float health = 500f;
 
+    private void Awake()
+    {
+        smokePrefab = Resources.Load<GameObject>()
+    }
     public void InitializeHealth(float health)
     {
         this.health = health;
@@ -37,6 +43,7 @@ public class EntityHealth : MonoBehaviour
         }
         else
         {
+            GameObject smoke = GameObject.Instantiate(smokePrefab, transform.position, transform.rotation);
             ReturnToPool(poolManager);
         }
 
