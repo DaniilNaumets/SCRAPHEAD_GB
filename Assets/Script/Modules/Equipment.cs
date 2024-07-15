@@ -230,8 +230,11 @@ public class Equipment : MonoBehaviour
                 this.health -= bul.GetDamage();
                 if (health <= 0)
                 {
-                    Debug.Log(5);
-                    BreakEquip();
+                    if (scrapPrefab != null)
+                    {
+                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    }
+                    Destroy(gameObject);
                     health = maxHealth;
                 }
             }

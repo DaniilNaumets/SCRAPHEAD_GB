@@ -39,7 +39,6 @@ public class Bullet : MonoBehaviour
     {
         if(startAudio!=null)
         GameObject.Instantiate(startAudio);
-        Debug.Log(gameObject);
         poolManager = FindObjectOfType<ObjectsPoolManager>();
         direction = transform.right;
         rb.velocity = direction * speed;
