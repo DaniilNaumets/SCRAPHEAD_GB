@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
     [Header("Радиус поиска")]
     [SerializeField] protected float radius;
 
-    protected AudioSource startAudio;
+    [SerializeField] protected GameObject startAudio;
     
 
     protected Vector2 direction;
@@ -36,7 +36,8 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        startAudio?.GetComponent<AudioSource>();
+        if(startAudio!=null)
+        GameObject.Instantiate(startAudio);
         Debug.Log(gameObject);
         poolManager = FindObjectOfType<ObjectsPoolManager>();
         direction = transform.right;
