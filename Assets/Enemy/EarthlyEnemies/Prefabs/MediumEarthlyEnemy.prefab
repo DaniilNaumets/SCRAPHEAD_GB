@@ -527,6 +527,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3469586416040055921}
+  - {fileID: 3744164392296613924}
   - {fileID: 3332775905537452759}
   - {fileID: 1816759554139417870}
   - {fileID: 7869075309596189706}
@@ -534,7 +535,6 @@ Transform:
   - {fileID: 2858166172463464145}
   - {fileID: 4611496579601085454}
   - {fileID: 8507614875388522733}
-  - {fileID: 3744164392296613924}
   - {fileID: 3217849039211158708}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -894,6 +894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+  render: {fileID: 0}
 --- !u!1 &8702064789050751562
 GameObject:
   m_ObjectHideFlags: 0

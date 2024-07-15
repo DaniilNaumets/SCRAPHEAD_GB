@@ -1,16 +1,20 @@
 using Enemies;
 using ObjectPool;
+using System.Collections;
 using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
-    private GameObject smokePrefab;
+    [SerializeField] private GameObject smokePrefab;
+    [SerializeField] private SpriteRenderer render;
 
     private float health = 500f;
 
     private void Awake()
     {
-        smokePrefab = Resources.Load<GameObject>()
+        render = gameObject.transform.parent?.GetComponentInChildren<SpriteRenderer>();
+        if(render == null)
+        render = gameObject?.GetComponentInChildren<SpriteRenderer>();
     }
     public void InitializeHealth(float health)
     {
@@ -23,10 +27,14 @@ public class EntityHealth : MonoBehaviour
 
         if (health > 0)
         {
-           
+            StartCoroutine(Red());
         }
         else
         {
+            if (smokePrefab != null)
+            {
+                GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
+            }
             ReturnToPool(poolManager);
         }
         
@@ -43,7 +51,10 @@ public class EntityHealth : MonoBehaviour
         }
         else
         {
-            GameObject smoke = GameObject.Instantiate(smokePrefab, transform.position, transform.rotation);
+            if (smokePrefab != null)
+            {
+                GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
+            }
             ReturnToPool(poolManager);
         }
 
@@ -61,5 +72,12 @@ public class EntityHealth : MonoBehaviour
         {
             Destroy(gameObject.transform.parent.gameObject);
         }      
+    }
+
+    private IEnumerator Red()
+    {
+        render.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        render.color = Color.white;
     }
 }

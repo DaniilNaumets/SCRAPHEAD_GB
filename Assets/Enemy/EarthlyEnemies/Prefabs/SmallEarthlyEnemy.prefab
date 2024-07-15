@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+  render: {fileID: 0}
 --- !u!114 &5881465845540993944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+  render: {fileID: 0}
 --- !u!1 &2804160982726070718
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,12 +570,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5948035560099373762}
+  - {fileID: 7889459478172602838}
   - {fileID: 2219536297539927977}
   - {fileID: 2411760065859043597}
   - {fileID: 1753953602413800053}
   - {fileID: 5747119553367620487}
   - {fileID: 649059181836673458}
-  - {fileID: 7889459478172602838}
   - {fileID: 664398115717614804}
   - {fileID: 5678283859017160006}
   m_Father: {fileID: 0}

@@ -291,12 +291,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4795828225145268764}
   - {fileID: 6688532380607490758}
   - {fileID: 5122725646135966233}
   - {fileID: 1824313252919652135}
   - {fileID: 5329235009581310740}
   - {fileID: 8220775686483770341}
-  - {fileID: 4795828225145268764}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8972490242548703899
@@ -542,6 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 0}
+  render: {fileID: 0}
 --- !u!114 &5206101689850285826
 MonoBehaviour:
   m_ObjectHideFlags: 0

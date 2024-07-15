@@ -104,7 +104,7 @@ MonoBehaviour:
   type: 0
   rb: {fileID: 7166099879947576732}
   speed: 30
-  damage: 100
+  damage: 1
   lifeTime: 8
   enemyMask:
     serializedVersion: 2
