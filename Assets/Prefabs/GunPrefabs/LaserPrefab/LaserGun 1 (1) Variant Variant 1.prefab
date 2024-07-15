@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2576704943036980534, guid: ab29df28e624d3545953b681a5b8e1bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b669a04bd1d5c154da1069b32a16794a, type: 2}
     - target: {fileID: 3411865566458822081, guid: ab29df28e624d3545953b681a5b8e1bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.275724
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 5.91
       objectReference: {fileID: 0}
+    - target: {fileID: 6583146574047011709, guid: ab29df28e624d3545953b681a5b8e1bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b669a04bd1d5c154da1069b32a16794a, type: 2}
     - target: {fileID: 6859237872666311495, guid: ab29df28e624d3545953b681a5b8e1bb, type: 3}
       propertyPath: m_Sprite
       value: 

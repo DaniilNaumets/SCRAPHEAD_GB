@@ -51,13 +51,17 @@ MonoBehaviour:
   type: 1
   rb: {fileID: 7166099879947576732}
   speed: 30
-  damage: 100
+  damage: 50
   lifeTime: 8
   enemyMask:
     serializedVersion: 2
     m_Bits: 8
+  scrapMask:
+    serializedVersion: 2
+    m_Bits: 512
   radiusKill: 15
   radius: 0
+  startAudio: {fileID: 0}
 --- !u!50 &7166099879947576732
 Rigidbody2D:
   serializedVersion: 4

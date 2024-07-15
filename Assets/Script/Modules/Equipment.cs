@@ -124,6 +124,43 @@ public class Equipment : MonoBehaviour
         }
     }
 
+    public void SetEquip(Transform place, GameObject prefab)
+    {
+        if (!isInstalled)
+        {
+            isBroken = false;
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            prefab.transform.position = place.position;
+            prefab.transform.rotation = place.rotation;
+            prefab.transform.SetParent(place);
+
+            StopObject();
+            health = maxHealth;
+
+            place.gameObject.GetComponent<Place>().ChangeSortingLayer(render);
+            isInstalled = true;
+            CheckUser();
+
+            if (prefab.TryGetComponent<Engine>(out Engine engine))
+            {
+                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+                engine.StartEngine();
+                if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
+                {
+                    PublicSettings.IsQuantumWork = true;
+                }
+            }
+            if (prefab.TryGetComponent<Shield>(out Shield shield))
+            {
+                UnityEvents.ShieldUpdateEvent.Invoke(true);
+            }
+            if (prefab.TryGetComponent<Gun>(out Gun gun))
+            {
+                gun.CheckUser();
+            }
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))

@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float lifeTime;
 
     [SerializeField] protected LayerMask enemyMask;
+    [SerializeField] protected LayerMask scrapMask;
     [SerializeField, Header("Радиус в котором враги будут умирать\nот этой пули")] protected float radiusKill;
     [Header("Радиус поиска")]
     [SerializeField] protected float radius;
@@ -108,7 +109,7 @@ public class Bullet : MonoBehaviour
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager);
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Destroy(gameObject);
                     break;
 
@@ -119,9 +120,8 @@ public class Bullet : MonoBehaviour
                     foreach (var enemy in enemies)
                     {
                         EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
-                        health.TakeDamage(damage, poolManager);
+                        health.TakeDamage(damage, poolManager, isPlayerBullet);
                     }
-                    poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
 
                     break;
@@ -135,21 +135,19 @@ public class Bullet : MonoBehaviour
                 case bulletType.Simple:
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
-
-                    poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
                     break;
 
 
 
                 case bulletType.Rocket:
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
-                    foreach (var enemy in enemies)
+                    Collider2D[] scraps = Physics2D.OverlapCircleAll(transform.position, radius, scrapMask);
+                    foreach (var scrap in scraps)
                     {
-                        enemy.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
+                        scrap.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
                     }
-                    poolManager.ReturnToPool(collision.gameObject);
+
                     Destroy(gameObject);
 
                     break;

@@ -113,13 +113,17 @@ MonoBehaviour:
   type: 1
   rb: {fileID: 7166099879947576732}
   speed: 15
-  damage: 100
+  damage: 50
   lifeTime: 5
   enemyMask:
     serializedVersion: 2
     m_Bits: 8
-  radiusKill: 10
+  scrapMask:
+    serializedVersion: 2
+    m_Bits: 512
+  radiusKill: 30
   radius: 15
+  startAudio: {fileID: 0}
   interval: 0.2
   rotationSpeed: 5
 --- !u!1 &3130692572719818822

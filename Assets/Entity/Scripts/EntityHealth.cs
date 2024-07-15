@@ -2,13 +2,14 @@ using Enemies;
 using ObjectPool;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EntityHealth : MonoBehaviour
 {
     [SerializeField] private GameObject smokePrefab;
     [SerializeField] private SpriteRenderer render;
 
-    private float health = 500f;
+    [SerializeField] private float health = 100f;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class EntityHealth : MonoBehaviour
         {
             bool isAggressive = isPlayerBullet;
             transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
+            StartCoroutine(Red());
         }
         else
         {
@@ -66,7 +68,13 @@ public class EntityHealth : MonoBehaviour
     {
         if (poolManager != null)
         {
-            poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
+            if (!gameObject.GetComponent<Drone>())
+                poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
+            else
+            {
+                StartCoroutine(RestartScene());
+                Destroy(gameObject);
+            }
         }
         else
         {
@@ -79,5 +87,11 @@ public class EntityHealth : MonoBehaviour
         render.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         render.color = Color.white;
+    }
+
+    private IEnumerator RestartScene()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

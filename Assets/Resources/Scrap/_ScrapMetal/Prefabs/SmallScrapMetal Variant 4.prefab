@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallScrapMetal Variant 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7753970380636311538, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8637186057150822754, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_Enabled
       value: 0

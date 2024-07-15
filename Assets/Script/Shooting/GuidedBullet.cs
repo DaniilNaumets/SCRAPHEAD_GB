@@ -1,4 +1,5 @@
 using Enemies;
+using ObjectPool;
 using Resources;
 using System.Collections;
 using UnityEngine;
@@ -17,6 +18,10 @@ public class GuidedBullet : Bullet
 
     private bool isSecondTarget;
 
+    private void Awake()
+    {
+        poolManager = FindObjectOfType<ObjectsPoolManager>();
+    }
     private void Start()
     {
         StartCoroutine(StartFindingTarget());
@@ -117,12 +122,13 @@ public class GuidedBullet : Bullet
             Destroy(gameObject);
 
         }
+        // Enemy
         if (collision.gameObject.GetComponent<EnemyController>())
         {
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager);
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Destroy(gameObject);
                     break;
 
@@ -133,15 +139,14 @@ public class GuidedBullet : Bullet
                     foreach (var enemy in enemies)
                     {
                         EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
-                        health.TakeDamage(damage, poolManager);
+                        health.TakeDamage(damage, poolManager, isPlayerBullet);
                     }
-                    poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
 
                     break;
             }
         }
-
+        // Scrap
         if (collision.gameObject.GetComponentInChildren<ScrapHealth>())
         {
             switch (type)
@@ -149,21 +154,18 @@ public class GuidedBullet : Bullet
                 case bulletType.Simple:
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
-
-                    poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
                     break;
 
 
 
                 case bulletType.Rocket:
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, scrapMask);
                     foreach (var enemy in enemies)
                     {
                         enemy.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
 
                     }
-                    poolManager.ReturnToPool(collision.gameObject);
                     Destroy(gameObject);
 
                     break;

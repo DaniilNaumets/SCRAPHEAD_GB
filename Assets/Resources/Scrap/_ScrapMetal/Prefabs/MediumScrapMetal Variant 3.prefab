@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumScrapMetal Variant 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7753970380636311538, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8637186057150822754, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
     m_RemovedGameObjects: []

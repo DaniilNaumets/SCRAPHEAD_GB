@@ -522,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
   render: {fileID: 0}
+  health: 100
 --- !u!1 &3438277347214162293
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +696,7 @@ GameObject:
   - component: {fileID: 3574263888826135877}
   - component: {fileID: 4774679394399053024}
   - component: {fileID: 4630127433140537294}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemyLineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1105,7 @@ GameObject:
   - component: {fileID: 4259090838650951813}
   - component: {fileID: 3209236030923928271}
   - component: {fileID: 6216207244346155248}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LargeEarthlyEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,7 +6,8 @@ namespace Resources
     {
         public void TurnOff()
         {
-            transform.parent.gameObject.SetActive(false);//pool
+            //transform.parent.gameObject.SetActive(false);//pool
+            Destroy(transform.parent.gameObject);
         }
     }
 }
