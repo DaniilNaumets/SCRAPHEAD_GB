@@ -92,6 +92,6 @@ public class EntityHealth : MonoBehaviour
     private IEnumerator RestartScene()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 }
