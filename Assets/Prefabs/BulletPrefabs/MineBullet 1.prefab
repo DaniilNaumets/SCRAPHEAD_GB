@@ -51,15 +51,9 @@ MonoBehaviour:
   poolManager: {fileID: 0}
   type: 1
   rb: {fileID: 7166099879947576732}
-  speed: 30
+  speed: 22
   damage: 50
   lifeTime: 100
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 8
-  scrapMask:
-    serializedVersion: 2
-    m_Bits: 512
   radiusKill: 10
   radius: 10
   startAudio: {fileID: 0}
@@ -154,7 +148,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.006204605, y: 0.015511076}
