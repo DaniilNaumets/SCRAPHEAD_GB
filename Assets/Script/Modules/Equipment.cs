@@ -21,7 +21,9 @@ public class Equipment : MonoBehaviour
 
     private bool isBroken;
 
+    [Header("Дополнительно")]
     [SerializeField] private GameObject scrapPrefab;
+    [SerializeField] private GameObject smokePrefab;
 
     private bool isCollisionNow;
 
@@ -240,12 +242,18 @@ public class Equipment : MonoBehaviour
 
     public void DeathEquip()
     {
+        
         if (scrapPrefab != null)
         {
             GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
         }
-
+        if (smokePrefab != null)
+        {
+            GameObject smoke = GameObject.Instantiate(smokePrefab, transform.position, transform.rotation);
+            smoke.transform.localScale = gameObject.transform.localScale;
+            smoke.transform.localScale *= 5f;
+        }
+        Destroy(gameObject);
     }
 
     private IEnumerator Red()

@@ -140,6 +140,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2892226662192058475, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      propertyPath: scrapPrefab
+      value: 
+      objectReference: {fileID: 8334557270671750872, guid: 64308ff44f956ed4db7c177917bfcd80, type: 3}
+    - target: {fileID: 2892226662192058475, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     - target: {fileID: 3878625789340481636, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       propertyPath: m_Name
       value: NuclearEngine Variant

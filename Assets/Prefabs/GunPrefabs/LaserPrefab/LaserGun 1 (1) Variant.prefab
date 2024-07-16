@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8152139760640532039, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     m_RemovedComponents:
     - {fileID: 4826799661244719497, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
     m_RemovedGameObjects: []

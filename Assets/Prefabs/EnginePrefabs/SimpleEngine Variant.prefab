@@ -92,6 +92,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4898042130131044136, guid: 84d8fd82071afa04e9df2bd7e21fc5fd, type: 3}
+      propertyPath: scrapPrefab
+      value: 
+      objectReference: {fileID: 8334557270671750872, guid: 64308ff44f956ed4db7c177917bfcd80, type: 3}
+    - target: {fileID: 4898042130131044136, guid: 84d8fd82071afa04e9df2bd7e21fc5fd, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     - target: {fileID: 5811587461839410222, guid: 84d8fd82071afa04e9df2bd7e21fc5fd, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
