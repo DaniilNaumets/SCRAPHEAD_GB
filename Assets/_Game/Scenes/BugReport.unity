@@ -2342,6 +2342,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1057200717367852188, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694686831451097274, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487183379642211629, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
     - target: {fileID: 2772076624513384062, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2358,6 +2370,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1408186479}
+    - target: {fileID: 3694982563843666048, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
     - target: {fileID: 4529352336001218055, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
       propertyPath: scrapAlienCounterUI
       value: 
@@ -2366,6 +2382,10 @@ PrefabInstance:
       propertyPath: scrapMetalCounterUI
       value: 
       objectReference: {fileID: 1539369451}
+    - target: {fileID: 4806019791667961239, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
     - target: {fileID: 4847306068244043431, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.45
@@ -2418,6 +2438,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6354916558421999368, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626166665680707235, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683457748757336675, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
+      objectReference: {fileID: 0}
     - target: {fileID: 6872716697145302491, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.993249
@@ -2433,6 +2465,10 @@ PrefabInstance:
     - target: {fileID: 6872716697145302491, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.70710564
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131325857967739797, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
+      propertyPath: m_Radius
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 7724979883249354110, guid: c789e2de446b73146b8340e6efccdfd9, type: 3}
       propertyPath: health

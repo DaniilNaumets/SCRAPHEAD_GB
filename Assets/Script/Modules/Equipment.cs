@@ -64,6 +64,7 @@ public class Equipment : MonoBehaviour
     {
         if (isInstalled)
         {
+            CheckCollisionEquip();
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
             gameObject.transform.SetParent(null);
@@ -214,8 +215,7 @@ public class Equipment : MonoBehaviour
             else
             {
                 this.health -= bullet.GetDamage();
-                if (!isCollisionNow)
-                    StartCoroutine(Red());
+                CheckCollisionEquip();
                 if (health <= 0)
                 {
                     DeathEquip();
@@ -228,8 +228,7 @@ public class Equipment : MonoBehaviour
             if (bul.GetBulletUser() != isPlayerEquip)
             {
                 this.health -= bul.GetDamage();
-                if (!isCollisionNow)
-                    StartCoroutine(Red());
+                CheckCollisionEquip();
                 if (health <= 0)
                 {
                     DeathEquip();
@@ -256,5 +255,11 @@ public class Equipment : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         render.color = Color.white;
         isCollisionNow = false;
+    }
+
+    public void CheckCollisionEquip()
+    {
+        if (!isCollisionNow)
+            StartCoroutine(Red());
     }
 }
