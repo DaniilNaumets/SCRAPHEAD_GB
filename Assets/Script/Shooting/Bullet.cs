@@ -23,8 +23,6 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] protected float lifeTime;
 
-    [SerializeField] protected LayerMask enemyMask;
-    [SerializeField] protected LayerMask scrapMask;
     [SerializeField, Header("Радиус в котором враги будут умирать\nот этой пули")] protected float radiusKill;
     [Header("Радиус поиска")]
     [SerializeField] protected float radius;
@@ -115,11 +113,26 @@ public class Bullet : MonoBehaviour
 
 
                 case bulletType.Rocket:
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
-                        EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
-                        health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
                     }
                     Destroy(gameObject);
 
@@ -140,10 +153,25 @@ public class Bullet : MonoBehaviour
 
 
                 case bulletType.Rocket:
-                    Collider2D[] scraps = Physics2D.OverlapCircleAll(transform.position, radius, scrapMask);
+                    Collider2D[] scraps = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var scrap in scraps)
                     {
-                        scrap.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
+                        if (scrap.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = scrap.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (scrap.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = scrap.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (scrap.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = scrap.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
 
                     }
 

@@ -3,6 +3,7 @@ using ObjectPool;
 using Resources;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GuidedBullet : Bullet
 {
@@ -17,6 +18,11 @@ public class GuidedBullet : Bullet
     private Vector2 lastDirection;
 
     private bool isSecondTarget;
+
+    [SerializeField] protected LayerMask enemyMask;
+    [SerializeField] protected LayerMask playerMask;
+
+    private Collider2D[] hits;
 
     private void Awake()
     {
@@ -81,7 +87,14 @@ public class GuidedBullet : Bullet
 
     private Transform FindClosestTarget()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
+        if (isPlayerBullet)
+        {
+            hits = Physics2D.OverlapCircleAll(transform.position, radius, enemyMask);
+        }
+        else if (isPlayerBullet)
+        {
+            hits = Physics2D.OverlapCircleAll(transform.position, radius, playerMask);
+        }
         float closestDistance = Mathf.Infinity;
         Transform nearestTarget = null;
 
@@ -123,7 +136,7 @@ public class GuidedBullet : Bullet
 
         }
         // Enemy
-        if (collision.gameObject.GetComponent<EnemyController>())
+        if (collision.gameObject.GetComponent<EnemyController>() && isPlayerBullet)
         {
             switch (type)
             {
@@ -135,11 +148,26 @@ public class GuidedBullet : Bullet
 
 
                 case bulletType.Rocket:
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill, enemyMask);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
-                        EntityHealth health = enemy.gameObject.GetComponentInChildren<EntityHealth>();
-                        health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
                     }
                     Destroy(gameObject);
 
@@ -160,12 +188,29 @@ public class GuidedBullet : Bullet
 
 
                 case bulletType.Rocket:
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, scrapMask);
-                    foreach (var enemy in enemies)
+                    Collider2D[] scraps = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var scrap in scraps)
                     {
-                        enemy.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
+                        if (scrap.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = scrap.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (scrap.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = scrap.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (scrap.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = scrap.gameObject?.GetComponent<Equipment>();
+                            if(!equipment.isInstalledMethod())
+                            equipment.DeathEquip();
+                        }
+
 
                     }
+
                     Destroy(gameObject);
 
                     break;

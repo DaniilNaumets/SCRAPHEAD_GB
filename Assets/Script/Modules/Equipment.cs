@@ -23,6 +23,8 @@ public class Equipment : MonoBehaviour
 
     [SerializeField] private GameObject scrapPrefab;
 
+    private bool isCollisionNow;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -212,13 +214,11 @@ public class Equipment : MonoBehaviour
             else
             {
                 this.health -= bullet.GetDamage();
+                if (!isCollisionNow)
+                    StartCoroutine(Red());
                 if (health <= 0)
                 {
-                    if (scrapPrefab != null)
-                    {
-                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
-                    }
-                    Destroy(gameObject);
+                    DeathEquip();
                 }
             }
         }
@@ -228,16 +228,33 @@ public class Equipment : MonoBehaviour
             if (bul.GetBulletUser() != isPlayerEquip)
             {
                 this.health -= bul.GetDamage();
+                if (!isCollisionNow)
+                    StartCoroutine(Red());
                 if (health <= 0)
                 {
-                    if (scrapPrefab != null)
-                    {
-                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
-                    }
-                    Destroy(gameObject);
+                    DeathEquip();
                     health = maxHealth;
                 }
             }
         }
+    }
+
+    public void DeathEquip()
+    {
+        if (scrapPrefab != null)
+        {
+            GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+
+    }
+
+    private IEnumerator Red()
+    {
+        isCollisionNow = true;
+        render.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        render.color = Color.white;
+        isCollisionNow = false;
     }
 }

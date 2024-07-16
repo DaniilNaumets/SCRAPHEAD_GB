@@ -11,6 +11,8 @@ public class EntityHealth : MonoBehaviour
 
     [SerializeField] private float health = 100f;
 
+    private bool isCollisionNow;
+
     private void Awake()
     {
         render = gameObject.transform.parent?.GetComponentInChildren<SpriteRenderer>();
@@ -49,6 +51,7 @@ public class EntityHealth : MonoBehaviour
         {
             bool isAggressive = isPlayerBullet;
             transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
+            if(!isCollisionNow)
             StartCoroutine(Red());
         }
         else
@@ -73,7 +76,11 @@ public class EntityHealth : MonoBehaviour
             else
             {
                 StartCoroutine(RestartScene());
-                Destroy(gameObject);
+                Destroy(gameObject.GetComponent<PlayerInput>());
+                for (int i = 0; i < gameObject.transform.childCount; i++)
+                {
+                    Destroy(gameObject.transform.GetChild(i).gameObject);
+                }
             }
         }
         else
@@ -84,14 +91,16 @@ public class EntityHealth : MonoBehaviour
 
     private IEnumerator Red()
     {
+        isCollisionNow = true;
         render.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         render.color = Color.white;
+        isCollisionNow = false;
     }
 
     private IEnumerator RestartScene()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(0);
     }
 }
