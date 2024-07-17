@@ -109,6 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 0}
+  render: {fileID: 0}
+  health: 100
 --- !u!114 &2354093423775252374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 0}
+  render: {fileID: 0}
+  health: 100
 --- !u!1 &428296109069579301
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +431,7 @@ GameObject:
   - component: {fileID: 6187451680421834406}
   - component: {fileID: 113219165329142930}
   - component: {fileID: 521164556639815928}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemyLineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

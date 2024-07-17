@@ -17,6 +17,7 @@ public class GuidedGun : Gun
     private void Awake()
     {
         base.Awake();
+        CheckUser();
     }
 
     public override void ShootPKM1()

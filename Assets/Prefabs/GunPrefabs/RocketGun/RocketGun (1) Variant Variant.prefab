@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.033
       objectReference: {fileID: 0}
+    - target: {fileID: 2836158757393070165, guid: 63cac99c026171b48ad2560cfbcc48b2, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1768581000495275445, guid: 2b0d6b70afd31f44e89d19841d0df454, type: 3}
     - target: {fileID: 4357833583745881501, guid: 63cac99c026171b48ad2560cfbcc48b2, type: 3}
       propertyPath: m_Name
       value: RocketGun (1) Variant Variant
