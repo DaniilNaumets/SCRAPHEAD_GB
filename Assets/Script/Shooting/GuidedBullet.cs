@@ -27,6 +27,8 @@ public class GuidedBullet : Bullet
     private void Awake()
     {
         poolManager = FindObjectOfType<ObjectsPoolManager>();
+        if (startAudio != null)
+            GameObject.Instantiate(startAudio);
     }
     private void Start()
     {

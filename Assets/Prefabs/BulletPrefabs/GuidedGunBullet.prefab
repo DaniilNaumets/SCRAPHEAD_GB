@@ -117,7 +117,7 @@ MonoBehaviour:
   lifeTime: 5
   radiusKill: 20
   radius: 15
-  startAudio: {fileID: 0}
+  startAudio: {fileID: 4797305183538165731, guid: e3674b1d8095e944d856c253184e0db3, type: 3}
   interval: 0.2
   rotationSpeed: 5
   enemyMask:
