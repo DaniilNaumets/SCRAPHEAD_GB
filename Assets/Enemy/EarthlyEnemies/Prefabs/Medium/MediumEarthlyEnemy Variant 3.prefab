@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7884284909103862400
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.218847
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.012488
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270197999656278204, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851260864455892346, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_Name
+      value: MediumEarthlyEnemy Variant 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8512857125541093506, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1534937152, guid: 3a929ad7f2e805e4189941f146f9285a, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
