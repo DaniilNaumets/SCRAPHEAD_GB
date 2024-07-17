@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2813175168839476176, guid: e3235e9d13da7014f827574b03c11125, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3578435686976720955, guid: e3235e9d13da7014f827574b03c11125, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.72
@@ -23,6 +27,10 @@ PrefabInstance:
     - target: {fileID: 5479264643940902217, guid: e3235e9d13da7014f827574b03c11125, type: 3}
       propertyPath: m_Name
       value: MineGun Variant Variant 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776013253024015189, guid: e3235e9d13da7014f827574b03c11125, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6776013253024015189, guid: e3235e9d13da7014f827574b03c11125, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,8 +84,52 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -700758467, guid: bc408e998717114408d1f99e8e4c951e, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4381051968488335413, guid: e3235e9d13da7014f827574b03c11125, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5479264643940902217, guid: e3235e9d13da7014f827574b03c11125, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5487093431203038650}
   m_SourcePrefab: {fileID: 100100000, guid: e3235e9d13da7014f827574b03c11125, type: 3}
+--- !u!1 &6954429319261717291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5479264643940902217, guid: e3235e9d13da7014f827574b03c11125, type: 3}
+  m_PrefabInstance: {fileID: 3209195953288144482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &5487093431203038650
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954429319261717291}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0

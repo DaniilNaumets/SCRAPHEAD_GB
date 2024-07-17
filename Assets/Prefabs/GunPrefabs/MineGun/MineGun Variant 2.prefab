@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 998596894850959067, guid: 9fa6af141fd520745a217bfb0f7f373e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3635259942239360433, guid: 9fa6af141fd520745a217bfb0f7f373e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3759997
@@ -88,7 +92,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1820881766, guid: 30ac2aa3e422caa48a92544afa916c2f, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: smokePrefab
       value: 
       objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+    - target: {fileID: 1197212479676177515, guid: e62f22bf44c769a4c9b92b810b952562, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2807141548251571590, guid: e62f22bf44c769a4c9b92b810b952562, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.66

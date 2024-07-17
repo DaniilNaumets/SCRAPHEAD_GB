@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 783246850497235329, guid: 76df5c3ea86665e4d986835962db5d0b, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1833999438489904852, guid: 76df5c3ea86665e4d986835962db5d0b, type: 3}
       propertyPath: smokePrefab
       value: 

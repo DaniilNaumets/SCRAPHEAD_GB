@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 1578649605012460958, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4026793630484809067, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: m_Name
       value: MediumPlayer Variant
