@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f958bcf01ede4fa25f93fb61eb918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
+  location: 1
 --- !u!58 &6626166665680707235
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f958bcf01ede4fa25f93fb61eb918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
+  location: 1
 --- !u!58 &1694686831451097274
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f958bcf01ede4fa25f93fb61eb918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
+  location: 1
 --- !u!58 &6683457748757336675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f958bcf01ede4fa25f93fb61eb918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
+  location: 1
 --- !u!58 &3694982563843666048
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f958bcf01ede4fa25f93fb61eb918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
+  location: 1
 --- !u!58 &4806019791667961239
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f958bcf01ede4fa25f93fb61eb918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
+  location: 1
 --- !u!58 &1057200717367852188
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -694,15 +694,15 @@ PrefabInstance:
       objectReference: {fileID: 4847306068244043431}
     - target: {fileID: 4342913099285931751, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4342913099285931751, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4342913099285931751, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5705288961201259286, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
