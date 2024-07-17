@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/Scenes/SpaceEffects.unity
     guid: 2f6b46a3e84a2bf4a9514ca760e7b5e1
+  - enabled: 1
+    path: Assets/_Game/Scenes/Space 1.unity
+    guid: dc27e2e57b512f141ae44a29ad6acfee
   m_configObjects: {}

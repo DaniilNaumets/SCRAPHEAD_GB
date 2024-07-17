@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c77d610590f2e3468984765be0245ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGoing: 0
 --- !u!114 &5327984563587459231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +457,7 @@ GameObject:
   - component: {fileID: 8637186057150822754}
   - component: {fileID: 4027001963590456703}
   - component: {fileID: 4008436268203918183}
+  - component: {fileID: 375998140492520076}
   m_Layer: 0
   m_Name: ScrapMetal
   m_TagString: Untagged
@@ -654,3 +654,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapDamageDealt: {fileID: 2195268493820691337}
   scrapHealth: {fileID: 2096440657580382213}
+--- !u!208 &375998140492520076
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753970380636311538}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 8.44, y: 0.00001, z: 8.44}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

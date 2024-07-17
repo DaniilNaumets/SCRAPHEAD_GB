@@ -7,7 +7,7 @@ namespace Resources
         private int currentValueScrap;
         private float currentCollectionTime;
 
-        public bool isGoing;
+        private bool isGoing;
 
         public void SetTransmittedValue(int valueScrap, float collectionTime)
         {
@@ -38,6 +38,10 @@ namespace Resources
                 return 0;
             }
         }
+
+        public void SetIsGoing(bool isGoing) => this.isGoing = isGoing;
+
+        public bool GetIsGoing() => isGoing;
     }
 }
 

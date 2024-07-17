@@ -656,9 +656,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1597888978465100573, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1978777337973245837, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142106775994567714, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 7619712491711648614}
+    - target: {fileID: 2457106036348806717, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.111636
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457106036348806717, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.111636
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457106036348806717, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.111636
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457106036348806717, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.99
       objectReference: {fileID: 0}
     - target: {fileID: 3860500233941351355, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_Size.x
@@ -722,11 +746,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.38314152
       objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -159.8
+      value: -11.055885
       objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -867,10 +891,67 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       insertIndex: 10
       addedObject: {fileID: 3881159540658142679}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6622925010446421596, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 7619712491711648614}
+    - targetCorrespondingSourceObject: {fileID: 6622925010446421596, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2931007815229905796}
+    - targetCorrespondingSourceObject: {fileID: 6622925010446421596, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3517119456898034590}
   m_SourcePrefab: {fileID: 100100000, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
 --- !u!4 &4847306068244043431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
   m_PrefabInstance: {fileID: 1174746231376060109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5450712673485557905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6622925010446421596, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+  m_PrefabInstance: {fileID: 1174746231376060109}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7619712491711648614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450712673485557905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8d060b6adfde94c90c428bad1848a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrapMetalCounterUI: {fileID: 0}
+  scrapAlienCounterUI: {fileID: 0}
+--- !u!114 &2931007815229905796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450712673485557905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2102dd0f8a76b4db65f3e7b8f69d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  isDestroy: 0
+--- !u!114 &3517119456898034590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450712673485557905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 0}
+  render: {fileID: 0}
+  health: 100

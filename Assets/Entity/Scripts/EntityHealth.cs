@@ -78,7 +78,7 @@ public class EntityHealth : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject.transform.parent.gameObject);
+            //Destroy(gameObject.transform.parent.gameObject);
         }      
     }
 

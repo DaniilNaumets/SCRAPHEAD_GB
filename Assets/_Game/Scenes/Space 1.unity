@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8668569115721686767, guid: 84d8fd82071afa04e9df2bd7e21fc5fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -308,6 +312,10 @@ PrefabInstance:
     - target: {fileID: 210752297814130077, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
       propertyPath: m_Name
       value: LaserGun 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 210752297814130077, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6620487318150664015, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
       propertyPath: m_LocalPosition.x
@@ -406,6 +414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleGun
       objectReference: {fileID: 0}
+    - target: {fileID: 7707223855422246926, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -481,6 +493,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff5d507ee7995bd49bf2ce3f81fea4b4, type: 3}
+--- !u!1001 &870848455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 650.433
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 624.26416
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 359.074
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -481.5527
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15992555168908883, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50037424313621353, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 1074c0ce20ef25540a97112a8e009826, type: 2}
+    - target: {fileID: 2873123432626535012, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
+      propertyPath: m_Name
+      value: '[NavMesh]'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9e19033b6896934da49f7f5ca1393a2, type: 3}
 --- !u!1001 &988193013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -636,11 +717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6167937456533089348, guid: 99576a825b54b20469b7abf7b4cc8ffc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.116516
+      value: 4.09
       objectReference: {fileID: 0}
     - target: {fileID: 6167937456533089348, guid: 99576a825b54b20469b7abf7b4cc8ffc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.551039
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 6167937456533089348, guid: 99576a825b54b20469b7abf7b4cc8ffc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -931,6 +1012,10 @@ PrefabInstance:
     - target: {fileID: 3878625789340481636, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       propertyPath: m_Name
       value: NuclearEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878625789340481636, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2132,6 +2217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoLaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 6466806585780850901, guid: 5f2e0a316a163dd44a3a1b62789bc93a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2144,6 +2233,7 @@ SceneRoots:
   - {fileID: 2047776107}
   - {fileID: 1539369449}
   - {fileID: 1510065105}
+  - {fileID: 870848455}
   - {fileID: 1667646269}
   - {fileID: 2413217305547349407}
   - {fileID: 1002792227}
