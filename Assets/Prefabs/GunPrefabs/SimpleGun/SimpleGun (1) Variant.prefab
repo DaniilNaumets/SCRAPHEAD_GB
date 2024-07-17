@@ -152,6 +152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleGun (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8081008802477482428, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
+      propertyPath: speedAttack1
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8278285418573354891, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8
