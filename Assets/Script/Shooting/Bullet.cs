@@ -81,26 +81,82 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Equipment>(out Equipment equip) && !isPlayerBullet)
         {
-            if (equip.isInstalledMethod() && equip.GetUser())
+            if (equip.isInstalledMethod())
             {
                 equip.BreakEquip();
+                Destroy(gameObject);
+            }
+
+            if (!equip.isInstalledMethod())
+            {
+                if (type is bulletType.Rocket)
+                {
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies)
+                    {
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
+                    }
+
+                }
                 Destroy(gameObject);
             }
         }
         if (collision.gameObject.TryGetComponent<Equipment>(out Equipment eq) && isPlayerBullet)
         {
-            if (!eq.isInstalledMethod())
+            if (!equip.isInstalledMethod())
             {
+                if (type is bulletType.Rocket)
+                {
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies)
+                    {
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
+                    }
+
+                }
                 Destroy(gameObject);
             }
         }
 
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
         {
-            collision.gameObject.GetComponent<EntityHealth>().TakeDamage(damage, poolManager);
+            //collision.gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
             Destroy(gameObject);
 
         }
+        // Enemy
         if (collision.gameObject.GetComponent<EnemyController>() && isPlayerBullet)
         {
             switch (type)
@@ -139,7 +195,7 @@ public class Bullet : MonoBehaviour
                     break;
             }
         }
-
+        // Scrap
         if (collision.gameObject.GetComponentInChildren<ScrapHealth>())
         {
             switch (type)
@@ -172,6 +228,7 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equipment.DeathEquip();
                         }
+
 
                     }
 
