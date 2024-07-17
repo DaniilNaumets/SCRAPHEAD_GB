@@ -28,6 +28,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float radius;
 
     [SerializeField] protected GameObject startAudio;
+
+    [SerializeField] protected GameObject mineAudio;
     
 
     protected Vector2 direction;
@@ -89,7 +91,7 @@ public class Bullet : MonoBehaviour
 
             if (!equip.isInstalledMethod())
             {
-                if (type is bulletType.Rocket)
+                if (type is bulletType.Rocket || type is bulletType.Mine)
                 {
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
@@ -121,7 +123,7 @@ public class Bullet : MonoBehaviour
         {
             if (!equip.isInstalledMethod())
             {
-                if (type is bulletType.Rocket)
+                if (type is bulletType.Rocket || type is bulletType.Mine)
                 {
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
@@ -152,8 +154,66 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.GetComponent<Drone>() && !isPlayerBullet)
         {
-            //collision.gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
-            Destroy(gameObject);
+            switch (type)
+            {
+                case bulletType.Simple:
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
+                    Destroy(gameObject);
+                    break;
+
+
+
+                case bulletType.Rocket:
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies)
+                    {
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
+                    }
+                    Destroy(gameObject);
+                    break;
+
+                case bulletType.Mine:
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies1)
+                    {
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
+                    }
+                    Destroy(gameObject);
+
+                    break;
+            }
 
         }
         // Enemy
@@ -191,6 +251,31 @@ public class Bullet : MonoBehaviour
 
                     }
                     Destroy(gameObject);
+                    break;
+
+                case bulletType.Mine:
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies1)
+                    {
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
+
+                    }
+                    Destroy(gameObject);
 
                     break;
             }
@@ -201,37 +286,59 @@ public class Bullet : MonoBehaviour
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
-
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Destroy(gameObject);
                     break;
 
 
 
                 case bulletType.Rocket:
-                    Collider2D[] scraps = Physics2D.OverlapCircleAll(transform.position, radius);
-                    foreach (var scrap in scraps)
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies)
                     {
-                        if (scrap.gameObject?.GetComponentInChildren<EntityHealth>())
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
-                            EntityHealth health = scrap.gameObject?.GetComponentInChildren<EntityHealth>();
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
                             health.TakeDamage(damage, poolManager, isPlayerBullet);
                         }
-                        if (scrap.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
                         {
-                            ScrapHealth scrapHealth = scrap.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
                             scrapHealth.TakeDamage(damage);
                         }
-                        if (scrap.gameObject?.GetComponent<Equipment>())
+                        if (enemy.gameObject?.GetComponent<Equipment>())
                         {
-                            Equipment equipment = scrap.gameObject?.GetComponent<Equipment>();
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
                                 equipment.DeathEquip();
                         }
 
+                    }
+                    Destroy(gameObject);
+                    break;
+
+                case bulletType.Mine:
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
+                    foreach (var enemy in enemies1)
+                    {
+                        if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
+                        {
+                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                        }
+                        if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
+                        {
+                            ScrapHealth scrapHealth = enemy.gameObject?.GetComponentInChildren<ScrapHealth>();
+                            scrapHealth.TakeDamage(damage);
+                        }
+                        if (enemy.gameObject?.GetComponent<Equipment>())
+                        {
+                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment.isInstalledMethod())
+                                equipment.DeathEquip();
+                        }
 
                     }
-
                     Destroy(gameObject);
 
                     break;
