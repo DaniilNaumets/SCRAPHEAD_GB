@@ -14,7 +14,6 @@ public class ShotGun : Gun
     private void Update()
     {
         Reloading();
-        CheckEnemyShooting();
     }
     public override void ShootLKM1()
     {

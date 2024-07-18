@@ -87,6 +87,7 @@ public class Bullet : MonoBehaviour
             {
                 equip.BreakEquip();
                 Destroy(gameObject);
+                return;
             }
 
             if (!equip.isInstalledMethod())
@@ -128,8 +129,12 @@ public class Bullet : MonoBehaviour
         {
             if (eq.isInstalledMethod())
             {
-                if(!eq.CheckUser(true))
+                if (!eq.CheckUser(true))
+                {
                     eq.BreakEquip();
+                    return; 
+                }
+
             }
             if (!eq.isInstalledMethod())
             {
@@ -184,7 +189,6 @@ public class Bullet : MonoBehaviour
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
                             EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
-                            Debug.Log(health.gameObject);
                             health.TakeDamage(damage, poolManager, isPlayerBullet);
                         }
                         if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())

@@ -55,7 +55,6 @@ public class AutoGun : Gun
             hits = Physics2D.OverlapCircleAll(transform.position, radiusZone, enemyLayer);
         }
         else if(!isPlayerGun){
-            Debug.Log(2);
             hits = Physics2D.OverlapCircleAll(transform.position, radiusZone, playerLayer);
         }
         float closestDistance = Mathf.Infinity;

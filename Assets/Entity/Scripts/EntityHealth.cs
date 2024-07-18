@@ -57,12 +57,7 @@ public class EntityHealth : MonoBehaviour
             {
                 GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
             }
-            StartCoroutine(RestartScene());
-            Destroy(gameObject.GetComponent<PlayerInput>());
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                Destroy(gameObject.transform.GetChild(i).gameObject);
-            }
+            
         }
 
     }
@@ -98,7 +93,7 @@ public class EntityHealth : MonoBehaviour
     {
         if (poolManager != null)
         {
-            if (!gameObject.GetComponent<Drone>())
+            if (!gameObject.GetComponentInParent<Drone>())
                 poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
             else
             {
@@ -123,7 +118,9 @@ public class EntityHealth : MonoBehaviour
 
     private IEnumerator RestartScene()
     {
-        yield return new WaitForSeconds(2f);
+        render.color = Color.black;
+        yield return new WaitForSeconds(1f);
+        render.color = Color.white;
         SceneManager.LoadScene(0);
     }
 }
