@@ -384,7 +384,6 @@ GameObject:
   - component: {fileID: 1398580093097719619}
   - component: {fileID: 5428269110200707553}
   - component: {fileID: 4985724887472790224}
-  - component: {fileID: 7895639028663674181}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -540,21 +539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7895639028663674181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3499692548862302472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokePrefab: {fileID: 0}
-  render: {fileID: 0}
-  health: 100
 --- !u!1 &3625661627388595131
 GameObject:
   m_ObjectHideFlags: 0

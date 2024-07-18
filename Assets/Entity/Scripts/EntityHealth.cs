@@ -9,8 +9,7 @@ public class EntityHealth : MonoBehaviour
     [SerializeField] private GameObject smokePrefab;
     [SerializeField] private SpriteRenderer render;
 
-    [SerializeField] private float health = 100f;
-
+    private float health;
     private bool isCollisionNow;
 
     private void Awake()

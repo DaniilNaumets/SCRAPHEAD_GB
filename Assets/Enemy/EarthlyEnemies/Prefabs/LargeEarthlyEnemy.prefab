@@ -487,7 +487,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
   render: {fileID: 0}
-  health: 100
 --- !u!1 &3438277347214162293
 GameObject:
   m_ObjectHideFlags: 0
