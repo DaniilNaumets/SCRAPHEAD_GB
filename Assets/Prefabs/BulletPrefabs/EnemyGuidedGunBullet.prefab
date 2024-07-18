@@ -96,7 +96,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.22
+  m_Radius: 0.64
 --- !u!114 &2187412938975307117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,17 +115,18 @@ MonoBehaviour:
   speed: 15
   damage: 50
   lifeTime: 5
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  scrapMask:
-    serializedVersion: 2
-    m_Bits: 512
-  radiusKill: 10
+  radiusKill: 5
   radius: 15
   startAudio: {fileID: 0}
+  mineAudio: {fileID: 0}
   interval: 0.2
   rotationSpeed: 5
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 8
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &3130692572719818822
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -176445495, guid: 30ac2aa3e422caa48a92544afa916c2f, type: 3}
+  m_Sprite: {fileID: 1782488659, guid: 7ff40975762f37a41b484f995704c0a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

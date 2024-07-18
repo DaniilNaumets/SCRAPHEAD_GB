@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2197525011717298743, guid: bfb1bad40a2f5644e87f3017d63c6091, type: 3}
+      propertyPath: m_Radius
+      value: 1.74
+      objectReference: {fileID: 0}
     - target: {fileID: 3713854565768074328, guid: bfb1bad40a2f5644e87f3017d63c6091, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.259051
@@ -51,6 +55,10 @@ PrefabInstance:
     - target: {fileID: 7073566104255370451, guid: bfb1bad40a2f5644e87f3017d63c6091, type: 3}
       propertyPath: m_Name
       value: SimpleGun (1) Variant 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717375785759352161, guid: bfb1bad40a2f5644e87f3017d63c6091, type: 3}
+      propertyPath: speedAttack1
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 8808395585232229206, guid: bfb1bad40a2f5644e87f3017d63c6091, type: 3}
       propertyPath: m_LocalPosition.x

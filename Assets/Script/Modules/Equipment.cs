@@ -21,7 +21,11 @@ public class Equipment : MonoBehaviour
 
     private bool isBroken;
 
+    [Header("Дополнительно")]
     [SerializeField] private GameObject scrapPrefab;
+    [SerializeField] private GameObject smokePrefab;
+
+    private bool isCollisionNow;
 
     private void Awake()
     {
@@ -62,6 +66,7 @@ public class Equipment : MonoBehaviour
     {
         if (isInstalled)
         {
+            CheckCollisionEquip();
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
             gameObject.transform.SetParent(null);
@@ -182,7 +187,7 @@ public class Equipment : MonoBehaviour
 
     public bool isInstalledMethod() => isInstalled;
 
-    private void CheckUser()
+    public void CheckUser()
     {
         if (GetComponentInParent<Drone>())
         {
@@ -194,6 +199,8 @@ public class Equipment : MonoBehaviour
         }
     }
 
+    public bool CheckUser(bool isHaveValue) => isPlayerEquip;
+
     public bool GetUser() => isPlayerEquip;
 
     private void CheckEngine()
@@ -201,43 +208,68 @@ public class Equipment : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) && !isInstalled)
+    //    {
+    //        if (bullet.GetBulletUser() && isPlayerEquip)
+    //        {
+
+    //        }
+    //        else
+    //        {
+    //            this.health -= bullet.GetDamage();
+    //            CheckCollisionEquip();
+    //            if (health <= 0)
+    //            {
+    //                DeathEquip();
+    //            }
+    //        }
+    //    }
+
+    //    if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
+    //    {
+    //        if (bul.GetBulletUser() != isPlayerEquip)
+    //        {
+    //            this.health -= bul.GetDamage();
+    //            CheckCollisionEquip();
+    //            if (health <= 0)
+    //            {
+    //                DeathEquip();
+    //                health = maxHealth;
+    //            }
+    //        }
+    //    }
+    //}
+
+    public void DeathEquip()
     {
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) && !isInstalled)
+        
+        if (scrapPrefab != null)
         {
-            if (bullet.GetBulletUser() && isPlayerEquip)
-            {
-
-            }
-            else
-            {
-                this.health -= bullet.GetDamage();
-                if (health <= 0)
-                {
-                    if (scrapPrefab != null)
-                    {
-                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
-                    }
-                    Destroy(gameObject);
-                }
-            }
+            GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
         }
-
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
+        if (smokePrefab != null)
         {
-            if (bul.GetBulletUser() != isPlayerEquip)
-            {
-                this.health -= bul.GetDamage();
-                if (health <= 0)
-                {
-                    if (scrapPrefab != null)
-                    {
-                        GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
-                    }
-                    Destroy(gameObject);
-                    health = maxHealth;
-                }
-            }
+            GameObject smoke = GameObject.Instantiate(smokePrefab, transform.position, transform.rotation);
+            smoke.transform.localScale = gameObject.transform.localScale;
+            smoke.transform.localScale *= 5f;
         }
+        Destroy(gameObject);
+    }
+
+    private IEnumerator Red()
+    {
+        isCollisionNow = true;
+        render.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        render.color = Color.white;
+        isCollisionNow = false;
+    }
+
+    public void CheckCollisionEquip()
+    {
+        if (!isCollisionNow)
+            StartCoroutine(Red());
     }
 }

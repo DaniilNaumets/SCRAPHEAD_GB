@@ -92,21 +92,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1630576831118483178, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
+      propertyPath: m_Radius
+      value: 2.21
+      objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.259051
+      value: 2.0156536
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.189271
+      value: -3.1968627
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -118,15 +122,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4275489082671304837, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -140,9 +144,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5433040878041054438, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     - target: {fileID: 7707223855422246926, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_Name
       value: SimpleGun (1) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081008802477482428, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
+      propertyPath: speedAttack1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8278285418573354891, guid: c27ec8bd8b9e91944ba3290cd118938c, type: 3}
       propertyPath: m_LocalPosition.x

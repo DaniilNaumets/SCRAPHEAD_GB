@@ -94,11 +94,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2696728412335424043, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2696728412335424043, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696728412335424043, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2696728412335424043, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -140,6 +144,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2892226662192058475, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      propertyPath: scrapPrefab
+      value: 
+      objectReference: {fileID: 8334557270671750872, guid: 64308ff44f956ed4db7c177917bfcd80, type: 3}
+    - target: {fileID: 2892226662192058475, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     - target: {fileID: 3878625789340481636, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       propertyPath: m_Name
       value: NuclearEngine Variant
@@ -155,6 +167,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3878625789340481636, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4199500484892152371}
+    - targetCorrespondingSourceObject: {fileID: 3878625789340481636, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6666867965657473660}
   m_SourcePrefab: {fileID: 100100000, guid: e7c8f9cc6ad94814fa8fd6f52b3c43b1, type: 3}
 --- !u!4 &320230018947478880 stripped
 Transform:
@@ -262,3 +277,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &6666867965657473660
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499344832542134063}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 5.23, y: 1.96}
+  m_Direction: 1

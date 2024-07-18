@@ -8,9 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6990784074475462938, guid: c9f35f3e42746ee468034d023f327132, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 190728508462865434, guid: c9f35f3e42746ee468034d023f327132, type: 3}
       propertyPath: m_Name
       value: MineGun Variant Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199897725325908486, guid: c9f35f3e42746ee468034d023f327132, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1199897725325908486, guid: c9f35f3e42746ee468034d023f327132, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64,6 +72,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.4200001
       objectReference: {fileID: 0}
+    - target: {fileID: 7612701103690095235, guid: c9f35f3e42746ee468034d023f327132, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8463113798649930842, guid: c9f35f3e42746ee468034d023f327132, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.464
@@ -76,8 +88,52 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.47
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 190728508462865434, guid: c9f35f3e42746ee468034d023f327132, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8809272421894239279}
   m_SourcePrefab: {fileID: 100100000, guid: c9f35f3e42746ee468034d023f327132, type: 3}
+--- !u!1 &5479264643940902217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 190728508462865434, guid: c9f35f3e42746ee468034d023f327132, type: 3}
+  m_PrefabInstance: {fileID: 5669988743605156179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &8809272421894239279
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479264643940902217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0

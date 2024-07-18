@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &376516419970779811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 424112775506422712, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5199986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553319281373644709, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5199986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032366073381279561, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.1293983
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.5896816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127286365879149613, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275540492567546124, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5199986
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014435782911557257, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_Name
+      value: AutoShotGun Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790783233948590364, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5199986
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838977879273720171, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -527797356, guid: a046084d2c61e1b48b449529ad02226a, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f8fda36e79dee14c82df5bd0771fd1b, type: 3}

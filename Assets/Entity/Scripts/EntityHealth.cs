@@ -11,6 +11,8 @@ public class EntityHealth : MonoBehaviour
 
     [SerializeField] private float health = 100f;
 
+    private bool isCollisionNow;
+
     private void Awake()
     {
         render = gameObject.transform.parent?.GetComponentInChildren<SpriteRenderer>();
@@ -41,14 +43,37 @@ public class EntityHealth : MonoBehaviour
         
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health > 0)
+        {
+            StartCoroutine(Red());
+        }
+        else
+        {
+            if (smokePrefab != null)
+            {
+                GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
+            }
+            
+        }
+
+    }
+
     public void TakeDamage(float damage, ObjectsPoolManager poolManager, bool isPlayerBullet)
     {
         health -= damage;
  
         if (health > 0)
         {
-            bool isAggressive = isPlayerBullet;
-            transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
+            if (!gameObject.GetComponentInParent<Drone>())
+            {
+                bool isAggressive = isPlayerBullet;
+                transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
+            }
+            if(!isCollisionNow)
             StartCoroutine(Red());
         }
         else
@@ -68,12 +93,12 @@ public class EntityHealth : MonoBehaviour
     {
         if (poolManager != null)
         {
-            if (!gameObject.GetComponent<Drone>())
+            if (!gameObject.GetComponentInParent<Drone>())
                 poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
             else
             {
                 StartCoroutine(RestartScene());
-                Destroy(gameObject);
+                Debug.Log("Restart!");
             }
         }
         else
@@ -84,14 +109,18 @@ public class EntityHealth : MonoBehaviour
 
     private IEnumerator Red()
     {
+        isCollisionNow = true;
         render.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         render.color = Color.white;
+        isCollisionNow = false;
     }
 
     private IEnumerator RestartScene()
     {
-        yield return new WaitForSeconds(3f);
+        render.color = Color.black;
+        yield return new WaitForSeconds(1f);
+        render.color = Color.white;
         SceneManager.LoadScene(0);
     }
 }

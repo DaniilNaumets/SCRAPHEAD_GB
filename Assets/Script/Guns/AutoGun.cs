@@ -51,6 +51,7 @@ public class AutoGun : Gun
         Collider2D[] hits = null;
         if (isPlayerGun)
         {
+            Debug.Log(1);
             hits = Physics2D.OverlapCircleAll(transform.position, radiusZone, enemyLayer);
         }
         else if(!isPlayerGun){

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1120701583803730986, guid: 7d3585cb205dd0e4398e678a55dd06f1, type: 3}
       propertyPath: m_Name
-      value: InfiniteShield (1) Variant Variant
+      value: EnemyInfShield
       objectReference: {fileID: 0}
     - target: {fileID: 3044968058882158711, guid: 7d3585cb205dd0e4398e678a55dd06f1, type: 3}
       propertyPath: m_LocalPosition.x

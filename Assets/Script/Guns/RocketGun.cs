@@ -15,6 +15,7 @@ public class RocketGun : Gun
     private void Awake()
     {
         base.Awake();
+        CheckUser();
     }
     public override void ShootPKM1()
     {

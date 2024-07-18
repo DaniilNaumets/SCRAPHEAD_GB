@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapCrumble: {fileID: 2303520133353004413}
   scrapTurnOff: {fileID: 7495466766097669625}
+  smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
 --- !u!114 &5069220108103829576
 MonoBehaviour:
   m_ObjectHideFlags: 0

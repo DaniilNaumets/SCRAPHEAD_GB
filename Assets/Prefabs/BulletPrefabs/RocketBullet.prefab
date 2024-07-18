@@ -53,15 +53,10 @@ MonoBehaviour:
   speed: 30
   damage: 50
   lifeTime: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 8
-  scrapMask:
-    serializedVersion: 2
-    m_Bits: 512
-  radiusKill: 15
+  radiusKill: 5
   radius: 0
-  startAudio: {fileID: 0}
+  startAudio: {fileID: 4797305183538165731, guid: e3674b1d8095e944d856c253184e0db3, type: 3}
+  mineAudio: {fileID: 0}
 --- !u!50 &7166099879947576732
 Rigidbody2D:
   serializedVersion: 4

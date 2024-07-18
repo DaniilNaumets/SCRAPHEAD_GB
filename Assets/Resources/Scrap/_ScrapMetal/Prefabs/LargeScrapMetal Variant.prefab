@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.51
       objectReference: {fileID: 0}
+    - target: {fileID: 2096440657580382213, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: isPickup
       value: 0

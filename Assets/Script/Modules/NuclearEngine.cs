@@ -18,7 +18,6 @@ public class NuclearEngine : Engine
     {
         base.Awake();
         StartEngine();
-        Debug.Log(audioEngine);
     }
     public override void Special(float mult)
     {

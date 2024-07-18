@@ -11,10 +11,6 @@ public class LaserGun : Gun
     [SerializeField] private float laserTime;
     [SerializeField] private float laserTime2;
 
-    [SerializeField] private LineRenderer laserLineRenderer;
-    [SerializeField] private Material notWide;
-    [SerializeField] private Material wide;
-
     [SerializeField] private AudioSource laserAudio;
 
     private bool isLaser1;
@@ -28,6 +24,7 @@ public class LaserGun : Gun
     {
         if (CanShoot(reloadTime1))
         {
+            if(laserNotWide!=null)
             StartCoroutine(OpenLaser());
             Reloading1();
         }

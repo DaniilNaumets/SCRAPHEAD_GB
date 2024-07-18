@@ -544,6 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 0}
   render: {fileID: 0}
+  health: 100
 --- !u!114 &5206101689850285826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,7 +860,7 @@ PrefabInstance:
       objectReference: {fileID: 5206101689850285826}
     - target: {fileID: 8721732479644909906, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.1017585
+      value: 3.94
       objectReference: {fileID: 0}
     - target: {fileID: 8721732479644909906, guid: d5799d7db9b7b5248869b64632f453e9, type: 3}
       propertyPath: m_LocalPosition.y

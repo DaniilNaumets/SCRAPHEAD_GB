@@ -8,17 +8,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32868355812457245, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: scrapPrefab
+      value: 
+      objectReference: {fileID: 8334557270671750872, guid: 64308ff44f956ed4db7c177917bfcd80, type: 3}
+    - target: {fileID: 32868355812457245, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
     - target: {fileID: 2196876268448753432, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_Name
       value: QuantumEngine Variant Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.7538996
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.278934
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 25001b2eaaa8df64f8ab4147d5e82372, type: 3}
+    - target: {fileID: 6126453412460613850, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
