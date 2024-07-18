@@ -550,10 +550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83293c354cc63340bbaa7d70e67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 400
   isAggressive: 0
   movementSpeed: 5
-  rotationSpeed: 17
+  rotationSpeed: 4
   rotationDegree: 30
   movementRadius: 10
   pointReachThreshold: 3

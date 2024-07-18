@@ -336,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4287667712417287537}
+  - component: {fileID: 4088876231334061564}
   - component: {fileID: 7384755933705892573}
   - component: {fileID: 8654354086593911687}
   - component: {fileID: 6539379881440441157}
@@ -366,6 +367,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3571870144825784071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4088876231334061564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341995123982316882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e578a99812b574ba37ffd4613003c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAgent: {fileID: 6420712063121622262}
+  enemyController: {fileID: 1801935521953187485}
+  enemyAggressiveState: {fileID: 5741963176203508231}
+  enemyMovement: {fileID: 7384755933705892573}
+  enemyAttack: {fileID: 8664679225546622528}
+  entityCameraPosition: {fileID: 6539379881440441157}
+  enemyLineOfSight: {fileID: 4774679394399053024}
 --- !u!114 &7384755933705892573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,14 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f0de35c58826847879f2a507d87108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 1801935521953187485}
-  enemyAttackPosition: {fileID: 1197174678268867568}
-  enemyLook: {fileID: 7498485644423424112}
-  enemyAttack: {fileID: 8664679225546622528}
-  enemyAggressiveState: {fileID: 5741963176203508231}
-  enemyLineOfSight: {fileID: 4774679394399053024}
-  entityCameraPosition: {fileID: 6539379881440441157}
-  ScrapPickUp: 0
+  enemyAgent: {fileID: 6420712063121622262}
 --- !u!114 &8654354086593911687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,6 +1065,7 @@ GameObject:
   - component: {fileID: 3571870144825784071}
   - component: {fileID: 1801935521953187485}
   - component: {fileID: 6423444462942616920}
+  - component: {fileID: 6420712063121622262}
   - component: {fileID: 6891713771664258350}
   - component: {fileID: 3002306817545707636}
   - component: {fileID: 4259090838650951813}
@@ -1105,14 +1119,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83293c354cc63340bbaa7d70e67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  shootingDistance: 20
-  scanningDistance: 8.5
+  health: 500
   isAggressive: 0
   movementSpeed: 3.5
-  rotationSpeed: 17
+  rotationSpeed: 4
   rotationDegree: 30
-  moveForwardTime: 3
+  movementRadius: 10
+  pointReachThreshold: 3
+  shootingDistance: 20
+  scanningDistance: 8.5
   enemyMovement: {fileID: 7384755933705892573}
   enemyAggressiveState: {fileID: 5741963176203508231}
   entityHealth: {fileID: 2128429448239790542}
@@ -1128,7 +1143,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa6a64357377de42877c1838b366c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFrequency: 1
+  spawnFrequency: 2
+--- !u!195 &6420712063121622262
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954800928705754358}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 4.65
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 80
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.53
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!50 &6891713771664258350
 Rigidbody2D:
   serializedVersion: 4
