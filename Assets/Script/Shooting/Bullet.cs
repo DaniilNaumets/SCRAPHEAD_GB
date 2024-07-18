@@ -94,6 +94,9 @@ public class Bullet : MonoBehaviour
             {
                 if (type is bulletType.Rocket || type is bulletType.Mine)
                 {
+                    Equipment equipment2 = collision.gameObject?.GetComponent<Equipment>();
+                    if (!equipment2.isInstalledMethod())
+                        equipment2.DeathEquip();
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
@@ -140,6 +143,9 @@ public class Bullet : MonoBehaviour
             {
                 if (type is bulletType.Rocket || type is bulletType.Mine)
                 {
+                    Equipment equipment = collision.gameObject?.GetComponent<Equipment>();
+                    if (!equipment.isInstalledMethod())
+                        equipment.DeathEquip();
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
@@ -155,9 +161,9 @@ public class Bullet : MonoBehaviour
                         }
                         if (enemy.gameObject?.GetComponent<Equipment>())
                         {
-                            Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
-                            if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                            Equipment equipment1 = enemy.gameObject?.GetComponent<Equipment>();
+                            if (!equipment1.isInstalledMethod())
+                                equipment1.DeathEquip();
                         }
 
                     }
@@ -183,9 +189,11 @@ public class Bullet : MonoBehaviour
 
 
                 case bulletType.Rocket:
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
+                        Debug.Log(enemy.gameObject);
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
                             EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
@@ -208,6 +216,7 @@ public class Bullet : MonoBehaviour
                     break;
 
                 case bulletType.Mine:
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies1)
                     {
@@ -248,6 +257,7 @@ public class Bullet : MonoBehaviour
 
 
                 case bulletType.Rocket:
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
@@ -276,6 +286,7 @@ public class Bullet : MonoBehaviour
                     break;
 
                 case bulletType.Mine:
+                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies1)
                     {
@@ -315,6 +326,7 @@ public class Bullet : MonoBehaviour
 
 
                 case bulletType.Rocket:
+                    collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
@@ -340,6 +352,7 @@ public class Bullet : MonoBehaviour
                     break;
 
                 case bulletType.Mine:
+                    collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
                     Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies1)
                     {
