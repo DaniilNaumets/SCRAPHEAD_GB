@@ -121,6 +121,10 @@ public class Bullet : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent<Equipment>(out Equipment eq) && isPlayerBullet)
         {
+            if (equip.isInstalledMethod())
+            {
+                equip.BreakEquip();
+            }
             if (!equip.isInstalledMethod())
             {
                 if (type is bulletType.Rocket || type is bulletType.Mine)
@@ -183,6 +187,10 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equipment.DeathEquip();
                         }
+                        if (enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>())
+                        {
+                            enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
+                        }
 
                     }
                     Destroy(gameObject);
@@ -207,6 +215,10 @@ public class Bullet : MonoBehaviour
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
                                 equipment.DeathEquip();
+                        }
+                        if (enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>())
+                        {
+                            enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
                         }
 
                     }

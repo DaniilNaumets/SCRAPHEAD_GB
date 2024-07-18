@@ -115,9 +115,10 @@ MonoBehaviour:
   speed: 15
   damage: 50
   lifeTime: 5
-  radiusKill: 10
+  radiusKill: 5
   radius: 15
   startAudio: {fileID: 0}
+  mineAudio: {fileID: 0}
   interval: 0.2
   rotationSpeed: 5
   enemyMask:

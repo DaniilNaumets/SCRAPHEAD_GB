@@ -24,13 +24,13 @@ public class Engine : MonoBehaviour
         if (equip.isInstalledMethod())
         {
             Special(1);
-            if(!particleSys.isPlaying)
-            particleSys.Play();
+            //if(!particleSys.isPlaying)
+            //particleSys.Play();
         }
         else
         {
-            if (particleSys.isPlaying)
-                particleSys.Stop(true,ParticleSystemStopBehavior.StopEmitting);
+            //if (particleSys.isPlaying)
+            //    particleSys.Stop(true,ParticleSystemStopBehavior.StopEmitting);
         }
     }
 

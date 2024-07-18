@@ -43,6 +43,30 @@ public class EntityHealth : MonoBehaviour
         
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health > 0)
+        {
+            StartCoroutine(Red());
+        }
+        else
+        {
+            if (smokePrefab != null)
+            {
+                GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
+            }
+            StartCoroutine(RestartScene());
+            Destroy(gameObject.GetComponent<PlayerInput>());
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                Destroy(gameObject.transform.GetChild(i).gameObject);
+            }
+        }
+
+    }
+
     public void TakeDamage(float damage, ObjectsPoolManager poolManager, bool isPlayerBullet)
     {
         health -= damage;
@@ -75,12 +99,12 @@ public class EntityHealth : MonoBehaviour
                 poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
             else
             {
-                StartCoroutine(RestartScene());
-                Destroy(gameObject.GetComponent<PlayerInput>());
-                for (int i = 0; i < gameObject.transform.childCount; i++)
-                {
-                    Destroy(gameObject.transform.GetChild(i).gameObject);
-                }
+                //StartCoroutine(RestartScene());
+                //Destroy(gameObject.GetComponent<PlayerInput>());
+                //for (int i = 0; i < gameObject.transform.childCount; i++)
+                //{
+                //    Destroy(gameObject.transform.GetChild(i).gameObject);
+                //}
             }
         }
         else

@@ -146,6 +146,10 @@ public class GuidedBullet : Bullet
                             if (!equipment.isInstalledMethod())
                                 equipment.DeathEquip();
                         }
+                        if (enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>())
+                        {
+                            enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
+                        }
 
                     }
                     
@@ -177,6 +181,10 @@ public class GuidedBullet : Bullet
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
                                 equipment.DeathEquip();
+                        }
+                        if (enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>())
+                        {
+                            enemy.GetComponent<Drone>().gameObject.GetComponent<EntityHealth>().TakeDamage(damage);
                         }
 
                     }

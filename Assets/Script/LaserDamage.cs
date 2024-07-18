@@ -3,6 +3,7 @@ using ObjectPool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class LaserDamage : LaserGun
 {
@@ -27,5 +28,7 @@ public class LaserDamage : LaserGun
         {
             equip.DeathEquip();
         }
+
+        
     }
 }
