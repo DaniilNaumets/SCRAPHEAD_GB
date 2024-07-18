@@ -127,7 +127,6 @@ Transform:
   - {fileID: 3468857345504833531}
   - {fileID: 3263541471402502021}
   - {fileID: 8836373755476419322}
-  - {fileID: 2538504595000450774}
   - {fileID: 6766100442676974073}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -694,54 +693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3ff983a54e55a4bba805ff9889f426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5175823446361104700
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2538504595000450774}
-  - component: {fileID: 2540287856613497613}
-  m_Layer: 3
-  m_Name: GunBlank
-  m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2538504595000450774
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5175823446361104700}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.69, y: 0, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3156857766983173301}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2540287856613497613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5175823446361104700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971cf1f7b30cb4244adc403867aabedf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1768581000495275445, guid: aa7cb61f306187a40a9858e503d33413, type: 3}
-  shootPoint: {fileID: 2538504595000450774}
-  bulletSpeed: 20
-  fireRate: 1
 --- !u!1 &5447791380359789235
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8836373755476419322}
   - component: {fileID: 8719382131560846561}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

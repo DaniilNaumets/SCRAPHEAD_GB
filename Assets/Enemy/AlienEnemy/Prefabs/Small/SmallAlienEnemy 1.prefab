@@ -82,54 +82,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.5134612, y: 0.11}
   m_Size: {x: 2.5754516, y: 0.5164461}
   m_Direction: 1
---- !u!1 &1228786519048981767
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3358191905723335779}
-  - component: {fileID: 2284112170275549653}
-  m_Layer: 3
-  m_Name: GunBlank
-  m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3358191905723335779
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228786519048981767}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.36, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6426150506221298385}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2284112170275549653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228786519048981767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971cf1f7b30cb4244adc403867aabedf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1768581000495275445, guid: aa7cb61f306187a40a9858e503d33413, type: 3}
-  shootPoint: {fileID: 3358191905723335779}
-  bulletSpeed: 20
-  fireRate: 1
 --- !u!1 &3694961590280503368
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553928605190463635}
   - component: {fileID: 3091232944807233565}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +640,6 @@ Transform:
   - {fileID: 7310244400042729904}
   - {fileID: 6210753539566286973}
   - {fileID: 553928605190463635}
-  - {fileID: 3358191905723335779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4429922920896828763

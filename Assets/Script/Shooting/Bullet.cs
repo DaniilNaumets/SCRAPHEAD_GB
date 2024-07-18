@@ -83,7 +83,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Equipment>(out Equipment equip) && !isPlayerBullet)
         {
-            if (equip.isInstalledMethod())
+            if (equip.isInstalledMethod() && equip.CheckUser(true))
             {
                 equip.BreakEquip();
                 Destroy(gameObject);
@@ -115,6 +115,11 @@ public class Bullet : MonoBehaviour
 
                     }
 
+                }
+
+                if(type is bulletType.Simple)
+                {
+                    equip.DeathEquip();
                 }
                 Destroy(gameObject);
             }
@@ -153,6 +158,10 @@ public class Bullet : MonoBehaviour
                     }
 
                 }
+                if (type is bulletType.Simple)
+                {
+                    equip.DeathEquip();
+                }
                 Destroy(gameObject);
             }
         }
@@ -175,6 +184,7 @@ public class Bullet : MonoBehaviour
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
                             EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                            Debug.Log(health.gameObject);
                             health.TakeDamage(damage, poolManager, isPlayerBullet);
                         }
                         if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
@@ -239,8 +249,11 @@ public class Bullet : MonoBehaviour
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
-                            EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
-                            health.TakeDamage(damage, poolManager, isPlayerBullet);
+                            if (!enemy.gameObject.GetComponent<Drone>())
+                            {
+                                EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
+                                health.TakeDamage(damage, poolManager, isPlayerBullet);
+                            }
                         }
                         if (enemy.gameObject?.GetComponentInChildren<ScrapHealth>())
                         {
@@ -291,7 +304,7 @@ public class Bullet : MonoBehaviour
             switch (type)
             {
                 case bulletType.Simple:
-                    collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
+                    collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
                     Destroy(gameObject);
                     break;
 
@@ -350,11 +363,11 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.GetComponentInChildren<ScrapHealth>())
-        {
-            collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
+        //if (collision.gameObject.GetComponentInChildren<ScrapHealth>())
+        //{
+        //    collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
+        //    Destroy(gameObject);
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

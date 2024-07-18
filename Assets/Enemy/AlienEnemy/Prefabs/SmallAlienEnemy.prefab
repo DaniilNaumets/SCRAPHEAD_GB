@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5374867368976472179, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5670690042071691542, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
       propertyPath: m_Name
       value: SmallAlienEnemy
@@ -53,7 +57,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2580687698513563679, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}

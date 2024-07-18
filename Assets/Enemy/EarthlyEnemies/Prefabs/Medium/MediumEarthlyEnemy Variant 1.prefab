@@ -300,6 +300,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2112187355989887605, guid: 78d1dac324749884d92daacffa8369e4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380056582477264850, guid: 78d1dac324749884d92daacffa8369e4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6662165862540548241, guid: 78d1dac324749884d92daacffa8369e4, type: 3}
       propertyPath: m_Name
       value: MediumEarthlyEnemy Variant 1

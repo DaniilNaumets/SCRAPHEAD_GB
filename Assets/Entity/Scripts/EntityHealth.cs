@@ -73,7 +73,7 @@ public class EntityHealth : MonoBehaviour
  
         if (health > 0)
         {
-            if (!gameObject.GetComponent<Drone>())
+            if (!gameObject.GetComponentInParent<Drone>())
             {
                 bool isAggressive = isPlayerBullet;
                 transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);

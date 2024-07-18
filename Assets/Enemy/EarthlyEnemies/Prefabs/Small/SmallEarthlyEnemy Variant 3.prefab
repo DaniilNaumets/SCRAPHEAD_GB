@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallEarthlyEnemy Variant 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5553210598283771432, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6751056357219968174, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -178,6 +182,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7669622656650044265, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139530837725659181, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

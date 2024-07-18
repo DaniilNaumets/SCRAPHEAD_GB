@@ -208,39 +208,39 @@ public class Equipment : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) && !isInstalled)
-        {
-            if (bullet.GetBulletUser() && isPlayerEquip)
-            {
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet) && !isInstalled)
+    //    {
+    //        if (bullet.GetBulletUser() && isPlayerEquip)
+    //        {
 
-            }
-            else
-            {
-                this.health -= bullet.GetDamage();
-                CheckCollisionEquip();
-                if (health <= 0)
-                {
-                    DeathEquip();
-                }
-            }
-        }
+    //        }
+    //        else
+    //        {
+    //            this.health -= bullet.GetDamage();
+    //            CheckCollisionEquip();
+    //            if (health <= 0)
+    //            {
+    //                DeathEquip();
+    //            }
+    //        }
+    //    }
 
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
-        {
-            if (bul.GetBulletUser() != isPlayerEquip)
-            {
-                this.health -= bul.GetDamage();
-                CheckCollisionEquip();
-                if (health <= 0)
-                {
-                    DeathEquip();
-                    health = maxHealth;
-                }
-            }
-        }
-    }
+    //    if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bul) && !isInstalled)
+    //    {
+    //        if (bul.GetBulletUser() != isPlayerEquip)
+    //        {
+    //            this.health -= bul.GetDamage();
+    //            CheckCollisionEquip();
+    //            if (health <= 0)
+    //            {
+    //                DeathEquip();
+    //                health = maxHealth;
+    //            }
+    //        }
+    //    }
+    //}
 
     public void DeathEquip()
     {

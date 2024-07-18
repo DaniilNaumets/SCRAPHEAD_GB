@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3744164392296613924}
   - component: {fileID: 8331069476114166843}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 7359081382148505175}
   - component: {fileID: 5476010934742558397}
   - component: {fileID: 6860126390576804912}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -24,6 +24,7 @@ public class LaserGun : Gun
     {
         if (CanShoot(reloadTime1))
         {
+            if(laserNotWide!=null)
             StartCoroutine(OpenLaser());
             Reloading1();
         }
