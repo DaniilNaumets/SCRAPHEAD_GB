@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 3156857766983173301}
   - component: {fileID: 4350050009762280911}
   - component: {fileID: -336617146773726555}
+  - component: {fileID: 8801989064865493392}
   - component: {fileID: 7152849689130431636}
   - component: {fileID: 6605496923818493955}
   - component: {fileID: 3320094572084579438}
@@ -142,14 +143,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83293c354cc63340bbaa7d70e67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 500
+  isAggressive: 1
+  movementSpeed: 5
+  rotationSpeed: 4
+  rotationDegree: 30
+  movementRadius: 10
+  pointReachThreshold: 3
   shootingDistance: 18
   scanningDistance: 6.5
-  isAggressive: 0
-  movementSpeed: 5
-  rotationSpeed: 17
-  rotationDegree: 30
-  moveForwardTime: 3
   enemyMovement: {fileID: 3958706161773212936}
   enemyAggressiveState: {fileID: 2242574588155473228}
   entityHealth: {fileID: 2231186177318897520}
@@ -165,7 +167,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa6a64357377de42877c1838b366c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFrequency: 5
+  spawnFrequency: 1.6
+--- !u!195 &8801989064865493392
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358333729476444339}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 4.71
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 90
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.64
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!50 &7152849689130431636
 Rigidbody2D:
   serializedVersion: 4
@@ -350,6 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7395619515668910072}
+  - component: {fileID: 593736547181497194}
   - component: {fileID: 3958706161773212936}
   - component: {fileID: 6652450779861274433}
   - component: {fileID: 4905279214385773771}
@@ -382,6 +407,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3156857766983173301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &593736547181497194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499692548862302472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e578a99812b574ba37ffd4613003c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAgent: {fileID: 8801989064865493392}
+  enemyController: {fileID: 4350050009762280911}
+  enemyAggressiveState: {fileID: 2242574588155473228}
+  enemyMovement: {fileID: 3958706161773212936}
+  enemyAttack: {fileID: 543760062130297234}
+  entityCameraPosition: {fileID: 1398580093097719619}
+  enemyLineOfSight: {fileID: 1381470629024795645}
 --- !u!114 &3958706161773212936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,14 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f0de35c58826847879f2a507d87108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 4350050009762280911}
-  enemyAttackPosition: {fileID: 6652450779861274433}
-  enemyLook: {fileID: 4905279214385773771}
-  enemyAttack: {fileID: 543760062130297234}
-  enemyAggressiveState: {fileID: 2242574588155473228}
-  enemyLineOfSight: {fileID: 1381470629024795645}
-  entityCameraPosition: {fileID: 1398580093097719619}
-  ScrapPickUp: 0
+  enemyAgent: {fileID: 8801989064865493392}
 --- !u!114 &6652450779861274433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,6 +1169,10 @@ PrefabInstance:
     - target: {fileID: 156491708640165884, guid: 93f2a0dc68b4ebb4b81147cdf5dcb8a4, type: 3}
       propertyPath: m_Name
       value: SimpleGun (1) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 156491708640165884, guid: 93f2a0dc68b4ebb4b81147cdf5dcb8a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6020153306389249911, guid: 93f2a0dc68b4ebb4b81147cdf5dcb8a4, type: 3}
       propertyPath: m_LocalPosition.x
