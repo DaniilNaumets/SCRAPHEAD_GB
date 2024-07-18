@@ -73,8 +73,11 @@ public class EntityHealth : MonoBehaviour
  
         if (health > 0)
         {
-            bool isAggressive = isPlayerBullet;
-            transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
+            if (!gameObject.GetComponent<Drone>())
+            {
+                bool isAggressive = isPlayerBullet;
+                transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
+            }
             if(!isCollisionNow)
             StartCoroutine(Red());
         }
@@ -99,12 +102,8 @@ public class EntityHealth : MonoBehaviour
                 poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
             else
             {
-                //StartCoroutine(RestartScene());
-                //Destroy(gameObject.GetComponent<PlayerInput>());
-                //for (int i = 0; i < gameObject.transform.childCount; i++)
-                //{
-                //    Destroy(gameObject.transform.GetChild(i).gameObject);
-                //}
+                StartCoroutine(RestartScene());
+                Debug.Log("Restart!");
             }
         }
         else

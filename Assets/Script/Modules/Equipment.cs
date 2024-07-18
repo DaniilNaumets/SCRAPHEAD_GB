@@ -187,7 +187,7 @@ public class Equipment : MonoBehaviour
 
     public bool isInstalledMethod() => isInstalled;
 
-    private void CheckUser()
+    public void CheckUser()
     {
         if (GetComponentInParent<Drone>())
         {
@@ -198,6 +198,8 @@ public class Equipment : MonoBehaviour
             isPlayerEquip = false;
         }
     }
+
+    public bool CheckUser(bool isHaveValue) => isPlayerEquip;
 
     public bool GetUser() => isPlayerEquip;
 
