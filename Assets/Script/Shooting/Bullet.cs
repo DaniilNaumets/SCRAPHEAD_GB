@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected ObjectsPoolManager poolManager;
+    protected ObjectsPoolManager poolManager;
     [SerializeField] protected bulletType type;
     protected enum bulletType
     {
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     protected bool isPlayerBullet;
 
-    [SerializeField] protected Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     [SerializeField] protected float speed;
     [SerializeField] protected float damage;
@@ -37,6 +37,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         if(startAudio!=null)
         GameObject.Instantiate(startAudio);
         poolManager = FindObjectOfType<ObjectsPoolManager>();
