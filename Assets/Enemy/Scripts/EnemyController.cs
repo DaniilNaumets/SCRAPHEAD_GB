@@ -21,7 +21,6 @@ namespace Enemies
 
         [Header("Components")]
         [SerializeField] private EnemyMovement enemyMovement;
-        [SerializeField] private EnemyAggressiveState enemyAggressiveState;
         [SerializeField] private EntityHealth entityHealth;
 
         private void Awake()
@@ -32,7 +31,6 @@ namespace Enemies
         public void Initialize()
         {
             enemyMovement.InitializedMovement(movementSpeed, rotationSpeed);
-            enemyAggressiveState.SetState(isAggressive);
             entityHealth.InitializeHealth(health);
         }
 

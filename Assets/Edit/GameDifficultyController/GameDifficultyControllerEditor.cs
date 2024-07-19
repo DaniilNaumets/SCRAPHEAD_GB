@@ -11,14 +11,16 @@ public class GameDifficultyControllerEditor : Editor
 
         GameDifficulty.GameDifficultyController controller = (GameDifficulty.GameDifficultyController)target;
 
-        if (controller.numberOfStages != controller.quantityOfScrap.Length)
+        if (controller.numberOfStages != controller.quantityOfScrapInStage.Length)
         {
-            Array.Resize(ref controller.quantityOfScrap, (int)controller.numberOfStages);
+            Array.Resize(ref controller.quantityOfScrapInStage, (int)controller.numberOfStages);
             Array.Resize(ref controller.minSpawnTime, (int)controller.numberOfStages);
             Array.Resize(ref controller.maxSpawnTime, (int)controller.numberOfStages);
             Array.Resize(ref controller.minAmount, (int)controller.numberOfStages);
             Array.Resize(ref controller.maxAmount, (int)controller.numberOfStages);
             Array.Resize(ref controller.numberOfSpawners, (int)controller.numberOfStages);
+            Array.Resize(ref controller.aggressiveStateOnPercentage, (int)controller.numberOfStages);
+            Array.Resize(ref controller.enableSpawner, (int)controller.numberOfStages);
         }
     }
 }

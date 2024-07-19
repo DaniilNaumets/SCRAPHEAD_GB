@@ -6,7 +6,7 @@ namespace Spawners
 {
     public class SpawnRandomizer : MonoBehaviour
     {
-        public GameObject GetRandomResource(List<GameObject> objects)
+        public GameObject GetRandomObject(List<GameObject> objects)
         {
             float totalWeight = 0;
 

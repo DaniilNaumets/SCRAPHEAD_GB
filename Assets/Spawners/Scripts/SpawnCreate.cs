@@ -1,3 +1,5 @@
+using Enemies;
+using GameDifficulty;
 using ObjectPool;
 using Resources;
 using System.Collections;
@@ -12,8 +14,19 @@ namespace Spawners
         [SerializeField] private SpawnerPoint spawnerPoint;
         [SerializeField] private SpawnRandomizer spawnRandomizer;
         [SerializeField] private ObjectsPoolManager objectsPoolManager;
+        [SerializeField] private GameDifficultyAdjuster gameDifficultyAdjuster;
 
         private List<GameObject> objects;
+
+        private float minSpawnTime;
+        private float maxSpawnTime;
+        private int minAmount;
+        private int maxAmount;
+
+        private void Awake()
+        {
+            StartCoroutine(SpawnObjectsCoroutine());
+        }
 
         public void InitializedObjects(List<GameObject> objects)
         {
@@ -21,12 +34,15 @@ namespace Spawners
             objectsPoolManager.InitializePools(objects);
         }
 
-        public void StartSpawning(float minSpawnTime, float maxSpawnTime, int minAmount, int maxAmount)
+        public void InitilizeSpawnVars(float minSpawnTime, float maxSpawnTime, int minAmount, int maxAmount)
         {
-            StartCoroutine(SpawnObjectsCoroutine(minSpawnTime, maxSpawnTime, minAmount, maxAmount));
+            this.minSpawnTime = minSpawnTime;
+            this.maxSpawnTime = maxSpawnTime;
+            this.minAmount = minAmount;
+            this.maxAmount = maxAmount;
         }
 
-        private IEnumerator SpawnObjectsCoroutine(float minSpawnTime, float maxSpawnTime, int minAmount, int maxAmount)
+        private IEnumerator SpawnObjectsCoroutine()
         {
             while (true)
             {
@@ -49,12 +65,19 @@ namespace Spawners
                 return;
             }
 
-            GameObject objectPrefab = spawnRandomizer.GetRandomResource(objects);
+            GameObject objectPrefab = spawnRandomizer.GetRandomObject(objects);
             GameObject spawner = spawnerPoint.GetRandomSpawner();
 
             if (spawner != null && objectPrefab != null)
             {
                 GameObject pooledObject = objectsPoolManager.GetFromPool(objectPrefab);
+                EnemyAggressiveState enemyAggressiveState = objectPrefab?.GetComponentInChildren<EnemyAggressiveState>();
+
+                if (enemyAggressiveState != null && gameDifficultyAdjuster != null)
+                {
+                    bool isAggresive = gameDifficultyAdjuster.GetAggressiveState();
+                    enemyAggressiveState.SetState(isAggresive);
+                }
 
                 if (pooledObject != null && pooledObject.gameObject != null)
                 {

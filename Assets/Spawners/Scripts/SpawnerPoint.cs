@@ -7,9 +7,17 @@ namespace Spawners
     {
         private Camera mainCamera;
         private List<GameObject> spawners = new List<GameObject>();
+        private float distanceFromCamera;
+        private GameObject spawnerPrefab;
 
-        public void CreateSpawners(int numberOfSpawners, float distanceFromCamera, GameObject spawnerPrefab)
+        public void InitializedSpawnerPoint(float distanceFromCamera, GameObject spawnerPrefab)
         {
+            this.distanceFromCamera = distanceFromCamera;
+            this.spawnerPrefab = spawnerPrefab;
+        }
+
+        public void CreateSpawners(int numberOfSpawners)
+        {          
             mainCamera = Camera.main;
             foreach (GameObject spawner in spawners)
             {
