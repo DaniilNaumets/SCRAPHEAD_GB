@@ -33,4 +33,9 @@ public class MenuManager : MonoBehaviour
     {
         settingsPanel.SetActive(false);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
