@@ -47,7 +47,6 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         buttonImage.sprite = unpressedSprite;
         //animator.SetBool("isPressed", false);
         GetComponent<RectTransform>().localScale = new Vector3(startScale, startScale);
-        Debug.Log(GetComponent<RectTransform>().localScale);
     }
 
 }

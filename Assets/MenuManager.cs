@@ -38,4 +38,15 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void Update()
+    {
+        if (authorsPanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                AuthorsPanelBack();
+            }
+        }
+    }
 }
