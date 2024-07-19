@@ -18,6 +18,11 @@ public class MenuManager : MonoBehaviour
         authorsPanel.SetActive(true);
     }
 
+    public void AuthorsPanelBack()
+    {
+        authorsPanel.SetActive(false);
+    }
+
     public void SettingsPanel()
     {
         authorsPanel.SetActive(false);
