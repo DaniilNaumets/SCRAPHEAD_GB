@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,9 +15,10 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private Animator animator;
 
-
+    private float startScale;
     private void Awake()
     {
+        startScale = GetComponent<RectTransform>().localScale.x;
         button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
         animator = GetComponent<Animator>();
@@ -40,5 +42,12 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    
+    private void OnEnable()
+    {
+        buttonImage.sprite = unpressedSprite;
+        //animator.SetBool("isPressed", false);
+        GetComponent<RectTransform>().localScale = new Vector3(startScale, startScale);
+        Debug.Log(GetComponent<RectTransform>().localScale);
+    }
+
 }
