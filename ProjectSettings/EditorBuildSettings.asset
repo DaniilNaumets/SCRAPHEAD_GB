@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Game/Scenes/BugReport.unity
-    guid: 649bb27800597ce4bb12526156bcd6db
+    path: Assets/_Game/Scenes/HeadMenu.unity
+    guid: 5bf6d7f08acb5f64cbbf724872d7cbdd
   m_configObjects: {}
