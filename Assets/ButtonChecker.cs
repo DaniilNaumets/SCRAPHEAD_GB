@@ -14,6 +14,7 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private Animator animator;
 
+
     private void Awake()
     {
         button = GetComponent<Button>();
