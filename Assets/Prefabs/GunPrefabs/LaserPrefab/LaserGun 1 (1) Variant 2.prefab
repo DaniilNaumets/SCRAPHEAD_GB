@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7047234496043437145, guid: e62f22bf44c769a4c9b92b810b952562, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -4783453263920901812, guid: 00f9f75052c26ff44919443393ddeaf3, type: 2}
     - target: {fileID: 8142184334397051108, guid: e62f22bf44c769a4c9b92b810b952562, type: 3}
       propertyPath: m_Name
       value: LaserGun 1 (1) Variant 2
