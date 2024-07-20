@@ -2984,11 +2984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2536930745470993954, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_fontSize
-      value: 89.3
+      value: 75.6
       objectReference: {fileID: 0}
     - target: {fileID: 2536930745470993954, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 89.3
+      value: 75.6
       objectReference: {fileID: 0}
     - target: {fileID: 2781142897142785239, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3028,11 +3028,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6363144597855156516, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_fontSize
-      value: 89.3
+      value: 75.6
       objectReference: {fileID: 0}
     - target: {fileID: 6363144597855156516, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 89.3
+      value: 75.6
       objectReference: {fileID: 0}
     - target: {fileID: 7613782521521844688, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3072,11 +3072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8143881751420328710, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_fontSize
-      value: 89.3
+      value: 75.6
       objectReference: {fileID: 0}
     - target: {fileID: 8143881751420328710, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 89.3
+      value: 75.6
       objectReference: {fileID: 0}
     - target: {fileID: 8375313170355027068, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_AnchoredPosition.x
