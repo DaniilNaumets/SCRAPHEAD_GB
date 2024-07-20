@@ -496,8 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb84a9f11af7272498fb2fa6b082d58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpAndMass: 1
-  damageDealt: 20
+  hpAndMass: 50
+  damageDealt: 2
   impulseStrength: 2
   impulseRotation: 0.5
   isPickup: 0

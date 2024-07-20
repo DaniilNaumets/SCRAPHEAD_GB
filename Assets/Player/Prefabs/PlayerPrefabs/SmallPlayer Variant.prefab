@@ -8,17 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1072666775323269738, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
+      propertyPath: leftSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072666775323269738, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
+      propertyPath: rightSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072666775323269738, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
+      propertyPath: forwardSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072666775323269738, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
+      propertyPath: reverseSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2675788117594784423, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
       propertyPath: m_Name
       value: SmallPlayer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3297631627209426065, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.054895
+      value: 0.46422958
       objectReference: {fileID: 0}
     - target: {fileID: 3297631627209426065, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3804216
+      value: 11.090105
       objectReference: {fileID: 0}
     - target: {fileID: 3297631627209426065, guid: 89bbbf4522cc2ae4bbaaa8b41480c112, type: 3}
       propertyPath: m_LocalPosition.z

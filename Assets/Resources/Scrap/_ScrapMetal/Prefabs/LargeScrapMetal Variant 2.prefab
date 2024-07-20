@@ -29,6 +29,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
+      propertyPath: damageDealt
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824707478801799007, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: spawnFrequency
       value: 2
       objectReference: {fileID: 0}
@@ -62,11 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17216492
+      value: -77.60279
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2083817
+      value: -86.239975
       objectReference: {fileID: 0}
     - target: {fileID: 3216979765858532273, guid: 30d642dd63f31e243b604596eff9019a, type: 3}
       propertyPath: m_LocalPosition.z

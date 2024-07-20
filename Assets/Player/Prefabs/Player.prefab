@@ -392,10 +392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006d92d726785074093d1f52e57bc905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 16
-  reverseSpeed: 8
-  leftSpeed: 16
-  rightSpeed: 16
+  forwardSpeed: 8
+  reverseSpeed: 4
+  leftSpeed: 8
+  rightSpeed: 8
   accelerationRate: 1.5
   decelerationRate: 0.5
   Engines: []
@@ -572,6 +572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePrefab: {fileID: 0}
+  render: {fileID: 0}
 --- !u!114 &8470600624119260212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,7 +863,7 @@ Transform:
   m_GameObject: {fileID: 6548165811021520029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071056, w: 0.70710796}
-  m_LocalPosition: {x: 25.999996, y: -0.000006640693, z: -27.852825}
+  m_LocalPosition: {x: 25.999983, y: -0.000007968832, z: -27.852825}
   m_LocalScale: {x: 2.9915576, y: 2.7195978, z: 2.2436683}
   m_ConstrainProportionsScale: 0
   m_Children:

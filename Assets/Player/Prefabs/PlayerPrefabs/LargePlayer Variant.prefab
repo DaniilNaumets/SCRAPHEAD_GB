@@ -692,6 +692,14 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 4847306068244043431}
+    - target: {fileID: 4035110384331317860, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.993278
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035110384331317860, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000022135642
+      objectReference: {fileID: 0}
     - target: {fileID: 4342913099285931751, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -726,11 +734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.288008
+      value: 24.055168
       objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.301529
+      value: 25.13247
       objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -835,6 +843,22 @@ PrefabInstance:
     - target: {fileID: 7763374123126851401, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: maxInterval
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: leftSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: rightSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: forwardSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: reverseSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8266927129935973720, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_Radius

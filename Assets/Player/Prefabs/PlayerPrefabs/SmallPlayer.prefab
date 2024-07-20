@@ -544,7 +544,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 0}
   render: {fileID: 0}
-  health: 100
 --- !u!114 &5206101689850285826
 MonoBehaviour:
   m_ObjectHideFlags: 0
