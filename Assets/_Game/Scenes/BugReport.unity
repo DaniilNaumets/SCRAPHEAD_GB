@@ -1579,10 +1579,70 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 1507535544}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: numberOfStages
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: maxAmount.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: minAmount.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: maxSpawnTime.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: minSpawnTime.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: enableSpawner.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: numberOfSpawners.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033834899711576294, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: aggressiveStateOnPercentage.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5498121393200279613, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: objectsPoolManager
       value: 
       objectReference: {fileID: 1667646272}
+    - target: {fileID: 6914370860262035138, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914370860262035138, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914370860262035138, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: aggressiveStateOnPercentage.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914370860262035138, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: aggressiveStateOnPercentage.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7091552248092113862, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: playerInventory
       value: 
