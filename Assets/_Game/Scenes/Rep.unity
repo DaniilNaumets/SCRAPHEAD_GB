@@ -1904,6 +1904,14 @@ PrefabInstance:
       propertyPath: hpBarImage
       value: 
       objectReference: {fileID: 224485268}
+    - target: {fileID: 3960033857231717369, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: scrapAlienCounterUI
+      value: 
+      objectReference: {fileID: 1818816916}
+    - target: {fileID: 3960033857231717369, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: scrapMetalCounterUI
+      value: 
+      objectReference: {fileID: 1818816917}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.17
@@ -2574,6 +2582,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8310020912627123865, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
   m_PrefabInstance: {fileID: 1818816914}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1818816916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6229570419488264743, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+  m_PrefabInstance: {fileID: 1818816914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f77ce77a07901439167eaef2bab0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1818816917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8733347607588317329, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+  m_PrefabInstance: {fileID: 1818816914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e17cd4f87cfd8468ce3be8ecc1ee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1856780563
 PrefabInstance:
   m_ObjectHideFlags: 0

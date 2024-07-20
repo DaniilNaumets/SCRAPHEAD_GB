@@ -18,6 +18,7 @@ namespace Entity
         {
             quantityScrapMetal += scrapMetal;
             SumUpAllScrap(scrapMetal);
+            Debug.Log(5);
             scrapMetalCounterUI?.OutputScrapMetalOnUI(quantityScrapMetal);
         }
 
