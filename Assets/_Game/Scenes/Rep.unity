@@ -2500,6 +2500,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4669561076043572334, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2047776112}
+    - target: {fileID: 4669561076043572334, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 4989969020725543809, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2511,6 +2519,14 @@ PrefabInstance:
     - target: {fileID: 4989969020725543809, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997862094429459029, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2047776112}
+    - target: {fileID: 4997862094429459029, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: 5451529547292433651, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2553,6 +2569,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+--- !u!1 &1818816915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8310020912627123865, guid: 4cdbce9f3c1620442b3e5dea527a7c8b, type: 3}
+  m_PrefabInstance: {fileID: 1818816914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1856780563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2794,6 +2815,7 @@ GameObject:
   - component: {fileID: 2047776110}
   - component: {fileID: 2047776109}
   - component: {fileID: 2047776111}
+  - component: {fileID: 2047776112}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2980,7 +3002,7 @@ AudioSource:
   m_GameObject: {fileID: 2047776104}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8405239780761711229, guid: 00f9f75052c26ff44919443393ddeaf3, type: 2}
   m_audioClip: {fileID: 8300000, guid: ac56f4c9c7178fe4ca601887025af3d7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.114
@@ -3067,6 +3089,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2047776112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047776104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77734577f2493e14b9a7742e0e4a9d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 1818816915}
 --- !u!1001 &2055050943
 PrefabInstance:
   m_ObjectHideFlags: 0
