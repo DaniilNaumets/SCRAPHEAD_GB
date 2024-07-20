@@ -24,6 +24,13 @@ public class PlayerInput : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            FindObjectOfType<Drone>().gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(100, new ObjectPool.ObjectsPoolManager(), true);
+            Debug.Log(FindObjectOfType<Drone>().gameObject.GetComponentInChildren<EntityHealth>().GetHealth());
+        }
+        
     }
 
     private void MouseChoice(int mouseButton)

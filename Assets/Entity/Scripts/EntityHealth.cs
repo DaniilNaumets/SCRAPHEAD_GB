@@ -9,14 +9,20 @@ public class EntityHealth : MonoBehaviour
     [SerializeField] private GameObject smokePrefab;
     [SerializeField] private SpriteRenderer render;
 
-    private float health = 1000f;
+    private PlayerHealth playerHealth;
+
+    private float health = 100f;
+    private float maxHealth;
     private bool isCollisionNow;
 
     private void Awake()
     {
+        maxHealth = health;
         render = gameObject.transform.parent?.GetComponentInChildren<SpriteRenderer>();
-        if(render == null)
-        render = gameObject?.GetComponentInChildren<SpriteRenderer>();
+        if (render == null)
+            render = gameObject?.GetComponentInChildren<SpriteRenderer>();
+
+        playerHealth = gameObject?.GetComponentInParent<PlayerHealth>();
     }
     public void InitializeHealth(float health)
     {
@@ -39,7 +45,7 @@ public class EntityHealth : MonoBehaviour
             }
             ReturnToPool(poolManager);
         }
-        
+
     }
 
     public void TakeDamage(float damage)
@@ -56,7 +62,7 @@ public class EntityHealth : MonoBehaviour
             {
                 GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
             }
-            
+
         }
 
     }
@@ -64,16 +70,19 @@ public class EntityHealth : MonoBehaviour
     public void TakeDamage(float damage, ObjectsPoolManager poolManager, bool isPlayerBullet)
     {
         health -= damage;
- 
+        if (GetComponentInParent<Drone>())
+        {
+            playerHealth.OnHealthChanged.Invoke(health, maxHealth);
+        }
         if (health > 0)
         {
-            if (!gameObject.GetComponentInParent<Drone>())
+            if (!gameObject.GetComponentInParent<Drone>() && transform.parent.GetComponentInChildren<EnemyAggressiveState>())
             {
                 bool isAggressive = isPlayerBullet;
                 transform.parent.GetComponentInChildren<EnemyAggressiveState>().SetState(isAggressive);
             }
-            if(!isCollisionNow)
-            StartCoroutine(Red());
+            if (!isCollisionNow)
+                StartCoroutine(Red());
         }
         else
         {
@@ -88,7 +97,7 @@ public class EntityHealth : MonoBehaviour
 
     public float GetHealth() => health;
 
-    public void ReturnToPool(ObjectsPoolManager poolManager)
+    private void ReturnToPool(ObjectsPoolManager poolManager)
     {
         if (poolManager != null)
         {
@@ -103,7 +112,7 @@ public class EntityHealth : MonoBehaviour
         else
         {
             //Destroy(gameObject.transform.parent.gameObject);
-        }      
+        }
     }
 
     private IEnumerator Red()
