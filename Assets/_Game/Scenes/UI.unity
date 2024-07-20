@@ -2031,10 +2031,6 @@ PrefabInstance:
       propertyPath: scrapMetalCounterUI
       value: 
       objectReference: {fileID: 1818816917}
-    - target: {fileID: 4035110384331317860, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.993258
-      objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.17
@@ -3580,10 +3576,6 @@ PrefabInstance:
     - target: {fileID: 3766572367841861687, guid: e2d22733457646449921a8919b6ab5c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460680495511703971, guid: e2d22733457646449921a8919b6ab5c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7745982549604653522, guid: e2d22733457646449921a8919b6ab5c9, type: 3}
       propertyPath: m_Camera
