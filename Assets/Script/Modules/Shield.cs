@@ -14,6 +14,8 @@ public class Shield : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    private ShieldButton shieldButtonScript;
+
     private float reloadingTime;
 
     private enum shieldType
@@ -27,7 +29,7 @@ public class Shield : MonoBehaviour
 
     private bool isShieldDamaged;
 
-    private void Start()
+    private void Awake()
     {
         isShieldDamaged = false;
         health = maxHealth;
@@ -40,6 +42,12 @@ public class Shield : MonoBehaviour
         {
             shieldKeeper.SetActive(false);
         }
+        if (!GetComponentInParent<Drone>())
+        {
+            shieldKeeper.SetActive(false);
+        }
+
+        shieldButtonScript = FindObjectOfType<ShieldButton>();
     }
 
     public void UpdateShield(bool t)
@@ -48,6 +56,10 @@ public class Shield : MonoBehaviour
     }
     private void Update()
     {
+        if (!GetComponentInParent<Drone>())
+        {
+            return;
+        }
         if (type == shieldType.Infinite)
         {
             RelaodingShield();
@@ -67,6 +79,7 @@ public class Shield : MonoBehaviour
     public bool ShieldDamaged(float damage)
     {
         health -= damage;
+        shieldButtonScript.UpdateShieldBar(health, maxHealth, false);
         isShieldDamaged = true;
         if (health <= 0)
         {
@@ -82,11 +95,16 @@ public class Shield : MonoBehaviour
         if (thisEquip.isInstalledMethod() && !shieldKeeper.activeSelf)
         {
             reloadingTime -= Time.deltaTime;
+            
             if (reloadingTime <= 0)
             {
                 shieldKeeper.SetActive(true);
                 reloadingTime += reload;
+                shieldButtonScript.UpdateShieldBar(health, maxHealth, false);
+                return;
             }
+            float reloadProgress = reload - reloadingTime;
+            shieldButtonScript.UpdateShieldBar(reloadProgress, reload, true);
         }
     }
 
@@ -99,4 +117,6 @@ public class Shield : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
     }
+
+    public void UpdateReload() => reloadingTime = reload;
 }

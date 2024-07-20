@@ -83,6 +83,13 @@ public class Equipment : MonoBehaviour
                     FindObjectOfType<SpeedButton>().TurnOff(false);
                 }
             }
+            if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
+            {
+                if (isPlayerEquip)
+                {
+                    FindObjectOfType<ShieldButton>().TurnOff(false);
+                }
+            }
 
             gameObject.transform.SetParent(null);
             Vector2 direction = Random.insideUnitCircle.normalized;
@@ -136,7 +143,12 @@ public class Equipment : MonoBehaviour
             }
             if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
             {
-                UnityEvents.ShieldUpdateEvent.Invoke(true);
+                if (isPlayerEquip)
+                {
+                    FindObjectOfType<ShieldButton>().TurnOff(true);
+                    UnityEvents.ShieldUpdateEvent.Invoke(true);
+                    shield.UpdateReload();
+                }
             }
             if (this.gameObject.TryGetComponent<Gun>(out Gun gun))
             {
@@ -174,7 +186,11 @@ public class Equipment : MonoBehaviour
             }
             if (prefab.TryGetComponent<Shield>(out Shield shield))
             {
-                UnityEvents.ShieldUpdateEvent.Invoke(true);
+                if (isPlayerEquip)
+                {
+                    FindObjectOfType<ShieldButton>().TurnOff(false);
+                    UnityEvents.ShieldUpdateEvent.Invoke(true);
+                }
             }
             if (prefab.TryGetComponent<Gun>(out Gun gun))
             {
