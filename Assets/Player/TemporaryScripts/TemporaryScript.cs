@@ -14,5 +14,10 @@ public class TemporaryScript : MonoBehaviour
         {           
             Application.Quit();
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 }

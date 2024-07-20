@@ -29,7 +29,7 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (buttonImage != null && pressedSprite != null)
         {
             buttonImage.sprite = pressedSprite;
-            animator.SetBool("isPressed", true);
+            animator?.SetBool("isPressed", true);
         }
     }
 
@@ -38,7 +38,7 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (buttonImage != null && unpressedSprite != null)
         {
             buttonImage.sprite = unpressedSprite;
-            animator.SetBool("isPressed", false);
+            animator?.SetBool("isPressed", false);
         }
     }
 
