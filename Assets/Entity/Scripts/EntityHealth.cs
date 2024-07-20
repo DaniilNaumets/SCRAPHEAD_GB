@@ -1,5 +1,6 @@
 using Enemies;
 using ObjectPool;
+using Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +18,10 @@ public class EntityHealth : MonoBehaviour
 
     private void Awake()
     {
-        maxHealth = health;
+        if (GetComponentInParent<Drone>())
+        {
+            maxHealth = GetComponentInParent<PlayerController>().GetHealth();
+        }
         render = gameObject.transform.parent?.GetComponentInChildren<SpriteRenderer>();
         if (render == null)
             render = gameObject?.GetComponentInChildren<SpriteRenderer>();

@@ -858,7 +858,7 @@ PrefabInstance:
       addedObject: {fileID: 7323248263995411890}
     - targetCorrespondingSourceObject: {fileID: 4026793630484809067, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5526002142173746240}
+      addedObject: {fileID: 2839674654564740731}
     - targetCorrespondingSourceObject: {fileID: 5332887573343677238, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5006637974187362882}
@@ -1147,7 +1147,7 @@ CapsuleCollider2D:
   m_Offset: {x: -1.6983974, y: -0.012116194}
   m_Size: {x: 1.3592429, y: 3.4357715}
   m_Direction: 0
---- !u!114 &5526002142173746240
+--- !u!114 &2839674654564740731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5526002142173746240}
+      - m_Target: {fileID: 2839674654564740731}
         m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
         m_MethodName: UpdateHealthBar
         m_Mode: 0

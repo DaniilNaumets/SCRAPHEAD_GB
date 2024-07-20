@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            FindObjectOfType<Drone>().gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(100, new ObjectPool.ObjectsPoolManager(), true);
+            FindObjectOfType<Drone>().gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(20, new ObjectPool.ObjectsPoolManager(), true);
         }
         
     }

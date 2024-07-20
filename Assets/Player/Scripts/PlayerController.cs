@@ -18,6 +18,8 @@ namespace Player
         {
             entityHealth.InitializeHealth(health);
         }
+
+        public float GetHealth() => health;
     }
 }
 
