@@ -71,16 +71,17 @@ namespace Spawners
             if (spawner != null && objectPrefab != null)
             {
                 GameObject pooledObject = objectsPoolManager.GetFromPool(objectPrefab);
-                EnemyAggressiveState enemyAggressiveState = objectPrefab?.GetComponentInChildren<EnemyAggressiveState>();
 
-                if (enemyAggressiveState != null && gameDifficultyAdjuster != null)
+                if (pooledObject != null)
                 {
-                    bool isAggresive = gameDifficultyAdjuster.GetAggressiveState();
-                    enemyAggressiveState.SetState(isAggresive);
-                }
+                    EnemyAggressiveState enemyAggressiveState = pooledObject.GetComponentInChildren<EnemyAggressiveState>();
 
-                if (pooledObject != null && pooledObject.gameObject != null)
-                {
+                    if (enemyAggressiveState != null && gameDifficultyAdjuster != null)
+                    {
+                        bool isAggresive = gameDifficultyAdjuster.GetAggressiveState();
+                        enemyAggressiveState.SetState(isAggresive);
+                    }
+
                     pooledObject.transform.position = spawner.transform.position;
                     pooledObject.transform.rotation = Quaternion.identity;
                     pooledObject.GetComponent<ScrapMetalController>()?.Initialize();

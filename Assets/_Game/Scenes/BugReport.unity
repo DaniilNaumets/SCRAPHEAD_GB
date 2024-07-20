@@ -3099,22 +3099,119 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumPlayer Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1597888978465100573, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6622925010446421596, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1507535548}
   m_SourcePrefab: {fileID: 100100000, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
 --- !u!114 &1507535544 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3960033857231717369, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
   m_PrefabInstance: {fileID: 1507535543}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1507535545}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf8d060b6adfde94c90c428bad1848a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1507535545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6622925010446421596, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+  m_PrefabInstance: {fileID: 1507535543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1507535546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+  m_PrefabInstance: {fileID: 1507535543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507535545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006d92d726785074093d1f52e57bc905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1507535547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5674483567389423105, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+  m_PrefabInstance: {fileID: 1507535543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507535545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5704e170486514584f7c65597f374c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1507535548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507535545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 7b05e1bc5e50d594081fe0fc4faf7e6a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1507535546}
+        m_TargetAssemblyTypeName: Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 12f8a248-965c-4505-bb97-b347be35dc44
+    m_ActionName: PlayerDrone/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1507535547}
+        m_TargetAssemblyTypeName: Player.PlayerRotation, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a83faef7-500c-4061-9135-2043afbf7fbd
+    m_ActionName: PlayerDrone/Look[/Mouse/delta/left,/Mouse/delta/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 12b866f6-3036-456d-8211-817e4b4b1e23
+    m_ActionName: PlayerDrone/ScanningBeam[/Mouse/rightButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerDrone
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1510065105
 PrefabInstance:
   m_ObjectHideFlags: 0
