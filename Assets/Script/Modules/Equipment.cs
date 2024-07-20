@@ -69,21 +69,30 @@ public class Equipment : MonoBehaviour
             CheckCollisionEquip();
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
+
+            if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+            {
+                if (isPlayerEquip)
+                    UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
+                if (engine.GetType() == typeof(QuantumEngine) && isPlayerEquip)
+                {
+                    PublicSettings.IsQuantumWork = false;
+                }
+                if (engine.GetType() == typeof(NuclearEngine) && GetComponentInParent<Drone>())
+                {
+                    FindObjectOfType<SpeedButton>().TurnOff(false);
+                }
+            }
+
             gameObject.transform.SetParent(null);
             Vector2 direction = Random.insideUnitCircle.normalized;
             rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
             rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
             health = float.MaxValue;
 
-            if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
-            {
-                if(isPlayerEquip)
-                UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
-                if (engine.GetType() == typeof(QuantumEngine) && isPlayerEquip)
-                {
-                    PublicSettings.IsQuantumWork = false;
-                }
-            }
+            
+
+
 
             isInstalled = false;
             isPlayerEquip = false;
@@ -118,6 +127,11 @@ public class Equipment : MonoBehaviour
                 if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
                 {
                     PublicSettings.IsQuantumWork = true;
+                }
+
+                if (engine.GetType() == typeof(NuclearEngine) && GetComponentInParent<Drone>())
+                {
+                    FindObjectOfType<SpeedButton>().TurnOff(true);
                 }
             }
             if (this.gameObject.TryGetComponent<Shield>(out Shield shield))

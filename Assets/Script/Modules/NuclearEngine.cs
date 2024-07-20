@@ -13,11 +13,14 @@ public class NuclearEngine : Engine
     private bool isBoosting;
     private bool isReloading;
 
+    private SpeedButton speedButtonScript;
 
     private void Awake()
     {
         base.Awake();
         StartEngine();
+
+        speedButtonScript = FindObjectOfType<SpeedButton>();
     }
     public override void Special(float mult)
     {
@@ -26,17 +29,21 @@ public class NuclearEngine : Engine
             if (isReloading)
             {
                 currentBoostTime += Time.deltaTime;
+                speedButtonScript?.RedText(true);
                 if (currentBoostTime >= boostTime * mult)
                 {
+                    speedButtonScript?.RedText(false);
                     currentBoostTime = boostTime * mult;
                     isReloading = false;
+                    
                 }
             }
 
             if (Input.GetKey(KeyCode.Space) && !isReloading)
             {
                 currentBoostTime -= Time.deltaTime;
-                if(!audioEngine.isPlaying)
+                speedButtonScript?.RedText(true);
+                if (!audioEngine.isPlaying)
                 audioEngine.Play();
                 
                 if (!isBoosting)
@@ -63,6 +70,11 @@ public class NuclearEngine : Engine
                 isBoosting = false;
                 UnityEvents.EngineModuleEventMultiplie.Invoke(1 / boostMultiplier * mult);
                 return;
+            }
+
+            if (speedButtonScript != null)
+            {
+                speedButtonScript?.UpdateSpeedButton(currentBoostTime, boostTime);
             }
         }
     }
