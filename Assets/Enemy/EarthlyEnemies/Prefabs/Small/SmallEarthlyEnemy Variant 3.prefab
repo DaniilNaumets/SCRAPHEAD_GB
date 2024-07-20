@@ -132,6 +132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1216781281494002715, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
+      propertyPath: shootingDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3474229176144014776, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
       propertyPath: m_Name
       value: SmallEarthlyEnemy Variant 3

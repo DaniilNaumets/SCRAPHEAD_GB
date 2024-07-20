@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5795175014956467895, guid: 8d3f88f49c53c9447b85f62f25ccc3fc, type: 3}
+      propertyPath: shootingDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6217583016035253686, guid: 8d3f88f49c53c9447b85f62f25ccc3fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01

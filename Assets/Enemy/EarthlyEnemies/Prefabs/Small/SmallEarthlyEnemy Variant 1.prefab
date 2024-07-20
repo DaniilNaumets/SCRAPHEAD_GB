@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5137570561921639610, guid: 4047bb0b63166544cacf86f78d021e38, type: 3}
+      propertyPath: shootingDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7464786832769688857, guid: 4047bb0b63166544cacf86f78d021e38, type: 3}
       propertyPath: m_Name
       value: SmallEarthlyEnemy Variant 1

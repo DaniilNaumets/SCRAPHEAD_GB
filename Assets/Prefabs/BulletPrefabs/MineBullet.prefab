@@ -52,8 +52,8 @@ MonoBehaviour:
   speed: 22
   damage: 65
   lifeTime: 100
-  radiusKill: 3
-  radius: 0
+  radiusKill: 0
+  radius: 3
   startAudio: {fileID: 0}
   mineAudio: {fileID: 0}
 --- !u!50 &7166099879947576732
