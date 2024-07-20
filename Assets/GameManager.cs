@@ -11,26 +11,29 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        if (!pausePanel.activeSelf)
+        if (pausePanel != null)
         {
-            pausePanel.SetActive(true);
-            Time.timeScale = 0;
-            StopAllCoroutines();
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            if (!pausePanel.activeSelf)
+            {
+                pausePanel.SetActive(true);
+                Time.timeScale = 0;
+                StopAllCoroutines();
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
 
-            if(pauseIcon!=null)
-                pauseIcon.SetActive(true);
-        }
-        else
-        {
-            pausePanel.SetActive(false);
-            Time.timeScale = 1;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+                if (pauseIcon != null)
+                    pauseIcon.SetActive(true);
+            }
+            else
+            {
+                pausePanel.SetActive(false);
+                Time.timeScale = 1;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
 
-            if (pauseIcon != null)
-                pauseIcon.SetActive(false);
+                if (pauseIcon != null)
+                    pauseIcon.SetActive(false);
+            }
         }
 
     }

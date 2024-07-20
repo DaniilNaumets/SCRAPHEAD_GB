@@ -132,7 +132,7 @@ public class GuidedBullet : Bullet
                     Equipment equipment2 = collision.gameObject?.GetComponent<Equipment>();
                     if (!equipment2.isInstalledMethod())
                         equipment2.DeathEquip();
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -181,7 +181,7 @@ public class GuidedBullet : Bullet
                     Equipment equipment = collision.gameObject?.GetComponent<Equipment>();
                     if (!equipment.isInstalledMethod())
                         equipment.DeathEquip();
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -225,7 +225,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Rocket:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies)
                     {
                         Debug.Log(enemy.gameObject);
@@ -252,7 +252,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Mine:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies1)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -293,7 +293,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Rocket:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -322,7 +322,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Mine:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies1)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -362,7 +362,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Rocket:
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())

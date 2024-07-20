@@ -199,13 +199,6 @@ public class Equipment : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            BreakEquip();
-        }
-    }
     private IEnumerator ChangeState()
     {
         yield return new WaitForSeconds(2f);
