@@ -56,7 +56,7 @@ public class Equipment : MonoBehaviour
     private void Start()
     {
         maxHealth = health;
-        if (this.gameObject.TryGetComponent<Engine>(out Engine engine) && isInstalled)
+        if (this.gameObject.TryGetComponent<Engine>(out Engine engine) && isInstalled && isPlayerEquip)
         {
             UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
 
@@ -77,6 +77,7 @@ public class Equipment : MonoBehaviour
 
             if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
             {
+                if(isPlayerEquip)
                 UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
                 if (engine.GetType() == typeof(QuantumEngine) && isPlayerEquip)
                 {
@@ -111,7 +112,8 @@ public class Equipment : MonoBehaviour
 
             if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
             {
-                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+                if (isPlayerEquip)
+                    UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
                 engine.StartEngine();
                 if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
                 {
@@ -148,7 +150,8 @@ public class Equipment : MonoBehaviour
 
             if (prefab.TryGetComponent<Engine>(out Engine engine))
             {
-                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+                if (isPlayerEquip)
+                    UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
                 engine.StartEngine();
                 if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
                 {
