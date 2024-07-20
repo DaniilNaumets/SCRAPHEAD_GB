@@ -23,6 +23,7 @@ public class EntityHealth : MonoBehaviour
             render = gameObject?.GetComponentInChildren<SpriteRenderer>();
 
         playerHealth = gameObject?.GetComponentInParent<PlayerHealth>();
+        render.color = Color.white;
     }
     public void InitializeHealth(float health)
     {
@@ -130,5 +131,10 @@ public class EntityHealth : MonoBehaviour
         yield return new WaitForSeconds(1f);
         render.color = Color.white;
         SceneManager.LoadScene(0);
+    }
+
+    private void OnEnable()
+    {
+        render.color = Color.white;
     }
 }

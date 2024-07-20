@@ -24,7 +24,6 @@ namespace Resources.UI
         }
         public void OutputScrapMetalOnUI(int value)
         {
-            scrapMetalCounterTextUI.text = value.ToString();
             int razrad1 = value % 10;
             int razrad10 = (value / 10) % 10;
             int razrad100 = (value / 100) % 10;
