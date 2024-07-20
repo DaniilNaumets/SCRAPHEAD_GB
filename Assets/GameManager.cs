@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject pauseIcon;
 
     public void Pause()
     {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
             StopAllCoroutines();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+
+            if(pauseIcon!=null)
+                pauseIcon.SetActive(true);
         }
         else
         {
@@ -24,7 +28,9 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            
+
+            if (pauseIcon != null)
+                pauseIcon.SetActive(false);
         }
 
     }
