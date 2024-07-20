@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5180160596782406739, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.7559834
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5180160596782406739, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.479433
+      value: -56.13
       objectReference: {fileID: 0}
     - target: {fileID: 5180160596782406739, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73,6 +73,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1319545460, guid: 30ac2aa3e422caa48a92544afa916c2f, type: 3}
     - target: {fileID: 6105790110004301653, guid: 8c567d266bb96c947beabc378898e679, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105790110004301653, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: scrapPrefab
       value: 
       objectReference: {fileID: 8334557270671750872, guid: 64308ff44f956ed4db7c177917bfcd80, type: 3}
@@ -80,6 +84,14 @@ PrefabInstance:
       propertyPath: smokePrefab
       value: 
       objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+    - target: {fileID: 6105790110004301653, guid: 8c567d266bb96c947beabc378898e679, type: 3}
+      propertyPath: torqueValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824529484778163534, guid: 8c567d266bb96c947beabc378898e679, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8001129838930744978, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_Name
       value: SimpleEngine Variant Variant

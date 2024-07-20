@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83293c354cc63340bbaa7d70e67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 400
+  health: 200
   isAggressive: 0
   movementSpeed: 5
   rotationSpeed: 4
@@ -560,7 +560,6 @@ MonoBehaviour:
   shootingDistance: 20
   scanningDistance: 8
   enemyMovement: {fileID: 1136398672617525836}
-  enemyAggressiveState: {fileID: 7467435930531765491}
   entityHealth: {fileID: 6860126390576804912}
 --- !u!114 &177250478127796593
 MonoBehaviour:
@@ -932,7 +931,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
   render: {fileID: 0}
-  health: 100
 --- !u!1 &8702064789050751562
 GameObject:
   m_ObjectHideFlags: 0

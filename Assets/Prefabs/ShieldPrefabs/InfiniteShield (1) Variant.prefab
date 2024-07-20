@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 336614949436432830, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.186611
+      value: 26.330002
       objectReference: {fileID: 0}
     - target: {fileID: 336614949436432830, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3957429
+      value: -72.520004
       objectReference: {fileID: 0}
     - target: {fileID: 336614949436432830, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -168,6 +168,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfiniteShield (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3886685650092633168, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: reload
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886685650092633168, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: maxHealth
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 4761654037370427408, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -175,6 +183,14 @@ PrefabInstance:
     - target: {fileID: 4761654037370427408, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340055915408928682, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340055915408928682, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
+      propertyPath: torqueValue
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7742318830490254546, guid: 4c6bfe2a4541ef3419c086d129c6dffb, type: 3}
       propertyPath: m_Radius

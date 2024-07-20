@@ -99,21 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb58051b67189f4e9169d91ab39379b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolManager: {fileID: 0}
   type: 0
-  rb: {fileID: 7166099879947576732}
   speed: 30
-  damage: 50
+  damage: 10
   lifeTime: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 8
-  scrapMask:
-    serializedVersion: 2
-    m_Bits: 512
   radiusKill: 0
   radius: 0
   startAudio: {fileID: 3478064325946423727, guid: 8ea5f208f44d34947ad1225b6997825a, type: 3}
+  mineAudio: {fileID: 0}
 --- !u!50 &7166099879947576732
 Rigidbody2D:
   serializedVersion: 4

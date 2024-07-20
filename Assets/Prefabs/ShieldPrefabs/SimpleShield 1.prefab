@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  forceValue: 1
-  torqueValue: 5
+  forceValue: 10
+  torqueValue: 20
   scrapPrefab: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
   smokePrefab: {fileID: 0}
 --- !u!114 &7605220480010917230
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d76f0255d62b7f4e90de5c28ddda7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 70
   thisEquip: {fileID: 1885827697821326367}
   shieldKeeper: {fileID: 9040108500158849660}
   type: 0

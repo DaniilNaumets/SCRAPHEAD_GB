@@ -93,9 +93,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 714977571353987835, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 714977571353987835, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
       propertyPath: smokePrefab
       value: 
       objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+    - target: {fileID: 714977571353987835, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
+      propertyPath: torqueValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2197316344349073006, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.61
@@ -122,11 +130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837470022860272416, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.502064
+      value: -21.12312
       objectReference: {fileID: 0}
     - target: {fileID: 4837470022860272416, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9651024
+      value: -59.968655
       objectReference: {fileID: 0}
     - target: {fileID: 4837470022860272416, guid: 48f7dfc45091dbf4bb2bdb23ca8ff027, type: 3}
       propertyPath: m_LocalPosition.z

@@ -48,15 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb58051b67189f4e9169d91ab39379b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolManager: {fileID: 0}
   type: 1
-  rb: {fileID: 7166099879947576732}
   speed: 22
-  damage: 50
+  damage: 90
   lifeTime: 100
-  radiusKill: 10
+  radiusKill: 3
   radius: 10
   startAudio: {fileID: 0}
+  mineAudio: {fileID: 0}
 --- !u!50 &7166099879947576732
 Rigidbody2D:
   serializedVersion: 4

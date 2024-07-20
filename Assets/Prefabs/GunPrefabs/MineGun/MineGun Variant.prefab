@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1104264896267111703, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.6708117
+      value: -21.014408
       objectReference: {fileID: 0}
     - target: {fileID: 1104264896267111703, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.0132246
+      value: -69.06353
       objectReference: {fileID: 0}
     - target: {fileID: 1104264896267111703, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -143,6 +143,14 @@ PrefabInstance:
     - target: {fileID: 1104264896267111703, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209314679662370506, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209314679662370506, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
+      propertyPath: torqueValue
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2112290601558788875, guid: 67ae5cb63e8e42042b9cb45d71a39fa1, type: 3}
       propertyPath: m_Name

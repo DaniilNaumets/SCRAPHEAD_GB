@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1037178026003504781, guid: 0521081bc23ee9941a76dfeca127ab90, type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6549843871567900751, guid: 0521081bc23ee9941a76dfeca127ab90, type: 3}
       propertyPath: m_Name
       value: GuidedGun (1) Variant Variant
@@ -26,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 94839befa914a3446a89866b51920670, type: 3}
     - target: {fileID: 9029381571402487562, guid: 0521081bc23ee9941a76dfeca127ab90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.938128
+      value: -8.222059
       objectReference: {fileID: 0}
     - target: {fileID: 9029381571402487562, guid: 0521081bc23ee9941a76dfeca127ab90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.526507
+      value: -79.69414
       objectReference: {fileID: 0}
     - target: {fileID: 9029381571402487562, guid: 0521081bc23ee9941a76dfeca127ab90, type: 3}
       propertyPath: m_LocalPosition.z

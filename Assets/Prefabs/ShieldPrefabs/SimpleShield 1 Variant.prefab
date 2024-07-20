@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 633517638994519899, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8589811
+      value: 14.5
       objectReference: {fileID: 0}
     - target: {fileID: 633517638994519899, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.461499
+      value: -102.69
       objectReference: {fileID: 0}
     - target: {fileID: 633517638994519899, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,6 +59,18 @@ PrefabInstance:
     - target: {fileID: 633517638994519899, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885827697821326367, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885827697821326367, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885827697821326367, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
+      propertyPath: torqueValue
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7119062276413667177, guid: b5bb72c5db5d5364fa680367ab0382cc, type: 3}
       propertyPath: m_Name

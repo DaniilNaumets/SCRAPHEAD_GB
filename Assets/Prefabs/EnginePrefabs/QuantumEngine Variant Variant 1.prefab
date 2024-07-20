@@ -9,6 +9,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 32868355812457245, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 32868355812457245, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 32868355812457245, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: scrapPrefab
       value: 
       objectReference: {fileID: 8334557270671750872, guid: 64308ff44f956ed4db7c177917bfcd80, type: 3}
@@ -16,6 +24,10 @@ PrefabInstance:
       propertyPath: smokePrefab
       value: 
       objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+    - target: {fileID: 32868355812457245, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: torqueValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2196876268448753432, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_Name
       value: QuantumEngine Variant Variant 1
@@ -34,11 +46,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 12.376936
       objectReference: {fileID: 0}
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -60.976986
       objectReference: {fileID: 0}
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71,6 +83,14 @@ PrefabInstance:
     - target: {fileID: 4241644083076961176, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371113419825932100, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371113419825932100, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
+      propertyPath: reloadTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6094889909143477109, guid: 3718bdc1474cc494684ff510a5445bc2, type: 3}
       propertyPath: m_Sprite

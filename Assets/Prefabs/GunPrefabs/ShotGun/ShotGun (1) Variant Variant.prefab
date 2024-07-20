@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4284740879536572082, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736532950861999855, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
+      propertyPath: speedAttack1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736532950861999855, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
+      propertyPath: speedAttack2
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5663969494570892919, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7507146358543366741, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1931214
+      value: -8.21
       objectReference: {fileID: 0}
     - target: {fileID: 7507146358543366741, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.0117507
+      value: -57.98
       objectReference: {fileID: 0}
     - target: {fileID: 7507146358543366741, guid: 2944091ab194cc445853f04a99f754e2, type: 3}
       propertyPath: m_LocalPosition.z

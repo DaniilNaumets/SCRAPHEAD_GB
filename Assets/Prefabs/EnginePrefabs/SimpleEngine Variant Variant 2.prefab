@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5180160596782406739, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.80772
+      value: 20.95
       objectReference: {fileID: 0}
     - target: {fileID: 5180160596782406739, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.845525
+      value: -57.93
       objectReference: {fileID: 0}
     - target: {fileID: 5180160596782406739, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -322105983, guid: 3a929ad7f2e805e4189941f146f9285a, type: 3}
+    - target: {fileID: 6105790110004301653, guid: 8c567d266bb96c947beabc378898e679, type: 3}
+      propertyPath: forceValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105790110004301653, guid: 8c567d266bb96c947beabc378898e679, type: 3}
+      propertyPath: torqueValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824529484778163534, guid: 8c567d266bb96c947beabc378898e679, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8001129838930744978, guid: 8c567d266bb96c947beabc378898e679, type: 3}
       propertyPath: m_Name
       value: SimpleEngine Variant Variant 2

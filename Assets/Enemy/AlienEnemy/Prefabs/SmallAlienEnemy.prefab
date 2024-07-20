@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: avoidancePriority
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 1128090618476726339, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
+      propertyPath: movementSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5374867368976472179, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -30,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778757567860146121, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.4724226
+      value: -74.33
       objectReference: {fileID: 0}
     - target: {fileID: 7778757567860146121, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.4851494
+      value: -36.84
       objectReference: {fileID: 0}
     - target: {fileID: 7778757567860146121, guid: b382fc7b376980e4d9dff52eaf5b5bff, type: 3}
       propertyPath: m_LocalPosition.z

@@ -200,9 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  forceValue: 1
-  torqueValue: 5
+  forceValue: 10
+  torqueValue: 20
   scrapPrefab: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
+  smokePrefab: {fileID: 0}
 --- !u!50 &3612663972410382235
 Rigidbody2D:
   serializedVersion: 4
@@ -280,7 +281,7 @@ MonoBehaviour:
   speedAttack1: 1
   speedAttack2: 3
   bulletPrefab: {fileID: 1768581000495275445, guid: 06546b70aa396dd4fb7a93abe22431cc, type: 3}
-  radiusZone: 15
+  radiusZone: 12
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: cddcb467714345e4987f1e21262cf423, type: 3}
     - target: {fileID: 5606141715774209321, guid: afbec5c5e7cf0d3458b70dc3b7719cde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.802498
+      value: 31.38
       objectReference: {fileID: 0}
     - target: {fileID: 5606141715774209321, guid: afbec5c5e7cf0d3458b70dc3b7719cde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5284176
+      value: -88.04
       objectReference: {fileID: 0}
     - target: {fileID: 5606141715774209321, guid: afbec5c5e7cf0d3458b70dc3b7719cde, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 7494388104052752756, guid: afbec5c5e7cf0d3458b70dc3b7719cde, type: 3}
       propertyPath: m_Name
       value: InfiniteShield (1) Variant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977549492826403015, guid: afbec5c5e7cf0d3458b70dc3b7719cde, type: 3}
+      propertyPath: reload
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977549492826403015, guid: afbec5c5e7cf0d3458b70dc3b7719cde, type: 3}
+      propertyPath: maxHealth
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

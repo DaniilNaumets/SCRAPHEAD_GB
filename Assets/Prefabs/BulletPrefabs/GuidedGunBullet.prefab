@@ -109,13 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fbb2dc42457254da3a7754a2083f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolManager: {fileID: 0}
   type: 1
-  rb: {fileID: 7166099879947576732}
   speed: 15
   damage: 50
   lifeTime: 5
-  radiusKill: 5
+  radiusKill: 3
   radius: 15
   startAudio: {fileID: 4797305183538165731, guid: e3674b1d8095e944d856c253184e0db3, type: 3}
   mineAudio: {fileID: 0}
