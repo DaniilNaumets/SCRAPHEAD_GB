@@ -11,15 +11,32 @@ namespace GameDifficulty
         [SerializeField] private SpawnerPoint spawnPoint;
         [SerializeField] private SpawnCreate spawnCreate;
         [SerializeField] private EntityInventory playerInventory;
+        [SerializeField] private GameObject spawnerPrefab; // Добавьте это поле
 
         private int currentStage = 0;
         private bool isAgressive;
 
-        private void Update()
-        {            
-            if (playerInventory != null) 
+        private void Awake()
+        {
+            if (playerInventory != null)
             {
-                DefineStage();     
+                DefineStage();
+            }
+        }
+
+        private void Start()
+        {
+            if (spawnerPrefab != null && spawnPoint != null)
+            {
+                spawnPoint.InitializedSpawnerPoint(10f, spawnerPrefab);
+            }
+        }
+
+        private void Update()
+        {
+            if (playerInventory != null)
+            {
+                DefineStage();
             }
         }
 
@@ -88,4 +105,3 @@ namespace GameDifficulty
         }
     }
 }
-

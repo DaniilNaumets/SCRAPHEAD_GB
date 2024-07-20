@@ -23,9 +23,9 @@ namespace Spawners
         private int minAmount;
         private int maxAmount;
 
-        private void Awake()
+        private void Start()
         {
-            StartCoroutine(SpawnObjectsCoroutine());
+            StartCoroutine(SpawnObjectsCoroutine());           
         }
 
         public void InitializedObjects(List<GameObject> objects)
@@ -46,7 +46,7 @@ namespace Spawners
         {
             while (true)
             {
-                float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+                float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);               
                 yield return new WaitForSeconds(spawnTime);
 
                 int objectsCount = Random.Range(minAmount, maxAmount);

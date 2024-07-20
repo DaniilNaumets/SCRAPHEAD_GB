@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private float health;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Components")]
+        [SerializeField] private EntityHealth entityHealth;
+
+        private void Awake()
+        {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            entityHealth.InitializeHealth(health);
+        }
     }
 }
+

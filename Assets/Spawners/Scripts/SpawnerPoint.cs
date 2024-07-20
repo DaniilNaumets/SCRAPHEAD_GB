@@ -17,8 +17,14 @@ namespace Spawners
         }
 
         public void CreateSpawners(int numberOfSpawners)
-        {          
+        {
             mainCamera = Camera.main;
+
+            if (spawnerPrefab == null)
+            {
+                return;
+            }
+
             foreach (GameObject spawner in spawners)
             {
                 Destroy(spawner);
@@ -49,7 +55,7 @@ namespace Spawners
         {
             float angle = 360f / numberOfSpawners * index;
             float angleRad = angle * Mathf.Deg2Rad;
-         
+
             Vector3 cameraCenter = mainCamera.transform.position;
 
             float x = cameraCenter.x + Mathf.Cos(angleRad) * distanceFromCamera;

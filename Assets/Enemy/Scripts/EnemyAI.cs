@@ -1,6 +1,6 @@
 using Entity;
+using Player;
 using Resources;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
