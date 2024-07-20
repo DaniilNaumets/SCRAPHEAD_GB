@@ -18,6 +18,11 @@ public class MenuManager : MonoBehaviour
         authorsPanel.SetActive(true);
     }
 
+    public void AuthorsPanelBack()
+    {
+        authorsPanel.SetActive(false);
+    }
+
     public void SettingsPanel()
     {
         authorsPanel.SetActive(false);
@@ -27,5 +32,21 @@ public class MenuManager : MonoBehaviour
     public void SettingsPanelBack()
     {
         settingsPanel.SetActive(false);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (authorsPanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                AuthorsPanelBack();
+            }
+        }
     }
 }
