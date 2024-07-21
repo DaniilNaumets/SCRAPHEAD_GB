@@ -1007,6 +1007,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: <MediumPlayer Variant>
       objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: leftSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: rightSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: forwardSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082259935792371345, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: reverseSpeed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

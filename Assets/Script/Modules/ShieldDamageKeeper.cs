@@ -15,6 +15,7 @@ public class ShieldDamageKeeper : MonoBehaviour
         {
             if(bullet.GetBulletUser() != shieldEquip.GetUser())
             {
+                Debug.Log(bullet.GetBulletUser() + " " + shieldEquip.GetUser());
                 shield.ShieldDamaged(bullet.GetDamage());
                 Destroy(bullet.gameObject);
             }

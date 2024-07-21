@@ -53,6 +53,7 @@ public class Equipment : MonoBehaviour
         {
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
         }
+    
 
 
 
