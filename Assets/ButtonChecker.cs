@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     [SerializeField] private Sprite unpressedSprite;
     [SerializeField] private Sprite pressedSprite;
@@ -16,8 +16,12 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Animator animator;
 
     private float startScale;
+
+    [SerializeField] private AudioSource buttonSelectedAudio;
+    [SerializeField] private GameObject audioPrefabClick;
     private void Awake()
     {
+        buttonSelectedAudio = gameObject?.GetComponent<AudioSource>();
         startScale = GetComponent<RectTransform>().localScale.x;
         button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
@@ -31,6 +35,8 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             buttonImage.sprite = pressedSprite;
             if (animator != null)
                 animator?.SetBool("isPressed", true);
+
+            buttonSelectedAudio?.Play();
         }
     }
 
@@ -50,4 +56,16 @@ public class ButtonChecker : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         GetComponent<RectTransform>().localScale = new Vector3(startScale, startScale);
     }
 
+    private void PlayClickAudio()
+    {
+        if(audioPrefabClick!= null)
+        {
+            GameObject.Instantiate(audioPrefabClick);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        PlayClickAudio();
+    }
 }
