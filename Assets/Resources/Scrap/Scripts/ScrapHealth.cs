@@ -21,6 +21,7 @@ namespace Resources
         private void Awake()
         {
             render = gameObject.transform.parent.GetComponentInChildren<SpriteRenderer>();
+            render.color = Color.white;
         }
 
         public void InitializeHealth(float health)

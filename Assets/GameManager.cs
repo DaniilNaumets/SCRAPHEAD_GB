@@ -17,7 +17,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject darkPanel;
 
+    [SerializeField] private GameObject dialogPanel;
 
+    private void Awake()
+    {
+        
+    }
     public void Pause()
     {
         if (pausePanel != null)
@@ -126,5 +131,13 @@ public class GameManager : MonoBehaviour
         winPanel.SetActive(true);
         Time.timeScale = 0;
 
+    }
+
+    public void CloseDialogPanel()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        dialogPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
