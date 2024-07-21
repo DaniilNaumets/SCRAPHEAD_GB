@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[0]
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[1]
@@ -516,15 +516,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[2]
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[3]
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[4]
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxSpawnTime.Array.size
@@ -532,7 +532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[0]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[1]
@@ -540,15 +540,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[2]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[3]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[4]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minSpawnTime.Array.size
@@ -568,11 +568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxSpawnTime.Array.data[2]
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxSpawnTime.Array.data[3]
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxSpawnTime.Array.data[4]
@@ -588,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minSpawnTime.Array.data[2]
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minSpawnTime.Array.data[3]
@@ -652,11 +652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[0]
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[1]
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[2]
@@ -816,15 +816,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[2]
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[3]
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[4]
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxSpawnTime.Array.size
@@ -840,15 +840,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[2]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[3]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[4]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minSpawnTime.Array.size
@@ -952,11 +952,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[0]
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[1]
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[2]
@@ -1092,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[2]
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[3]
@@ -1100,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxAmount.Array.data[4]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: maxSpawnTime.Array.size
@@ -1112,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[2]
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[3]
@@ -1120,7 +1120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minAmount.Array.data[4]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: minSpawnTime.Array.size
@@ -1168,7 +1168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: enableSpawner.Array.data[2]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: enableSpawner.Array.data[3]
@@ -1208,7 +1208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[0]
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[1]
