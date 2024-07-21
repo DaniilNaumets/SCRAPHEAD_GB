@@ -27,11 +27,9 @@ public class SimpleGun : Gun
     {
         if (CanShoot(reloadTime2))
         {
-            Debug.Log(reloadTime2);
             GameObject bullet = GameObject.Instantiate(bulletPrefab, handler.transform.position, handler.transform.rotation);
             bullet.GetComponent<Bullet>().Initialize(handler.transform.right, isPlayerGun);
             Reloading2();
-            Debug.Log(reloadTime2);
         }
     }
 }

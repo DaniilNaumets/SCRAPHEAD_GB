@@ -78,9 +78,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!loosePanel.activeSelf && !winPanel.activeSelf)
         {
-            Pause1();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Pause1();
+            }
         }
     }
 
@@ -103,13 +106,19 @@ public class GameManager : MonoBehaviour
 
     public void OpenLoosePanel()
     {
-        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         loosePanel.SetActive(true);
+        Time.timeScale = 0;
+        
     }
 
     public void OpenWinPanel()
     {
-        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         winPanel.SetActive(true);
+        Time.timeScale = 0;
+        
     }
 }
