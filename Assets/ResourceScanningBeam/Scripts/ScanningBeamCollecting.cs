@@ -14,18 +14,42 @@ namespace ScanningBeam
         [Header("Components")]
         [SerializeField] private EntityInventory inventory;
         [SerializeField] private SpriteRenderer scanningBeamSpriteRenderer;
-        [SerializeField] private ObjectsPoolManager objectsPoolManager;
 
+        private ObjectsPoolManager objectsPoolManager;
         private Queue<ScrapPickup> scrapQueue = new Queue<ScrapPickup>();
         private Coroutine collectionCoroutine;
 
         private void Awake()
         {
-            scanningBeamSpriteRenderer.enabled = false;
+            if (scanningBeamSpriteRenderer == null)
+            {
+                Debug.LogError("scanningBeamSpriteRenderer is not assigned.");
+            }
+            else
+            {
+                scanningBeamSpriteRenderer.enabled = false;
+            }
+
+            if (inventory == null)
+            {
+                Debug.LogError("Inventory is not assigned.");
+            }
+
+            objectsPoolManager = FindObjectOfType<ObjectsPoolManager>();
+            if (objectsPoolManager == null)
+            {
+                Debug.LogError("ObjectsPoolManager is not found on the scene.");
+            }
         }
 
         public void AddToQueue(ScrapPickup scrapPickup)
         {
+            if (scrapPickup == null)
+            {
+                Debug.LogError("scrapPickup is null.");
+                return;
+            }
+
             if (!scrapQueue.Contains(scrapPickup))
             {
                 scrapQueue.Enqueue(scrapPickup);
@@ -39,6 +63,12 @@ namespace ScanningBeam
 
         public void RemoveFromQueue(ScrapPickup scrapPickup)
         {
+            if (scrapPickup == null)
+            {
+                Debug.LogError("scrapPickup is null.");
+                return;
+            }
+
             if (scrapQueue.Contains(scrapPickup))
             {
                 scrapQueue = new Queue<ScrapPickup>(scrapQueue.Where(r => r != scrapPickup));
@@ -51,15 +81,21 @@ namespace ScanningBeam
                 if (scrapQueue.Count == 0)
                 {
                     scanningBeamSpriteRenderer.enabled = false;
-                    StopCoroutine(collectionCoroutine);
-                    collectionCoroutine = null;
+                    if (collectionCoroutine != null)
+                    {
+                        StopCoroutine(collectionCoroutine);
+                        collectionCoroutine = null;
+                    }
                 }
             }
         }
 
         private IEnumerator Collecting()
         {
-            scanningBeamSpriteRenderer.enabled = true;
+            if (scanningBeamSpriteRenderer != null)
+            {
+                scanningBeamSpriteRenderer.enabled = true;
+            }
 
             while (scrapQueue.Count > 0)
             {
@@ -99,19 +135,28 @@ namespace ScanningBeam
 
                 if (currentScrap != null && scrapQueue.Contains(currentScrap))
                 {
-                    if (currentScrap.GetComponentInParent<ScrapMetalController>())
+                    if (inventory != null)
                     {
-                        inventory?.AddScrapMetalToInventory(currentScrap.GetValueScrap());
-                    }
-                    else if (currentScrap.GetComponentInParent<ScrapAlienController>())
-                    {
-                        inventory?.AddScrapAlienToInventory(currentScrap.GetValueScrap());
+                        if (currentScrap.GetComponentInParent<ScrapMetalController>())
+                        {
+                            inventory.AddScrapMetalToInventory(currentScrap.GetValueScrap());
+                        }
+                        else if (currentScrap.GetComponentInParent<ScrapAlienController>())
+                        {
+                            inventory.AddScrapAlienToInventory(currentScrap.GetValueScrap());
+                        }
                     }
 
                     scrapQueue.Dequeue();
 
-                    objectsPoolManager.ReturnToPool(currentScrap.transform.parent.gameObject);
-
+                    if (objectsPoolManager != null)
+                    {
+                        objectsPoolManager.ReturnToPool(currentScrap.transform.parent.gameObject);
+                    }
+                    else
+                    {
+                        Debug.LogError("ObjectsPoolManager is not assigned.");
+                    }
 
                     if (scrapCollectionProgressUI != null)
                     {
@@ -120,7 +165,10 @@ namespace ScanningBeam
                 }
             }
 
-            scanningBeamSpriteRenderer.enabled = false;
+            if (scanningBeamSpriteRenderer != null)
+            {
+                scanningBeamSpriteRenderer.enabled = false;
+            }
             collectionCoroutine = null;
         }
     }
