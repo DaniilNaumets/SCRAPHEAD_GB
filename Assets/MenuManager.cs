@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject authorsPanel;
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void AuthorsPanel()
