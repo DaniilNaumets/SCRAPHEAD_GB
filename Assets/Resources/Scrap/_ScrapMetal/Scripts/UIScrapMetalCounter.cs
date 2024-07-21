@@ -46,6 +46,11 @@ namespace Resources.UI
                     _text1.color = color;
             }
 
+            if(num >= 999)
+            {
+                FindObjectOfType<GameManager>().OpenWinPanel();
+            }
+
         }
 
         //public void OutputScrapMetalOnUI(int value)
