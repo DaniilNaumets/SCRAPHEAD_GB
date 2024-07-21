@@ -50,7 +50,7 @@ public class PlayerInput : MonoBehaviour
                         {
                             gameObject.GetComponentsInChildren<Gun>()[i].ShootLKM2();
                         }
-                        interval = maxInterval;
+                        //interval = maxInterval;
                     }
                 }
 
