@@ -11,20 +11,18 @@ public class PlayerInput : MonoBehaviour
 
     private bool isSingleClick;
 
+    public bool notInput;
+
     private void Awake()
     {
         interval = maxInterval;
     }
     private void Update()
     {
+
         MouseChoice(0);
         MouseChoice(1);
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(2);
-        }
-        
     }
 
     private void MouseChoice(int mouseButton)
@@ -32,7 +30,7 @@ public class PlayerInput : MonoBehaviour
         switch (mouseButton)
         {
             case 0:
-                
+
                 if (Input.GetMouseButtonDown(mouseButton))
                 {
                     isSingleClick = true;
@@ -101,9 +99,9 @@ public class PlayerInput : MonoBehaviour
                     }
                     interval = maxInterval;
                 }
-                
+
                 break;
         }
-        
+
     }
 }

@@ -1,7 +1,10 @@
+using Player;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -19,10 +22,51 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject dialogPanel;
 
+    private bool isDialog;
+    private int isDialogInt;
+
     private void Awake()
     {
-        
+        LoadSettings();
+        if (SceneManager.GetActiveScene().buildIndex == 2 && !isDialog)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            Time.timeScale = 0;
+        }
     }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2 && !isDialog)
+        {
+            isDialog = true;
+            dialogPanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            Time.timeScale = 0;
+        }
+        else
+        if (SceneManager.GetActiveScene().buildIndex == 2 && isDialog)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+        }
+    }
+
+    private void LoadSettings()
+    {
+
+        if (PlayerPrefs.HasKey("isDialog"))
+        {
+            isDialogInt = PlayerPrefs.GetInt("isDialog");
+        }
+
+        if (isDialogInt == 0) isDialog = false;
+        if (isDialogInt == 1) isDialog = true;
+
+    }
+
     public void Pause()
     {
         if (pausePanel != null)
@@ -54,37 +98,39 @@ public class GameManager : MonoBehaviour
 
     public void Pause1()
     {
-        if (pausePan1 != null && pausePan2 != null)
+        if (isDialog)
         {
-            if (!pausePan1.activeSelf)
+            if (pausePan1 != null && pausePan2 != null)
             {
-                pausePan1.SetActive(true);
-                pausePan2.SetActive(true);
-                if (darkPanel != null)
-                    darkPanel.SetActive(true);
-                Time.timeScale = 0;
-                StopAllCoroutines();
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
+                if (!pausePan1.activeSelf)
+                {
+                    pausePan1.SetActive(true);
+                    pausePan2.SetActive(true);
+                    if (darkPanel != null)
+                        darkPanel.SetActive(true);
+                    Time.timeScale = 0;
+                    StopAllCoroutines();
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = true;
 
-                if (pauseIcon != null)
-                    pauseIcon.SetActive(true);
-            }
-            else
-            {
-                pausePan1.SetActive(false);
-                pausePan2.SetActive(false);
-                if (darkPanel != null)
-                    darkPanel.SetActive(false);
-                Time.timeScale = 1;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
+                    if (pauseIcon != null)
+                        pauseIcon.SetActive(true);
+                }
+                else
+                {
+                    pausePan1.SetActive(false);
+                    pausePan2.SetActive(false);
+                    if (darkPanel != null)
+                        darkPanel.SetActive(false);
+                    Time.timeScale = 1;
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
 
-                if (pauseIcon != null)
-                    pauseIcon.SetActive(false);
+                    if (pauseIcon != null)
+                        pauseIcon.SetActive(false);
+                }
             }
         }
-
     }
 
     private void Update()
@@ -139,5 +185,14 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         dialogPanel.SetActive(false);
         Time.timeScale = 1;
+        isDialog = true;
+        PlayerPrefs.SetInt("isDialog", 1);
+    }
+
+    [ContextMenu("Null")]
+    public void SetNull()
+    {
+        PlayerPrefs.SetInt("isDialog", 0);
+        Debug.Log("Success!");
     }
 }
