@@ -558,7 +558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  isAggressive: 0
   movementSpeed: 7
   rotationSpeed: 4
   rotationDegree: 30
@@ -568,6 +567,7 @@ MonoBehaviour:
   scanningDistance: 5
   enemyMovement: {fileID: 2498181636468719039}
   entityHealth: {fileID: 6694666061746266444}
+  enemyAI: {fileID: 2783675383044037817}
 --- !u!114 &3401525006454080325
 MonoBehaviour:
   m_ObjectHideFlags: 0

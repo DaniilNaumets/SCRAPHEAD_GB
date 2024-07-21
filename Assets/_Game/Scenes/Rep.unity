@@ -2050,14 +2050,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1772725354385596186, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: aggressiveStateOnPercentage.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2300614474169788688, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: prefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300614474169788688, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: spawnerPointPrefab
+      value: 
+      objectReference: {fileID: 3132538405353996741, guid: c3379c9636aa5a34f8d2aafce318012e, type: 3}
+    - target: {fileID: 2300614474169788688, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6533254709921712579, guid: 718c6181e44208d448197247d5237aea, type: 3}
+    - target: {fileID: 2300614474169788688, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: prefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 3449844196741824171, guid: 4574c3bf09f7c9f4b9f1a40d1609a2ad, type: 3}
+      objectReference: {fileID: 6037149161318120070, guid: 328db5d000d71ac44a56f970dc4b24ac, type: 3}
     - target: {fileID: 2300614474169788688, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: prefabs.Array.data[2]
       value: 
@@ -2066,13 +2078,17 @@ PrefabInstance:
       propertyPath: objectsPoolManager
       value: 
       objectReference: {fileID: 1667646272}
+    - target: {fileID: 2593357574935464336, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3165320656190769831, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: m_Name
       value: '[SpawnersSystem]'
       objectReference: {fileID: 0}
     - target: {fileID: 3337278218154211042, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2235
       objectReference: {fileID: 0}
     - target: {fileID: 3337278218154211042, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2118,6 +2134,22 @@ PrefabInstance:
       propertyPath: objectsPoolManager
       value: 
       objectReference: {fileID: 1667646272}
+    - target: {fileID: 5756242542892666416, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: prefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756242542892666416, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: spawnerPointPrefab
+      value: 
+      objectReference: {fileID: 3132538405353996741, guid: c3379c9636aa5a34f8d2aafce318012e, type: 3}
+    - target: {fileID: 5756242542892666416, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6037149161318120070, guid: 328db5d000d71ac44a56f970dc4b24ac, type: 3}
+    - target: {fileID: 5756242542892666416, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6037149161318120070, guid: 328db5d000d71ac44a56f970dc4b24ac, type: 3}
     - target: {fileID: 6180426992589816247, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2126,6 +2158,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 871738071}
+    - target: {fileID: 7504794228390976311, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7697496380170602631, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: objectsPoolManager
       value: 
@@ -2236,7 +2272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317677946726338061, guid: 010e5457d57ec9449a15dc5d880da609, type: 3}
       propertyPath: defaultCapacity
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3188582672990063916, guid: 010e5457d57ec9449a15dc5d880da609, type: 3}
       propertyPath: m_Name

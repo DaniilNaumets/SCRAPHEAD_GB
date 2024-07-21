@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Resources
+namespace ObjectPool
 {
     public class ObjectPoolComponent : MonoBehaviour
     {

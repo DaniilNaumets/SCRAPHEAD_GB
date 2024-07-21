@@ -77,11 +77,11 @@ namespace Spawners
                         enemyAggressiveState.SetState(isAggresive);
                     }
 
+                    pooledObject.transform.position = new Vector2(0, 0);
                     pooledObject.transform.position = spawner.transform.position;
                     pooledObject.transform.rotation = Quaternion.identity;
                     pooledObject.GetComponent<ScrapMetalController>()?.Initialize();
                     pooledObject.GetComponent<EnemyController>()?.Initialize();
-                    Debug.Log("Spawn " + pooledObject.transform.position);
                 }
             }
         }
