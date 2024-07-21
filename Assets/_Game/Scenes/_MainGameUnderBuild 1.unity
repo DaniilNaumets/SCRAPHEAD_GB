@@ -222,10 +222,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[GameCanvasUI] (1)'
       objectReference: {fileID: 0}
-    - target: {fileID: 3656693888976202651, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6520270296517288775, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -304,10 +300,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6520270296517288775, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440576945707607735, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -638,17 +630,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2382164505933941903, guid: dc350270690d1734b929a7ae4c37a339, type: 3}
   m_PrefabInstance: {fileID: 383886275}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1043483027 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9148371875263379359, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
-  m_PrefabInstance: {fileID: 321839658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e17cd4f87cfd8468ce3be8ecc1ee9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1056772000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -967,10 +948,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3960033857231717369, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
-      propertyPath: scrapMetalCounterUI
-      value: 
-      objectReference: {fileID: 1043483027}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.17
