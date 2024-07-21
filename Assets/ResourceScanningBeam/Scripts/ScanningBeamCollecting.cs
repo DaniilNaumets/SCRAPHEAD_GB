@@ -110,11 +110,8 @@ namespace ScanningBeam
 
                     scrapQueue.Dequeue();
 
-                    if (transform.parent.gameObject != null)
-                    { 
-                        objectsPoolManager.ReturnToPool(currentScrap.transform.parent.gameObject); 
-                    }
-                    
+                    objectsPoolManager.ReturnToPool(currentScrap.transform.parent.gameObject);
+
 
                     if (scrapCollectionProgressUI != null)
                     {
