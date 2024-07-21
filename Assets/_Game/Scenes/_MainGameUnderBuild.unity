@@ -132,6 +132,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2382164505933941903, guid: dc350270690d1734b929a7ae4c37a339, type: 3}
   m_PrefabInstance: {fileID: 746625825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &186713411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7643482762362395259, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
+  m_PrefabInstance: {fileID: 321839658}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &270444698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,6 +974,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2839674654564740731, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: hpBarImage
+      value: 
+      objectReference: {fileID: 186713411}
     - target: {fileID: 3960033857231717369, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: scrapMetalCounterUI
       value: 
