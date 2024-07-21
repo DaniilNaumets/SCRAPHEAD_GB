@@ -9,7 +9,7 @@ namespace ObjectPool
     public class ObjectsPoolManager : MonoBehaviour
     {
         private Dictionary<GameObject, ObjectPool<GameObject>> pools = new Dictionary<GameObject, ObjectPool<GameObject>>();
-        [SerializeField] private int defaultCapacity = 20;
+        [SerializeField] private int defaultCapacity = 50;
         [SerializeField] private int maxSize = 100;
 
         public void InitializePools(List<GameObject> objectPrefabs)
@@ -43,7 +43,7 @@ namespace ObjectPool
 
         private void OnTakeFromPool(GameObject obj)
         {
-            if (obj != null)
+            if (obj != null && obj.activeSelf == false) // Ensure object is inactive
             {
                 obj.SetActive(true);
                 var scrapController = obj.GetComponent<ScrapMetalController>();
@@ -63,34 +63,52 @@ namespace ObjectPool
 
         private void OnReturnedToPool(GameObject obj)
         {
-            obj.SetActive(false);
+            if (obj != null && obj.activeSelf)
+            {
+                Debug.LogWarning($"Object {obj.name} was not deactivated before returning to pool. Deactivating now.");
+                obj.SetActive(false);
+            }
         }
 
         private void OnDestroyPoolObject(GameObject obj)
         {
-            Destroy(obj);
+            if (obj != null) // Ensure object exists before destroying
+            {
+                Destroy(obj);
+            }
         }
 
         public GameObject GetFromPool(GameObject prefab)
         {
             if (pools.ContainsKey(prefab))
             {
-                return pools[prefab].Get();
+                GameObject obj = pools[prefab].Get();
+
+                if (obj != null && obj.activeSelf)
+                {
+                    Debug.LogWarning($"Object {obj.name} was active when taken from pool. Deactivating and reinitializing now.");
+                    obj.SetActive(false);
+                    OnTakeFromPool(obj);
+                }
+
+                return obj;
             }
             return null;
         }
 
         public void ReturnToPool(GameObject obj)
         {
-            ObjectPoolComponent resourceComponent = obj.GetComponent<ObjectPoolComponent>();
-            if (resourceComponent != null)
+            if (obj != null)
             {
-                GameObject prefab = resourceComponent.GetPrefab();
-                if (pools.ContainsKey(prefab))
+                ObjectPoolComponent resourceComponent = obj.GetComponent<ObjectPoolComponent>();
+                if (resourceComponent != null)
                 {
-                    pools[prefab].Release(obj);
+                    GameObject prefab = resourceComponent.GetPrefab();
+                    if (pools.ContainsKey(prefab))
+                    {
+                        pools[prefab].Release(obj);
+                    }
                 }
-                Debug.Log(pools.ContainsKey(prefab));
             }
         }
 

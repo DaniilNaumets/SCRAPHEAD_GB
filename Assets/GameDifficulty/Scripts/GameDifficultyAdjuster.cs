@@ -49,6 +49,8 @@ namespace GameDifficulty
                 }
             }
 
+            SetBehavior();
+
             if (currentStage != previousStage)
             {
                 ApplyValues();
@@ -66,12 +68,6 @@ namespace GameDifficulty
                 int[] numberOfSpawners = gameDifficultyController.numberOfSpawners;
                 spawnPoint.CreateSpawners(numberOfSpawners[currentStage]);
 
-                if (gameDifficultyController.GetAggressionRegulator())
-                {
-                    float[] aggressiveStateOnPercentage = gameDifficultyController.aggressiveStateOnPercentage;
-                    isAgressive = DetermineAggressiveStateOnPercentage(aggressiveStateOnPercentage[currentStage]);
-                }
-
                 float[] minSpawnTime = gameDifficultyController.minSpawnTime;
                 float[] maxSpawnTime = gameDifficultyController.maxSpawnTime;
                 int[] minAmount = gameDifficultyController.minAmount;
@@ -82,6 +78,15 @@ namespace GameDifficulty
             {
                 spawnPoint.CreateSpawners(0);
                 spawnCreate.InitializeSpawnVars(0, 0, 0, 0);
+            }
+        }
+
+        private void SetBehavior()
+        {
+            if (gameDifficultyController.GetAggressionRegulator())
+            {
+                float[] aggressiveStateOnPercentage = gameDifficultyController.aggressiveStateOnPercentage;
+                isAgressive = DetermineAggressiveStateOnPercentage(aggressiveStateOnPercentage[currentStage]);
             }
         }
 

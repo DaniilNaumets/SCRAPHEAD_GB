@@ -49,8 +49,13 @@ MonoBehaviour:
   distanceFromCamera: 45
   spawnerPointPrefab: {fileID: 3132538405353996741, guid: ff61cef40d0b7ef4894c1b8fe4dded91, type: 3}
   prefabs:
-  - {fileID: 8122393520664528660, guid: 8d3f88f49c53c9447b85f62f25ccc3fc, type: 3}
-  - {fileID: 3449844196741824171, guid: 4574c3bf09f7c9f4b9f1a40d1609a2ad, type: 3}
+  - {fileID: 7464786832769688857, guid: 4047bb0b63166544cacf86f78d021e38, type: 3}
+  - {fileID: 6828357106579273841, guid: 5c660a8121083e9418b6fa5ef738d317, type: 3}
+  - {fileID: 3474229176144014776, guid: c08e1d48292383d4e9d185a407727aab, type: 3}
+  - {fileID: 6037149161318120070, guid: 328db5d000d71ac44a56f970dc4b24ac, type: 3}
+  - {fileID: 6662165862540548241, guid: 78d1dac324749884d92daacffa8369e4, type: 3}
+  - {fileID: 6533254709921712579, guid: 718c6181e44208d448197247d5237aea, type: 3}
+  - {fileID: 7954800928705754358, guid: ac3e86ce7f90898419476f4f41447690, type: 3}
   spawnerPoint: {fileID: 44109735428476342}
   spawnCreate: {fileID: 5498121393200279613}
 --- !u!1 &3165320656190769831
@@ -177,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1177300294407124335
 Transform:
   m_ObjectHideFlags: 0
@@ -305,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5295903141131954909
 Transform:
   m_ObjectHideFlags: 0
@@ -338,8 +343,9 @@ MonoBehaviour:
   distanceFromCamera: 50
   spawnerPointPrefab: {fileID: 3132538405353996741, guid: 02e8ac9a722e0c7409b73727a66a4a8e, type: 3}
   prefabs:
-  - {fileID: 8966563030408899598, guid: 12894f0c955519843821a1512d8178e3, type: 3}
+  - {fileID: 4526343802384340390, guid: e7de32c44dbb43645996e1cc09f7011a, type: 3}
   - {fileID: 2358333729476444339, guid: 658bc4d97159f704b814e58eba3753c1, type: 3}
+  - {fileID: 4672004534513511411, guid: 2fca40a28f5862d4b8dccc413865be20, type: 3}
   spawnerPoint: {fileID: 9027336184445058223}
   spawnCreate: {fileID: 2388213440824313431}
 --- !u!1 &8485974329800011158
@@ -1150,11 +1156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: enableSpawner.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: enableSpawner.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: enableSpawner.Array.data[3]
@@ -1214,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: aggressiveStateOnPercentage.Array.data[0]
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: aggressiveStateOnPercentage.Array.data[1]

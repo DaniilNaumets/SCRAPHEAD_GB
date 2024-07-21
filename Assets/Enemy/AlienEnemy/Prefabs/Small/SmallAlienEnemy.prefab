@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426150506221298385, guid: 12894f0c955519843821a1512d8178e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6426150506221298385, guid: 12894f0c955519843821a1512d8178e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6426150506221298385, guid: 12894f0c955519843821a1512d8178e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72,9 +72,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallAlienEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8680365284789307038, guid: 12894f0c955519843821a1512d8178e3, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1499224658809525226, guid: 12894f0c955519843821a1512d8178e3, type: 3}
+    - {fileID: 1913564824006034876, guid: 12894f0c955519843821a1512d8178e3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12894f0c955519843821a1512d8178e3, type: 3}

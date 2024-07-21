@@ -194,7 +194,6 @@ public class Bullet : MonoBehaviour
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
-                        Debug.Log(enemy.gameObject);
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
                             EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
