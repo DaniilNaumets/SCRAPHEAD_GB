@@ -1,4 +1,5 @@
 using Entity;
+using ObjectPool;
 using Resources;
 using Resources.UI;
 using System.Collections;
@@ -13,6 +14,7 @@ namespace ScanningBeam
         [Header("Components")]
         [SerializeField] private EntityInventory inventory;
         [SerializeField] private SpriteRenderer scanningBeamSpriteRenderer;
+        [SerializeField] private ObjectsPoolManager objectsPoolManager;
 
         private Queue<ScrapPickup> scrapQueue = new Queue<ScrapPickup>();
         private Coroutine collectionCoroutine;
@@ -107,7 +109,7 @@ namespace ScanningBeam
                     }
 
                     scrapQueue.Dequeue();
-                    currentScrap.transform.parent.gameObject.SetActive(false); // objectPool
+                    objectsPoolManager.ReturnToPool(currentScrap.transform.parent.gameObject);
 
                     if (scrapCollectionProgressUI != null)
                     {

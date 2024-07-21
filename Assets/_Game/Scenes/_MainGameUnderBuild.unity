@@ -986,6 +986,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2142106775994567714, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: objectsPoolManager
+      value: 
+      objectReference: {fileID: 1667646272}
     - target: {fileID: 2839674654564740731, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: hpBarImage
       value: 
@@ -1055,6 +1059,10 @@ PrefabInstance:
       propertyPath: objectsPoolManager
       value: 
       objectReference: {fileID: 1667646272}
+    - target: {fileID: 2593357574935464336, guid: 6321b179678f82c46818603c082e8759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3165320656190769831, guid: 6321b179678f82c46818603c082e8759, type: 3}
       propertyPath: m_Name
       value: '[SpawnersSystem]'

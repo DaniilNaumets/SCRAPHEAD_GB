@@ -8,25 +8,23 @@ namespace Resources
         [Header("Components")]
         [SerializeField] private ScrapCrumble scrapCrumble;
         [SerializeField] private ScrapTurnOff scrapTurnOff;
-
         [SerializeField] private GameObject smokePrefab;
 
+        private ObjectsPoolManager objectsPoolManager;
         private float currentHealth;
-        private bool isDestroy;
 
         public void InitializeHealth(float health)
         {
             currentHealth = health;
-            isDestroy = false;
+            objectsPoolManager = FindObjectOfType<ObjectsPoolManager>();
         }
 
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;          
 
-            if (currentHealth <= 0 && !isDestroy) 
+            if (currentHealth <= 0) 
             {
-                isDestroy = true;
                 if (smokePrefab != null)
                 {
                     GameObject smoke = GameObject.Instantiate(smokePrefab, transform.parent.position, transform.parent.rotation);
@@ -37,12 +35,9 @@ namespace Resources
                 {
                     scrapCrumble.SeparateScrap();
                 }
-                
-                scrapTurnOff.TurnOff();
+
+                objectsPoolManager.ReturnToPool(transform.parent.gameObject);
             }           
         }
-
-
     }
 }
-
