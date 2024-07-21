@@ -2231,7 +2231,7 @@ GameObject:
   - component: {fileID: 37287166109081621}
   - component: {fileID: 8419706030555139890}
   - component: {fileID: 6562008464146116817}
-  - component: {fileID: 7823717890469061319}
+  - component: {fileID: 2278332946888550675}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7823717890469061319
+--- !u!114 &2278332946888550675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3474,7 +3474,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823717890469061319}
+      - m_Target: {fileID: 2278332946888550675}
         m_TargetAssemblyTypeName: NextDialog, Assembly-CSharp
         m_MethodName: Next
         m_Mode: 1
