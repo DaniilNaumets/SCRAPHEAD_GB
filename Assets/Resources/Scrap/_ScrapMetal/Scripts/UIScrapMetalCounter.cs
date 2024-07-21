@@ -28,9 +28,9 @@ namespace Resources.UI
             Color color;
             if(ColorUtility.TryParseHtmlString("#FFA400", out color))
             {
-                if (num > 100)
+                if (num > 99)
                     _text3.color = color;
-                if (num > 10)
+                if (num > 9)
                     _text2.color = color;
                 if(num > 0)
                     _text1.color = color;
