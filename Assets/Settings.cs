@@ -39,9 +39,12 @@ public class Settings : MonoBehaviour
 
     public void ChangeSense()
     {
-        playerRotation?.SetSence(senseVol.value);
+        if (playerRotation != null)
+        {
+            playerRotation?.SetSence(senseVol.value);
 
-        PlayerPrefs.SetFloat("SenseVolume", senseVol.value);
+            PlayerPrefs.SetFloat("SenseVolume", senseVol.value);
+        }
     }
 
     private void LoadSettings()
@@ -62,7 +65,7 @@ public class Settings : MonoBehaviour
             audioMixer.SetFloat("SoundExposed", soundVolume);
         }
 
-
+        if(playerRotation!=null)
         if (PlayerPrefs.HasKey("SenseVolume"))
         {
             float senseVolume = PlayerPrefs.GetFloat("SenseVolume");
