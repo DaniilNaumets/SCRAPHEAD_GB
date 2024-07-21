@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8521189660155341803, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2047776106}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -959,6 +963,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1184059961836835129, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1608001754}
+    - target: {fileID: 1184059961836835129, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 871738071}
     - target: {fileID: 3960033857231717369, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: scrapMetalCounterUI
       value: 
@@ -1093,6 +1105,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6321b179678f82c46818603c082e8759, type: 3}
+--- !u!114 &1608001754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4057763458935827477, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+  m_PrefabInstance: {fileID: 1507535543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46365d83cdf1d9498d15190cfa21fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1634280596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1556,7 +1579,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8405239780761711229, guid: 00f9f75052c26ff44919443393ddeaf3, type: 2}
   m_audioClip: {fileID: 8300000, guid: ac56f4c9c7178fe4ca601887025af3d7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -383,6 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3086fdd9add5145885b133c2e4c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: {fileID: 4057763458935827477}
+  playerInventory: {fileID: 3960033857231717369}
 --- !u!1 &6542449368411326435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1137,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6502841844655811460, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
   m_PrefabInstance: {fileID: 7785404676063611703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3960033857231717369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6557115172157049038, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
+  m_PrefabInstance: {fileID: 7785404676063611703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6622925010446421596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8d060b6adfde94c90c428bad1848a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4169356879181444834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6185649764535582165, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
