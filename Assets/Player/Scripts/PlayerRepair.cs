@@ -33,13 +33,13 @@ namespace Player
 
             if (playerCurrentHealth >= playerMaxHealth)
             {
-                //Debug.Log("No repair required");
+                Debug.Log("No repair required");
                 return;
             }
 
             if (quantityScrap <= 0)
             {
-                //Debug.Log("No scrap for repairs");
+                Debug.Log("No scrap for repairs");
                 return;
             }
 
@@ -61,8 +61,8 @@ namespace Player
             playerInventory.ChangeScrapQuantity(-(int)usedScrap);
             playerHealth.IncreaseHealth(healthToRestore);
 
-            //Debug.Log($"Repaired {healthToRestore} HP using {usedScrap} scrap.");
-            //Debug.Log($"Current Health: {playerHealth.GetHealth()}");
+            Debug.Log($"Repaired {healthToRestore} HP using {usedScrap} scrap.");
+            Debug.Log($"Current Health: {playerHealth.GetHealth()}");
         }
     }
 }
