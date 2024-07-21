@@ -56,6 +56,7 @@ MonoBehaviour:
   radius: 3
   startAudio: {fileID: 0}
   mineAudio: {fileID: 0}
+  explosionPrefab: {fileID: 1313425780641947215, guid: 59b68fba8fa63ff48becb3c7c9f45fe6, type: 3}
 --- !u!50 &7166099879947576732
 Rigidbody2D:
   serializedVersion: 4

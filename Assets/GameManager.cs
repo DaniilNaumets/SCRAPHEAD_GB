@@ -95,13 +95,13 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         Time.timeScale = 1;
     }
 
     public void ToMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
 

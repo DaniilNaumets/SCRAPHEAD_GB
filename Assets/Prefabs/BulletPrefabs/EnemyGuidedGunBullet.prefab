@@ -55,6 +55,7 @@ MonoBehaviour:
   radius: 3
   startAudio: {fileID: 0}
   mineAudio: {fileID: 0}
+  explosionPrefab: {fileID: 1313425780641947215, guid: 59b68fba8fa63ff48becb3c7c9f45fe6, type: 3}
   interval: 0.2
   rotationSpeed: 5
   enemyMask:
