@@ -10,22 +10,19 @@ namespace Area
         [SerializeField] private ObjectsPoolManager objectPoolManagerGameObjects;
 
         private void OnTriggerExit2D(Collider2D collision)
-        {          
-            if (collision.GetComponent<ScrapMetalController>())
+        {
+            var scrapMetalController = collision.GetComponent<ScrapMetalController>();
+            var enemyController = collision.GetComponent<EnemyController>();
+
+            if (scrapMetalController != null)
             {
                 objectPoolManagerGameObjects.ReturnToPool(collision.gameObject);
             }
 
-            if (collision.GetComponent<EnemyController>())
+            if (enemyController != null)
             {
                 objectPoolManagerGameObjects.ReturnToPool(collision.gameObject);
             }
         }
     }
 }
-
-
-
-
-
-

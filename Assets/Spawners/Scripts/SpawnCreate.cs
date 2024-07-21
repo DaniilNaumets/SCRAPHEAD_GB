@@ -81,6 +81,7 @@ namespace Spawners
                     pooledObject.transform.rotation = Quaternion.identity;
                     pooledObject.GetComponent<ScrapMetalController>()?.Initialize();
                     pooledObject.GetComponent<EnemyController>()?.Initialize();
+                    Debug.Log("Spawn " + pooledObject.transform.position);
                 }
             }
         }

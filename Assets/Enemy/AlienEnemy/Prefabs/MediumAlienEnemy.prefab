@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3320094572084579438}
   - component: {fileID: 3883565724269234140}
   - component: {fileID: 8401367895512361942}
+  - component: {fileID: 3661507398649093618}
   m_Layer: 3
   m_Name: MediumAlienEnemy
   m_TagString: Untagged
@@ -143,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
-  isAggressive: 1
   movementSpeed: 6
   rotationSpeed: 4
   rotationDegree: 30
@@ -153,6 +153,7 @@ MonoBehaviour:
   scanningDistance: 6.5
   enemyMovement: {fileID: 3958706161773212936}
   entityHealth: {fileID: 2231186177318897520}
+  enemyAI: {fileID: 593736547181497194}
 --- !u!114 &-336617146773726555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +364,18 @@ CircleCollider2D:
   m_Offset: {x: -2.2253025, y: 1.1261642}
   serializedVersion: 2
   m_Radius: 1.0946162
+--- !u!114 &3661507398649093618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358333729476444339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3499692548862302472
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +394,6 @@ GameObject:
   - component: {fileID: 2242574588155473228}
   - component: {fileID: 1398580093097719619}
   - component: {fileID: 5428269110200707553}
-  - component: {fileID: 4985724887472790224}
   m_Layer: 0
   m_Name: EnemyScripts
   m_TagString: Untagged
@@ -524,18 +536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapMetalCounterUI: {fileID: 0}
   scrapAlienCounterUI: {fileID: 0}
---- !u!114 &4985724887472790224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3499692548862302472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3625661627388595131
 GameObject:
   m_ObjectHideFlags: 0

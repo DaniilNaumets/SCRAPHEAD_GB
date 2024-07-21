@@ -275,7 +275,6 @@ GameObject:
   - component: {fileID: 587334590200868306}
   - component: {fileID: 4944957120880183997}
   - component: {fileID: 4197782061666615990}
-  - component: {fileID: 7988202582414727955}
   - component: {fileID: 4114058855203875476}
   m_Layer: 0
   m_Name: EnemyScripts
@@ -419,18 +418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapMetalCounterUI: {fileID: 0}
   scrapAlienCounterUI: {fileID: 0}
---- !u!114 &7988202582414727955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7356989860743277518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4114058855203875476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +612,7 @@ GameObject:
   - component: {fileID: 4114471923763628747}
   - component: {fileID: 98346510436933754}
   - component: {fileID: 1697850168849681303}
+  - component: {fileID: 8680365284789307038}
   m_Layer: 3
   m_Name: SmallAlienEnemy 1
   m_TagString: Untagged
@@ -667,7 +655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  isAggressive: 1
   movementSpeed: 8
   rotationSpeed: 4
   rotationDegree: 30
@@ -677,6 +664,7 @@ MonoBehaviour:
   scanningDistance: 5
   enemyMovement: {fileID: 6844911555050484106}
   entityHealth: {fileID: 1749798169286097826}
+  enemyAI: {fileID: 0}
 --- !u!114 &4683402576917009968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +762,18 @@ CircleCollider2D:
   m_Offset: {x: 0.05186677, y: 0}
   serializedVersion: 2
   m_Radius: 1.6709592
+--- !u!114 &8680365284789307038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966563030408899598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6608dc0c1c96dbc499032952cff62842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3908500283710499372
 PrefabInstance:
   m_ObjectHideFlags: 0
