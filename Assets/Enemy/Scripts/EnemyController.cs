@@ -6,7 +6,6 @@ namespace Enemies
     {       
         [Header("Enemy vars")]        
         [SerializeField] private float health;       
-        [SerializeField] private bool isAggressive;
 
         [Header("Enemy movement")]
         [SerializeField] private float movementSpeed;
@@ -22,16 +21,13 @@ namespace Enemies
         [Header("Components")]
         [SerializeField] private EnemyMovement enemyMovement;
         [SerializeField] private EntityHealth entityHealth;
-
-        private void Awake()
-        {
-            Initialize();
-        }
+        [SerializeField] private EnemyAI enemyAI;
 
         public void Initialize()
         {
             enemyMovement.InitializedMovement(movementSpeed, rotationSpeed);
             entityHealth.InitializeHealth(health);
+            enemyAI.Initialized();
         }
 
         public float GetMovementRadius() => movementRadius;

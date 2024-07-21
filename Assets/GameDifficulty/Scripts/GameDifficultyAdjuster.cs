@@ -10,27 +10,11 @@ namespace GameDifficulty
         [SerializeField] private GameDifficultyController gameDifficultyController;
         [SerializeField] private SpawnerPoint spawnPoint;
         [SerializeField] private SpawnCreate spawnCreate;
-        [SerializeField] private EntityInventory playerInventory;
-        [SerializeField] private GameObject spawnerPrefab; // Добавьте это поле
+        [SerializeField] private EntityInventory playerInventory; 
 
-        private int currentStage = 0;
+        private int currentStage;
+        private int previousStage = -1;
         private bool isAgressive;
-
-        private void Awake()
-        {
-            if (playerInventory != null)
-            {
-                DefineStage();
-            }
-        }
-
-        private void Start()
-        {
-            if (spawnerPrefab != null && spawnPoint != null)
-            {
-                spawnPoint.InitializedSpawnerPoint(10f, spawnerPrefab);
-            }
-        }
 
         private void Update()
         {
@@ -65,7 +49,12 @@ namespace GameDifficulty
                 }
             }
 
-            ApplyValues();
+            if (currentStage != previousStage)
+            {
+                ApplyValues();
+            }
+            
+            previousStage = currentStage;
         }
 
         private void ApplyValues()
@@ -87,12 +76,12 @@ namespace GameDifficulty
                 float[] maxSpawnTime = gameDifficultyController.maxSpawnTime;
                 int[] minAmount = gameDifficultyController.minAmount;
                 int[] maxAmount = gameDifficultyController.maxAmount;
-                spawnCreate.InitilizeSpawnVars(minSpawnTime[currentStage], maxSpawnTime[currentStage], minAmount[currentStage], maxAmount[currentStage]);
+                spawnCreate.InitializeSpawnVars(minSpawnTime[currentStage], maxSpawnTime[currentStage], minAmount[currentStage], maxAmount[currentStage]);
             }
             else
             {
                 spawnPoint.CreateSpawners(0);
-                spawnCreate.InitilizeSpawnVars(0, 0, 0, 0);
+                spawnCreate.InitializeSpawnVars(0, 0, 0, 0);
             }
         }
 

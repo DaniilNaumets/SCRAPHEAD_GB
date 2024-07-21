@@ -9,8 +9,8 @@ namespace ObjectPool
     public class ObjectsPoolManager : MonoBehaviour
     {
         private Dictionary<GameObject, ObjectPool<GameObject>> pools = new Dictionary<GameObject, ObjectPool<GameObject>>();
-        [SerializeField] private int defaultCapacity = 10;
-        [SerializeField] private int maxSize = 20;
+        [SerializeField] private int defaultCapacity;
+        [SerializeField] private int maxSize;
 
         public void InitializePools(List<GameObject> objectPrefabs)
         {
@@ -41,7 +41,7 @@ namespace ObjectPool
             return obj;
         }
 
-        private void OnTakeFromPool(GameObject obj)//
+        private void OnTakeFromPool(GameObject obj)
         {
             if (obj != null)
             {
@@ -107,4 +107,3 @@ namespace ObjectPool
         }
     }
 }
-

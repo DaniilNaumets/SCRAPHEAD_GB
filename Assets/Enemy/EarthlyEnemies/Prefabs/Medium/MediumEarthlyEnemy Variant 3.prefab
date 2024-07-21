@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 590389213747781881, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
+      propertyPath: pointReachThreshold
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6851260864455892346, guid: 29ef46e17d1de6a4fa563339f5edbe32, type: 3}
       propertyPath: m_Name
       value: MediumEarthlyEnemy Variant 3

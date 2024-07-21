@@ -17,16 +17,10 @@ namespace Spawners
         [SerializeField] private GameDifficultyAdjuster gameDifficultyAdjuster;
 
         private List<GameObject> objects;
-
         private float minSpawnTime;
         private float maxSpawnTime;
         private int minAmount;
         private int maxAmount;
-
-        private void Start()
-        {
-            StartCoroutine(SpawnObjectsCoroutine());           
-        }
 
         public void InitializedObjects(List<GameObject> objects)
         {
@@ -34,12 +28,14 @@ namespace Spawners
             objectsPoolManager.InitializePools(objects);
         }
 
-        public void InitilizeSpawnVars(float minSpawnTime, float maxSpawnTime, int minAmount, int maxAmount)
+        public void InitializeSpawnVars(float minSpawnTime, float maxSpawnTime, int minAmount, int maxAmount)
         {
+            StopAllCoroutines();
             this.minSpawnTime = minSpawnTime;
             this.maxSpawnTime = maxSpawnTime;
             this.minAmount = minAmount;
             this.maxAmount = maxAmount;
+            StartCoroutine(SpawnObjectsCoroutine());
         }
 
         private IEnumerator SpawnObjectsCoroutine()
@@ -48,8 +44,7 @@ namespace Spawners
             {
                 float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);               
                 yield return new WaitForSeconds(spawnTime);
-
-                int objectsCount = Random.Range(minAmount, maxAmount);
+                int objectsCount = Random.Range(minAmount, maxAmount);             
 
                 for (int i = 0; i < objectsCount; i++)
                 {
@@ -85,6 +80,7 @@ namespace Spawners
                     pooledObject.transform.position = spawner.transform.position;
                     pooledObject.transform.rotation = Quaternion.identity;
                     pooledObject.GetComponent<ScrapMetalController>()?.Initialize();
+                    pooledObject.GetComponent<EnemyController>()?.Initialize();
                 }
             }
         }

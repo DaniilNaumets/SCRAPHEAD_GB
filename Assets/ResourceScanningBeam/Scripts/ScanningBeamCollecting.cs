@@ -25,7 +25,7 @@ namespace ScanningBeam
         public void AddToQueue(ScrapPickup scrapPickup)
         {
             if (!scrapQueue.Contains(scrapPickup))
-            {                
+            {
                 scrapQueue.Enqueue(scrapPickup);
 
                 if (collectionCoroutine == null)
@@ -60,8 +60,15 @@ namespace ScanningBeam
             scanningBeamSpriteRenderer.enabled = true;
 
             while (scrapQueue.Count > 0)
-            {             
+            {
                 ScrapPickup currentScrap = scrapQueue.Peek();
+
+                if (currentScrap == null)
+                {
+                    scrapQueue.Dequeue();
+                    continue;
+                }
+
                 currentScrap.TryGetComponent<UIScrapCollectionProgress>(out var scrapCollectionProgressUI);
                 float collectionTime = currentScrap.GetCollectionTime();
 
@@ -74,11 +81,11 @@ namespace ScanningBeam
 
                 while (elapsedTime < collectionTime)
                 {
-                    if (!scrapQueue.Contains(currentScrap))
+                    if (currentScrap == null || !scrapQueue.Contains(currentScrap))
                     {
                         if (scrapCollectionProgressUI != null)
-                        {                           
-                            scrapCollectionProgressUI.ResetFill();                           
+                        {
+                            scrapCollectionProgressUI.ResetFill();
                         }
 
                         break;
@@ -88,7 +95,7 @@ namespace ScanningBeam
                     yield return null;
                 }
 
-                if (scrapQueue.Contains(currentScrap))
+                if (currentScrap != null && scrapQueue.Contains(currentScrap))
                 {
                     if (currentScrap.GetComponentInParent<ScrapMetalController>())
                     {

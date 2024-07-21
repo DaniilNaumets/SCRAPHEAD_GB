@@ -22,7 +22,7 @@ namespace Spawners
         }
 
         private void InitializedObjectsSpawners()
-        {;
+        {
             spawnCreate.InitializedObjects(prefabs);
             spawnerPoint.InitializedSpawnerPoint(distanceFromCamera, spawnerPointPrefab);          
         }

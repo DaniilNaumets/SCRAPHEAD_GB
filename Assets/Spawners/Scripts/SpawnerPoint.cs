@@ -29,6 +29,7 @@ namespace Spawners
             {
                 Destroy(spawner);
             }
+
             spawners.Clear();
 
             for (int i = 0; i < numberOfSpawners; i++)

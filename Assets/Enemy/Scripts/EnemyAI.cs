@@ -26,7 +26,20 @@ namespace Enemies
 
         private void Update()
         {
+            // Обновляем параметры из EnemyController
+            UpdateParameters();
+            // Определяем инструкцию движения
             MotionInstructionSelection();
+        }
+
+        public void Initialized()
+        {
+            isFirstTryMoveInCamera = true;
+            hasNewTarget = false;
+        }
+
+        private void UpdateParameters()
+        {
             movementRadius = enemyController.GetMovementRadius();
             pointReachThreshold = enemyController.GetPointReachThreshold();
         }
@@ -38,7 +51,7 @@ namespace Enemies
 
             if (isAggressive && playerCollider != null)
             {
-                MoveTorwradPlayer();
+                MoveTowardsPlayer();
             }
             else
             {
@@ -46,10 +59,12 @@ namespace Enemies
             }
         }
 
-        private void MoveTorwradPlayer()
+        private void MoveTowardsPlayer()
         {
+            if (playerCollider == null) return;
+
             Vector2 playerPosition = playerCollider.transform.position;
-            float distanceToTarget = enemyAgent.remainingDistance;
+            float distanceToTarget = Vector3.Distance(transform.position, playerPosition);
             float shootingDistance = enemyController.GetShootingDistance();
 
             enemyMovement.MoveTowardsTarget(playerPosition, true);
@@ -63,8 +78,7 @@ namespace Enemies
 
         private void MoveOnTheMap()
         {
-            Transform enemyAgentTransform = transform.parent;
-            bool enemyInCamera = entityCameraPosition.IsObjectInView(enemyAgentTransform);
+            bool enemyInCamera = entityCameraPosition.IsObjectInView(transform);
 
             if (!enemyInCamera && isFirstTryMoveInCamera)
             {
@@ -79,9 +93,9 @@ namespace Enemies
 
         private void FreeMovement()
         {
-            Collider2D scrapMetalCollider = enemyLineOfSight.HasCurrentComponent<ScrapMetalController>();           
+            Collider2D scrapMetalCollider = enemyLineOfSight.HasCurrentComponent<ScrapMetalController>();
             bool scrapMetalInLineOfSight = scrapMetalCollider != null;
-            
+
             if (scrapMetalInLineOfSight)
             {
                 MoveTowardsScrapMetal(scrapMetalCollider);
@@ -89,46 +103,31 @@ namespace Enemies
             else
             {
                 SetStoppingDistance(0);
-                enemyMovement.MoveTowardsTarget(targetPosition, true);               
-
                 if (!hasNewTarget || Vector3.Distance(transform.position, targetPosition) <= pointReachThreshold)
                 {
-                    SetRandomTargetPosition();                   
+                    SetRandomTargetPosition();
                 }
-            }        
+                enemyMovement.MoveTowardsTarget(targetPosition, true);
+            }
         }
 
         private void MoveTowardsScrapMetal(Collider2D scrapMetalCollider)
         {
-            if (scrapMetalCollider == null || scrapMetalCollider.gameObject == null)
-            {
-                FreeMovement();
-                return;
-            }
+            if (scrapMetalCollider == null) return;
 
-            float distanceToTarget = enemyAgent.remainingDistance;
+            float distanceToTarget = Vector3.Distance(transform.position, scrapMetalCollider.transform.position);
             float scanningDistance = enemyController.GetScanningDistance();
-            float shootingDistance = enemyController.GetShootingDistance();          
-            ScrapPickup scrapPickup = scrapMetalCollider?.GetComponentInChildren<ScrapPickup>();
-            var navMeshObstacle = scrapMetalCollider?.GetComponent<NavMeshObstacle>();
+            float shootingDistance = enemyController.GetShootingDistance();
+            ScrapPickup scrapPickup = scrapMetalCollider.GetComponentInChildren<ScrapPickup>();
 
-            if (scrapPickup != null && distanceToTarget <= scanningDistance)
+            if (scrapPickup != null)
             {
-                SetStoppingDistance(scanningDistance);
-
-                //if (navMeshObstacle != null)
-                //{
-                //    navMeshObstacle.enabled = false;
-                //}
-            }          
-            else if (scrapPickup != null && distanceToTarget > scanningDistance)
-            {
-                //if (navMeshObstacle != null)
-                //{
-                //    navMeshObstacle.enabled = true;
-                //}
+                if (distanceToTarget <= scanningDistance)
+                {
+                    SetStoppingDistance(scanningDistance);
+                }               
             }
-            else if (scrapPickup == null && distanceToTarget <= shootingDistance)
+            else if (distanceToTarget <= shootingDistance)
             {
                 SetStoppingDistance(shootingDistance);
                 enemyAttack.Attack(true);
@@ -140,14 +139,13 @@ namespace Enemies
         }
 
         private void SetRandomTargetPosition()
-        {           
+        {
             Vector2 forwardDirection = transform.right;
             float rotationDegree = enemyController.GetRotationDegree();
             float randomAngle = Random.Range(-rotationDegree, rotationDegree);
             Quaternion rotation = Quaternion.Euler(0, 0, randomAngle);
             Vector2 randomDirection = rotation * forwardDirection;
-            float distance = movementRadius;
-            Vector2 targetDirection = (Vector2)transform.position + randomDirection * distance;
+            Vector2 targetDirection = (Vector2)transform.position + randomDirection * movementRadius;
             NavMeshHit hit;
 
             if (NavMesh.SamplePosition(targetDirection, out hit, movementRadius, NavMesh.AllAreas))

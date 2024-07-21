@@ -312,6 +312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8702544015682716456, guid: 4574c3bf09f7c9f4b9f1a40d1609a2ad, type: 3}
+      propertyPath: pointReachThreshold
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6655688742012347035, guid: 4574c3bf09f7c9f4b9f1a40d1609a2ad, type: 3}
