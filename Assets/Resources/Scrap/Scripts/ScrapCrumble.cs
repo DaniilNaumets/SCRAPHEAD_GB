@@ -23,8 +23,7 @@ namespace Resources
             {
                 foreach (GameObject fragment in currentFragments)
                 {
-                    //objectsPoolManager.
-                    Instantiate(fragment, transform.position, transform.rotation);//ob pool
+                    objectsPoolManager.GetFromPool(fragment);
                 }
             }
         }
