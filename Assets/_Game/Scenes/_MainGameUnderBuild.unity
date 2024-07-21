@@ -222,10 +222,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[GameCanvasUI] (1)'
       objectReference: {fileID: 0}
-    - target: {fileID: 3656693888976202651, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6520270296517288775, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -304,10 +300,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6520270296517288775, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440576945707607735, guid: 3511eee72cff5b24387a20b1ac152ec5, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

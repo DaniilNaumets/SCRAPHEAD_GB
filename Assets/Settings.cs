@@ -11,6 +11,7 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider soundVol;
     [SerializeField] private Slider senseVol;
 
+
     [SerializeField] private AudioMixer audioMixer;
 
     private PlayerRotation playerRotation;
@@ -18,20 +19,55 @@ public class Settings : MonoBehaviour
     private void Awake()
     {
         playerRotation = FindObjectOfType<PlayerRotation>();
+
+        LoadSettings();
     }
 
     public void ChangeMusicVolume()
     {
         audioMixer.SetFloat("MusicExposed", musicVol.value);
+
+        PlayerPrefs.SetFloat("MusicVolume", musicVol.value);
     }
 
     public void ChangeSoundVolume()
     {
         audioMixer.SetFloat("SoundExposed", soundVol.value);
+
+        PlayerPrefs.SetFloat("SoundVolume", soundVol.value);
     }
 
     public void ChangeSense()
     {
-        playerRotation.SetSence(senseVol.value);
+        playerRotation?.SetSence(senseVol.value);
+
+        PlayerPrefs.SetFloat("SenseVolume", senseVol.value);
+    }
+
+    private void LoadSettings()
+    {
+
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            musicVol.value = musicVolume;
+            audioMixer.SetFloat("MusicExposed", musicVolume);
+        }
+
+
+        if (PlayerPrefs.HasKey("SoundVolume"))
+        {
+            float soundVolume = PlayerPrefs.GetFloat("SoundVolume");
+            soundVol.value = soundVolume;
+            audioMixer.SetFloat("SoundExposed", soundVolume);
+        }
+
+
+        if (PlayerPrefs.HasKey("SenseVolume"))
+        {
+            float senseVolume = PlayerPrefs.GetFloat("SenseVolume");
+            senseVol.value = senseVolume;
+            playerRotation.SetSence(senseVolume);
+        }
     }
 }
