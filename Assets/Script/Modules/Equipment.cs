@@ -25,6 +25,8 @@ public class Equipment : MonoBehaviour
     [SerializeField] private GameObject scrapPrefab;
     [SerializeField] private GameObject smokePrefab;
 
+    [SerializeField] private GameObject setEquipAudio;
+
     private bool isCollisionNow;
 
     private void Awake()
@@ -113,6 +115,10 @@ public class Equipment : MonoBehaviour
     {
         if (!isInstalled)
         {
+
+            if (setEquipAudio != null)
+                GameObject.Instantiate(setEquipAudio);
+
             isBroken = false;
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
             gameObject.transform.position = place.position;

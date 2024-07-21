@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1482044011002530762, guid: 8979a8a206df76944bc8373bef2f7159, type: 3}
+      propertyPath: setEquipAudio
+      value: 
+      objectReference: {fileID: 3078301068691835532, guid: 1c0db10aa8a6f7641ad10a2de05ae42d, type: 3}
     - target: {fileID: 3577126904705444623, guid: 8979a8a206df76944bc8373bef2f7159, type: 3}
       propertyPath: m_Sprite
       value: 
