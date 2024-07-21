@@ -10,6 +10,7 @@ public class AutoSimpleGun : AutoGun
     private void Awake()
     {
         base.Awake();
+        CheckUser();
     }
     private new void ShootLKM2()
     {

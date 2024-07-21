@@ -18,6 +18,7 @@ public class LaserGun : Gun
     private void Awake()
     {
         base.Awake();
+        CheckUser();
         laserAudio = GetComponent<AudioSource>();
     }
     public override void ShootLKM1()

@@ -8,6 +8,7 @@ public class MineGun : Gun
     private void Awake()
     {
         base.Awake();
+        CheckUser();
     }
     public override void ShootPKM1()
     {

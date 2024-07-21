@@ -9,6 +9,7 @@ public class ShotGun : Gun
     private void Awake()
     {
         base.Awake();
+        CheckUser();
     }
 
     private void Update()

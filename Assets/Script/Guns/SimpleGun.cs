@@ -6,6 +6,10 @@ public class SimpleGun : Gun
     [SerializeField] protected ObjectsPoolManager poolManager;
     [SerializeField] protected GameObject handler;
 
+    private void Awake()
+    {
+        CheckUser();
+    }
     private void Start()
     {
         reloadTime2 = speedAttack2;

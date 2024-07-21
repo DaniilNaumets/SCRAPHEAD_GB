@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject loosePanel;
     [SerializeField] private GameObject winPanel;
 
+    [SerializeField] private GameObject darkPanel;
+
 
     public void Pause()
     {
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
             {
                 pausePan1.SetActive(true);
                 pausePan2.SetActive(true);
+                if (darkPanel != null)
+                    darkPanel.SetActive(true);
                 Time.timeScale = 0;
                 StopAllCoroutines();
                 Cursor.lockState = CursorLockMode.Confined;
@@ -65,6 +69,8 @@ public class GameManager : MonoBehaviour
             {
                 pausePan1.SetActive(false);
                 pausePan2.SetActive(false);
+                if (darkPanel != null)
+                    darkPanel.SetActive(false);
                 Time.timeScale = 1;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
@@ -110,7 +116,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         loosePanel.SetActive(true);
         Time.timeScale = 0;
-        
+
     }
 
     public void OpenWinPanel()
@@ -119,6 +125,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         winPanel.SetActive(true);
         Time.timeScale = 0;
-        
+
     }
 }

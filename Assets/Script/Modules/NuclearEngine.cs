@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class NuclearEngine : Engine
@@ -15,12 +13,14 @@ public class NuclearEngine : Engine
 
     private SpeedButton speedButtonScript;
 
+
     private void Awake()
     {
         base.Awake();
         StartEngine();
 
         speedButtonScript = FindObjectOfType<SpeedButton>();
+
     }
     public override void Special(float mult)
     {
