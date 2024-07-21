@@ -30,6 +30,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected GameObject startAudio;
 
     [SerializeField] protected GameObject mineAudio;
+
+    [SerializeField] protected GameObject explosionPrefab;
     
 
     protected Vector2 direction;
@@ -37,6 +39,8 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
+        
+
         rb = GetComponent<Rigidbody2D>();
         if(startAudio!=null)
         GameObject.Instantiate(startAudio);
@@ -117,7 +121,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
 
                 }
@@ -166,7 +171,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment1.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
 
                 }
@@ -210,7 +216,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
                     break;
@@ -236,7 +243,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
 
@@ -280,7 +288,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
                     break;
@@ -306,7 +315,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
 
@@ -346,7 +356,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
                     break;
@@ -372,7 +383,8 @@ public class Bullet : MonoBehaviour
                             if (!equipment.isInstalledMethod())
                                 equip.TakeDamage(damage);
                         }
-
+                        if (type is bulletType.Rocket && explosionPrefab != null)
+                            GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
 
