@@ -651,20 +651,24 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[1]
+      propertyPath: quantityOfScrapInStage.Array.data[0]
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[2]
+      propertyPath: quantityOfScrapInStage.Array.data[1]
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[3]
+      propertyPath: quantityOfScrapInStage.Array.data[2]
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[3]
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[4]
-      value: 400
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: aggressiveStateOnPercentage.Array.size
@@ -947,20 +951,24 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[1]
+      propertyPath: quantityOfScrapInStage.Array.data[0]
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[2]
+      propertyPath: quantityOfScrapInStage.Array.data[1]
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[3]
+      propertyPath: quantityOfScrapInStage.Array.data[2]
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[3]
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[4]
-      value: 400
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: aggressiveStateOnPercentage.Array.size
@@ -1199,20 +1207,24 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[1]
+      propertyPath: quantityOfScrapInStage.Array.data[0]
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[2]
+      propertyPath: quantityOfScrapInStage.Array.data[1]
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
-      propertyPath: quantityOfScrapInStage.Array.data[3]
+      propertyPath: quantityOfScrapInStage.Array.data[2]
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
+      propertyPath: quantityOfScrapInStage.Array.data[3]
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: quantityOfScrapInStage.Array.data[4]
-      value: 400
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 8232984071370502057, guid: 29c78cde5817814479d7cc9a9519cb9e, type: 3}
       propertyPath: aggressiveStateOnPercentage.Array.size
