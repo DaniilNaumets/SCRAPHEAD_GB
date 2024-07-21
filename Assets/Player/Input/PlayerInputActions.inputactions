@@ -24,9 +24,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ScanningBeam",
+                    "name": "Repair",
                     "type": "Button",
-                    "id": "12b866f6-3036-456d-8211-817e4b4b1e23",
+                    "id": "45c30672-f944-48e4-bef2-ab7ad3fecd4f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -124,12 +124,12 @@
                 },
                 {
                     "name": "",
-                    "id": "4ce0f7ad-e853-438c-9e30-b469de3d7131",
-                    "path": "<Mouse>/rightButton",
+                    "id": "8bd7c774-6865-4208-954b-a9d300325bd3",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ScanningBeam",
+                    "action": "Repair",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

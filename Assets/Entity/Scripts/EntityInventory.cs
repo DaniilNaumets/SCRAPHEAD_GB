@@ -1,6 +1,7 @@
 using Resources;
 using Resources.UI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Entity
 {
@@ -33,7 +34,12 @@ namespace Entity
             this.scrap += scrap;
         }
 
-        public int GetScrap() => scrap; 
+        public int GetScrap() => scrap;
+
+        public void ChangeScrapQuantity(int subtractedScrap)
+        {
+            scrap -= subtractedScrap;
+        }
     }
 }
 

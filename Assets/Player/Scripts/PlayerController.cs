@@ -4,10 +4,13 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float health;
+        [Header("Player vars")]
+        [SerializeField] private int health;
+        [SerializeField] private float amountOfScrapToHP;
 
         [Header("Components")]
         [SerializeField] private EntityHealth entityHealth;
+        [SerializeField] private PlayerRepair playerRepair;
 
         private void Awake()
         {
@@ -17,9 +20,10 @@ namespace Player
         private void Initialize()
         {
             entityHealth.InitializeHealth(health);
+            playerRepair.Initialize(amountOfScrapToHP);
         }
 
-        public float GetHealth() => health;
+        public int GetHealth() => health;
     }
 }
 

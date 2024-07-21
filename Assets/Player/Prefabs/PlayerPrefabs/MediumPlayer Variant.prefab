@@ -334,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8414762975251171237}
   - component: {fileID: 4057763458935827477}
+  - component: {fileID: 1184059961836835129}
   m_Layer: 6
   m_Name: PlayerScripts
   m_TagString: Untagged
@@ -370,6 +371,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 0}
   render: {fileID: 0}
+--- !u!114 &1184059961836835129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825427729953236877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3086fdd9add5145885b133c2e4c65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6542449368411326435
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +907,10 @@ PrefabInstance:
       propertyPath: entityHealth
       value: 
       objectReference: {fileID: 4057763458935827477}
+    - target: {fileID: 7945744143315019095, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
+      propertyPath: playerRepair
+      value: 
+      objectReference: {fileID: 1184059961836835129}
     m_RemovedComponents:
     - {fileID: 7316863078005300035, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
     - {fileID: 814989113093682239, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
@@ -1076,9 +1093,21 @@ MonoBehaviour:
     m_ActionId: a83faef7-500c-4061-9135-2043afbf7fbd
     m_ActionName: PlayerDrone/Look[/Mouse/delta/left,/Mouse/delta/right]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 12b866f6-3036-456d-8211-817e4b4b1e23
-    m_ActionName: PlayerDrone/ScanningBeam[/Mouse/rightButton]
+      m_Calls:
+      - m_Target: {fileID: 1184059961836835129}
+        m_TargetAssemblyTypeName: Player.PlayerRepair, Assembly-CSharp
+        m_MethodName: OnRepair
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 45c30672-f944-48e4-bef2-ab7ad3fecd4f
+    m_ActionName: PlayerDrone/Repair[/Keyboard/g]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerDrone

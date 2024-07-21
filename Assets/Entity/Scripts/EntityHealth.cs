@@ -13,7 +13,7 @@ public class EntityHealth : MonoBehaviour
     private PlayerHealth playerHealth;
 
     private float health = 100f;
-    private float maxHealth;
+    private int maxHealth;
     private bool isCollisionNow;
 
     private void Awake()
@@ -29,10 +29,13 @@ public class EntityHealth : MonoBehaviour
         playerHealth = gameObject?.GetComponentInParent<PlayerHealth>();
         render.color = Color.white;
     }
+
     public void InitializeHealth(float health)
     {
         this.health = health;
     }
+
+    public float GetMaxHealth() => maxHealth;
 
     public void TakeDamage(float damage, ObjectsPoolManager poolManager)
     {
@@ -50,7 +53,6 @@ public class EntityHealth : MonoBehaviour
             }
             ReturnToPool(poolManager);
         }
-
     }
 
     public void TakeDamage(float damage)
@@ -101,6 +103,11 @@ public class EntityHealth : MonoBehaviour
     }
 
     public float GetHealth() => health;
+
+    public void IncreaseHealth(float health)
+    {
+        this.health = Mathf.Min(this.health + health, maxHealth);
+    }
 
     private void ReturnToPool(ObjectsPoolManager poolManager)
     {

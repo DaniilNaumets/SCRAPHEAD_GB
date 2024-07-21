@@ -86,7 +86,7 @@ namespace GameDifficulty
             if (gameDifficultyController.GetAggressionRegulator())
             {
                 float[] aggressiveStateOnPercentage = gameDifficultyController.aggressiveStateOnPercentage;
-                isAgressive = DetermineAggressiveStateOnPercentage(aggressiveStateOnPercentage[currentStage]);
+                isAgressive = DetermineAggressiveStateOnPercentage(aggressiveStateOnPercentage[currentStage]);               
             }
         }
 

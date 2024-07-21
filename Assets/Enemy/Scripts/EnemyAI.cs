@@ -26,9 +26,7 @@ namespace Enemies
 
         private void Update()
         {
-            // Обновляем параметры из EnemyController
             UpdateParameters();
-            // Определяем инструкцию движения
             MotionInstructionSelection();
         }
 
