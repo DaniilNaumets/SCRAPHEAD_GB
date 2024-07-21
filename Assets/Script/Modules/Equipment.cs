@@ -53,7 +53,7 @@ public class Equipment : MonoBehaviour
         {
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
         }
-    
+
 
 
 
@@ -105,7 +105,7 @@ public class Equipment : MonoBehaviour
             rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
             health = float.MaxValue;
 
-            
+
 
 
 
@@ -310,7 +310,7 @@ public class Equipment : MonoBehaviour
 
     public void DeathEquip()
     {
-        
+
         if (scrapPrefab != null)
         {
             GameObject scrap = GameObject.Instantiate(scrapPrefab, gameObject.transform.position, gameObject.transform.rotation);
@@ -337,5 +337,25 @@ public class Equipment : MonoBehaviour
     {
         if (!isCollisionNow)
             StartCoroutine(Red());
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        CheckCollisionEquip();
+        if (health <= 0)
+        {
+            if (isInstalled)
+            {
+                BreakEquip();
+                health = maxHealth;
+                return;
+            }
+            else
+            {
+                DeathEquip();
+            }
+
+        }
     }
 }

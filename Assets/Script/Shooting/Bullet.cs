@@ -86,7 +86,7 @@ public class Bullet : MonoBehaviour
         {
             if (equip.isInstalledMethod() && equip.CheckUser(true))
             {
-                equip.BreakEquip();
+                equip.TakeDamage(damage);
                 Destroy(gameObject);
                 return;
             }
@@ -97,7 +97,7 @@ public class Bullet : MonoBehaviour
                 {
                     Equipment equipment2 = collision.gameObject?.GetComponent<Equipment>();
                     if (!equipment2.isInstalledMethod())
-                        equipment2.DeathEquip();
+                        equip.TakeDamage(damage);
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
@@ -115,7 +115,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -124,7 +124,7 @@ public class Bullet : MonoBehaviour
 
                 if(type is bulletType.Simple)
                 {
-                    equip.DeathEquip();
+                    equip.TakeDamage(damage);
                 }
                 Destroy(gameObject);
             }
@@ -135,7 +135,7 @@ public class Bullet : MonoBehaviour
             {
                 if (!eq.CheckUser(true))
                 {
-                    eq.BreakEquip();
+                    equip.TakeDamage(damage);
                     return; 
                 }
 
@@ -146,7 +146,7 @@ public class Bullet : MonoBehaviour
                 {
                     Equipment equipment = collision.gameObject?.GetComponent<Equipment>();
                     if (!equipment.isInstalledMethod())
-                        equipment.DeathEquip();
+                        equip.TakeDamage(damage);
                     Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
@@ -164,7 +164,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment1 = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment1.isInstalledMethod())
-                                equipment1.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -172,7 +172,7 @@ public class Bullet : MonoBehaviour
                 }
                 if (type is bulletType.Simple)
                 {
-                    equip.DeathEquip();
+                    equip.TakeDamage(damage);
                 }
                 Destroy(gameObject);
             }
@@ -208,7 +208,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -234,7 +234,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -278,7 +278,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -304,7 +304,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -344,7 +344,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -370,7 +370,7 @@ public class Bullet : MonoBehaviour
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }

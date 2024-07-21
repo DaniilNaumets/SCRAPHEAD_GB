@@ -120,7 +120,7 @@ public class GuidedBullet : Bullet
         {
             if (equip.isInstalledMethod() && equip.CheckUser(true))
             {
-                equip.BreakEquip();
+                equip.TakeDamage(damage);
                 Destroy(gameObject);
                 return;
             }
@@ -131,8 +131,8 @@ public class GuidedBullet : Bullet
                 {
                     Equipment equipment2 = collision.gameObject?.GetComponent<Equipment>();
                     if (!equipment2.isInstalledMethod())
-                        equipment2.DeathEquip();
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                        equip.TakeDamage(damage);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -149,7 +149,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -158,7 +158,7 @@ public class GuidedBullet : Bullet
 
                 if (type is bulletType.Simple)
                 {
-                    equip.DeathEquip();
+                    equip.TakeDamage(damage);
                 }
                 Destroy(gameObject);
             }
@@ -169,7 +169,7 @@ public class GuidedBullet : Bullet
             {
                 if (!eq.CheckUser(true))
                 {
-                    eq.BreakEquip();
+                    equip.TakeDamage(damage);
                     return;
                 }
 
@@ -180,8 +180,8 @@ public class GuidedBullet : Bullet
                 {
                     Equipment equipment = collision.gameObject?.GetComponent<Equipment>();
                     if (!equipment.isInstalledMethod())
-                        equipment.DeathEquip();
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                        equip.TakeDamage(damage);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -198,7 +198,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment1 = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment1.isInstalledMethod())
-                                equipment1.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -206,7 +206,7 @@ public class GuidedBullet : Bullet
                 }
                 if (type is bulletType.Simple)
                 {
-                    equip.DeathEquip();
+                    equip.TakeDamage(damage);
                 }
                 Destroy(gameObject);
             }
@@ -225,10 +225,9 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Rocket:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
-                        Debug.Log(enemy.gameObject);
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
                         {
                             EntityHealth health = enemy.gameObject?.GetComponentInChildren<EntityHealth>();
@@ -243,7 +242,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -252,7 +251,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Mine:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies1)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -269,7 +268,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -293,7 +292,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Rocket:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -313,7 +312,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -322,7 +321,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Mine:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
-                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                    Collider2D[] enemies1 = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies1)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -339,7 +338,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -362,7 +361,7 @@ public class GuidedBullet : Bullet
 
                 case bulletType.Rocket:
                     collision.gameObject.GetComponentInChildren<ScrapHealth>().TakeDamage(damage);
-                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusKill);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
                     foreach (var enemy in enemies)
                     {
                         if (enemy.gameObject?.GetComponentInChildren<EntityHealth>())
@@ -379,7 +378,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
@@ -405,7 +404,7 @@ public class GuidedBullet : Bullet
                         {
                             Equipment equipment = enemy.gameObject?.GetComponent<Equipment>();
                             if (!equipment.isInstalledMethod())
-                                equipment.DeathEquip();
+                                equip.TakeDamage(damage);
                         }
 
                     }
