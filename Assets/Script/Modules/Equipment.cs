@@ -53,6 +53,11 @@ public class Equipment : MonoBehaviour
         {
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
         }
+
+
+
+        CheckShieldAndNuclearEngineAwake();
+
     }
 
     private void Start()
@@ -159,6 +164,34 @@ public class Equipment : MonoBehaviour
             if (this.gameObject.TryGetComponent<Gun>(out Gun gun))
             {
                 gun.CheckUser();
+            }
+        }
+    }
+
+    private void CheckShieldAndNuclearEngineAwake()
+    {
+        if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+        {
+            if (isPlayerEquip)
+                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+            engine.StartEngine();
+            if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
+            {
+                PublicSettings.IsQuantumWork = true;
+            }
+
+            if (engine.GetType() == typeof(NuclearEngine) && GetComponentInParent<Drone>())
+            {
+                FindObjectOfType<SpeedButton>().TurnOff(true);
+            }
+        }
+        if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
+        {
+            if (isPlayerEquip)
+            {
+                FindObjectOfType<ShieldButton>().TurnOff(true);
+                UnityEvents.ShieldUpdateEvent.Invoke(true);
+                shield.UpdateReload();
             }
         }
     }
