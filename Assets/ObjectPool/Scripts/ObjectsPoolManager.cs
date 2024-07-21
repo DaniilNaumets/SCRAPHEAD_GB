@@ -43,7 +43,7 @@ namespace ObjectPool
 
         private void OnTakeFromPool(GameObject obj)
         {
-            if (obj != null && obj.activeSelf == false) // Ensure object is inactive
+            if (obj != null && obj.activeSelf == false)
             {
                 obj.SetActive(true);
                 var scrapController = obj.GetComponent<ScrapMetalController>();
@@ -65,14 +65,13 @@ namespace ObjectPool
         {
             if (obj != null && obj.activeSelf)
             {
-                Debug.LogWarning($"Object {obj.name} was not deactivated before returning to pool. Deactivating now.");
                 obj.SetActive(false);
             }
         }
 
         private void OnDestroyPoolObject(GameObject obj)
         {
-            if (obj != null) // Ensure object exists before destroying
+            if (obj != null)
             {
                 Destroy(obj);
             }
@@ -85,8 +84,7 @@ namespace ObjectPool
                 GameObject obj = pools[prefab].Get();
 
                 if (obj != null && obj.activeSelf)
-                {
-                    Debug.LogWarning($"Object {obj.name} was active when taken from pool. Deactivating and reinitializing now.");
+                {                  
                     obj.SetActive(false);
                     OnTakeFromPool(obj);
                 }
