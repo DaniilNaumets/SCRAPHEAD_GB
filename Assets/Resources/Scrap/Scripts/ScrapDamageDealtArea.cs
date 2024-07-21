@@ -24,7 +24,7 @@ namespace Resources
             if (playerHealth != null)
             {
                 float damage = scrapDamageDealt.GetDamage();
-                playerHealth.TakeDamage(damage, poolManager, true);
+                playerHealth.TakeDamage(damage, poolManager, false);
             }
 
             if (playerDamageDealer != null)
