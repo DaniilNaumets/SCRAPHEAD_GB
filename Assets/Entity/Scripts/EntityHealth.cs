@@ -80,6 +80,7 @@ public class EntityHealth : MonoBehaviour
         if (GetComponentInParent<Drone>())
         {
             playerHealth.OnHealthChanged.Invoke(health, maxHealth);
+            Debug.Log(health);
         }
         if (health > 0)
         {

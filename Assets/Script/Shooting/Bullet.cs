@@ -124,7 +124,6 @@ public class Bullet : MonoBehaviour
                         if (type is bulletType.Rocket && explosionPrefab != null)
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
-
                 }
 
                 if(type is bulletType.Simple)
@@ -132,6 +131,7 @@ public class Bullet : MonoBehaviour
                     equip.TakeDamage(damage);
                 }
                 Destroy(gameObject);
+                return;
             }
         }
         if (collision.gameObject.TryGetComponent<Equipment>(out Equipment eq) && isPlayerBullet)
@@ -174,13 +174,13 @@ public class Bullet : MonoBehaviour
                         if (type is bulletType.Rocket && explosionPrefab != null)
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
-
                 }
                 if (type is bulletType.Simple)
                 {
                     equip.TakeDamage(damage);
                 }
                 Destroy(gameObject);
+                return;
             }
         }
 
@@ -247,7 +247,7 @@ public class Bullet : MonoBehaviour
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
-
+                    return;
                     break;
             }
 
@@ -260,6 +260,7 @@ public class Bullet : MonoBehaviour
                 case bulletType.Simple:
                     collision.gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(damage, poolManager, isPlayerBullet);
                     Destroy(gameObject);
+                    return;
                     break;
 
 
@@ -292,6 +293,7 @@ public class Bullet : MonoBehaviour
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
+                    return;
                     break;
 
                 case bulletType.Mine:
@@ -319,7 +321,7 @@ public class Bullet : MonoBehaviour
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
-
+                    return;
                     break;
             }
         }
@@ -360,6 +362,7 @@ public class Bullet : MonoBehaviour
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
+                    return;
                     break;
 
                 case bulletType.Mine:
@@ -387,7 +390,7 @@ public class Bullet : MonoBehaviour
                             GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     Destroy(gameObject);
-
+                    return;
                     break;
             }
         }
