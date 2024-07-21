@@ -1,4 +1,5 @@
 using ObjectPool;
+using System.Collections;
 using UnityEngine;
 
 namespace Resources
@@ -13,6 +14,15 @@ namespace Resources
         private ObjectsPoolManager objectsPoolManager;
         private float currentHealth;
 
+        private bool isCollisionNow;
+
+        private SpriteRenderer render;
+
+        private void Awake()
+        {
+            render = gameObject.transform.parent.GetComponentInChildren<SpriteRenderer>();
+        }
+
         public void InitializeHealth(float health)
         {
             currentHealth = health;
@@ -21,8 +31,9 @@ namespace Resources
 
         public void TakeDamage(float damage)
         {
-            currentHealth -= damage;          
-
+            currentHealth -= damage;
+            if (!isCollisionNow)
+                StartCoroutine(Red());
             if (currentHealth <= 0) 
             {
                 if (smokePrefab != null)
@@ -39,5 +50,15 @@ namespace Resources
                 objectsPoolManager.ReturnToPool(transform.parent.gameObject);
             }           
         }
+        private IEnumerator Red()
+        {
+            isCollisionNow = true;
+            render.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            render.color = Color.white;
+            isCollisionNow = false;
+        }
     }
+
+
 }
