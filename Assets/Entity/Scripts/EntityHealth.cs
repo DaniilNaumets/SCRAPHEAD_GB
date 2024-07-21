@@ -110,8 +110,7 @@ public class EntityHealth : MonoBehaviour
                 poolManager.ReturnToPool(gameObject.transform.parent.gameObject);
             else
             {
-                StartCoroutine(RestartScene());
-                Debug.Log("Restart!");
+                FindObjectOfType<GameManager>().OpenLoosePanel();
             }
         }
         else

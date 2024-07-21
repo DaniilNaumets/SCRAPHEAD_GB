@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePan1;
     [SerializeField] private GameObject pausePan2;
 
+    [SerializeField] private GameObject loosePanel;
+    [SerializeField] private GameObject winPanel;
+
+
     public void Pause()
     {
         if (pausePanel != null)
@@ -80,6 +84,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+    }
+
     public void ToMenu()
     {
         SceneManager.LoadScene(0);
@@ -89,5 +99,17 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Time.timeScale = 1;
+    }
+
+    public void OpenLoosePanel()
+    {
+        Time.timeScale = 0;
+        loosePanel.SetActive(true);
+    }
+
+    public void OpenWinPanel()
+    {
+        Time.timeScale = 0;
+        winPanel.SetActive(true);
     }
 }
