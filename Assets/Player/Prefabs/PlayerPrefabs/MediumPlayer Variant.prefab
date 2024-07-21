@@ -383,7 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3086fdd9add5145885b133c2e4c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 4057763458935827477}
+  entityHealth: {fileID: 4057763458935827477}
+  playerHealth: {fileID: 2839674654564740731}
   playerInventory: {fileID: 3960033857231717369}
 --- !u!1 &6542449368411326435
 GameObject:
@@ -891,6 +892,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 555732689672490110, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
+      propertyPath: maxInterval
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 814989113093682239, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: m_Size.x
       value: 2.4041095
