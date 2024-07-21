@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 788da2fe58b20964983a01a36cdf2ca2
+guid: 706793952c80e364bb38107d5534d0bd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -30,7 +30,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
@@ -63,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,20 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icon_07_0
+      name: "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_0"
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 59
-        height: 58
+        x: 11
+        y: 1105
+        width: 913
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +111,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8347ee613f82d8499850575c30d6681
-      internalID: 515651850
+      spriteID: 5167d1e116a9ba0468c28d987046baca
+      internalID: 835922489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_1"
+      rect:
+        serializedVersion: 2
+        x: 2433
+        y: 263
+        width: 845
+        height: 1098
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f2c8a8b11dbe7488b751f26fd25675
+      internalID: 1358249956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_2"
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 264
+        width: 913
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cbae4f143373d74686ebf0984f43a07
+      internalID: -1310096726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_3"
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 9
+        width: 2373
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b54294d05908447b7a186f98e3ef59
+      internalID: -997859854
       vertices: []
       indices: 
       edges: []
@@ -141,7 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      icon_07_0: 515651850
+      "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_0": 835922489
+      "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_1": 1358249956
+      "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_2": -1310096726
+      "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441-2 1_3": -997859854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
