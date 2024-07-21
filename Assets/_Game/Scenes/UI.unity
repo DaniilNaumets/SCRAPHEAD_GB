@@ -2015,6 +2015,10 @@ PrefabInstance:
       propertyPath: scrapMetalCounterUI
       value: 
       objectReference: {fileID: 8733347608055503107}
+    - target: {fileID: 4035110384331317860, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.993258
+      objectReference: {fileID: 0}
     - target: {fileID: 5983206201279514730, guid: 78842e99fb3af164695368bb37a103a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.17
