@@ -14,14 +14,6 @@ namespace Resources.UI
         [SerializeField] private TextMeshProUGUI _text3;
 
         int num;
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                OutputScrapMetalOnUI(num += 11);
-            }
-        }
         public void OutputScrapMetalOnUI(int value)
         {
             int razrad1 = value % 10;

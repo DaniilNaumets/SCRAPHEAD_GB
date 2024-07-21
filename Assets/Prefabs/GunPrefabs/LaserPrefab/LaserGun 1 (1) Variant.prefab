@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: torqueValue
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8152139760640532039, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
+      propertyPath: setEquipAudio
+      value: 
+      objectReference: {fileID: 3078301068691835532, guid: 1c0db10aa8a6f7641ad10a2de05ae42d, type: 3}
     m_RemovedComponents:
     - {fileID: 4826799661244719497, guid: 9e6b5c9f18848d34caee76bdd3926e55, type: 3}
     m_RemovedGameObjects: []

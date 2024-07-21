@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: torqueValue
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4898042130131044136, guid: 84d8fd82071afa04e9df2bd7e21fc5fd, type: 3}
+      propertyPath: setEquipAudio
+      value: 
+      objectReference: {fileID: 3078301068691835532, guid: 1c0db10aa8a6f7641ad10a2de05ae42d, type: 3}
     - target: {fileID: 5811587461839410222, guid: 84d8fd82071afa04e9df2bd7e21fc5fd, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5

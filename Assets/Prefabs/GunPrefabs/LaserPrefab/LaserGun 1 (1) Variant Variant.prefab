@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: smokePrefab
       value: 
       objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+    - target: {fileID: 1833999438489904852, guid: 76df5c3ea86665e4d986835962db5d0b, type: 3}
+      propertyPath: setEquipAudio
+      value: 
+      objectReference: {fileID: 3078301068691835532, guid: 1c0db10aa8a6f7641ad10a2de05ae42d, type: 3}
     - target: {fileID: 3724803505030739932, guid: 76df5c3ea86665e4d986835962db5d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2082777

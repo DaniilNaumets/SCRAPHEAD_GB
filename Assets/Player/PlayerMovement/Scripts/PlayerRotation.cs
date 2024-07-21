@@ -18,6 +18,8 @@ namespace Player
         {
             transform.Rotate(-Vector3.forward * rotationDirection * sensitivity * Time.deltaTime);
         }
+
+        public void SetSence(float sence) => sensitivity = sence; 
     }
 }
 

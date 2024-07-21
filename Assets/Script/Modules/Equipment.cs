@@ -25,6 +25,8 @@ public class Equipment : MonoBehaviour
     [SerializeField] private GameObject scrapPrefab;
     [SerializeField] private GameObject smokePrefab;
 
+    [SerializeField] private GameObject setEquipAudio;
+
     private bool isCollisionNow;
 
     private void Awake()
@@ -56,7 +58,7 @@ public class Equipment : MonoBehaviour
     private void Start()
     {
         maxHealth = health;
-        if (this.gameObject.TryGetComponent<Engine>(out Engine engine) && isInstalled)
+        if (this.gameObject.TryGetComponent<Engine>(out Engine engine) && isInstalled && isPlayerEquip)
         {
             UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
 
@@ -69,20 +71,37 @@ public class Equipment : MonoBehaviour
             CheckCollisionEquip();
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             gameObject.transform.parent.GetComponent<Place>()?.SetBusy(false);
+
+            if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
+            {
+                if (isPlayerEquip)
+                    UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
+                if (engine.GetType() == typeof(QuantumEngine) && isPlayerEquip)
+                {
+                    PublicSettings.IsQuantumWork = false;
+                }
+                if (engine.GetType() == typeof(NuclearEngine) && GetComponentInParent<Drone>())
+                {
+                    FindObjectOfType<SpeedButton>().TurnOff(false);
+                }
+            }
+            if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
+            {
+                if (isPlayerEquip)
+                {
+                    FindObjectOfType<ShieldButton>().TurnOff(false);
+                }
+            }
+
             gameObject.transform.SetParent(null);
             Vector2 direction = Random.insideUnitCircle.normalized;
             rigidbody.AddForce(direction * forceValue, ForceMode2D.Impulse);
             rigidbody.AddTorque(torqueValue, ForceMode2D.Impulse);
             health = float.MaxValue;
 
-            if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
-            {
-                UnityEvents.EngineModuleEventPlus.Invoke(-engine.GetSpeed());
-                if (engine.GetType() == typeof(QuantumEngine) && isPlayerEquip)
-                {
-                    PublicSettings.IsQuantumWork = false;
-                }
-            }
+            
+
+
 
             isInstalled = false;
             isPlayerEquip = false;
@@ -96,6 +115,10 @@ public class Equipment : MonoBehaviour
     {
         if (!isInstalled)
         {
+
+            if (setEquipAudio != null)
+                GameObject.Instantiate(setEquipAudio);
+
             isBroken = false;
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
             gameObject.transform.position = place.position;
@@ -111,16 +134,27 @@ public class Equipment : MonoBehaviour
 
             if (this.gameObject.TryGetComponent<Engine>(out Engine engine))
             {
-                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+                if (isPlayerEquip)
+                    UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
                 engine.StartEngine();
                 if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
                 {
                     PublicSettings.IsQuantumWork = true;
                 }
+
+                if (engine.GetType() == typeof(NuclearEngine) && GetComponentInParent<Drone>())
+                {
+                    FindObjectOfType<SpeedButton>().TurnOff(true);
+                }
             }
             if (this.gameObject.TryGetComponent<Shield>(out Shield shield))
             {
-                UnityEvents.ShieldUpdateEvent.Invoke(true);
+                if (isPlayerEquip)
+                {
+                    FindObjectOfType<ShieldButton>().TurnOff(true);
+                    UnityEvents.ShieldUpdateEvent.Invoke(true);
+                    shield.UpdateReload();
+                }
             }
             if (this.gameObject.TryGetComponent<Gun>(out Gun gun))
             {
@@ -148,7 +182,8 @@ public class Equipment : MonoBehaviour
 
             if (prefab.TryGetComponent<Engine>(out Engine engine))
             {
-                UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
+                if (isPlayerEquip)
+                    UnityEvents.EngineModuleEventPlus.Invoke(engine.GetSpeed());
                 engine.StartEngine();
                 if (engine.GetType() == typeof(QuantumEngine) && GetComponentInParent<Drone>())
                 {
@@ -157,7 +192,11 @@ public class Equipment : MonoBehaviour
             }
             if (prefab.TryGetComponent<Shield>(out Shield shield))
             {
-                UnityEvents.ShieldUpdateEvent.Invoke(true);
+                if (isPlayerEquip)
+                {
+                    FindObjectOfType<ShieldButton>().TurnOff(false);
+                    UnityEvents.ShieldUpdateEvent.Invoke(true);
+                }
             }
             if (prefab.TryGetComponent<Gun>(out Gun gun))
             {
@@ -166,13 +205,6 @@ public class Equipment : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            BreakEquip();
-        }
-    }
     private IEnumerator ChangeState()
     {
         yield return new WaitForSeconds(2f);

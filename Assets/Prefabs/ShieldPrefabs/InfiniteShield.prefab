@@ -49,11 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e239989f6b0deb342b0f0f22a82779f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneTransform: {fileID: 0}
   health: 100
   forceValue: 1
   torqueValue: 5
   scrapPrefab: {fileID: 8334557270671750872, guid: b56d2f3216134404ca5af139c7ba0c31, type: 3}
+  smokePrefab: {fileID: 0}
+  setEquipAudio: {fileID: 3078301068691835532, guid: 1c0db10aa8a6f7641ad10a2de05ae42d, type: 3}
 --- !u!114 &3886685650092633168
 MonoBehaviour:
   m_ObjectHideFlags: 0

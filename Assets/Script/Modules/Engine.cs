@@ -23,6 +23,7 @@ public class Engine : MonoBehaviour
     {
         if (equip.isInstalledMethod())
         {
+            if(GetComponentInParent<Drone>())
             Special(1);
             //if(!particleSys.isPlaying)
             //particleSys.Play();

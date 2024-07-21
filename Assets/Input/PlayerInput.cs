@@ -22,12 +22,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            FindObjectOfType<Drone>().gameObject.GetComponentInChildren<EntityHealth>().TakeDamage(20, new ObjectPool.ObjectsPoolManager(), true);
+            SceneManager.LoadScene(1);
         }
         
     }
@@ -55,7 +50,7 @@ public class PlayerInput : MonoBehaviour
                         {
                             gameObject.GetComponentsInChildren<Gun>()[i].ShootLKM2();
                         }
-                        interval = maxInterval;
+                        //interval = maxInterval;
                     }
                 }
 

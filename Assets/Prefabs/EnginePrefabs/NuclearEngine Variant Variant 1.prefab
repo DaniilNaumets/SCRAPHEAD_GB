@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: smokePrefab
       value: 
       objectReference: {fileID: 8463226841430882540, guid: 1973e779ded17004aadc0985ab10ae18, type: 3}
+    - target: {fileID: 666070289430095648, guid: e2c894819e7467b46b983d02c03f21f8, type: 3}
+      propertyPath: setEquipAudio
+      value: 
+      objectReference: {fileID: 3078301068691835532, guid: 1c0db10aa8a6f7641ad10a2de05ae42d, type: 3}
     - target: {fileID: 1499344832542134063, guid: e2c894819e7467b46b983d02c03f21f8, type: 3}
       propertyPath: m_Name
       value: NuclearEngine Variant Variant 1

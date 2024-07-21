@@ -134,7 +134,7 @@ public class EntityHealth : MonoBehaviour
         render.color = Color.black;
         yield return new WaitForSeconds(1f);
         render.color = Color.white;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void OnEnable()

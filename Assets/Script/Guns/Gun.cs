@@ -48,12 +48,12 @@ public class Gun : MonoBehaviour, IShoot
 
     protected void Reloading()
     {      
-        if (reloadTime1 > 0)
+        if (reloadTime1 >= 0)
         {           
             reloadTime1 -= Time.deltaTime;
         }
 
-        if (reloadTime2 > 0)
+        if (reloadTime2 >= 0)
         {
             reloadTime2 -= Time.deltaTime;
         }
