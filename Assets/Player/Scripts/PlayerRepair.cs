@@ -7,10 +7,9 @@ namespace Player
     public class PlayerRepair : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private EntityHealth playerHealth;
+        [SerializeField] private EntityHealth entityHealth;
+        [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private EntityInventory playerInventory;
-
-        private float amountOfScrapToHP;
 
         public void OnRepair(InputAction.CallbackContext context)
         {
@@ -20,49 +19,23 @@ namespace Player
             }
         }
 
-        public void Initialize(float amountOfScrapToHP)
-        {
-            this.amountOfScrapToHP = amountOfScrapToHP;
-        }
-
         private void StartRepair()
         {
-            float playerMaxHealth = playerHealth.GetMaxHealth();
-            float playerCurrentHealth = playerHealth.GetHealth();
-            int quantityScrap = playerInventory.GetScrap();
+            float currentHealth = entityHealth.GetHealth();
+            float maxHealth = entityHealth.GetMaxHealth();
+            int scrapAvailable = playerInventory.GetScrap();
 
-            if (playerCurrentHealth >= playerMaxHealth)
+            if (currentHealth < maxHealth && scrapAvailable > 0)
             {
-                Debug.Log("No repair required");
-                return;
+                float healthToRecover = maxHealth - currentHealth;
+                int scrapToUse = Mathf.Min(scrapAvailable, Mathf.CeilToInt(healthToRecover));
+
+                playerHealth.OnHealthChanged.Invoke(entityHealth.GetHealth() + scrapToUse, maxHealth);
+                entityHealth.IncreaseHealth(scrapToUse);              
+                playerInventory.ChangeScrapQuantity(scrapToUse);
+
+                Debug.Log($"Player repaired. Current Health: {entityHealth.GetHealth()}, Scrap Remaining: {playerInventory.GetScrap()}");
             }
-
-            if (quantityScrap <= 0)
-            {
-                Debug.Log("No scrap for repairs");
-                return;
-            }
-
-            float requiredAmountScrap = (playerMaxHealth - playerCurrentHealth) * amountOfScrapToHP;
-            float usedScrap;
-            float healthToRestore;
-
-            if (quantityScrap >= requiredAmountScrap)
-            {
-                usedScrap = requiredAmountScrap;
-                healthToRestore = playerMaxHealth - playerCurrentHealth;
-            }
-            else
-            {
-                usedScrap = quantityScrap;
-                healthToRestore = usedScrap / amountOfScrapToHP;
-            }
-
-            playerInventory.ChangeScrapQuantity(-(int)usedScrap);
-            playerHealth.IncreaseHealth(healthToRestore);
-
-            Debug.Log($"Repaired {healthToRestore} HP using {usedScrap} scrap.");
-            Debug.Log($"Current Health: {playerHealth.GetHealth()}");
         }
     }
 }

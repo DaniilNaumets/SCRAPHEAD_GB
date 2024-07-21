@@ -19,7 +19,7 @@ namespace Entity
         {
             quantityScrapMetal += scrapMetal;
             SumUpAllScrap(scrapMetal);
-            scrapMetalCounterUI?.OutputScrapMetalOnUI(quantityScrapMetal);
+            scrapMetalCounterUI?.OutputScrapMetalOnUI(scrap);
         }
 
         public void AddScrapAlienToInventory(int scrapAlien)
@@ -39,6 +39,7 @@ namespace Entity
         public void ChangeScrapQuantity(int subtractedScrap)
         {
             scrap -= subtractedScrap;
+            scrapMetalCounterUI?.OutputScrapMetalOnUI(scrap);
         }
     }
 }
