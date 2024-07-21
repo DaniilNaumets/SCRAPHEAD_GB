@@ -918,19 +918,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027364042005896614, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: leftSpeed
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2027364042005896614, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: rightSpeed
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2027364042005896614, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: forwardSpeed
-      value: 5.85
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2027364042005896614, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: reverseSpeed
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4026793630484809067, guid: a7d2fcec4757721448d5ff33a12f3bf1, type: 3}
       propertyPath: m_Name
