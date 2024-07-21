@@ -1524,6 +1524,7 @@ GameObject:
   - component: {fileID: 8841633576622105966}
   - component: {fileID: 7224091771385551712}
   - component: {fileID: 1639885475896024517}
+  - component: {fileID: 7045763321378404602}
   m_Layer: 5
   m_Name: '[GameCanvasUI] (1)'
   m_TagString: Untagged
@@ -1653,6 +1654,18 @@ MonoBehaviour:
   pausePan2: {fileID: 838519851339546040}
   loosePanel: {fileID: 3665547965180863885}
   winPanel: {fileID: 4689426291079041267}
+--- !u!114 &7045763321378404602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022317716263140863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc67816b05757f1439df539d47f69b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2264946530684959666
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,6 +4860,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6520270296517288775}
     m_Modifications:
+    - target: {fileID: 1554744661949299606, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: pressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b0a81eab7bffed4e9dcbb49c26cab7f, type: 3}
+    - target: {fileID: 1554744661949299606, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: unpressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0e5ad718b4f7874d8d2104d2b70445a, type: 3}
+    - target: {fileID: 2091960108863661615, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091960108863661615, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2691944080712261653, guid: f25876132e94ef244a552c2f692bd177, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4927,6 +4956,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3826910970125024519, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3962608127806716540, guid: f25876132e94ef244a552c2f692bd177, type: 3}
       propertyPath: m_Name
       value: SettingsPanelGame
@@ -4939,14 +4972,38 @@ PrefabInstance:
       propertyPath: m_MinValue
       value: -60
       objectReference: {fileID: 0}
+    - target: {fileID: 6001266770315851649, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.36842105
+      objectReference: {fileID: 0}
     - target: {fileID: 6310202838455537252, guid: f25876132e94ef244a552c2f692bd177, type: 3}
       propertyPath: m_MinValue
       value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639676109847911845, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7759441977725000193, guid: f25876132e94ef244a552c2f692bd177, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1639885475896024517}
+    - target: {fileID: 8374188268117427853, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374188268117427853, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888700171199442089, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.36842105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888700171199442089, guid: f25876132e94ef244a552c2f692bd177, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.36842105
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
